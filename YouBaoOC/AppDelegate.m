@@ -20,6 +20,13 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    // 设置tabbar字体
+    NSDictionary *selectedTextAttributes = @{NSFontAttributeName            : [UIFont systemFontOfSize:14.0f],
+                                     NSForegroundColorAttributeName         : [UIColor colorWithRed:123.0/255.0 green:185.0/255.0 blue:216.0/255.0 alpha:1.0f]};
+    NSDictionary *normalTextAttributes = @{NSFontAttributeName              : [UIFont systemFontOfSize:14.0f],
+                                             NSForegroundColorAttributeName : [UIColor whiteColor]};
+    [[UITabBarItem appearance] setTitleTextAttributes:selectedTextAttributes forState:UIControlStateSelected];
+    [[UITabBarItem appearance] setTitleTextAttributes:normalTextAttributes forState:UIControlStateNormal];
     return YES;
 }
 
