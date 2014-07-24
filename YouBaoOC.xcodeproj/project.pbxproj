@@ -7,12 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		280FB68F1980D66C00C434A8 /* LCYCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 280FB68E1980D66800C434A8 /* LCYCommon.m */; };
+		280FB6931980E34E00C434A8 /* RegisterAndLogin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 280FB6921980E34E00C434A8 /* RegisterAndLogin.storyboard */; };
 		2811118C1979183C000A72D7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2811118B1979183C000A72D7 /* main.m */; };
 		2811118F1979183C000A72D7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2811118E1979183C000A72D7 /* AppDelegate.m */; };
 		281111921979183C000A72D7 /* YouBaoOC.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 281111901979183C000A72D7 /* YouBaoOC.xcdatamodeld */; };
 		281111981979183D000A72D7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 281111961979183D000A72D7 /* Main.storyboard */; };
 		2811119A1979183D000A72D7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 281111991979183D000A72D7 /* Images.xcassets */; };
 		281111A61979183D000A72D7 /* YouBaoOCTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 281111A51979183D000A72D7 /* YouBaoOCTests.m */; };
+		2832DC631980EFCE004BBAB5 /* RegisterAndLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2832DC621980EFCE004BBAB5 /* RegisterAndLoginViewController.m */; };
+		2832DC661980F00C004BBAB5 /* WelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2832DC651980F00C004BBAB5 /* WelcomeViewController.m */; };
 		83A93C91E0F34B08851EE991 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEF990BC1DD24D8D89234D90 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +31,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		280FB68D1980D66800C434A8 /* LCYCommon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCYCommon.h; sourceTree = "<group>"; };
+		280FB68E1980D66800C434A8 /* LCYCommon.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCYCommon.m; sourceTree = "<group>"; };
+		280FB6911980DA7400C434A8 /* YouBaoOC-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "YouBaoOC-Prefix.pch"; sourceTree = "<group>"; };
+		280FB6921980E34E00C434A8 /* RegisterAndLogin.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RegisterAndLogin.storyboard; sourceTree = "<group>"; };
 		281111861979183C000A72D7 /* YouBaoOC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YouBaoOC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2811118A1979183C000A72D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2811118B1979183C000A72D7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -38,6 +46,10 @@
 		2811119F1979183D000A72D7 /* YouBaoOCTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YouBaoOCTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		281111A41979183D000A72D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		281111A51979183D000A72D7 /* YouBaoOCTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YouBaoOCTests.m; sourceTree = "<group>"; };
+		2832DC611980EFCE004BBAB5 /* RegisterAndLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterAndLoginViewController.h; sourceTree = "<group>"; };
+		2832DC621980EFCE004BBAB5 /* RegisterAndLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterAndLoginViewController.m; sourceTree = "<group>"; };
+		2832DC641980F00C004BBAB5 /* WelcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelcomeViewController.h; sourceTree = "<group>"; };
+		2832DC651980F00C004BBAB5 /* WelcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelcomeViewController.m; sourceTree = "<group>"; };
 		75673EC2383043228793768F /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		CEF990BC1DD24D8D89234D90 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -61,6 +73,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		280FB68C1980D65100C434A8 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				280FB68D1980D66800C434A8 /* LCYCommon.h */,
+				280FB68E1980D66800C434A8 /* LCYCommon.m */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 		2811117D1979183C000A72D7 = {
 			isa = PBXGroup;
 			children = (
@@ -84,9 +105,12 @@
 		281111881979183C000A72D7 /* YouBaoOC */ = {
 			isa = PBXGroup;
 			children = (
+				2832DC601980EFA9004BBAB5 /* RegisterAndLogin */,
+				280FB68C1980D65100C434A8 /* Common */,
 				2811118D1979183C000A72D7 /* AppDelegate.h */,
 				2811118E1979183C000A72D7 /* AppDelegate.m */,
 				281111961979183D000A72D7 /* Main.storyboard */,
+				280FB6921980E34E00C434A8 /* RegisterAndLogin.storyboard */,
 				281111991979183D000A72D7 /* Images.xcassets */,
 				281111901979183C000A72D7 /* YouBaoOC.xcdatamodeld */,
 				281111891979183C000A72D7 /* Supporting Files */,
@@ -99,6 +123,7 @@
 			children = (
 				2811118A1979183C000A72D7 /* Info.plist */,
 				2811118B1979183C000A72D7 /* main.m */,
+				280FB6911980DA7400C434A8 /* YouBaoOC-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -118,6 +143,17 @@
 				281111A41979183D000A72D7 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2832DC601980EFA9004BBAB5 /* RegisterAndLogin */ = {
+			isa = PBXGroup;
+			children = (
+				2832DC611980EFCE004BBAB5 /* RegisterAndLoginViewController.h */,
+				2832DC621980EFCE004BBAB5 /* RegisterAndLoginViewController.m */,
+				2832DC641980F00C004BBAB5 /* WelcomeViewController.h */,
+				2832DC651980F00C004BBAB5 /* WelcomeViewController.m */,
+			);
+			path = RegisterAndLogin;
 			sourceTree = "<group>";
 		};
 		D404DB6CB11C422DA2E6FB61 /* Frameworks */ = {
@@ -212,6 +248,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				281111981979183D000A72D7 /* Main.storyboard in Resources */,
+				280FB6931980E34E00C434A8 /* RegisterAndLogin.storyboard in Resources */,
 				2811119A1979183D000A72D7 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -266,6 +303,9 @@
 				281111921979183C000A72D7 /* YouBaoOC.xcdatamodeld in Sources */,
 				2811118F1979183C000A72D7 /* AppDelegate.m in Sources */,
 				2811118C1979183C000A72D7 /* main.m in Sources */,
+				280FB68F1980D66C00C434A8 /* LCYCommon.m in Sources */,
+				2832DC631980EFCE004BBAB5 /* RegisterAndLoginViewController.m in Sources */,
+				2832DC661980F00C004BBAB5 /* WelcomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -383,6 +423,8 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "YouBaoOC/YouBaoOC-Prefix.pch";
 				INFOPLIST_FILE = YouBaoOC/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -399,6 +441,8 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "YouBaoOC/YouBaoOC-Prefix.pch";
 				INFOPLIST_FILE = YouBaoOC/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

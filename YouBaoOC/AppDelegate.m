@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "LCYCommon.h"
 
 @interface AppDelegate ()
 
@@ -27,6 +28,14 @@
                                              NSForegroundColorAttributeName : [UIColor whiteColor]};
     [[UITabBarItem appearance] setTitleTextAttributes:selectedTextAttributes forState:UIControlStateSelected];
     [[UITabBarItem appearance] setTitleTextAttributes:normalTextAttributes forState:UIControlStateNormal];
+    
+    // 判断登录状态
+    if (![[LCYCommon sharedInstance] isUserLogin]) {
+        UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"RegisterAndLogin" bundle:nil];
+        UINavigationController *navigationVC = storyBoard.instantiateInitialViewController;
+        self.window.rootViewController = navigationVC;
+    }
+    
     return YES;
 }
 

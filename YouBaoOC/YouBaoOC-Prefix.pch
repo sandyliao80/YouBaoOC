@@ -1,0 +1,20 @@
+//
+//  YouBaoOC-Prefix.pch
+//  YouBaoOC
+//
+//  Created by Licy on 14-7-24.
+//  Copyright (c) 2014年 Duostec. All rights reserved.
+//
+
+#import <Availability.h>
+
+#ifndef __IPHONE_5_0
+#warning "This project uses features only available in iOS SDK 5.0 and later."
+#endif
+
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+    #import <Foundation/Foundation.h>
+#endif
+
+#define THEME_COLOR [UIColor colorWithRed:140.0f/255.0f green:196.0f/255.0f blue:223.0f/255.0f alpha:1.0f];
