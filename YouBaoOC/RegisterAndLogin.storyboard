@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6185.11" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="xas-hZ-9J4">
     <dependencies>
-        <deployment defaultVersion="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6190.4"/>
     </dependencies>
     <scenes>
@@ -53,11 +52,12 @@
                             </toolbar>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="XlT-m2-8GD">
                                 <rect key="frame" x="0.0" y="64" width="320" height="460"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="eE5-aS-frm">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="5" id="eE5-aS-frm">
                                     <size key="itemSize" width="100" height="100"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    <inset key="sectionInset" minX="5" minY="5" maxX="5" maxY="5"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="WelcomeCellIdentifier" id="xHu-po-zNI" customClass="WelcomeCell">
@@ -79,6 +79,9 @@
                                             <constraint firstItem="x74-dn-h4x" firstAttribute="top" secondItem="xHu-po-zNI" secondAttribute="top" id="QEh-6B-Of0"/>
                                             <constraint firstAttribute="trailing" secondItem="x74-dn-h4x" secondAttribute="trailing" id="sAh-XC-UGm"/>
                                         </constraints>
+                                        <connections>
+                                            <outlet property="icyImage" destination="x74-dn-h4x" id="Ilp-DX-bpI"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>

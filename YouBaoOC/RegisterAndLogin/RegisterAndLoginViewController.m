@@ -23,6 +23,7 @@ typedef NS_ENUM(NSUInteger, RegisterAndLoginStatus) {
 #pragma mark - 发送验证码
 @property (weak, nonatomic) IBOutlet UIButton *sendAuthButton;
 @property (strong, nonatomic) IBOutlet UIView *sendAuthView;
+@property (strong, nonatomic) NSArray *sendAutoViewConstraints;
 
 #pragma mark - 注册
 @property (weak, nonatomic) IBOutlet UIButton *regDoneButton;
@@ -70,6 +71,8 @@ typedef NS_ENUM(NSUInteger, RegisterAndLoginStatus) {
     [backBtn addTarget:self action:@selector(navigationBack:) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *leftBackItem = [[UIBarButtonItem alloc] initWithCustomView:backBtn];
     self.navigationItem.leftBarButtonItem = leftBackItem;
+    
+    self.sendAutoViewConstraints = self.sendAuthView.constraints;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -104,6 +107,9 @@ typedef NS_ENUM(NSUInteger, RegisterAndLoginStatus) {
             [self.passwordForgetButton setHidden:YES];
         } completion:^(BOOL finished) {
             [self.view addSubview:self.sendAuthView];
+            [self.sendAuthView removeConstraints:self.sendAuthView.constraints];
+            [self.sendAuthView addConstraints:self.sendAutoViewConstraints];
+
         }];
     } else {
         self.doneButtonFrame = self.regDoneButton.frame;

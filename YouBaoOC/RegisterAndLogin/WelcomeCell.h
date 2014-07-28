@@ -12,4 +12,6 @@ FOUNDATION_EXPORT NSString *const WelcomeCellIdentifier;
 
 @interface WelcomeCell : UICollectionViewCell
 
+@property (weak, nonatomic) IBOutlet UIImageView *icyImage;
+
 @end

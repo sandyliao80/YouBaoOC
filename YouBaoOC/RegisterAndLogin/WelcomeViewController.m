@@ -7,6 +7,7 @@
 //
 
 #import "WelcomeViewController.h"
+#import "WelcomeCell.h"
 
 @interface WelcomeViewController ()<UICollectionViewDelegate, UICollectionViewDataSource>
 
@@ -43,7 +44,11 @@
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    return nil;
+    WelcomeCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:WelcomeCellIdentifier forIndexPath:indexPath];
+    NSString *imageName = [NSString stringWithFormat:@"static-%02ld",(long)indexPath.row];
+    UIImage *cellImage = [UIImage imageNamed:imageName];
+    cell.icyImage.image = cellImage;
+    return cell;
 }
 
 @end
