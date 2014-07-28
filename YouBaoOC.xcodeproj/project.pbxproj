@@ -17,6 +17,10 @@
 		281111A61979183D000A72D7 /* YouBaoOCTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 281111A51979183D000A72D7 /* YouBaoOCTests.m */; };
 		2832DC631980EFCE004BBAB5 /* RegisterAndLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2832DC621980EFCE004BBAB5 /* RegisterAndLoginViewController.m */; };
 		2832DC661980F00C004BBAB5 /* WelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2832DC651980F00C004BBAB5 /* WelcomeViewController.m */; };
+		2832DC6C19812D87004BBAB5 /* LCYNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 2832DC6B198124F2004BBAB5 /* LCYNetworking.m */; };
+		286979661985F5AA0098F6A3 /* WelcomeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 286979651985F5AA0098F6A3 /* WelcomeCell.m */; };
+		28922340198240CF0073BADB /* RegisterDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2892233F198240CF0073BADB /* RegisterDetailViewController.m */; };
+		28922343198249400073BADB /* UIImage+LCYResize.m in Sources */ = {isa = PBXBuildFile; fileRef = 28922342198249400073BADB /* UIImage+LCYResize.m */; };
 		83A93C91E0F34B08851EE991 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEF990BC1DD24D8D89234D90 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +54,14 @@
 		2832DC621980EFCE004BBAB5 /* RegisterAndLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterAndLoginViewController.m; sourceTree = "<group>"; };
 		2832DC641980F00C004BBAB5 /* WelcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelcomeViewController.h; sourceTree = "<group>"; };
 		2832DC651980F00C004BBAB5 /* WelcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelcomeViewController.m; sourceTree = "<group>"; };
+		2832DC6A198124F2004BBAB5 /* LCYNetworking.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCYNetworking.h; sourceTree = "<group>"; };
+		2832DC6B198124F2004BBAB5 /* LCYNetworking.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCYNetworking.m; sourceTree = "<group>"; };
+		286979641985F5AA0098F6A3 /* WelcomeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelcomeCell.h; sourceTree = "<group>"; };
+		286979651985F5AA0098F6A3 /* WelcomeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelcomeCell.m; sourceTree = "<group>"; };
+		2892233E198240CF0073BADB /* RegisterDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterDetailViewController.h; sourceTree = "<group>"; };
+		2892233F198240CF0073BADB /* RegisterDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterDetailViewController.m; sourceTree = "<group>"; };
+		28922341198249400073BADB /* UIImage+LCYResize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+LCYResize.h"; sourceTree = "<group>"; };
+		28922342198249400073BADB /* UIImage+LCYResize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+LCYResize.m"; sourceTree = "<group>"; };
 		75673EC2383043228793768F /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		CEF990BC1DD24D8D89234D90 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -76,8 +88,12 @@
 		280FB68C1980D65100C434A8 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				28922341198249400073BADB /* UIImage+LCYResize.h */,
+				28922342198249400073BADB /* UIImage+LCYResize.m */,
 				280FB68D1980D66800C434A8 /* LCYCommon.h */,
 				280FB68E1980D66800C434A8 /* LCYCommon.m */,
+				2832DC6A198124F2004BBAB5 /* LCYNetworking.h */,
+				2832DC6B198124F2004BBAB5 /* LCYNetworking.m */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -152,6 +168,10 @@
 				2832DC621980EFCE004BBAB5 /* RegisterAndLoginViewController.m */,
 				2832DC641980F00C004BBAB5 /* WelcomeViewController.h */,
 				2832DC651980F00C004BBAB5 /* WelcomeViewController.m */,
+				286979641985F5AA0098F6A3 /* WelcomeCell.h */,
+				286979651985F5AA0098F6A3 /* WelcomeCell.m */,
+				2892233E198240CF0073BADB /* RegisterDetailViewController.h */,
+				2892233F198240CF0073BADB /* RegisterDetailViewController.m */,
 			);
 			path = RegisterAndLogin;
 			sourceTree = "<group>";
@@ -300,7 +320,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28922340198240CF0073BADB /* RegisterDetailViewController.m in Sources */,
+				28922343198249400073BADB /* UIImage+LCYResize.m in Sources */,
+				2832DC6C19812D87004BBAB5 /* LCYNetworking.m in Sources */,
 				281111921979183C000A72D7 /* YouBaoOC.xcdatamodeld in Sources */,
+				286979661985F5AA0098F6A3 /* WelcomeCell.m in Sources */,
 				2811118F1979183C000A72D7 /* AppDelegate.m in Sources */,
 				2811118C1979183C000A72D7 /* main.m in Sources */,
 				280FB68F1980D66C00C434A8 /* LCYCommon.m in Sources */,

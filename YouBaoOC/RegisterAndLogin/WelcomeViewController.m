@@ -8,7 +8,7 @@
 
 #import "WelcomeViewController.h"
 
-@interface WelcomeViewController ()
+@interface WelcomeViewController ()<UICollectionViewDelegate, UICollectionViewDataSource>
 
 @end
 
@@ -17,6 +17,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    UIImageView *titleImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 120, 44)];
+    titleImage.image = [UIImage imageNamed:@"navigationLogo"];
+    self.navigationItem.titleView = titleImage;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -33,5 +37,13 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+    return 21;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    return nil;
+}
 
 @end

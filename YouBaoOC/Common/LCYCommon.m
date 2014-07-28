@@ -7,6 +7,12 @@
 //
 
 #import "LCYCommon.h"
+#import <CocoaSecurity/CocoaSecurity.h>
+#import <MBProgressHUD/MBProgressHUD.h>
+
+NSString *const UserDefaultUserName         = @"userName";
+NSString *const UserDefaultIsUserLogin      = @"isLogin";
+NSString *const UserPassword                = @"userPassword";
 
 @implementation LCYCommon
 
@@ -70,12 +76,39 @@ static bool isFirstAccess = YES;
 
 - (BOOL)isUserLogin{
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    if ([userDefaults objectForKey:@"userName"]) {
-        if ([userDefaults boolForKey:@"isLogin"]) {
+    if ([userDefaults objectForKey:UserDefaultUserName]) {
+        if ([userDefaults boolForKey:UserDefaultIsUserLogin]) {
             return YES;
         }
     }
     return  NO;
+}
+
+- (void)savePassword:(NSString *)password{
+    CocoaSecurityResult *aes256 = [CocoaSecurity aesEncrypt:password
+                                                     hexKey:@"280f8bb8c43d532f389ef0e2a5321220b0782b065205dcdfcb8d8f02ed5115b9"
+                                                      hexIv:@"CC0A69779E15780ADAE46C45EB451A23"];
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults setObject:aes256.base64 forKey:UserPassword];
+    [userDefaults synchronize];
+}
+
+- (NSString *)takePassword{
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    NSString *encrypedString = [userDefaults objectForKey:UserPassword];
+    CocoaSecurityResult *aes256Decrypt = [CocoaSecurity aesDecryptWithBase64:encrypedString
+                                                                      hexKey:@"280f8bb8c43d532f389ef0e2a5321220b0782b065205dcdfcb8d8f02ed5115b9"
+                                                                       hexIv:@"CC0A69779E15780ADAE46C45EB451A23"];
+    return aes256Decrypt.utf8String;
+}
+
+- (void)showTips:(NSString *)message inView:(UIView *)view{
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
+    hud.labelText = message;
+}
+
+- (void)hideTipsInView:(id)view{
+    [MBProgressHUD hideHUDForView:view animated:YES];
 }
 
 @end
