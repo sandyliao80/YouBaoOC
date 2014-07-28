@@ -10,6 +10,7 @@
 
 FOUNDATION_EXPORT NSString *const UserDefaultUserName;
 FOUNDATION_EXPORT NSString *const UserDefaultIsUserLogin;
+FOUNDATION_EXPORT NSString *const UserDefaultLoginTime;
 
 @interface LCYCommon : NSObject
 
@@ -39,6 +40,11 @@ FOUNDATION_EXPORT NSString *const UserDefaultIsUserLogin;
  *  @return 解密获得的原始密码
  */
 - (NSString *)takePassword;
+
+
+- (void)login:(NSString *)userName;
+- (void)logout;
+
 
 - (void)showTips:(NSString *)message
           inView:(UIView *)view;

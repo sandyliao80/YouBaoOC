@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6185.11" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="xas-hZ-9J4">
     <dependencies>
+        <deployment defaultVersion="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6190.4"/>
     </dependencies>
     <scenes>
@@ -41,7 +42,7 @@
                                 <rect key="frame" x="0.0" y="524" width="320" height="44"/>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="QmE-Lk-9sH"/>
-                                    <barButtonItem title="手机号注册" style="plain" id="bcx-Cj-3iK">
+                                    <barButtonItem title="手机号注册/登录" style="plain" id="bcx-Cj-3iK">
                                         <color key="tintColor" red="0.54901963472366333" green="0.76862752437591553" blue="0.87450987100601196" alpha="1" colorSpace="deviceRGB"/>
                                         <connections>
                                             <segue destination="UMn-fV-pe2" kind="show" id="bnr-L6-d6E"/>
@@ -276,21 +277,63 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="i0L-iy-sp8">
-                                <rect key="frame" x="115" y="89" width="90" height="90"/>
+                                <rect key="frame" x="134" y="89" width="53" height="53"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <gestureRecognizers/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="90" id="N3K-um-Jd5"/>
-                                    <constraint firstAttribute="height" constant="90" id="lbE-tQ-IWy"/>
+                                    <constraint firstAttribute="width" constant="53" id="N3K-um-Jd5"/>
+                                    <constraint firstAttribute="height" constant="53" id="lbE-tQ-IWy"/>
                                 </constraints>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="ZKZ-8e-dGk" appends="YES" id="Jdb-pl-FTy"/>
                                 </connections>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="detailTextBG" translatesAutoresizingMaskIntoConstraints="NO" id="rIf-S7-Ta0">
+                                <rect key="frame" x="10" y="157" width="300" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="C1L-XZ-4kv"/>
+                                    <constraint firstAttribute="width" constant="300" id="nfC-gW-3cH"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="detailTextBG" translatesAutoresizingMaskIntoConstraints="NO" id="vOT-RA-RGY">
+                                <rect key="frame" x="10" y="214" width="300" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="LjX-Br-9o9"/>
+                                    <constraint firstAttribute="width" constant="300" id="hfS-G7-Khn"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h9m-CB-NJT">
+                                <rect key="frame" x="10" y="311" width="300" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="dxu-ZK-sqM"/>
+                                    <constraint firstAttribute="height" constant="45" id="sx9-s5-e3z"/>
+                                </constraints>
+                                <state key="normal" image="detailDoneButton">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZoO-8r-7YV">
+                                <rect key="frame" x="72" y="526" width="177" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="177" id="sAo-lt-38A"/>
+                                    <constraint firstAttribute="height" constant="22" id="yNL-YK-9Sm"/>
+                                </constraints>
+                                <state key="normal" image="detailTextButton">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.54901963472366333" green="0.76862752437591553" blue="0.87450987100601196" alpha="1" colorSpace="deviceRGB"/>
                         <constraints>
+                            <constraint firstAttribute="centerX" secondItem="ZoO-8r-7YV" secondAttribute="centerX" id="4sS-KO-s4x"/>
+                            <constraint firstItem="2o3-fY-Uv7" firstAttribute="top" secondItem="ZoO-8r-7YV" secondAttribute="bottom" constant="20" id="9JD-bc-CJd"/>
+                            <constraint firstAttribute="centerX" secondItem="h9m-CB-NJT" secondAttribute="centerX" id="BAR-pv-OW2"/>
+                            <constraint firstAttribute="centerX" secondItem="rIf-S7-Ta0" secondAttribute="centerX" id="Gk1-ZU-lpz"/>
+                            <constraint firstAttribute="centerX" secondItem="vOT-RA-RGY" secondAttribute="centerX" id="IzG-C4-k6z"/>
+                            <constraint firstItem="vOT-RA-RGY" firstAttribute="top" secondItem="rIf-S7-Ta0" secondAttribute="bottom" constant="12" id="M5X-eI-s4b"/>
                             <constraint firstAttribute="centerX" secondItem="i0L-iy-sp8" secondAttribute="centerX" id="Rit-dh-MKJ"/>
+                            <constraint firstItem="h9m-CB-NJT" firstAttribute="top" secondItem="vOT-RA-RGY" secondAttribute="bottom" constant="52" id="UZA-JQ-5TN"/>
+                            <constraint firstItem="rIf-S7-Ta0" firstAttribute="top" secondItem="i0L-iy-sp8" secondAttribute="bottom" constant="15" id="bCA-mq-yy2"/>
                             <constraint firstItem="i0L-iy-sp8" firstAttribute="top" secondItem="qUz-9L-5dP" secondAttribute="bottom" constant="25" id="ljb-DF-zWs"/>
                         </constraints>
                     </view>
@@ -335,6 +378,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="detailDoneButton" width="300" height="45"/>
+        <image name="detailTextBG" width="300" height="45"/>
+        <image name="detailTextButton" width="177" height="14"/>
         <image name="regAuthBG" width="190" height="45"/>
         <image name="regPasswordBG" width="300" height="45"/>
         <image name="regPhoneBG" width="300" height="45"/>

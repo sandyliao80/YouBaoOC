@@ -13,6 +13,7 @@
 NSString *const UserDefaultUserName         = @"userName";
 NSString *const UserDefaultIsUserLogin      = @"isLogin";
 NSString *const UserPassword                = @"userPassword";
+NSString *const UserDefaultLoginTime        = @"userLoginTime";
 
 @implementation LCYCommon
 
@@ -78,7 +79,10 @@ static bool isFirstAccess = YES;
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     if ([userDefaults objectForKey:UserDefaultUserName]) {
         if ([userDefaults boolForKey:UserDefaultIsUserLogin]) {
-            return YES;
+            NSDate *currentDate = [NSDate date];
+            if ([currentDate timeIntervalSinceDate:[userDefaults objectForKey:UserDefaultLoginTime]] < LOGIN_EXPIRE_TIME) {
+                return YES;
+            }
         }
     }
     return  NO;
@@ -101,6 +105,22 @@ static bool isFirstAccess = YES;
                                                                        hexIv:@"CC0A69779E15780ADAE46C45EB451A23"];
     return aes256Decrypt.utf8String;
 }
+
+- (void)login:(NSString *)userName{
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults setBool:YES forKey:UserDefaultIsUserLogin];
+    [userDefaults setObject:userName forKey:UserDefaultUserName];
+    NSDate *currentDate = [NSDate date];
+    [userDefaults setObject:currentDate forKey:UserDefaultLoginTime];
+    [userDefaults synchronize];
+}
+
+- (void)logout{
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults setBool:NO forKey:UserDefaultIsUserLogin];
+    [userDefaults synchronize];
+}
+
 
 - (void)showTips:(NSString *)message inView:(UIView *)view{
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:YES];

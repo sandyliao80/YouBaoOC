@@ -7,7 +7,7 @@
         <!--我-->
         <scene sceneID="gdG-gb-DO9">
             <objects>
-                <viewController id="UcV-G1-uDK" userLabel="我" sceneMemberID="viewController">
+                <viewController id="UcV-G1-uDK" userLabel="我" customClass="ProfileHomeViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="TFk-eW-Ied"/>
                         <viewControllerLayoutGuide type="bottom" id="fsG-rX-7AM"/>
@@ -17,10 +17,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fwE-Wm-kIq">
-                                <rect key="frame" x="20" y="84" width="46" height="30"/>
-                                <state key="normal" title="Button">
+                                <rect key="frame" x="116" y="81" width="89" height="30"/>
+                                <state key="normal" title="退出登录">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="logoutButtonPressed:" destination="UcV-G1-uDK" eventType="touchUpInside" id="eZH-ns-vP9"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -35,7 +38,7 @@
         <scene sceneID="pcH-Z1-yR7">
             <objects>
                 <navigationController id="CFY-Ep-f0u" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="我" id="dPy-on-d0W"/>
+                    <tabBarItem key="tabBarItem" title="我" image="tabbarMid" id="dPy-on-d0W"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="2kc-sQ-qFY">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -52,7 +55,7 @@
         <scene sceneID="Q6p-xM-kBW">
             <objects>
                 <navigationController id="tc9-iH-0SC" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="百科" id="pbO-Jy-hNG"/>
+                    <tabBarItem key="tabBarItem" title="百科" image="tabbarRight" id="pbO-Jy-hNG"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ghN-5r-zbM">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -88,7 +91,7 @@
         <scene sceneID="odT-5c-2wz">
             <objects>
                 <navigationController id="Vmi-tv-BXN" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="首页" id="Wui-5e-9mZ"/>
+                    <tabBarItem key="tabBarItem" title="首页" image="tabbarLeft" id="Wui-5e-9mZ"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="UZ0-pD-xaM">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -128,10 +131,10 @@
             </objects>
             <point key="canvasLocation" x="1459" y="-381"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Main View Controller-->
         <scene sceneID="LIY-Ld-gvD">
             <objects>
-                <tabBarController id="KKL-vN-PsA" sceneMemberID="viewController">
+                <tabBarController id="KKL-vN-PsA" customClass="MainViewController" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="wFV-GM-EzV"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
@@ -143,6 +146,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" red="0.54901963470000004" green="0.76862752440000004" blue="0.87450987099999999" alpha="1" colorSpace="deviceRGB"/>
                         <color key="barTintColor" red="0.24705882352941178" green="0.24705882352941178" blue="0.24705882352941178" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="selectedImageTintColor" red="0.4823529412" green="0.72549019609999998" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBar>
@@ -157,4 +161,9 @@
             <point key="canvasLocation" x="550" y="285"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="tabbarLeft" width="30" height="22"/>
+        <image name="tabbarMid" width="30" height="22"/>
+        <image name="tabbarRight" width="30" height="22"/>
+    </resources>
 </document>

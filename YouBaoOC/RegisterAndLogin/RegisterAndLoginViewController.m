@@ -8,6 +8,8 @@
 
 #import "RegisterAndLoginViewController.h"
 #import "LCYCommon.h"
+#import "AppDelegate.h"
+#import "MainViewController.h"
 
 typedef NS_ENUM(NSUInteger, RegisterAndLoginStatus) {
     RegisterAndLoginStatusRegister,
@@ -241,14 +243,23 @@ typedef NS_ENUM(NSUInteger, RegisterAndLoginStatus) {
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"请输入6-18位的密码" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
             [alert show];
         } else {
+            [[LCYCommon sharedInstance] showTips:@"登录中" inView:self.view];
+            [self.regDoneButton setEnabled:NO];
             // 发送登录请求，如果登录成功则跳转到主页
             NSDictionary *parameters = @{@"user_name"   : self.phoneTextField.text,
                                          @"password"    : self.passwordTextField.text};
             [[LCYNetworking sharedInstance] postRequestWithAPI:User_login parameters:parameters successBlock:^(NSDictionary *object) {
+                [[LCYCommon sharedInstance] hideTipsInView:self.view];
+                [self.regDoneButton setEnabled:YES];
                 // 验证是否登录成功
                 if ([object[@"result"] boolValue]) {
-                    // TODO: 登录成功，跳转到主页
-                    
+                    // 登录成功，写入持久化数据
+                    [[LCYCommon sharedInstance] login:parameters[@"user_name"]];
+                    // 登录成功，跳转到主页
+                    UIStoryboard *mainBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+                    MainViewController *tabbarVC = mainBoard.instantiateInitialViewController;
+                    AppDelegate *delegate = [UIApplication sharedApplication].delegate;
+                    delegate.window.rootViewController = tabbarVC;
                 } else {
                     // 验证失败
                     NSString *message = object[@"msg"];
@@ -256,6 +267,8 @@ typedef NS_ENUM(NSUInteger, RegisterAndLoginStatus) {
                     [alert show];
                 }
             } failedBlock:^{
+                [[LCYCommon sharedInstance] hideTipsInView:self.view];
+                [self.regDoneButton setEnabled:YES];
                 // 请求发送失败
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"登录失败，请检查网络状态" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
                 [alert show];

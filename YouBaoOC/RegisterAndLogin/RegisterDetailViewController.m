@@ -34,8 +34,7 @@
     CGFloat radius = MIN(self.icyImageView.bounds.size.width, self.icyImageView.bounds.size.height) / 2.0;
     self.icyImageView.layer.cornerRadius = radius;
     self.icyImageView.layer.masksToBounds = YES;
-    self.icyImageView.image = [UIImage imageNamed:@"avatarPlaceHolder"];
-    
+    self.icyImageView.image = [UIImage imageNamed:@"avatarDefault"];
 }
 
 - (void)didReceiveMemoryWarning {
