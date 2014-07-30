@@ -18,6 +18,8 @@
 		2832DC631980EFCE004BBAB5 /* RegisterAndLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2832DC621980EFCE004BBAB5 /* RegisterAndLoginViewController.m */; };
 		2832DC661980F00C004BBAB5 /* WelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2832DC651980F00C004BBAB5 /* WelcomeViewController.m */; };
 		2832DC6C19812D87004BBAB5 /* LCYNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 2832DC6B198124F2004BBAB5 /* LCYNetworking.m */; };
+		286099A1198769DE00CB86D6 /* PetCoreDataPreloader.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 286099A0198769DE00CB86D6 /* PetCoreDataPreloader.sqlite */; };
+		286099A41987762800CB86D6 /* Region.m in Sources */ = {isa = PBXBuildFile; fileRef = 286099A31987762800CB86D6 /* Region.m */; };
 		286979661985F5AA0098F6A3 /* WelcomeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 286979651985F5AA0098F6A3 /* WelcomeCell.m */; };
 		2869796A1986558D0098F6A3 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 286979691986558D0098F6A3 /* MainViewController.m */; };
 		2869796F1986571B0098F6A3 /* ProfileHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2869796E1986571B0098F6A3 /* ProfileHomeViewController.m */; };
@@ -58,6 +60,9 @@
 		2832DC651980F00C004BBAB5 /* WelcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelcomeViewController.m; sourceTree = "<group>"; };
 		2832DC6A198124F2004BBAB5 /* LCYNetworking.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCYNetworking.h; sourceTree = "<group>"; };
 		2832DC6B198124F2004BBAB5 /* LCYNetworking.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCYNetworking.m; sourceTree = "<group>"; };
+		286099A0198769DE00CB86D6 /* PetCoreDataPreloader.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = PetCoreDataPreloader.sqlite; sourceTree = "<group>"; };
+		286099A21987762800CB86D6 /* Region.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Region.h; sourceTree = "<group>"; };
+		286099A31987762800CB86D6 /* Region.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Region.m; sourceTree = "<group>"; };
 		286979641985F5AA0098F6A3 /* WelcomeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelcomeCell.h; sourceTree = "<group>"; };
 		286979651985F5AA0098F6A3 /* WelcomeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelcomeCell.m; sourceTree = "<group>"; };
 		286979681986558D0098F6A3 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
@@ -146,6 +151,7 @@
 		281111891979183C000A72D7 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				286099A0198769DE00CB86D6 /* PetCoreDataPreloader.sqlite */,
 				2811118A1979183C000A72D7 /* Info.plist */,
 				2811118B1979183C000A72D7 /* main.m */,
 				280FB6911980DA7400C434A8 /* YouBaoOC-Prefix.pch */,
@@ -181,6 +187,8 @@
 				286979651985F5AA0098F6A3 /* WelcomeCell.m */,
 				2892233E198240CF0073BADB /* RegisterDetailViewController.h */,
 				2892233F198240CF0073BADB /* RegisterDetailViewController.m */,
+				286099A21987762800CB86D6 /* Region.h */,
+				286099A31987762800CB86D6 /* Region.m */,
 			);
 			path = RegisterAndLogin;
 			sourceTree = "<group>";
@@ -302,6 +310,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				281111981979183D000A72D7 /* Main.storyboard in Resources */,
+				286099A1198769DE00CB86D6 /* PetCoreDataPreloader.sqlite in Resources */,
 				280FB6931980E34E00C434A8 /* RegisterAndLogin.storyboard in Resources */,
 				2811119A1979183D000A72D7 /* Images.xcassets in Resources */,
 			);
@@ -364,6 +373,7 @@
 				2869796F1986571B0098F6A3 /* ProfileHomeViewController.m in Sources */,
 				2811118C1979183C000A72D7 /* main.m in Sources */,
 				280FB68F1980D66C00C434A8 /* LCYCommon.m in Sources */,
+				286099A41987762800CB86D6 /* Region.m in Sources */,
 				2832DC631980EFCE004BBAB5 /* RegisterAndLoginViewController.m in Sources */,
 				2832DC661980F00C004BBAB5 /* WelcomeViewController.m in Sources */,
 			);
@@ -481,6 +491,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -490,6 +501,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -499,6 +511,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;

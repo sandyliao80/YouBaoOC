@@ -10,7 +10,7 @@
 #import <Reachability/Reachability.h>
 #import <AFNetworking/AFNetworking.h>
 
-NSString *const hostURL = @"http://192.168.1.106/pet/index.php/Api/";
+NSString *const hostURL = @"http://115.29.46.22/pet/index.php/Api/";
 
 NSString *const User_authcode       = @"User/register_authcode";
 NSString *const User_register       = @"/User/register";
