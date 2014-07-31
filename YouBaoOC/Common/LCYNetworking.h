@@ -13,6 +13,7 @@ FOUNDATION_EXPORT NSString *const User_authcode;
 FOUNDATION_EXPORT NSString *const User_register;        /**< 提交注册信息 */
 FOUNDATION_EXPORT NSString *const User_login;
 FOUNDATION_EXPORT NSString *const User_modifyImage;     /**< 修改头像 */
+FOUNDATION_EXPORT NSString *const PetStyle_searchAllTypePets;       /**< 获取宠物一级分类 */
 
 @interface LCYNetworking : NSObject
 

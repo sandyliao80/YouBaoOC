@@ -398,6 +398,11 @@ typedef NS_ENUM(NSUInteger, RegisterDetailGender) {
             if ([object[@"result"] integerValue] == 1 &&
                 [object[@"msg"] isEqualToString:@"注册成功"]) {
                 // 注册成功
+                // 提交登录信息，跳转到主题页面
+                [[LCYCommon sharedInstance] login:[LCYGlobal sharedInstance].currentUserID];
+                AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
+                UIStoryboard *mainBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+                appDelegate.window.rootViewController = [mainBoard instantiateInitialViewController];
             } else {
                 // 注册失败
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:[NSString stringWithFormat:@"注册失败，%@", object[@"msg"]] delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];

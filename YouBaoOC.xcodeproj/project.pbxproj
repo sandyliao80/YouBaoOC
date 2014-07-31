@@ -19,6 +19,11 @@
 		2832DC661980F00C004BBAB5 /* WelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2832DC651980F00C004BBAB5 /* WelcomeViewController.m */; };
 		2832DC6C19812D87004BBAB5 /* LCYNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 2832DC6B198124F2004BBAB5 /* LCYNetworking.m */; };
 		285D89B11989E1BB005DFBEB /* LCYGlobal.m in Sources */ = {isa = PBXBuildFile; fileRef = 285D89B01989E1BB005DFBEB /* LCYGlobal.m */; };
+		285D89B4198A295A005DFBEB /* HomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 285D89B3198A295A005DFBEB /* HomePageViewController.m */; };
+		285D89B7198A2B3D005DFBEB /* FilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 285D89B6198A2B3D005DFBEB /* FilterViewController.m */; };
+		285D89BD198A2D31005DFBEB /* searchAllTypePetsFatherStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 285D89B8198A2D31005DFBEB /* searchAllTypePetsFatherStyle.m */; };
+		285D89BE198A2D31005DFBEB /* searchAllTypePetsBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 285D89BA198A2D31005DFBEB /* searchAllTypePetsBase.m */; };
+		285D89C1198A374A005DFBEB /* FilterTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 285D89C0198A374A005DFBEB /* FilterTableViewCell.m */; };
 		286099A1198769DE00CB86D6 /* PetCoreDataPreloader.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 286099A0198769DE00CB86D6 /* PetCoreDataPreloader.sqlite */; };
 		286099A41987762800CB86D6 /* Region.m in Sources */ = {isa = PBXBuildFile; fileRef = 286099A31987762800CB86D6 /* Region.m */; };
 		286979661985F5AA0098F6A3 /* WelcomeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 286979651985F5AA0098F6A3 /* WelcomeCell.m */; };
@@ -63,6 +68,17 @@
 		2832DC6B198124F2004BBAB5 /* LCYNetworking.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCYNetworking.m; sourceTree = "<group>"; };
 		285D89AF1989E1BB005DFBEB /* LCYGlobal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCYGlobal.h; sourceTree = "<group>"; };
 		285D89B01989E1BB005DFBEB /* LCYGlobal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCYGlobal.m; sourceTree = "<group>"; };
+		285D89B2198A2959005DFBEB /* HomePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomePageViewController.h; sourceTree = "<group>"; };
+		285D89B3198A295A005DFBEB /* HomePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomePageViewController.m; sourceTree = "<group>"; };
+		285D89B5198A2B3D005DFBEB /* FilterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilterViewController.h; sourceTree = "<group>"; };
+		285D89B6198A2B3D005DFBEB /* FilterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilterViewController.m; sourceTree = "<group>"; };
+		285D89B8198A2D31005DFBEB /* searchAllTypePetsFatherStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = searchAllTypePetsFatherStyle.m; sourceTree = "<group>"; };
+		285D89B9198A2D31005DFBEB /* searchAllTypePets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = searchAllTypePets.h; sourceTree = "<group>"; };
+		285D89BA198A2D31005DFBEB /* searchAllTypePetsBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = searchAllTypePetsBase.m; sourceTree = "<group>"; };
+		285D89BB198A2D31005DFBEB /* searchAllTypePetsBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = searchAllTypePetsBase.h; sourceTree = "<group>"; };
+		285D89BC198A2D31005DFBEB /* searchAllTypePetsFatherStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = searchAllTypePetsFatherStyle.h; sourceTree = "<group>"; };
+		285D89BF198A374A005DFBEB /* FilterTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilterTableViewCell.h; sourceTree = "<group>"; };
+		285D89C0198A374A005DFBEB /* FilterTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilterTableViewCell.m; sourceTree = "<group>"; };
 		286099A0198769DE00CB86D6 /* PetCoreDataPreloader.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = PetCoreDataPreloader.sqlite; sourceTree = "<group>"; };
 		286099A21987762800CB86D6 /* Region.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Region.h; sourceTree = "<group>"; };
 		286099A31987762800CB86D6 /* Region.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Region.m; sourceTree = "<group>"; };
@@ -203,6 +219,17 @@
 			children = (
 				286979681986558D0098F6A3 /* MainViewController.h */,
 				286979691986558D0098F6A3 /* MainViewController.m */,
+				285D89B2198A2959005DFBEB /* HomePageViewController.h */,
+				285D89B3198A295A005DFBEB /* HomePageViewController.m */,
+				285D89B9198A2D31005DFBEB /* searchAllTypePets.h */,
+				285D89BC198A2D31005DFBEB /* searchAllTypePetsFatherStyle.h */,
+				285D89B8198A2D31005DFBEB /* searchAllTypePetsFatherStyle.m */,
+				285D89BB198A2D31005DFBEB /* searchAllTypePetsBase.h */,
+				285D89BA198A2D31005DFBEB /* searchAllTypePetsBase.m */,
+				285D89B5198A2B3D005DFBEB /* FilterViewController.h */,
+				285D89B6198A2B3D005DFBEB /* FilterViewController.m */,
+				285D89BF198A374A005DFBEB /* FilterTableViewCell.h */,
+				285D89C0198A374A005DFBEB /* FilterTableViewCell.m */,
 			);
 			path = Homepage;
 			sourceTree = "<group>";
@@ -370,12 +397,17 @@
 			files = (
 				2869796A1986558D0098F6A3 /* MainViewController.m in Sources */,
 				28922340198240CF0073BADB /* RegisterDetailViewController.m in Sources */,
+				285D89B4198A295A005DFBEB /* HomePageViewController.m in Sources */,
 				28922343198249400073BADB /* UIImage+LCYResize.m in Sources */,
+				285D89BE198A2D31005DFBEB /* searchAllTypePetsBase.m in Sources */,
 				2832DC6C19812D87004BBAB5 /* LCYNetworking.m in Sources */,
 				281111921979183C000A72D7 /* YouBaoOC.xcdatamodeld in Sources */,
+				285D89BD198A2D31005DFBEB /* searchAllTypePetsFatherStyle.m in Sources */,
+				285D89B7198A2B3D005DFBEB /* FilterViewController.m in Sources */,
 				285D89B11989E1BB005DFBEB /* LCYGlobal.m in Sources */,
 				286979661985F5AA0098F6A3 /* WelcomeCell.m in Sources */,
 				2811118F1979183C000A72D7 /* AppDelegate.m in Sources */,
+				285D89C1198A374A005DFBEB /* FilterTableViewCell.m in Sources */,
 				2869796F1986571B0098F6A3 /* ProfileHomeViewController.m in Sources */,
 				2811118C1979183C000A72D7 /* main.m in Sources */,
 				280FB68F1980D66C00C434A8 /* LCYCommon.m in Sources */,
