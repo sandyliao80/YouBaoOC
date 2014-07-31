@@ -215,6 +215,7 @@ typedef NS_ENUM(NSUInteger, RegisterAndLoginStatus) {
                 // 正确输入
                 NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
                 [userDefaults setObject:self.phoneTextField.text forKey:UserDefaultUserName];
+                [LCYGlobal sharedInstance].currentUserID = self.phoneTextField.text;
                 [[LCYCommon sharedInstance] savePassword:self.passwordTextField.text];
                 
                 [self performSegueWithIdentifier:@"ShowDetail" sender:nil];

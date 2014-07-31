@@ -15,6 +15,7 @@ NSString *const hostURL = @"http://115.29.46.22/pet/index.php/Api/";
 NSString *const User_authcode       = @"User/register_authcode";
 NSString *const User_register       = @"/User/register";
 NSString *const User_login          = @"/User/login";
+NSString *const User_modifyImage    = @"/User/modifyImage";
 
 @implementation LCYNetworking
 
@@ -99,5 +100,29 @@ static bool isFirstAccess = YES;
         }
     }];
 }
+
+- (void)postFileWithAPI:(NSString *)api parameters:(NSDictionary *)parameters fileKey:(NSString *)key fileData:(NSData *)data fileName:(NSString *)fileName mimeType:(NSString *)mimeType successBlock:(void (^)(NSDictionary *))success failedBlock:(void (^)(void))failed{
+    NSString *URLString = [hostURL stringByAppendingString:api];
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html", @"text/plain", nil];
+    [manager POST:URLString parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        [formData appendPartWithFileData:data name:key fileName:fileName mimeType:mimeType];
+    } success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSDictionary *dic = responseObject;
+        NSLog(@"%@ response object = %@", api, dic);
+        if (success) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                success(responseObject);
+            });
+        }
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        NSLog(@"Error in api:%@: %@",api, error);
+        if (failed) {
+            dispatch_async(dispatch_get_main_queue(), failed);
+        }
+    }];
+}
+
 
 @end

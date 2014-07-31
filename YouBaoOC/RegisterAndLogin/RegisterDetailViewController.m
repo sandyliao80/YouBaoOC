@@ -17,7 +17,7 @@ typedef NS_ENUM(NSUInteger, RegisterDetailGender) {
     RegisterDetailGenderFemale
 };
 
-@interface RegisterDetailViewController ()<UIActionSheetDelegate, UIImagePickerControllerDelegate ,UINavigationControllerDelegate, UIPickerViewDataSource, UIPickerViewDelegate>
+@interface RegisterDetailViewController ()<UIActionSheetDelegate, UIImagePickerControllerDelegate ,UINavigationControllerDelegate, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *icyImageView;
 
@@ -41,11 +41,12 @@ typedef NS_ENUM(NSUInteger, RegisterDetailGender) {
 @property (strong, nonatomic) NSArray *pickerData1;
 @property (strong, nonatomic) NSArray *pickerData2;
 
-@property (nonatomic) NSInteger regionResult;
 
 @property (nonatomic) BOOL avatarOK;
+@property (strong, nonatomic) NSData *avatarData;
 @property (nonatomic) BOOL nameOK;
 @property (nonatomic) BOOL placeOK;
+@property (nonatomic) NSInteger regionResult;
 
 @end
 
@@ -130,14 +131,12 @@ typedef NS_ENUM(NSUInteger, RegisterDetailGender) {
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
     [picker dismissViewControllerAnimated:YES completion:nil];
-    [[LCYCommon sharedInstance] showTips:@"图片上传中" inView:self.view];
     UIImage *originalImage = info[UIImagePickerControllerEditedImage];
     UIImage *scaledImage = [originalImage imageByScalingAndCroppingForSize:CGSizeMake(200, 200)];
+    self.avatarOK = YES;
+    self.avatarData = UIImagePNGRepresentation(scaledImage);
     
-    // 上传图片
-    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 100, 100, 100)];
-    imageView.image = scaledImage;
-    [self.view addSubview:imageView];
+    self.icyImageView.image = scaledImage;
 }
 
 - (IBAction)backgroundTouched:(id)sender {
@@ -190,6 +189,8 @@ typedef NS_ENUM(NSUInteger, RegisterDetailGender) {
     
     self.cityTextField.text = regionString;
     [self.cityTextField resignFirstResponder];
+    
+    self.placeOK = YES;
 }
 
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
@@ -358,5 +359,57 @@ typedef NS_ENUM(NSUInteger, RegisterDetailGender) {
         [self.pickerView reloadComponent:2];
     }
 }
+
+- (void)textFieldDidEndEditing:(UITextField *)textField{
+    if ([textField.text isEqualToString:@""]) {
+        self.nameOK = NO;
+    } else {
+        self.nameOK = YES;
+    }
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField{
+    [textField resignFirstResponder];
+    return YES;
+}
+
+- (IBAction)allDoneButtonPressed:(id)sender {
+    if (!self.avatarOK) {
+        UIAlertView *avatarAlert = [[UIAlertView alloc] initWithTitle:@"" message:@"请先选择您的头像" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+        [avatarAlert show];
+    }else if (!self.nameOK) {
+        UIAlertView *avatarAlert = [[UIAlertView alloc] initWithTitle:@"" message:@"请先输入您的昵称" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+        [avatarAlert show];
+    } else if (!self.placeOK) {
+        UIAlertView *avatarAlert = [[UIAlertView alloc] initWithTitle:@"" message:@"请先选择您的所在地" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+        [avatarAlert show];
+    } else {
+        // 可以上传所有信息
+        NSDictionary *parameters = @{@"user_name"       : [LCYGlobal sharedInstance].currentUserID,
+                                     @"password"        : [[LCYCommon sharedInstance] takePassword],
+                                     @"nick_name"       : self.nameTextField.text,
+                                     @"city"            : [NSNumber numberWithInteger:self.regionResult],
+                                     @"sex"             : self.currentGender == RegisterDetailGenderMale ? @"0" : @"1",
+                                     @"Filedata"        : self.avatarData};
+        [[LCYCommon sharedInstance] showTips:@"正在提交注册信息" inView:self.view];
+        
+        [[LCYNetworking sharedInstance] postFileWithAPI:User_register parameters:parameters fileKey:@"Filedata" fileData:self.avatarData fileName:@"uploadImage.png" mimeType:@"image/png" successBlock:^(NSDictionary *object) {
+            [[LCYCommon sharedInstance] hideTipsInView:self.view];
+            if ([object[@"result"] integerValue] == 1 &&
+                [object[@"msg"] isEqualToString:@"注册成功"]) {
+                // 注册成功
+            } else {
+                // 注册失败
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:[NSString stringWithFormat:@"注册失败，%@", object[@"msg"]] delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+                [alert show];
+            }
+        } failedBlock:^{
+            // 注册失败
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"注册失败，请检查您的网络状况" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+            [alert show];
+        }];
+    }
+}
+
 
 @end

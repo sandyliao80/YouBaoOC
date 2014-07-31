@@ -18,6 +18,7 @@
 		2832DC631980EFCE004BBAB5 /* RegisterAndLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2832DC621980EFCE004BBAB5 /* RegisterAndLoginViewController.m */; };
 		2832DC661980F00C004BBAB5 /* WelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2832DC651980F00C004BBAB5 /* WelcomeViewController.m */; };
 		2832DC6C19812D87004BBAB5 /* LCYNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 2832DC6B198124F2004BBAB5 /* LCYNetworking.m */; };
+		285D89B11989E1BB005DFBEB /* LCYGlobal.m in Sources */ = {isa = PBXBuildFile; fileRef = 285D89B01989E1BB005DFBEB /* LCYGlobal.m */; };
 		286099A1198769DE00CB86D6 /* PetCoreDataPreloader.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 286099A0198769DE00CB86D6 /* PetCoreDataPreloader.sqlite */; };
 		286099A41987762800CB86D6 /* Region.m in Sources */ = {isa = PBXBuildFile; fileRef = 286099A31987762800CB86D6 /* Region.m */; };
 		286979661985F5AA0098F6A3 /* WelcomeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 286979651985F5AA0098F6A3 /* WelcomeCell.m */; };
@@ -60,6 +61,8 @@
 		2832DC651980F00C004BBAB5 /* WelcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelcomeViewController.m; sourceTree = "<group>"; };
 		2832DC6A198124F2004BBAB5 /* LCYNetworking.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCYNetworking.h; sourceTree = "<group>"; };
 		2832DC6B198124F2004BBAB5 /* LCYNetworking.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCYNetworking.m; sourceTree = "<group>"; };
+		285D89AF1989E1BB005DFBEB /* LCYGlobal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCYGlobal.h; sourceTree = "<group>"; };
+		285D89B01989E1BB005DFBEB /* LCYGlobal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCYGlobal.m; sourceTree = "<group>"; };
 		286099A0198769DE00CB86D6 /* PetCoreDataPreloader.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = PetCoreDataPreloader.sqlite; sourceTree = "<group>"; };
 		286099A21987762800CB86D6 /* Region.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Region.h; sourceTree = "<group>"; };
 		286099A31987762800CB86D6 /* Region.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Region.m; sourceTree = "<group>"; };
@@ -105,6 +108,8 @@
 				280FB68E1980D66800C434A8 /* LCYCommon.m */,
 				2832DC6A198124F2004BBAB5 /* LCYNetworking.h */,
 				2832DC6B198124F2004BBAB5 /* LCYNetworking.m */,
+				285D89AF1989E1BB005DFBEB /* LCYGlobal.h */,
+				285D89B01989E1BB005DFBEB /* LCYGlobal.m */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -368,6 +373,7 @@
 				28922343198249400073BADB /* UIImage+LCYResize.m in Sources */,
 				2832DC6C19812D87004BBAB5 /* LCYNetworking.m in Sources */,
 				281111921979183C000A72D7 /* YouBaoOC.xcdatamodeld in Sources */,
+				285D89B11989E1BB005DFBEB /* LCYGlobal.m in Sources */,
 				286979661985F5AA0098F6A3 /* WelcomeCell.m in Sources */,
 				2811118F1979183C000A72D7 /* AppDelegate.m in Sources */,
 				2869796F1986571B0098F6A3 /* ProfileHomeViewController.m in Sources */,

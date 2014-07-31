@@ -7,6 +7,7 @@
 //
 
 #import "LCYNetworking.h"
+#import "LCYGlobal.h"
 
 FOUNDATION_EXPORT NSString *const UserDefaultUserName;
 FOUNDATION_EXPORT NSString *const UserDefaultIsUserLogin;
