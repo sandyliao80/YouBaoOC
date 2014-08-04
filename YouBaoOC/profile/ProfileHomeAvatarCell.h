@@ -12,4 +12,6 @@ FOUNDATION_EXPORT NSString *const ProfileHomeAvatarCellIdentifier;
 
 @interface ProfileHomeAvatarCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UIImageView *icyImageView;
+
 @end

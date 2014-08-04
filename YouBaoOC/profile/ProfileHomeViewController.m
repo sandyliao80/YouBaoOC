@@ -26,10 +26,26 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    UIBarButtonItem *fixedSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+    fixedSpace.width = 0.0f;
+    UIButton *settingButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [settingButton setFrame:CGRectMake(0, 0, 44.0f, 44.0f)];
+    [settingButton setImage:[UIImage imageNamed:@"profileSetting"] forState:UIControlStateNormal];
+    [settingButton addTarget:self action:@selector(settingButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *leftButtonItem = [[UIBarButtonItem alloc] initWithCustomView:settingButton];
+    [self.navigationItem setLeftBarButtonItems:@[fixedSpace, leftButtonItem]];
+    
+    UIBarButtonItem *rightFixedSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+    rightFixedSpace.width = 0.0f;
+    UIButton *editingButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [editingButton setFrame:CGRectMake(0, 0, 44.0f, 44.0f)];
+    [editingButton setImage:[UIImage imageNamed:@"profileEdit"] forState:UIControlStateNormal];
+    [editingButton addTarget:self action:@selector(editingButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *rightButtonItem = [[UIBarButtonItem alloc] initWithCustomView:editingButton];
+    [self.navigationItem setRightBarButtonItems:@[rightFixedSpace, rightButtonItem]];
+    
     [self.icyTableView setBackgroundColor:[UIColor clearColor]];
-//    UIView *backgroundView = [[UIView alloc] initWithFrame:CGRectZero];
-//    [backgroundView setBackgroundColor:[UIColor clearColor]];
-//    [self.icyTableView setBackgroundView:backgroundView];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -47,12 +63,21 @@
 }
 */
 
+#pragma mark - Actions
 - (IBAction)logoutButtonPressed:(UIButton *)sender {
     [[LCYCommon sharedInstance] logout];
     AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
     UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"RegisterAndLogin" bundle:nil];
     UINavigationController *navigationVC = storyBoard.instantiateInitialViewController;
     appDelegate.window.rootViewController = navigationVC;
+}
+
+- (void)settingButtonPressed:(id)sender{
+    
+}
+
+- (void)editingButtonPressed:(id)sender{
+    
 }
 
 #pragma mark - UITableView
@@ -88,7 +113,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.row == 0) {
         // 头像
-        return 70.0f;
+        return 80.0f;
     } else if (indexPath.row == 1) {
         // 喜欢
         return 44.0f;
@@ -98,10 +123,10 @@
     }
     else if (indexPath.row == 6) {
         // 按钮
-        return 44.0f;
+        return 60.0f;
     } else {
         // 宠物
-        return 44.0f;
+        return 70.0f;
     }
 }
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{

@@ -22,6 +22,9 @@ NSString *const ProfileHomeAvatarCellIdentifier = @"ProfileHomeAvatarCellIdentif
 
 - (void)awakeFromNib {
     // Initialization code
+    CGFloat radius = MIN(self.icyImageView.frame.size.height, self.icyImageView.frame.size.width)/2.0f;
+    [self.icyImageView.layer setCornerRadius:radius];
+    [self.icyImageView.layer setMasksToBounds:YES];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

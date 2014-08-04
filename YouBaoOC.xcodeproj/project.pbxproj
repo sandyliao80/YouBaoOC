@@ -31,6 +31,7 @@
 		2868EC96198F79D300D8726E /* ProfileHomeContentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2868EC95198F79D300D8726E /* ProfileHomeContentCell.m */; };
 		2868EC99198F79E700D8726E /* ProfileHomePetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2868EC98198F79E700D8726E /* ProfileHomePetCell.m */; };
 		2868EC9C198F7A1900D8726E /* ProfileHomeButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2868EC9B198F7A1900D8726E /* ProfileHomeButtonCell.m */; };
+		2868EC9F198F99F500D8726E /* AddPetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2868EC9E198F99F500D8726E /* AddPetViewController.m */; };
 		286979661985F5AA0098F6A3 /* WelcomeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 286979651985F5AA0098F6A3 /* WelcomeCell.m */; };
 		2869796A1986558D0098F6A3 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 286979691986558D0098F6A3 /* MainViewController.m */; };
 		2869796F1986571B0098F6A3 /* ProfileHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2869796E1986571B0098F6A3 /* ProfileHomeViewController.m */; };
@@ -101,6 +102,8 @@
 		2868EC98198F79E700D8726E /* ProfileHomePetCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileHomePetCell.m; sourceTree = "<group>"; };
 		2868EC9A198F7A1900D8726E /* ProfileHomeButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileHomeButtonCell.h; sourceTree = "<group>"; };
 		2868EC9B198F7A1900D8726E /* ProfileHomeButtonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileHomeButtonCell.m; sourceTree = "<group>"; };
+		2868EC9D198F99F500D8726E /* AddPetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddPetViewController.h; sourceTree = "<group>"; };
+		2868EC9E198F99F500D8726E /* AddPetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddPetViewController.m; sourceTree = "<group>"; };
 		286979641985F5AA0098F6A3 /* WelcomeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelcomeCell.h; sourceTree = "<group>"; };
 		286979651985F5AA0098F6A3 /* WelcomeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelcomeCell.m; sourceTree = "<group>"; };
 		286979681986558D0098F6A3 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
@@ -286,6 +289,8 @@
 				2868EC98198F79E700D8726E /* ProfileHomePetCell.m */,
 				2868EC9A198F7A1900D8726E /* ProfileHomeButtonCell.h */,
 				2868EC9B198F7A1900D8726E /* ProfileHomeButtonCell.m */,
+				2868EC9D198F99F500D8726E /* AddPetViewController.h */,
+				2868EC9E198F99F500D8726E /* AddPetViewController.m */,
 			);
 			path = profile;
 			sourceTree = "<group>";
@@ -467,6 +472,7 @@
 				280FB68F1980D66C00C434A8 /* LCYCommon.m in Sources */,
 				286099A41987762800CB86D6 /* Region.m in Sources */,
 				2832DC631980EFCE004BBAB5 /* RegisterAndLoginViewController.m in Sources */,
+				2868EC9F198F99F500D8726E /* AddPetViewController.m in Sources */,
 				2889508D198B315500696A95 /* SearchDetailByIDBase.m in Sources */,
 				2868EC96198F79D300D8726E /* ProfileHomeContentCell.m in Sources */,
 				2832DC661980F00C004BBAB5 /* WelcomeViewController.m in Sources */,
