@@ -16,6 +16,7 @@
 #import "ProfileHomeButtonCell.h"
 
 @interface ProfileHomeViewController ()<UITableViewDelegate, UITableViewDataSource>
+@property (weak, nonatomic) IBOutlet UITableView *icyTableView;
 
 @end
 
@@ -24,6 +25,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    [self.icyTableView setBackgroundColor:[UIColor clearColor]];
+//    UIView *backgroundView = [[UIView alloc] initWithFrame:CGRectZero];
+//    [backgroundView setBackgroundColor:[UIColor clearColor]];
+//    [self.icyTableView setBackgroundView:backgroundView];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -51,7 +57,7 @@
 
 #pragma mark - UITableView
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 2 + 4;
+    return 2 + 5;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -59,16 +65,47 @@
         // 头像
         ProfileHomeAvatarCell *cell = [tableView dequeueReusableCellWithIdentifier:ProfileHomeAvatarCellIdentifier];
         return cell;
+    } else if (indexPath.row == 1) {
+        // 喜欢
+        ProfileHomeLikeCell *cell = [tableView dequeueReusableCellWithIdentifier:ProfileHomeLikeCellIdentifier];
+        return cell;
+    } else if (indexPath.row == 2 || indexPath.row == 3) {
+        // 个人信息
+        ProfileHomeContentCell *cell = [tableView dequeueReusableCellWithIdentifier:ProfileHomeContentCellIdentifier];
+        return cell;
     }
-    return nil;
+    else if (indexPath.row == 6) {
+        // 按钮
+        ProfileHomeButtonCell *cell = [tableView dequeueReusableCellWithIdentifier:ProfileHomeButtonCellIdentifier];
+        return cell;
+    } else {
+        // 宠物
+        ProfileHomePetCell *cell = [tableView dequeueReusableCellWithIdentifier:ProfileHomePetCellIdentifier];
+        return cell;
+    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.row == 0) {
+        // 头像
         return 70.0f;
+    } else if (indexPath.row == 1) {
+        // 喜欢
+        return 44.0f;
+    } else if (indexPath.row == 2 || indexPath.row == 3) {
+        // 个人信息
+        return 44.0f;
     }
-    return 0;
+    else if (indexPath.row == 6) {
+        // 按钮
+        return 44.0f;
+    } else {
+        // 宠物
+        return 44.0f;
+    }
 }
-
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+}
 
 @end
