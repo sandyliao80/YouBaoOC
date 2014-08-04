@@ -7,7 +7,6 @@
 //
 
 #import "SecondFilterViewController.h"
-#import "SearchDetailByID.h"
 #import "LCYCommon.h"
 #import "SecondFilterTableViewCell.h"
 
@@ -101,6 +100,18 @@
 
 - (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView{
     return self.keyArray;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (self.delegate &&
+        [self.delegate respondsToSelector:@selector(filterDidSelected:)]) {
+        NSInteger section = indexPath.section;
+        NSInteger row = indexPath.row;
+        NSString *key = [self.keyArray objectAtIndex:section];
+        SearchDetailByIDChildStyle *child = self.detailResult[key][row];
+        [self.delegate filterDidSelected:child];
+        [self.navigationController popToViewController:self.delegate animated:YES];
+    }
 }
 
 @end

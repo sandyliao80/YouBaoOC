@@ -10,7 +10,6 @@
 #import "LCYCommon.h"
 #import "searchAllTypePets.h"
 #import "FilterTableViewCell.h"
-#import "SecondFilterViewController.h"
 
 @interface FilterViewController ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -70,6 +69,7 @@
         NSInteger row = [self.icyTableView indexPathForSelectedRow].row;
         searchAllTypePetsFatherStyle *style = self.filterResult[row];
         SecondFilterViewController *secondVC = [segue destinationViewController];
+        secondVC.delegate = self.delegate;
         secondVC.parentID = style.catId;
     }
 }

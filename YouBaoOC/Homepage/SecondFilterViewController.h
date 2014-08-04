@@ -7,9 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SearchDetailByID.h"
+
+@protocol SecondFilterDelegate <NSObject>
+@optional
+- (void)filterDidSelected:(SearchDetailByIDChildStyle *)category;
+@end
 
 @interface SecondFilterViewController : UIViewController
 
+@property (weak, nonatomic) UIViewController<SecondFilterDelegate> *delegate;
 @property (strong, nonatomic) NSString *parentID;
 
 @end
