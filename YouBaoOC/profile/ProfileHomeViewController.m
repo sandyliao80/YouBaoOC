@@ -9,8 +9,13 @@
 #import "ProfileHomeViewController.h"
 #import "LCYCommon.h"
 #import "AppDelegate.h"
+#import "ProfileHomeAvatarCell.h"
+#import "ProfileHomeLikeCell.h"
+#import "ProfileHomeContentCell.h"
+#import "ProfileHomePetCell.h"
+#import "ProfileHomeButtonCell.h"
 
-@interface ProfileHomeViewController ()
+@interface ProfileHomeViewController ()<UITableViewDelegate, UITableViewDataSource>
 
 @end
 
@@ -42,6 +47,27 @@
     UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"RegisterAndLogin" bundle:nil];
     UINavigationController *navigationVC = storyBoard.instantiateInitialViewController;
     appDelegate.window.rootViewController = navigationVC;
+}
+
+#pragma mark - UITableView
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return 2 + 4;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.row == 0) {
+        // 头像
+        ProfileHomeAvatarCell *cell = [tableView dequeueReusableCellWithIdentifier:ProfileHomeAvatarCellIdentifier];
+        return cell;
+    }
+    return nil;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.row == 0) {
+        return 70.0f;
+    }
+    return 0;
 }
 
 

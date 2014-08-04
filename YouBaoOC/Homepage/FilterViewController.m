@@ -10,6 +10,7 @@
 #import "LCYCommon.h"
 #import "searchAllTypePets.h"
 #import "FilterTableViewCell.h"
+#import "SecondFilterViewController.h"
 
 @interface FilterViewController ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -58,15 +59,21 @@
 }
 
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    if ([segue.identifier isEqualToString:@"FilterPushToSecond"]) {
+        NSInteger row = [self.icyTableView indexPathForSelectedRow].row;
+        searchAllTypePetsFatherStyle *style = self.filterResult[row];
+        SecondFilterViewController *secondVC = [segue destinationViewController];
+        secondVC.parentID = style.catId;
+    }
 }
-*/
+
 
 #pragma mark - Actions
 - (void)navigationBack:(id)sender{

@@ -26,9 +26,18 @@
 		285D89C1198A374A005DFBEB /* FilterTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 285D89C0198A374A005DFBEB /* FilterTableViewCell.m */; };
 		286099A1198769DE00CB86D6 /* PetCoreDataPreloader.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 286099A0198769DE00CB86D6 /* PetCoreDataPreloader.sqlite */; };
 		286099A41987762800CB86D6 /* Region.m in Sources */ = {isa = PBXBuildFile; fileRef = 286099A31987762800CB86D6 /* Region.m */; };
+		2868EC90198F79A500D8726E /* ProfileHomeAvatarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2868EC8F198F79A500D8726E /* ProfileHomeAvatarCell.m */; };
+		2868EC93198F79BB00D8726E /* ProfileHomeLikeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2868EC92198F79BB00D8726E /* ProfileHomeLikeCell.m */; };
+		2868EC96198F79D300D8726E /* ProfileHomeContentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2868EC95198F79D300D8726E /* ProfileHomeContentCell.m */; };
+		2868EC99198F79E700D8726E /* ProfileHomePetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2868EC98198F79E700D8726E /* ProfileHomePetCell.m */; };
+		2868EC9C198F7A1900D8726E /* ProfileHomeButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2868EC9B198F7A1900D8726E /* ProfileHomeButtonCell.m */; };
 		286979661985F5AA0098F6A3 /* WelcomeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 286979651985F5AA0098F6A3 /* WelcomeCell.m */; };
 		2869796A1986558D0098F6A3 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 286979691986558D0098F6A3 /* MainViewController.m */; };
 		2869796F1986571B0098F6A3 /* ProfileHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2869796E1986571B0098F6A3 /* ProfileHomeViewController.m */; };
+		28895083198B269D00696A95 /* SecondFilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28895082198B269D00696A95 /* SecondFilterViewController.m */; };
+		28895086198B2D8C00696A95 /* SecondFilterTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 28895085198B2D8C00696A95 /* SecondFilterTableViewCell.m */; };
+		2889508C198B315500696A95 /* SearchDetailByIDChildStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 28895088198B315500696A95 /* SearchDetailByIDChildStyle.m */; };
+		2889508D198B315500696A95 /* SearchDetailByIDBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 2889508B198B315500696A95 /* SearchDetailByIDBase.m */; };
 		28922340198240CF0073BADB /* RegisterDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2892233F198240CF0073BADB /* RegisterDetailViewController.m */; };
 		28922343198249400073BADB /* UIImage+LCYResize.m in Sources */ = {isa = PBXBuildFile; fileRef = 28922342198249400073BADB /* UIImage+LCYResize.m */; };
 		83A93C91E0F34B08851EE991 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEF990BC1DD24D8D89234D90 /* libPods.a */; };
@@ -82,12 +91,31 @@
 		286099A0198769DE00CB86D6 /* PetCoreDataPreloader.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = PetCoreDataPreloader.sqlite; sourceTree = "<group>"; };
 		286099A21987762800CB86D6 /* Region.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Region.h; sourceTree = "<group>"; };
 		286099A31987762800CB86D6 /* Region.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Region.m; sourceTree = "<group>"; };
+		2868EC8E198F79A400D8726E /* ProfileHomeAvatarCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileHomeAvatarCell.h; sourceTree = "<group>"; };
+		2868EC8F198F79A500D8726E /* ProfileHomeAvatarCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileHomeAvatarCell.m; sourceTree = "<group>"; };
+		2868EC91198F79BB00D8726E /* ProfileHomeLikeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileHomeLikeCell.h; sourceTree = "<group>"; };
+		2868EC92198F79BB00D8726E /* ProfileHomeLikeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileHomeLikeCell.m; sourceTree = "<group>"; };
+		2868EC94198F79D300D8726E /* ProfileHomeContentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileHomeContentCell.h; sourceTree = "<group>"; };
+		2868EC95198F79D300D8726E /* ProfileHomeContentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileHomeContentCell.m; sourceTree = "<group>"; };
+		2868EC97198F79E700D8726E /* ProfileHomePetCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileHomePetCell.h; sourceTree = "<group>"; };
+		2868EC98198F79E700D8726E /* ProfileHomePetCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileHomePetCell.m; sourceTree = "<group>"; };
+		2868EC9A198F7A1900D8726E /* ProfileHomeButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileHomeButtonCell.h; sourceTree = "<group>"; };
+		2868EC9B198F7A1900D8726E /* ProfileHomeButtonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileHomeButtonCell.m; sourceTree = "<group>"; };
 		286979641985F5AA0098F6A3 /* WelcomeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelcomeCell.h; sourceTree = "<group>"; };
 		286979651985F5AA0098F6A3 /* WelcomeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelcomeCell.m; sourceTree = "<group>"; };
 		286979681986558D0098F6A3 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		286979691986558D0098F6A3 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		2869796D1986571B0098F6A3 /* ProfileHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileHomeViewController.h; sourceTree = "<group>"; };
 		2869796E1986571B0098F6A3 /* ProfileHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileHomeViewController.m; sourceTree = "<group>"; };
+		28895081198B269D00696A95 /* SecondFilterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondFilterViewController.h; sourceTree = "<group>"; };
+		28895082198B269D00696A95 /* SecondFilterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondFilterViewController.m; sourceTree = "<group>"; };
+		28895084198B2D8C00696A95 /* SecondFilterTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondFilterTableViewCell.h; sourceTree = "<group>"; };
+		28895085198B2D8C00696A95 /* SecondFilterTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondFilterTableViewCell.m; sourceTree = "<group>"; };
+		28895087198B315500696A95 /* SearchDetailByIDChildStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchDetailByIDChildStyle.h; sourceTree = "<group>"; };
+		28895088198B315500696A95 /* SearchDetailByIDChildStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchDetailByIDChildStyle.m; sourceTree = "<group>"; };
+		28895089198B315500696A95 /* SearchDetailByID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchDetailByID.h; sourceTree = "<group>"; };
+		2889508A198B315500696A95 /* SearchDetailByIDBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchDetailByIDBase.h; sourceTree = "<group>"; };
+		2889508B198B315500696A95 /* SearchDetailByIDBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchDetailByIDBase.m; sourceTree = "<group>"; };
 		2892233E198240CF0073BADB /* RegisterDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterDetailViewController.h; sourceTree = "<group>"; };
 		2892233F198240CF0073BADB /* RegisterDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterDetailViewController.m; sourceTree = "<group>"; };
 		28922341198249400073BADB /* UIImage+LCYResize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+LCYResize.h"; sourceTree = "<group>"; };
@@ -230,6 +258,15 @@
 				285D89B6198A2B3D005DFBEB /* FilterViewController.m */,
 				285D89BF198A374A005DFBEB /* FilterTableViewCell.h */,
 				285D89C0198A374A005DFBEB /* FilterTableViewCell.m */,
+				28895089198B315500696A95 /* SearchDetailByID.h */,
+				28895087198B315500696A95 /* SearchDetailByIDChildStyle.h */,
+				28895088198B315500696A95 /* SearchDetailByIDChildStyle.m */,
+				2889508A198B315500696A95 /* SearchDetailByIDBase.h */,
+				2889508B198B315500696A95 /* SearchDetailByIDBase.m */,
+				28895081198B269D00696A95 /* SecondFilterViewController.h */,
+				28895082198B269D00696A95 /* SecondFilterViewController.m */,
+				28895084198B2D8C00696A95 /* SecondFilterTableViewCell.h */,
+				28895085198B2D8C00696A95 /* SecondFilterTableViewCell.m */,
 			);
 			path = Homepage;
 			sourceTree = "<group>";
@@ -239,6 +276,16 @@
 			children = (
 				2869796D1986571B0098F6A3 /* ProfileHomeViewController.h */,
 				2869796E1986571B0098F6A3 /* ProfileHomeViewController.m */,
+				2868EC8E198F79A400D8726E /* ProfileHomeAvatarCell.h */,
+				2868EC8F198F79A500D8726E /* ProfileHomeAvatarCell.m */,
+				2868EC91198F79BB00D8726E /* ProfileHomeLikeCell.h */,
+				2868EC92198F79BB00D8726E /* ProfileHomeLikeCell.m */,
+				2868EC94198F79D300D8726E /* ProfileHomeContentCell.h */,
+				2868EC95198F79D300D8726E /* ProfileHomeContentCell.m */,
+				2868EC97198F79E700D8726E /* ProfileHomePetCell.h */,
+				2868EC98198F79E700D8726E /* ProfileHomePetCell.m */,
+				2868EC9A198F7A1900D8726E /* ProfileHomeButtonCell.h */,
+				2868EC9B198F7A1900D8726E /* ProfileHomeButtonCell.m */,
 			);
 			path = profile;
 			sourceTree = "<group>";
@@ -396,7 +443,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				2869796A1986558D0098F6A3 /* MainViewController.m in Sources */,
+				28895086198B2D8C00696A95 /* SecondFilterTableViewCell.m in Sources */,
 				28922340198240CF0073BADB /* RegisterDetailViewController.m in Sources */,
+				2868EC90198F79A500D8726E /* ProfileHomeAvatarCell.m in Sources */,
+				2868EC9C198F7A1900D8726E /* ProfileHomeButtonCell.m in Sources */,
 				285D89B4198A295A005DFBEB /* HomePageViewController.m in Sources */,
 				28922343198249400073BADB /* UIImage+LCYResize.m in Sources */,
 				285D89BE198A2D31005DFBEB /* searchAllTypePetsBase.m in Sources */,
@@ -405,14 +455,20 @@
 				285D89BD198A2D31005DFBEB /* searchAllTypePetsFatherStyle.m in Sources */,
 				285D89B7198A2B3D005DFBEB /* FilterViewController.m in Sources */,
 				285D89B11989E1BB005DFBEB /* LCYGlobal.m in Sources */,
+				2868EC99198F79E700D8726E /* ProfileHomePetCell.m in Sources */,
 				286979661985F5AA0098F6A3 /* WelcomeCell.m in Sources */,
 				2811118F1979183C000A72D7 /* AppDelegate.m in Sources */,
+				2889508C198B315500696A95 /* SearchDetailByIDChildStyle.m in Sources */,
+				28895083198B269D00696A95 /* SecondFilterViewController.m in Sources */,
+				2868EC93198F79BB00D8726E /* ProfileHomeLikeCell.m in Sources */,
 				285D89C1198A374A005DFBEB /* FilterTableViewCell.m in Sources */,
 				2869796F1986571B0098F6A3 /* ProfileHomeViewController.m in Sources */,
 				2811118C1979183C000A72D7 /* main.m in Sources */,
 				280FB68F1980D66C00C434A8 /* LCYCommon.m in Sources */,
 				286099A41987762800CB86D6 /* Region.m in Sources */,
 				2832DC631980EFCE004BBAB5 /* RegisterAndLoginViewController.m in Sources */,
+				2889508D198B315500696A95 /* SearchDetailByIDBase.m in Sources */,
+				2868EC96198F79D300D8726E /* ProfileHomeContentCell.m in Sources */,
 				2832DC661980F00C004BBAB5 /* WelcomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

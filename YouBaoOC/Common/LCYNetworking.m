@@ -17,6 +17,7 @@ NSString *const User_register       = @"/User/register";
 NSString *const User_login          = @"/User/login";
 NSString *const User_modifyImage    = @"/User/modifyImage";
 NSString *const PetStyle_searchAllTypePets      = @"/PetStyle/searchAllTypePets";
+NSString *const PetStyle_searchDetailByID       = @"/PetStyle/searchDetailByID";
 
 @implementation LCYNetworking
 
