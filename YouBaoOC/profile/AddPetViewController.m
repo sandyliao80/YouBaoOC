@@ -8,8 +8,9 @@
 
 #import "AddPetViewController.h"
 #import "FilterViewController.h"
+#import "UIImage+LCYResize.h"
 
-@interface AddPetViewController ()<UITextFieldDelegate, SecondFilterDelegate, UIScrollViewDelegate, UIPickerViewDelegate, UIPickerViewDataSource>
+@interface AddPetViewController ()<UITextFieldDelegate, SecondFilterDelegate, UIScrollViewDelegate, UIPickerViewDelegate, UIPickerViewDataSource, UIActionSheetDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
 #pragma mark - View
 
@@ -29,6 +30,7 @@
 @property (strong, nonatomic) UITextField *zombieTextField;
 @property (strong, nonatomic) IBOutlet UIToolbar *pickerToolBar;
 
+@property (weak, nonatomic) IBOutlet UIImageView *icyImageView;
 
 #pragma mark - Properties
 
@@ -40,6 +42,8 @@
 
 @property (strong, nonatomic) NSArray *ageKeys;
 @property (strong, nonatomic) NSDictionary *ageMap;
+
+@property (strong, nonatomic) UIImagePickerController *picker;
 
 @end
 
@@ -71,6 +75,13 @@
     [backBtn addTarget:self action:@selector(navigationBack:) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *leftBackItem = [[UIBarButtonItem alloc] initWithCustomView:backBtn];
     self.navigationItem.leftBarButtonItem = leftBackItem;
+    
+    UIButton *rightBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [rightBtn setFrame:CGRectMake(0, 0, 50, 44)];
+    [rightBtn setImage:[UIImage imageNamed:@"addPetSave"] forState:UIControlStateNormal];
+    [rightBtn addTarget:self action:@selector(saveButtonPressed:) forControlEvents:UIControlEventTouchUpInside];;
+    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:rightBtn];
+    self.navigationItem.rightBarButtonItem = rightItem;
     
     for (UIView *view in self.corneredBGView) {
         [view.layer setCornerRadius:5.0f];
@@ -111,6 +122,9 @@
 #pragma mark - Actions
 - (void)navigationBack:(id)sender{
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)saveButtonPressed:(id)sender{
 }
 
 - (IBAction)sexButtonPressed:(id)sender {
@@ -168,6 +182,10 @@
     [self.zombieTextField resignFirstResponder];
 }
 
+- (IBAction)imageTap:(id)sender {
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"从照片中选择", @"拍照", nil];
+    [actionSheet showInView:self.view];
+}
 
 #pragma mark - UITextField
 - (void)textFieldDidBeginEditing:(UITextField *)textField{
@@ -190,6 +208,8 @@
         if ([self.nicknameLabel isFirstResponder]) {
             return NO;
         } else if ([self.signLabel isFirstResponder]) {
+            return NO;
+        } else if ([self.zombieTextField isFirstResponder]) {
             return NO;
         }
         return YES;
@@ -223,6 +243,36 @@
 }
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
     return [self.ageKeys objectAtIndex:row];
+}
+
+#pragma mark - UIActionSheet
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex == 0) {
+        // 从照片中选择
+        [self callPickerWith:UIImagePickerControllerSourceTypePhotoLibrary];
+    } else if (buttonIndex == 1) {
+        // 拍照
+        [self callPickerWith:UIImagePickerControllerSourceTypeCamera];
+    } else {
+        // 取消
+    }
+}
+- (void)callPickerWith:(UIImagePickerControllerSourceType)sourceType{
+    if (!self.picker) {
+        self.picker = [[UIImagePickerController alloc] init];
+        self.picker.delegate = self;
+        self.picker.allowsEditing = YES;
+    }
+    self.picker.sourceType = sourceType;
+    [self presentViewController:self.picker animated:YES completion:nil];
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
+    [picker dismissViewControllerAnimated:YES completion:nil];
+    UIImage *originalImage = info[UIImagePickerControllerEditedImage];
+    UIImage *scaledImage = [originalImage imageByScalingAndCroppingForSize:CGSizeMake(200, 200)];
+    
+    self.icyImageView.image = scaledImage;
 }
 
 @end

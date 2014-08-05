@@ -236,9 +236,20 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gKd-Uj-wnd">
                                                 <rect key="frame" x="20" y="20" width="88" height="88"/>
                                                 <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eKE-Pm-0GH">
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="addPetCamera" translatesAutoresizingMaskIntoConstraints="NO" id="5FB-Ae-JXv">
+                                                        <rect key="frame" x="35" y="37" width="19" height="14"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="19" id="2Tr-IJ-lVP"/>
+                                                            <constraint firstAttribute="height" constant="14" id="pLi-Cd-e1T"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eKE-Pm-0GH">
                                                         <rect key="frame" x="0.0" y="0.0" width="88" height="88"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        <gestureRecognizers/>
+                                                        <connections>
+                                                            <outletCollection property="gestureRecognizers" destination="kF0-WU-OHQ" appends="YES" id="AiF-sJ-NqW"/>
+                                                        </connections>
                                                     </imageView>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -248,6 +259,8 @@
                                                     <constraint firstAttribute="trailing" secondItem="eKE-Pm-0GH" secondAttribute="trailing" id="ncT-hN-Y1W"/>
                                                     <constraint firstAttribute="width" constant="88" id="ntD-xT-ki2"/>
                                                     <constraint firstItem="eKE-Pm-0GH" firstAttribute="top" secondItem="gKd-Uj-wnd" secondAttribute="top" id="qGx-aK-GXq"/>
+                                                    <constraint firstAttribute="centerY" secondItem="5FB-Ae-JXv" secondAttribute="centerY" id="tSu-LV-FdN"/>
+                                                    <constraint firstAttribute="centerX" secondItem="5FB-Ae-JXv" secondAttribute="centerX" id="uGV-a7-N45"/>
                                                     <constraint firstAttribute="height" constant="88" id="wNH-Sd-b6v"/>
                                                 </constraints>
                                             </view>
@@ -420,14 +433,14 @@
                                                     <constraint firstItem="wJI-Gk-ewp" firstAttribute="leading" secondItem="IlP-eL-WK4" secondAttribute="leading" constant="44" id="sxJ-o0-H8V"/>
                                                 </constraints>
                                             </view>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HdS-1q-tZF">
-                                                <rect key="frame" x="10" y="211" width="93" height="31"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HdS-1q-tZF">
+                                                <rect key="frame" x="9" y="211" width="95" height="33"/>
                                                 <color key="backgroundColor" red="0.89019614459999996" green="0.96862751250000001" blue="0.99607849120000003" alpha="1" colorSpace="deviceRGB"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="93" id="Yrq-sN-eAb"/>
-                                                    <constraint firstAttribute="height" constant="31" id="snA-ac-B1N"/>
+                                                    <constraint firstAttribute="width" constant="95" id="Yrq-sN-eAb"/>
+                                                    <constraint firstAttribute="height" constant="33" id="snA-ac-B1N"/>
                                                 </constraints>
-                                                <state key="normal" title="找配种">
+                                                <state key="normal" image="breedingButton">
                                                     <color key="titleColor" red="0.32941177490000001" green="0.62352943419999995" blue="0.76470595600000002" alpha="1" colorSpace="deviceRGB"/>
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
@@ -435,14 +448,14 @@
                                                     <action selector="breedingButtonPressed:" destination="L0E-W2-VD1" eventType="touchUpInside" id="scH-Yd-1cr"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vCg-AX-TXu">
-                                                <rect key="frame" x="114" y="211" width="93" height="31"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vCg-AX-TXu">
+                                                <rect key="frame" x="114" y="211" width="95" height="33"/>
                                                 <color key="backgroundColor" red="0.89019614459999996" green="0.96862751250000001" blue="0.99607849120000003" alpha="1" colorSpace="deviceRGB"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="93" id="cUK-ot-iHs"/>
-                                                    <constraint firstAttribute="height" constant="31" id="oy8-7Z-zgn"/>
+                                                    <constraint firstAttribute="width" constant="95" id="cUK-ot-iHs"/>
+                                                    <constraint firstAttribute="height" constant="33" id="oy8-7Z-zgn"/>
                                                 </constraints>
-                                                <state key="normal" title="求领养">
+                                                <state key="normal" image="adoptButton">
                                                     <color key="titleColor" red="0.32941177490000001" green="0.62352943419999995" blue="0.76470595600000002" alpha="1" colorSpace="deviceRGB"/>
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
@@ -474,18 +487,18 @@
                                                     <constraint firstAttribute="height" id="e2J-XB-Ve9"/>
                                                 </constraints>
                                             </view>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nrp-FZ-eXY">
-                                                <rect key="frame" x="97" y="254" width="126" height="126"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nrp-FZ-eXY">
+                                                <rect key="frame" x="97" y="256" width="127" height="127"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="126" id="9aq-8I-g3g"/>
-                                                    <constraint firstAttribute="height" constant="126" id="pMp-VZ-hzg"/>
+                                                    <constraint firstAttribute="width" constant="127" id="9aq-8I-g3g"/>
+                                                    <constraint firstAttribute="height" constant="127" id="pMp-VZ-hzg"/>
                                                 </constraints>
-                                                <state key="normal" title="扫描二维码">
+                                                <state key="normal" image="QRScanButton">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                             </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pkD-Ke-nhC">
-                                                <rect key="frame" x="63" y="388" width="195" height="36"/>
+                                                <rect key="frame" x="63" y="391" width="195" height="36"/>
                                                 <subviews>
                                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="是否绑定？" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cd2-0M-VBV">
                                                         <rect key="frame" x="20" y="7" width="91" height="21"/>
@@ -497,7 +510,7 @@
                                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="d2G-ax-ARE">
+                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="d2G-ax-ARE">
                                                         <rect key="frame" x="126" y="2" width="51" height="31"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="31" id="MZl-Qd-RDi"/>
@@ -517,7 +530,7 @@
                                                 </constraints>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zPn-O4-xum">
-                                                <rect key="frame" x="137" y="432" width="46" height="30"/>
+                                                <rect key="frame" x="137" y="435" width="46" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="46" id="pYD-5d-tVF"/>
                                                     <constraint firstAttribute="height" constant="30" id="sgx-GE-4xT"/>
@@ -526,14 +539,14 @@
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AgN-Mg-Kje">
-                                                <rect key="frame" x="217" y="211" width="93" height="31"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AgN-Mg-Kje">
+                                                <rect key="frame" x="216" y="211" width="95" height="33"/>
                                                 <color key="backgroundColor" red="0.89019614459999996" green="0.96862751250000001" blue="0.99607849120000003" alpha="1" colorSpace="deviceRGB"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="31" id="EBh-bc-QLC"/>
-                                                    <constraint firstAttribute="width" constant="93" id="ZhS-lY-ffu"/>
+                                                    <constraint firstAttribute="height" constant="33" id="EBh-bc-QLC"/>
+                                                    <constraint firstAttribute="width" constant="95" id="ZhS-lY-ffu"/>
                                                 </constraints>
-                                                <state key="normal" title="被寄养">
+                                                <state key="normal" image="fosterButton">
                                                     <color key="titleColor" red="0.32941177490000001" green="0.62352943419999995" blue="0.76470595600000002" alpha="1" colorSpace="deviceRGB"/>
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
@@ -579,7 +592,7 @@
                                             <constraint firstAttribute="centerX" secondItem="Nrp-FZ-eXY" secondAttribute="centerX" id="w2I-8z-Xer"/>
                                             <constraint firstItem="U0f-kN-i9I" firstAttribute="leading" secondItem="AgN-Mg-Kje" secondAttribute="trailing" id="ypF-df-B3R"/>
                                             <constraint firstItem="714-rj-8ci" firstAttribute="width" secondItem="U0f-kN-i9I" secondAttribute="width" id="zgV-w5-nMR"/>
-                                            <constraint firstItem="jAk-SE-8g2" firstAttribute="leading" secondItem="vCg-AX-TXu" secondAttribute="trailing" id="zpT-31-AF5"/>
+                                            <constraint firstItem="jAk-SE-8g2" firstAttribute="leading" secondItem="vCg-AX-TXu" secondAttribute="trailing" constant="-2" id="zpT-31-AF5"/>
                                         </constraints>
                                         <connections>
                                             <action selector="contentTouchDown:" destination="L0E-W2-VD1" eventType="touchDown" id="ODQ-fA-I9i"/>
@@ -611,6 +624,7 @@
                         <outlet property="ageLabel" destination="EJA-GM-edC" id="ddd-VR-XVb"/>
                         <outlet property="agePicker" destination="jLe-BC-amU" id="SP2-wC-58o"/>
                         <outlet property="catagoryLabel" destination="Hac-es-vMB" id="alc-pB-7cX"/>
+                        <outlet property="icyImageView" destination="eKE-Pm-0GH" id="Vmr-h0-oZH"/>
                         <outlet property="nicknameLabel" destination="PBz-2q-d2N" id="LC0-NH-pDb"/>
                         <outlet property="pickerToolBar" destination="a7i-AG-bna" id="Yot-SH-xty"/>
                         <outlet property="sexImage" destination="u2j-mY-YUg" id="Uvb-Yd-rHA"/>
@@ -643,6 +657,11 @@
                     </items>
                     <color key="barTintColor" red="0.89019614459999996" green="0.96862751250000001" blue="0.99607849120000003" alpha="1" colorSpace="deviceRGB"/>
                 </toolbar>
+                <tapGestureRecognizer id="kF0-WU-OHQ">
+                    <connections>
+                        <action selector="imageTap:" destination="L0E-W2-VD1" id="dCl-0S-MFR"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1889" y="257"/>
         </scene>
@@ -925,8 +944,13 @@
         </scene>
     </scenes>
     <resources>
+        <image name="QRScanButton" width="127" height="127"/>
         <image name="addPetButton" width="300" height="45"/>
+        <image name="addPetCamera" width="19" height="14"/>
+        <image name="adoptButton" width="95" height="33"/>
+        <image name="breedingButton" width="95" height="33"/>
         <image name="detailDownButton" width="11" height="8"/>
+        <image name="fosterButton" width="95" height="33"/>
         <image name="icoMale" width="18" height="20"/>
         <image name="profileCare" width="18" height="18"/>
         <image name="profileFans" width="18" height="18"/>
