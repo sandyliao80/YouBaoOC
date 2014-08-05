@@ -42,6 +42,12 @@
 		28922340198240CF0073BADB /* RegisterDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2892233F198240CF0073BADB /* RegisterDetailViewController.m */; };
 		28922343198249400073BADB /* UIImage+LCYResize.m in Sources */ = {isa = PBXBuildFile; fileRef = 28922342198249400073BADB /* UIImage+LCYResize.m */; };
 		28B69B8D1990CDCA0039B146 /* QRScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B69B8C1990CDCA0039B146 /* QRScanViewController.m */; };
+		28B69D381990FC710039B146 /* EncyHomePageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B69D2C1990FC710039B146 /* EncyHomePageTableViewCell.m */; };
+		28B69D391990FC710039B146 /* ZXYDownCIDOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B69D2F1990FC710039B146 /* ZXYDownCIDOperation.m */; };
+		28B69D3A1990FC710039B146 /* ZXYEncyPicDown.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B69D311990FC710039B146 /* ZXYEncyPicDown.m */; };
+		28B69D3B1990FC710039B146 /* ZXYFileOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B69D331990FC710039B146 /* ZXYFileOperation.m */; };
+		28B69D3C1990FC710039B146 /* ZXYNETHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B69D351990FC710039B146 /* ZXYNETHelper.m */; };
+		28B69D3D1990FC710039B146 /* ZXYProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B69D371990FC710039B146 /* ZXYProvider.m */; };
 		83A93C91E0F34B08851EE991 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEF990BC1DD24D8D89234D90 /* libPods.a */; };
 		8BAB3B091990ABC800FD3BA0 /* EncyHomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BAB3B081990ABC800FD3BA0 /* EncyHomePageViewController.m */; };
 		8BAB3B0C1990ABCF00FD3BA0 /* EveryDayPushViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BAB3B0B1990ABCF00FD3BA0 /* EveryDayPushViewController.m */; };
@@ -129,6 +135,20 @@
 		28922342198249400073BADB /* UIImage+LCYResize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+LCYResize.m"; sourceTree = "<group>"; };
 		28B69B8B1990CDCA0039B146 /* QRScanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRScanViewController.h; sourceTree = "<group>"; };
 		28B69B8C1990CDCA0039B146 /* QRScanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRScanViewController.m; sourceTree = "<group>"; };
+		28B69D2A1990FC710039B146 /* EN_PreDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EN_PreDefine.h; sourceTree = "<group>"; };
+		28B69D2B1990FC710039B146 /* EncyHomePageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EncyHomePageTableViewCell.h; sourceTree = "<group>"; };
+		28B69D2C1990FC710039B146 /* EncyHomePageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EncyHomePageTableViewCell.m; sourceTree = "<group>"; };
+		28B69D2D1990FC710039B146 /* NetHelperDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetHelperDelegate.h; sourceTree = "<group>"; };
+		28B69D2E1990FC710039B146 /* ZXYDownCIDOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZXYDownCIDOperation.h; sourceTree = "<group>"; };
+		28B69D2F1990FC710039B146 /* ZXYDownCIDOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZXYDownCIDOperation.m; sourceTree = "<group>"; };
+		28B69D301990FC710039B146 /* ZXYEncyPicDown.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZXYEncyPicDown.h; sourceTree = "<group>"; };
+		28B69D311990FC710039B146 /* ZXYEncyPicDown.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZXYEncyPicDown.m; sourceTree = "<group>"; };
+		28B69D321990FC710039B146 /* ZXYFileOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZXYFileOperation.h; sourceTree = "<group>"; };
+		28B69D331990FC710039B146 /* ZXYFileOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZXYFileOperation.m; sourceTree = "<group>"; };
+		28B69D341990FC710039B146 /* ZXYNETHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZXYNETHelper.h; sourceTree = "<group>"; };
+		28B69D351990FC710039B146 /* ZXYNETHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZXYNETHelper.m; sourceTree = "<group>"; };
+		28B69D361990FC710039B146 /* ZXYProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZXYProvider.h; sourceTree = "<group>"; };
+		28B69D371990FC710039B146 /* ZXYProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZXYProvider.m; sourceTree = "<group>"; };
 		75673EC2383043228793768F /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		8BAB3B071990ABC800FD3BA0 /* EncyHomePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EncyHomePageViewController.h; sourceTree = "<group>"; };
 		8BAB3B081990ABC800FD3BA0 /* EncyHomePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EncyHomePageViewController.m; sourceTree = "<group>"; };
@@ -312,6 +332,20 @@
 		8BAB3B061990ABBD00FD3BA0 /* EncyloFolder */ = {
 			isa = PBXGroup;
 			children = (
+				28B69D2A1990FC710039B146 /* EN_PreDefine.h */,
+				28B69D2B1990FC710039B146 /* EncyHomePageTableViewCell.h */,
+				28B69D2C1990FC710039B146 /* EncyHomePageTableViewCell.m */,
+				28B69D2D1990FC710039B146 /* NetHelperDelegate.h */,
+				28B69D2E1990FC710039B146 /* ZXYDownCIDOperation.h */,
+				28B69D2F1990FC710039B146 /* ZXYDownCIDOperation.m */,
+				28B69D301990FC710039B146 /* ZXYEncyPicDown.h */,
+				28B69D311990FC710039B146 /* ZXYEncyPicDown.m */,
+				28B69D321990FC710039B146 /* ZXYFileOperation.h */,
+				28B69D331990FC710039B146 /* ZXYFileOperation.m */,
+				28B69D341990FC710039B146 /* ZXYNETHelper.h */,
+				28B69D351990FC710039B146 /* ZXYNETHelper.m */,
+				28B69D361990FC710039B146 /* ZXYProvider.h */,
+				28B69D371990FC710039B146 /* ZXYProvider.m */,
 				8BAB3B071990ABC800FD3BA0 /* EncyHomePageViewController.h */,
 				8BAB3B081990ABC800FD3BA0 /* EncyHomePageViewController.m */,
 				8BAB3B0A1990ABCF00FD3BA0 /* EveryDayPushViewController.h */,
@@ -467,6 +501,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28B69D3D1990FC710039B146 /* ZXYProvider.m in Sources */,
 				2869796A1986558D0098F6A3 /* MainViewController.m in Sources */,
 				8BAB3B0C1990ABCF00FD3BA0 /* EveryDayPushViewController.m in Sources */,
 				28895086198B2D8C00696A95 /* SecondFilterTableViewCell.m in Sources */,
@@ -476,12 +511,17 @@
 				285D89B4198A295A005DFBEB /* HomePageViewController.m in Sources */,
 				28922343198249400073BADB /* UIImage+LCYResize.m in Sources */,
 				285D89BE198A2D31005DFBEB /* searchAllTypePetsBase.m in Sources */,
+				28B69D3A1990FC710039B146 /* ZXYEncyPicDown.m in Sources */,
 				2832DC6C19812D87004BBAB5 /* LCYNetworking.m in Sources */,
 				281111921979183C000A72D7 /* YouBaoOC.xcdatamodeld in Sources */,
 				285D89BD198A2D31005DFBEB /* searchAllTypePetsFatherStyle.m in Sources */,
+				28B69D381990FC710039B146 /* EncyHomePageTableViewCell.m in Sources */,
 				285D89B7198A2B3D005DFBEB /* FilterViewController.m in Sources */,
 				285D89B11989E1BB005DFBEB /* LCYGlobal.m in Sources */,
 				2868EC99198F79E700D8726E /* ProfileHomePetCell.m in Sources */,
+				28B69D3C1990FC710039B146 /* ZXYNETHelper.m in Sources */,
+				28B69D3B1990FC710039B146 /* ZXYFileOperation.m in Sources */,
+				28B69D391990FC710039B146 /* ZXYDownCIDOperation.m in Sources */,
 				286979661985F5AA0098F6A3 /* WelcomeCell.m in Sources */,
 				2811118F1979183C000A72D7 /* AppDelegate.m in Sources */,
 				2889508C198B315500696A95 /* SearchDetailByIDChildStyle.m in Sources */,
