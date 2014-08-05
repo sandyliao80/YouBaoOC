@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6185.11" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="KKL-vN-PsA">
     <dependencies>
-        <deployment defaultVersion="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6190.4"/>
     </dependencies>
     <scenes>
@@ -463,25 +462,25 @@
                                                     <action selector="adoptButtonPressed:" destination="L0E-W2-VD1" eventType="touchUpInside" id="RRE-vl-GR6"/>
                                                 </connections>
                                             </button>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="714-rj-8ci">
+                                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="714-rj-8ci">
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" id="aJr-V5-wPX"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PZE-HT-nDX">
+                                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PZE-HT-nDX">
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" id="fbf-pp-Qos"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jAk-SE-8g2">
+                                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jAk-SE-8g2">
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" id="wHZ-gn-Z8O"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U0f-kN-i9I">
+                                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="U0f-kN-i9I">
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" id="e2J-XB-Ve9"/>
@@ -692,31 +691,31 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="a0B-x6-jMc" kind="relationship" relationship="rootViewController" id="Sc6-aU-gBM"/>
+                        <segue destination="KPC-3l-eWK" kind="relationship" relationship="rootViewController" id="4C8-4L-Vsl"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZS3-Fd-qK2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1076" y="1000"/>
         </scene>
-        <!--百科-->
-        <scene sceneID="9kn-Jb-up5">
+        <!--Ency Home Page View Controller-->
+        <scene sceneID="rrZ-gV-KUr">
             <objects>
-                <viewController id="a0B-x6-jMc" userLabel="百科" sceneMemberID="viewController">
+                <viewController id="KPC-3l-eWK" customClass="EncyHomePageViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="B5S-w8-fMh"/>
-                        <viewControllerLayoutGuide type="bottom" id="CqD-nl-wBr"/>
+                        <viewControllerLayoutGuide type="top" id="pUK-hV-59J"/>
+                        <viewControllerLayoutGuide type="bottom" id="AgA-BU-ga0"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="D01-do-Hda">
+                    <view key="view" contentMode="scaleToFill" id="zbB-Cv-Kqd">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="aqW-we-xET"/>
+                    <navigationItem key="navigationItem" id="fXH-Iv-rQm"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="AvB-Fl-7GC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GRG-qT-3NB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1471" y="1000"/>
+            <point key="canvasLocation" x="1497" y="1000"/>
         </scene>
         <!--首页-->
         <scene sceneID="odT-5c-2wz">
