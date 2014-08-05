@@ -42,6 +42,9 @@
 		28922340198240CF0073BADB /* RegisterDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2892233F198240CF0073BADB /* RegisterDetailViewController.m */; };
 		28922343198249400073BADB /* UIImage+LCYResize.m in Sources */ = {isa = PBXBuildFile; fileRef = 28922342198249400073BADB /* UIImage+LCYResize.m */; };
 		83A93C91E0F34B08851EE991 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEF990BC1DD24D8D89234D90 /* libPods.a */; };
+		8BAB3B091990ABC800FD3BA0 /* EncyHomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BAB3B081990ABC800FD3BA0 /* EncyHomePageViewController.m */; };
+		8BAB3B0C1990ABCF00FD3BA0 /* EveryDayPushViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BAB3B0B1990ABCF00FD3BA0 /* EveryDayPushViewController.m */; };
+		8BAB3B0E1990ABEF00FD3BA0 /* Encyclope.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BAB3B0D1990ABEF00FD3BA0 /* Encyclope.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -124,6 +127,11 @@
 		28922341198249400073BADB /* UIImage+LCYResize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+LCYResize.h"; sourceTree = "<group>"; };
 		28922342198249400073BADB /* UIImage+LCYResize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+LCYResize.m"; sourceTree = "<group>"; };
 		75673EC2383043228793768F /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		8BAB3B071990ABC800FD3BA0 /* EncyHomePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EncyHomePageViewController.h; sourceTree = "<group>"; };
+		8BAB3B081990ABC800FD3BA0 /* EncyHomePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EncyHomePageViewController.m; sourceTree = "<group>"; };
+		8BAB3B0A1990ABCF00FD3BA0 /* EveryDayPushViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EveryDayPushViewController.h; sourceTree = "<group>"; };
+		8BAB3B0B1990ABCF00FD3BA0 /* EveryDayPushViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EveryDayPushViewController.m; sourceTree = "<group>"; };
+		8BAB3B0D1990ABEF00FD3BA0 /* Encyclope.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Encyclope.storyboard; sourceTree = "<group>"; };
 		CEF990BC1DD24D8D89234D90 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -184,13 +192,14 @@
 		281111881979183C000A72D7 /* YouBaoOC */ = {
 			isa = PBXGroup;
 			children = (
+				8BAB3B061990ABBD00FD3BA0 /* EncyloFolder */,
 				2869796B198656FC0098F6A3 /* profile */,
-				2869796C198656FC0098F6A3 /* wiki */,
 				28697967198655750098F6A3 /* Homepage */,
 				2832DC601980EFA9004BBAB5 /* RegisterAndLogin */,
 				280FB68C1980D65100C434A8 /* Common */,
 				2811118D1979183C000A72D7 /* AppDelegate.h */,
 				2811118E1979183C000A72D7 /* AppDelegate.m */,
+				8BAB3B0D1990ABEF00FD3BA0 /* Encyclope.storyboard */,
 				281111961979183D000A72D7 /* Main.storyboard */,
 				280FB6921980E34E00C434A8 /* RegisterAndLogin.storyboard */,
 				281111991979183D000A72D7 /* Images.xcassets */,
@@ -295,11 +304,16 @@
 			path = profile;
 			sourceTree = "<group>";
 		};
-		2869796C198656FC0098F6A3 /* wiki */ = {
+		8BAB3B061990ABBD00FD3BA0 /* EncyloFolder */ = {
 			isa = PBXGroup;
 			children = (
+				8BAB3B071990ABC800FD3BA0 /* EncyHomePageViewController.h */,
+				8BAB3B081990ABC800FD3BA0 /* EncyHomePageViewController.m */,
+				8BAB3B0A1990ABCF00FD3BA0 /* EveryDayPushViewController.h */,
+				8BAB3B0B1990ABCF00FD3BA0 /* EveryDayPushViewController.m */,
 			);
-			path = wiki;
+			name = EncyloFolder;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		D404DB6CB11C422DA2E6FB61 /* Frameworks */ = {
@@ -395,6 +409,7 @@
 			files = (
 				281111981979183D000A72D7 /* Main.storyboard in Resources */,
 				286099A1198769DE00CB86D6 /* PetCoreDataPreloader.sqlite in Resources */,
+				8BAB3B0E1990ABEF00FD3BA0 /* Encyclope.storyboard in Resources */,
 				280FB6931980E34E00C434A8 /* RegisterAndLogin.storyboard in Resources */,
 				2811119A1979183D000A72D7 /* Images.xcassets in Resources */,
 			);
@@ -448,6 +463,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2869796A1986558D0098F6A3 /* MainViewController.m in Sources */,
+				8BAB3B0C1990ABCF00FD3BA0 /* EveryDayPushViewController.m in Sources */,
 				28895086198B2D8C00696A95 /* SecondFilterTableViewCell.m in Sources */,
 				28922340198240CF0073BADB /* RegisterDetailViewController.m in Sources */,
 				2868EC90198F79A500D8726E /* ProfileHomeAvatarCell.m in Sources */,
@@ -468,6 +484,7 @@
 				2868EC93198F79BB00D8726E /* ProfileHomeLikeCell.m in Sources */,
 				285D89C1198A374A005DFBEB /* FilterTableViewCell.m in Sources */,
 				2869796F1986571B0098F6A3 /* ProfileHomeViewController.m in Sources */,
+				8BAB3B091990ABC800FD3BA0 /* EncyHomePageViewController.m in Sources */,
 				2811118C1979183C000A72D7 /* main.m in Sources */,
 				280FB68F1980D66C00C434A8 /* LCYCommon.m in Sources */,
 				286099A41987762800CB86D6 /* Region.m in Sources */,
