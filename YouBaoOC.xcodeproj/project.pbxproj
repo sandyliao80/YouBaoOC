@@ -41,6 +41,7 @@
 		2889508D198B315500696A95 /* SearchDetailByIDBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 2889508B198B315500696A95 /* SearchDetailByIDBase.m */; };
 		28922340198240CF0073BADB /* RegisterDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2892233F198240CF0073BADB /* RegisterDetailViewController.m */; };
 		28922343198249400073BADB /* UIImage+LCYResize.m in Sources */ = {isa = PBXBuildFile; fileRef = 28922342198249400073BADB /* UIImage+LCYResize.m */; };
+		28B69B8D1990CDCA0039B146 /* QRScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B69B8C1990CDCA0039B146 /* QRScanViewController.m */; };
 		83A93C91E0F34B08851EE991 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEF990BC1DD24D8D89234D90 /* libPods.a */; };
 		8BAB3B091990ABC800FD3BA0 /* EncyHomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BAB3B081990ABC800FD3BA0 /* EncyHomePageViewController.m */; };
 		8BAB3B0C1990ABCF00FD3BA0 /* EveryDayPushViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BAB3B0B1990ABCF00FD3BA0 /* EveryDayPushViewController.m */; };
@@ -126,6 +127,8 @@
 		2892233F198240CF0073BADB /* RegisterDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterDetailViewController.m; sourceTree = "<group>"; };
 		28922341198249400073BADB /* UIImage+LCYResize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+LCYResize.h"; sourceTree = "<group>"; };
 		28922342198249400073BADB /* UIImage+LCYResize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+LCYResize.m"; sourceTree = "<group>"; };
+		28B69B8B1990CDCA0039B146 /* QRScanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRScanViewController.h; sourceTree = "<group>"; };
+		28B69B8C1990CDCA0039B146 /* QRScanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRScanViewController.m; sourceTree = "<group>"; };
 		75673EC2383043228793768F /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		8BAB3B071990ABC800FD3BA0 /* EncyHomePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EncyHomePageViewController.h; sourceTree = "<group>"; };
 		8BAB3B081990ABC800FD3BA0 /* EncyHomePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EncyHomePageViewController.m; sourceTree = "<group>"; };
@@ -300,6 +303,8 @@
 				2868EC9B198F7A1900D8726E /* ProfileHomeButtonCell.m */,
 				2868EC9D198F99F500D8726E /* AddPetViewController.h */,
 				2868EC9E198F99F500D8726E /* AddPetViewController.m */,
+				28B69B8B1990CDCA0039B146 /* QRScanViewController.h */,
+				28B69B8C1990CDCA0039B146 /* QRScanViewController.m */,
 			);
 			path = profile;
 			sourceTree = "<group>";
@@ -486,6 +491,7 @@
 				2869796F1986571B0098F6A3 /* ProfileHomeViewController.m in Sources */,
 				8BAB3B091990ABC800FD3BA0 /* EncyHomePageViewController.m in Sources */,
 				2811118C1979183C000A72D7 /* main.m in Sources */,
+				28B69B8D1990CDCA0039B146 /* QRScanViewController.m in Sources */,
 				280FB68F1980D66C00C434A8 /* LCYCommon.m in Sources */,
 				286099A41987762800CB86D6 /* Region.m in Sources */,
 				2832DC631980EFCE004BBAB5 /* RegisterAndLoginViewController.m in Sources */,

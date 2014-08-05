@@ -45,6 +45,8 @@
 
 @property (strong, nonatomic) UIImagePickerController *picker;
 
+@property (strong, nonatomic) SearchDetailByIDChildStyle *category;
+
 @end
 
 @implementation AddPetViewController
@@ -125,6 +127,26 @@
 }
 
 - (void)saveButtonPressed:(id)sender{
+    if (!self.icyImageView.image) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"请您上传宠物头像" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+        [alert show];
+    } else if ([self.nicknameLabel.text isEqualToString:@""]) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"请您填写宠物昵称" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+        [alert show];
+    } else if ([self.catagoryLabel.text isEqualToString:@""]) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"请您选择宠物种类" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+        [alert show];
+    } else {
+        // 开始上传
+        NSData *avatarData = UIImagePNGRepresentation(self.icyImageView.image);
+        NSString *petName = self.nicknameLabel.text;
+        NSNumber *petSex = (self.currentSex==PetSexMale) ? @0 : @1;
+        NSString *petCategory = self.category.catId;
+        NSNumber *petAge = self.ageMap[self.ageLabel.text];
+        NSNumber *breeding = (self.currentPetMisc&PetMiscOptionBreeding)==0?@0:@1;
+        NSNumber *adopt = (self.currentPetMisc&PetMiscOptionAdopt)==0?@0:@1;
+        NSNumber *foster = (self.currentPetMisc&PetMiscOptionFostered)==0?@0:@1;
+    }
 }
 
 - (IBAction)sexButtonPressed:(id)sender {
@@ -140,29 +162,29 @@
 - (IBAction)breedingButtonPressed:(UIButton *)sender {
     if ((self.currentPetMisc&PetMiscOptionBreeding)!=0) {
         self.currentPetMisc^=PetMiscOptionBreeding;
-        sender.backgroundColor = THEME_LIGHT_COLOR;
+        [sender setImage:[UIImage imageNamed:@"breedingButton"] forState:UIControlStateNormal];
     } else {
         self.currentPetMisc^=PetMiscOptionBreeding;
-        sender.backgroundColor = THEME_PINK;
+        [sender setImage:[UIImage imageNamed:@"breedingDown"] forState:UIControlStateNormal];
     }
 }
 
 - (IBAction)adoptButtonPressed:(UIButton *)sender {
     if ((self.currentPetMisc&PetMiscOptionAdopt)!=0) {
         self.currentPetMisc^=PetMiscOptionAdopt;
-        sender.backgroundColor = THEME_LIGHT_COLOR;
+        [sender setImage:[UIImage imageNamed:@"adoptButton"] forState:UIControlStateNormal];
     } else {
         self.currentPetMisc^=PetMiscOptionAdopt;
-        sender.backgroundColor = THEME_PINK;
+        [sender setImage:[UIImage imageNamed:@"adoptDown"] forState:UIControlStateNormal];
     }
 }
 - (IBAction)fosterredButtonPressed:(UIButton *)sender {
     if ((self.currentPetMisc&PetMiscOptionFostered)!=0) {
         self.currentPetMisc^=PetMiscOptionFostered;
-        sender.backgroundColor = THEME_LIGHT_COLOR;
+        [sender setImage:[UIImage imageNamed:@"fosterButton"] forState:UIControlStateNormal];
     } else {
         self.currentPetMisc^=PetMiscOptionFostered;
-        sender.backgroundColor = THEME_PINK;
+        [sender setImage:[UIImage imageNamed:@"fosterDown"] forState:UIControlStateNormal];
     }
 }
 
@@ -231,6 +253,7 @@
 
 #pragma mark - FilterDelegate
 - (void)filterDidSelected:(SearchDetailByIDChildStyle *)category{
+    self.category = category;
     self.catagoryLabel.text = category.name;
 }
 
