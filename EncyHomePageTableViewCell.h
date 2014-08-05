@@ -15,4 +15,5 @@
 @property(nonatomic,strong)IBOutlet UIImageView *titleImage;
 @property(nonatomic,strong)IBOutlet UILabel *collectNum;
 @property(nonatomic,strong)IBOutlet UILabel *readNum;
+@property(nonatomic,strong)IBOutlet UIImageView *backG;
 @end

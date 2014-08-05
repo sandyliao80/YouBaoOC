@@ -82,6 +82,7 @@
     self.everyDayPush.textColor = [UIColor colorWithRed:0.3882 green:0.6235 blue:0.7569 alpha:1];
     [self.moreInfo setTitleColor:[UIColor colorWithRed:0.3882 green:0.6235 blue:0.7569 alpha:1] forState:UIControlStateNormal];
     [self.moreInfo setTitleColor:[UIColor colorWithRed:0.3882 green:0.6235 blue:0.7569 alpha:1] forState:UIControlStateHighlighted];
+    self.view.backgroundColor = [UIColor colorWithRed:225.0/255.0 green:239.0/255.0 blue:244.0/255.0 alpha:1];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -128,6 +129,15 @@
     NSString *imageUrl = [dataDic objectForKey:@"enImage_U"];
     NSString *lastURL = [imageUrl componentsSeparatedByString:@"/"].lastObject;
     NSString *filePath = [fileOperation cidImagePath:lastURL];
+    if(indexPath.row%2==0)
+    {
+        cell.backG.backgroundColor = [UIColor colorWithRed:221.0/255.0 green:245.0/255.0 blue:254.0/255.0 alpha:1];
+    }
+    else
+    {
+        cell.backG.backgroundColor = [UIColor colorWithRed:231.0/255.0 green:231.0/255.0 blue:231.0/255.0 alpha:1];
+    }
+    
     if([fileOperation fileExistsAtPath:filePath])
     {
         cell.titleImage.image = [UIImage imageWithData:[NSData dataWithContentsOfFile:filePath]];

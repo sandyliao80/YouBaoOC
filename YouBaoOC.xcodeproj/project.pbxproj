@@ -46,6 +46,16 @@
 		8BAB3B091990ABC800FD3BA0 /* EncyHomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BAB3B081990ABC800FD3BA0 /* EncyHomePageViewController.m */; };
 		8BAB3B0C1990ABCF00FD3BA0 /* EveryDayPushViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BAB3B0B1990ABCF00FD3BA0 /* EveryDayPushViewController.m */; };
 		8BAB3B0E1990ABEF00FD3BA0 /* Encyclope.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BAB3B0D1990ABEF00FD3BA0 /* Encyclope.storyboard */; };
+<<<<<<< HEAD
+=======
+		8BAB3B121990B3C100FD3BA0 /* EncyHomePageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BAB3B111990B3C100FD3BA0 /* EncyHomePageTableViewCell.m */; };
+		8BAB3B161990D4C700FD3BA0 /* ZXYFileOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BAB3B151990D4C700FD3BA0 /* ZXYFileOperation.m */; };
+		8BAB3B1E1990D50800FD3BA0 /* ZXYNETHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BAB3B1D1990D50800FD3BA0 /* ZXYNETHelper.m */; };
+		8BAB3B221990D56800FD3BA0 /* ZXYProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BAB3B211990D56800FD3BA0 /* ZXYProvider.m */; };
+		8BAB3B281990D66300FD3BA0 /* ZXYDownCIDOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BAB3B271990D66300FD3BA0 /* ZXYDownCIDOperation.m */; };
+		8BAB3B2B1990DA1400FD3BA0 /* ZXYEncyPicDown.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BAB3B2A1990DA1400FD3BA0 /* ZXYEncyPicDown.m */; };
+		8BAB3B321990EC9A00FD3BA0 /* EncyHomeDetailHomePage.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BAB3B311990EC9A00FD3BA0 /* EncyHomeDetailHomePage.m */; };
+>>>>>>> pr/3
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -135,6 +145,25 @@
 		8BAB3B0A1990ABCF00FD3BA0 /* EveryDayPushViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EveryDayPushViewController.h; sourceTree = "<group>"; };
 		8BAB3B0B1990ABCF00FD3BA0 /* EveryDayPushViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EveryDayPushViewController.m; sourceTree = "<group>"; };
 		8BAB3B0D1990ABEF00FD3BA0 /* Encyclope.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Encyclope.storyboard; sourceTree = "<group>"; };
+<<<<<<< HEAD
+=======
+		8BAB3B101990B3C100FD3BA0 /* EncyHomePageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EncyHomePageTableViewCell.h; sourceTree = "<group>"; };
+		8BAB3B111990B3C100FD3BA0 /* EncyHomePageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EncyHomePageTableViewCell.m; sourceTree = "<group>"; };
+		8BAB3B141990D4C700FD3BA0 /* ZXYFileOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZXYFileOperation.h; sourceTree = "<group>"; };
+		8BAB3B151990D4C700FD3BA0 /* ZXYFileOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZXYFileOperation.m; sourceTree = "<group>"; };
+		8BAB3B1B1990D50800FD3BA0 /* NetHelperDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetHelperDelegate.h; sourceTree = "<group>"; };
+		8BAB3B1C1990D50800FD3BA0 /* ZXYNETHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZXYNETHelper.h; sourceTree = "<group>"; };
+		8BAB3B1D1990D50800FD3BA0 /* ZXYNETHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZXYNETHelper.m; sourceTree = "<group>"; };
+		8BAB3B201990D56800FD3BA0 /* ZXYProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZXYProvider.h; sourceTree = "<group>"; };
+		8BAB3B211990D56800FD3BA0 /* ZXYProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZXYProvider.m; sourceTree = "<group>"; };
+		8BAB3B261990D66300FD3BA0 /* ZXYDownCIDOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZXYDownCIDOperation.h; sourceTree = "<group>"; };
+		8BAB3B271990D66300FD3BA0 /* ZXYDownCIDOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZXYDownCIDOperation.m; sourceTree = "<group>"; };
+		8BAB3B291990DA1400FD3BA0 /* ZXYEncyPicDown.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZXYEncyPicDown.h; sourceTree = "<group>"; };
+		8BAB3B2A1990DA1400FD3BA0 /* ZXYEncyPicDown.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZXYEncyPicDown.m; sourceTree = "<group>"; };
+		8BAB3B2F1990E06900FD3BA0 /* EN_PreDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EN_PreDefine.h; sourceTree = "<group>"; };
+		8BAB3B301990EC9A00FD3BA0 /* EncyHomeDetailHomePage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EncyHomeDetailHomePage.h; sourceTree = "<group>"; };
+		8BAB3B311990EC9A00FD3BA0 /* EncyHomeDetailHomePage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EncyHomeDetailHomePage.m; sourceTree = "<group>"; };
+>>>>>>> pr/3
 		CEF990BC1DD24D8D89234D90 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -314,6 +343,12 @@
 			children = (
 				8BAB3B071990ABC800FD3BA0 /* EncyHomePageViewController.h */,
 				8BAB3B081990ABC800FD3BA0 /* EncyHomePageViewController.m */,
+<<<<<<< HEAD
+=======
+				8BAB3B301990EC9A00FD3BA0 /* EncyHomeDetailHomePage.h */,
+				8BAB3B311990EC9A00FD3BA0 /* EncyHomeDetailHomePage.m */,
+				8BAB3B0F1990B39500FD3BA0 /* encyHomeCell */,
+>>>>>>> pr/3
 				8BAB3B0A1990ABCF00FD3BA0 /* EveryDayPushViewController.h */,
 				8BAB3B0B1990ABCF00FD3BA0 /* EveryDayPushViewController.m */,
 			);
@@ -479,6 +514,7 @@
 				2832DC6C19812D87004BBAB5 /* LCYNetworking.m in Sources */,
 				281111921979183C000A72D7 /* YouBaoOC.xcdatamodeld in Sources */,
 				285D89BD198A2D31005DFBEB /* searchAllTypePetsFatherStyle.m in Sources */,
+				8BAB3B321990EC9A00FD3BA0 /* EncyHomeDetailHomePage.m in Sources */,
 				285D89B7198A2B3D005DFBEB /* FilterViewController.m in Sources */,
 				285D89B11989E1BB005DFBEB /* LCYGlobal.m in Sources */,
 				2868EC99198F79E700D8726E /* ProfileHomePetCell.m in Sources */,
