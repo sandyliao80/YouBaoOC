@@ -15,6 +15,7 @@
 #ifdef __OBJC__
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
+#import "EN_PreDefine.h"
 #endif
 
 #define THEME_COLOR [UIColor colorWithRed:140.0f/255.0f green:196.0f/255.0f blue:223.0f/255.0f alpha:1.0f]
