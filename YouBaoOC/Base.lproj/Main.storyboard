@@ -435,7 +435,6 @@
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HdS-1q-tZF">
                                                 <rect key="frame" x="9" y="211" width="95" height="33"/>
-                                                <color key="backgroundColor" red="0.89019614459999996" green="0.96862751250000001" blue="0.99607849120000003" alpha="1" colorSpace="deviceRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="95" id="Yrq-sN-eAb"/>
                                                     <constraint firstAttribute="height" constant="33" id="snA-ac-B1N"/>
@@ -450,7 +449,6 @@
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vCg-AX-TXu">
                                                 <rect key="frame" x="114" y="211" width="95" height="33"/>
-                                                <color key="backgroundColor" red="0.89019614459999996" green="0.96862751250000001" blue="0.99607849120000003" alpha="1" colorSpace="deviceRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="95" id="cUK-ot-iHs"/>
                                                     <constraint firstAttribute="height" constant="33" id="oy8-7Z-zgn"/>
@@ -541,7 +539,6 @@
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AgN-Mg-Kje">
                                                 <rect key="frame" x="216" y="211" width="95" height="33"/>
-                                                <color key="backgroundColor" red="0.89019614459999996" green="0.96862751250000001" blue="0.99607849120000003" alpha="1" colorSpace="deviceRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="33" id="EBh-bc-QLC"/>
                                                     <constraint firstAttribute="width" constant="95" id="ZhS-lY-ffu"/>
