@@ -92,7 +92,7 @@
     rightBtn.layer.masksToBounds = YES;
     [rightBtn setTitle:@"分类" forState:UIControlStateNormal];
     [rightBtn setTitle:@"分类" forState:UIControlStateHighlighted];
-    [rightBtn addTarget:self action:@selector(leftItemAction) forControlEvents:UIControlEventTouchUpInside];
+    [rightBtn addTarget:self action:@selector(rightItemAction) forControlEvents:UIControlEventTouchUpInside];
     [rightBtn setBackgroundColor:[UIColor colorWithRed:0.3882 green:0.6235 blue:0.7569 alpha:1]];
     UIBarButtonItem *rightBtnItem = [[UIBarButtonItem alloc] initWithCustomView:rightBtn];
     [self.navigationItem setRightBarButtonItem:rightBtnItem];
@@ -120,9 +120,11 @@
     
 }
 
+// !!!:分类
 - (void)rightItemAction
 {
-    
+    NSLog(@"haha");
+    [self performSegueWithIdentifier:@"en_clopCategorySegue" sender:nil];
 }
 
 - (void)reloadDataMethod
@@ -215,6 +217,22 @@
     else
     {
         return 64;
+    }
+}
+
+- (BOOL)tableView:(UITableView *)tableView shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(indexPath.section == 0)
+    {
+        return  NO;
+    }
+    else if(indexPath.section ==1)
+    {
+        return NO;
+    }
+    else
+    {
+        return YES;
     }
 }
 
