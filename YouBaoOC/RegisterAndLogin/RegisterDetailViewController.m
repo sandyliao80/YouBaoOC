@@ -428,5 +428,8 @@ typedef NS_ENUM(NSUInteger, RegisterDetailGender) {
     }
 }
 
+- (void)specialCharacters:(NSString *)string{
+}
+
 
 @end
