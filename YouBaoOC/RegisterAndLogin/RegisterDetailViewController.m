@@ -47,6 +47,9 @@ typedef NS_ENUM(NSUInteger, RegisterDetailGender) {
 @property (nonatomic) BOOL nameOK;
 @property (nonatomic) BOOL placeOK;
 @property (nonatomic) NSInteger regionResult;
+@property (nonatomic) NSInteger regionTown;
+@property (nonatomic) NSInteger regionCity;
+@property (nonatomic) NSInteger regionProvince;
 
 @end
 
@@ -58,6 +61,9 @@ typedef NS_ENUM(NSUInteger, RegisterDetailGender) {
     AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
     self.context = appDelegate.managedObjectContext;
     self.regionResult = -1;
+    self.regionTown = 0;
+    self.regionCity = 0;
+    self.regionProvince = 0;
     
     self.avatarOK = NO;
     self.nameOK = NO;
@@ -172,12 +178,14 @@ typedef NS_ENUM(NSUInteger, RegisterDetailGender) {
     Region *province = self.pickerData0[[self.pickerView selectedRowInComponent:0]];
     [regionString appendString:province.region_name];
     self.regionResult = [province.region_id integerValue];
+    self.regionProvince = self.regionResult;
     
     if (self.pickerData1.count > [self.pickerView selectedRowInComponent:1]) {
         Region *city = self.pickerData1[[self.pickerView selectedRowInComponent:1]];
         [regionString appendString:@" "];
         [regionString appendString:city.region_name];
         self.regionResult = [city.region_id integerValue];
+        self.regionCity = self.regionResult;
     }
     
     if (self.pickerData2.count > [self.pickerView selectedRowInComponent:2]) {
@@ -185,6 +193,7 @@ typedef NS_ENUM(NSUInteger, RegisterDetailGender) {
         [regionString appendString:@" "];
         [regionString appendString:district.region_name];
         self.regionResult = [district.region_id integerValue];
+        self.regionTown = self.regionResult;
     }
     
     self.cityTextField.text = regionString;
@@ -388,7 +397,10 @@ typedef NS_ENUM(NSUInteger, RegisterDetailGender) {
         NSDictionary *parameters = @{@"user_name"       : [LCYGlobal sharedInstance].currentUserID,
                                      @"password"        : [[LCYCommon sharedInstance] takePassword],
                                      @"nick_name"       : self.nameTextField.text,
-                                     @"city"            : [NSNumber numberWithInteger:self.regionResult],
+                                     @"town"            : [NSNumber numberWithInteger:self.regionTown],
+                                     @"city"            : [NSNumber numberWithInteger:self.regionCity],
+                                     @"province"        : [NSNumber numberWithInteger:self.regionProvince],
+//                                     @"city"            : [NSNumber numberWithInteger:self.regionResult],
                                      @"sex"             : self.currentGender == RegisterDetailGenderMale ? @"0" : @"1",
                                      @"Filedata"        : self.avatarData};
         [[LCYCommon sharedInstance] showTips:@"正在提交注册信息" inView:self.view];
