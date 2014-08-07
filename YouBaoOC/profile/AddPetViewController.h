@@ -31,6 +31,16 @@ typedef NS_OPTIONS(NSUInteger, PetMiscOption) {
     PetMiscOptionFostered = 1 << 2,     /**< 被寄养 */
 };
 
+@class AddPetViewController;
+@protocol AddPetDelegate <NSObject>
+
+@optional
+- (void)AddPetDidFinished:(AddPetViewController *)viewController;
+
+@end
+
 @interface AddPetViewController : UIViewController
+
+@property (weak, nonatomic) id<AddPetDelegate>delegate;
 
 @end

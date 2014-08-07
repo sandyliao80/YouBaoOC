@@ -81,6 +81,7 @@ static bool isFirstAccess = YES;
         if ([userDefaults boolForKey:UserDefaultIsUserLogin]) {
             NSDate *currentDate = [NSDate date];
             if ([currentDate timeIntervalSinceDate:[userDefaults objectForKey:UserDefaultLoginTime]] < LOGIN_EXPIRE_TIME) {
+                [LCYGlobal sharedInstance].currentUserID = [userDefaults objectForKey:UserDefaultUserName];
                 return YES;
             }
         }
@@ -113,6 +114,7 @@ static bool isFirstAccess = YES;
     NSDate *currentDate = [NSDate date];
     [userDefaults setObject:currentDate forKey:UserDefaultLoginTime];
     [userDefaults synchronize];
+    [LCYGlobal sharedInstance].currentUserID = [userDefaults objectForKey:UserDefaultUserName];
 }
 
 - (void)logout{

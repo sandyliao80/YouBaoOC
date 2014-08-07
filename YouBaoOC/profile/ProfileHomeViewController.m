@@ -14,8 +14,9 @@
 #import "ProfileHomeContentCell.h"
 #import "ProfileHomePetCell.h"
 #import "ProfileHomeButtonCell.h"
+#import "AddPetViewController.h"
 
-@interface ProfileHomeViewController ()<UITableViewDelegate, UITableViewDataSource>
+@interface ProfileHomeViewController ()<UITableViewDelegate, UITableViewDataSource, AddPetDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *icyTableView;
 
 @end
@@ -53,27 +54,24 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    if ([segue.identifier isEqualToString:@"addPetIdentifier"]) {
+        AddPetViewController *addPetVC = [segue destinationViewController];
+        addPetVC.delegate = self;
+    }
 }
-*/
+
 
 #pragma mark - Actions
-- (IBAction)logoutButtonPressed:(UIButton *)sender {
-    [[LCYCommon sharedInstance] logout];
-    AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
-    UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"RegisterAndLogin" bundle:nil];
-    UINavigationController *navigationVC = storyBoard.instantiateInitialViewController;
-    appDelegate.window.rootViewController = navigationVC;
-}
 
 - (void)settingButtonPressed:(id)sender{
-    
+    [self performSegueWithIdentifier:@"ProfileToSetting" sender:nil];
 }
 
 - (void)editingButtonPressed:(id)sender{
@@ -130,6 +128,11 @@
     }
 }
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+}
+
+#pragma mark - AddPetDelegate
+- (void)AddPetDidFinished:(AddPetViewController *)viewController{
     
 }
 

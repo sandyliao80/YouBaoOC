@@ -9,8 +9,10 @@
 #import "AddPetViewController.h"
 #import "FilterViewController.h"
 #import "UIImage+LCYResize.h"
+#import "QRScanViewController.h"
+#import "LCYCommon.h"
 
-@interface AddPetViewController ()<UITextFieldDelegate, SecondFilterDelegate, UIScrollViewDelegate, UIPickerViewDelegate, UIPickerViewDataSource, UIActionSheetDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate>
+@interface AddPetViewController ()<UITextFieldDelegate, SecondFilterDelegate, UIScrollViewDelegate, UIPickerViewDelegate, UIPickerViewDataSource, UIActionSheetDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate, QRScanDelegate>
 
 #pragma mark - View
 
@@ -32,6 +34,9 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *icyImageView;
 
+@property (weak, nonatomic) IBOutlet UISwitch *QRSwitch;
+
+
 #pragma mark - Properties
 
 @property (nonatomic) PetSex currentSex;
@@ -46,6 +51,8 @@
 @property (strong, nonatomic) UIImagePickerController *picker;
 
 @property (strong, nonatomic) SearchDetailByIDChildStyle *category;
+
+@property (strong, nonatomic) NSString *QRString;
 
 @end
 
@@ -70,6 +77,7 @@
                     @"10岁"   : @10,
                     @"大于10岁": @11};
     self.ageKeys = @[@"小于1岁", @"1岁", @"2岁", @"3岁", @"4岁", @"5岁", @"6岁", @"7岁", @"8岁", @"9岁", @"10岁", @"大于10岁"];
+    self.QRString = @"";
     
     UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [backBtn setFrame:CGRectMake(0, 0, 40, 40)];
@@ -111,6 +119,9 @@
     if ([segue.identifier isEqualToString:@"addPetPushFilter"]) {
         FilterViewController *filterVC = [segue destinationViewController];
         filterVC.delegate = self;
+    } else if ([segue.identifier isEqualToString:@"presentQRVC"]) {
+        QRScanViewController *qrVC = [segue destinationViewController];
+        qrVC.delegate = self;
     }
 }
 
@@ -146,6 +157,32 @@
         NSNumber *breeding = (self.currentPetMisc&PetMiscOptionBreeding)==0?@0:@1;
         NSNumber *adopt = (self.currentPetMisc&PetMiscOptionAdopt)==0?@0:@1;
         NSNumber *foster = (self.currentPetMisc&PetMiscOptionFostered)==0?@0:@1;
+        NSString *host = [LCYGlobal sharedInstance].currentUserID;
+        NSString *QRCode = ([self.QRSwitch isEnabled]&&[self.QRSwitch isOn])?self.QRString:@"";
+        
+        NSDictionary *parameters = @{@"user_id"     : host,
+                                     @"pet_name"    : petName,
+                                     @"cat_id"      : petCategory,
+                                     @"sex"         : petSex,
+                                     @"age"         : petAge,
+                                     @"tip"         : self.signLabel.text,
+                                     @"f_hybridization" : breeding,
+                                     @"f_adopt"     : adopt,
+                                     @"is_entrust"  : foster,
+                                     @"pet_code"    : QRCode};
+        [[LCYCommon sharedInstance] showTips:@"正在上传" inView:self.view];
+        [[LCYNetworking sharedInstance] postFileWithAPI:Pet_petAdd parameters:parameters fileKey:@"Filedata" fileData:avatarData fileName:@"avatar.png" mimeType:@"image/png" successBlock:^(NSDictionary *object) {
+            [[LCYCommon sharedInstance] hideTipsInView:self.view];
+            if (self.delegate &&
+                [self.delegate respondsToSelector:@selector(AddPetDidFinished:)]) {
+                [self.delegate AddPetDidFinished:self];
+            }
+            [self.navigationController popViewControllerAnimated:YES];
+        } failedBlock:^{
+            [[LCYCommon sharedInstance] hideTipsInView:self.view];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"上传失败" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+            [alert show];
+        }];
     }
 }
 
@@ -296,6 +333,16 @@
     UIImage *scaledImage = [originalImage imageByScalingAndCroppingForSize:CGSizeMake(200, 200)];
     
     self.icyImageView.image = scaledImage;
+}
+
+#pragma mark - QRScanDelegate
+- (void)QRScanViewController:(QRScanViewController *)QRScanVC didFinishScanned:(NSString *)info{
+    self.QRString = info;
+    [self.QRSwitch setEnabled:YES];
+}
+
+- (void)QRScanViewControllerDidCancled:(QRScanViewController *)QRScanVC{
+    
 }
 
 @end
