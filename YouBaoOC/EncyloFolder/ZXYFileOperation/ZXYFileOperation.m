@@ -114,4 +114,14 @@ static ZXYFileOperation *fileOperation;
     return returnString;
 
 }
+
+- (NSString *)pathTempFile:(NSString *)subDire andURL:(NSString *)urlString
+{
+    NSString *tempPath = [self tempPath];
+    NSString *cidImageDir = subDire;
+    NSString *file = [tempPath stringByAppendingPathComponent:cidImageDir];
+    [self createDirectoryAtPath:file withBool:YES];
+    NSString *returnString = [file stringByAppendingPathComponent:[NSString stringWithFormat:@"%@",urlString]];
+    return returnString;
+}
 @end

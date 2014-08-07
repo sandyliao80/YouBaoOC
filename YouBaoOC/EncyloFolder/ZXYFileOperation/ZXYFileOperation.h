@@ -32,4 +32,5 @@
  */
 - (NSString *)advertiseImagePath:(NSString *)urlString;
 - (NSString *)cidImagePath:(NSString *)urlString;
+- (NSString *)pathTempFile:(NSString *)subDire andURL:(NSString *)urlString;
 @end
