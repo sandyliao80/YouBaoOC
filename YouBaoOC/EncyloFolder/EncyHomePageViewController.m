@@ -7,19 +7,15 @@
 //
 
 #import "EncyHomePageViewController.h"
-#import "AppDelegate.h"
-#import "MBProgressHUD.h"
-#import "AFNetworking.h"
-#import "EncyHomePageTableViewCell.h"
-#import "ZXYNETHelper.h"
-#import "ZXYFileOperation.h"
-#import "EncyHomePageTableViewCell.h"
+#import "EncyAllNeedHeader.h"
+#import "EncyHomeCell/EncyHomeCellHeader.h"
 @interface EncyHomePageViewController ()<UITableViewDelegate,UITableViewDataSource>
 {
     NSMutableArray *allDataForShow;
     NSDictionary   *jsonDic ;
     ZXYFileOperation *fileOperation ;
     ZXYNETHelper *netHelper;
+    MBProgressHUD *mbProgress;
 }
 @property(nonatomic,strong)IBOutlet UITableView *currentTable;
 @property(nonatomic,strong)IBOutlet UILabel *everyDayPush;
@@ -30,19 +26,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    // !!!:为view注册通知
     NSNotificationCenter *datatnc = [NSNotificationCenter defaultCenter];
     [datatnc addObserver:self selector:@selector(reloadDataMethod) name:@"ency_noti" object:nil];
-    netHelper = [[ZXYNETHelper alloc] init];
-    fileOperation = [ZXYFileOperation sharedSelf];
-    jsonDic = [[NSDictionary alloc] init];
-    allDataForShow = [[NSMutableArray alloc] init];
-    UIButton *leftBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 24, 24)];
-    [leftBtn addTarget:self action:@selector(leftItemAction) forControlEvents:UIControlEventTouchUpInside];
-    [leftBtn setImage:[UIImage imageNamed:@"en_leftNavi"] forState:UIControlStateNormal];
-    [leftBtn setImage:[UIImage imageNamed:@"en_leftNavi"] forState:UIControlStateHighlighted];
-    UIBarButtonItem *leftBtnItem = [[UIBarButtonItem alloc] initWithCustomView:leftBtn];
-    [self.navigationItem setLeftBarButtonItem:leftBtnItem];
-    MBProgressHUD *mbProgress = [[MBProgressHUD alloc] initWithView:self.view];
+    //实例化初始变量
+    [self initObject];
+    //实例化导航栏
+    [self initNaviBar];
+    //实例化标题颜色
+    [self initColorOFTitle];
     [mbProgress show:YES];
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSDictionary *parameters = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:1001],@"petStyleID", nil];
@@ -72,7 +64,38 @@
         [mbProgress hide:YES];
         NSLog(@"operation is %@",error);
     }];
-    [self initColorOFTitle];
+    
+}
+
+// !!!:所有的实例化方法
+- (void)initObject
+{
+    netHelper = [[ZXYNETHelper alloc] init];
+    fileOperation = [ZXYFileOperation sharedSelf];
+    jsonDic = [[NSDictionary alloc] init];
+    allDataForShow = [[NSMutableArray alloc] init];
+    mbProgress = [[MBProgressHUD alloc] initWithView:self.view];
+    [self.view addSubview:mbProgress];
+}
+
+- (void)initNaviBar
+{
+    UIButton *leftBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 24, 24)];
+    [leftBtn addTarget:self action:@selector(leftItemAction) forControlEvents:UIControlEventTouchUpInside];
+    [leftBtn setImage:[UIImage imageNamed:@"en_leftNavi"] forState:UIControlStateNormal];
+    [leftBtn setImage:[UIImage imageNamed:@"en_leftNavi"] forState:UIControlStateHighlighted];
+    UIBarButtonItem *leftBtnItem = [[UIBarButtonItem alloc] initWithCustomView:leftBtn];
+    [self.navigationItem setLeftBarButtonItem:leftBtnItem];
+    
+    UIButton *rightBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 50, 24)];
+    rightBtn.layer.cornerRadius=4;
+    rightBtn.layer.masksToBounds = YES;
+    [rightBtn setTitle:@"分类" forState:UIControlStateNormal];
+    [rightBtn setTitle:@"分类" forState:UIControlStateHighlighted];
+    [rightBtn addTarget:self action:@selector(leftItemAction) forControlEvents:UIControlEventTouchUpInside];
+    [rightBtn setBackgroundColor:[UIColor colorWithRed:0.3882 green:0.6235 blue:0.7569 alpha:1]];
+    UIBarButtonItem *rightBtnItem = [[UIBarButtonItem alloc] initWithCustomView:rightBtn];
+    [self.navigationItem setRightBarButtonItem:rightBtnItem];
 }
 
 - (void)initColorOFTitle
@@ -82,21 +105,22 @@
     self.everyDayPush.textColor = [UIColor colorWithRed:0.3882 green:0.6235 blue:0.7569 alpha:1];
     [self.moreInfo setTitleColor:[UIColor colorWithRed:0.3882 green:0.6235 blue:0.7569 alpha:1] forState:UIControlStateNormal];
     [self.moreInfo setTitleColor:[UIColor colorWithRed:0.3882 green:0.6235 blue:0.7569 alpha:1] forState:UIControlStateHighlighted];
+    self.currentTable.backgroundColor = BLUEINSI;
 }
+// !!!:实例化方法结束
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-- (void)zouQI
-{
-    UIStoryboard *stroyCurrent = [UIStoryboard storyboardWithName:@"Encyclope" bundle:nil];
-    UIViewController *inTo     = [stroyCurrent instantiateInitialViewController];
-    [self.navigationController pushViewController:inTo animated:YES];
-}
 
 - (void)leftItemAction
+{
+    
+}
+
+- (void)rightItemAction
 {
     
 }
@@ -109,44 +133,89 @@
 // !!!:tableView delegate
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    return 3;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return allDataForShow.count;
+    if(section==0)
+    {
+        return 1;
+    }
+    else if(section == 1)
+    {
+        return 1;
+    }
+    else
+    {
+        return allDataForShow.count;
+    }
 }
 
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSDictionary *dataDic = [allDataForShow objectAtIndex:indexPath.row];
-    EncyHomePageTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"EncyHomeIdentifier"];
-    cell.readNum.text = [dataDic objectForKey:@"ency_read"];
-    cell.titleLbl.text = [dataDic objectForKey:@"ency_childN"];
-    cell.collectNum.text = [dataDic objectForKey:@"ency_collect"];
-    NSString *imageUrl = [dataDic objectForKey:@"enImage_U"];
-    NSString *lastURL = [imageUrl componentsSeparatedByString:@"/"].lastObject;
-    NSString *filePath = [fileOperation cidImagePath:lastURL];
-    if([fileOperation fileExistsAtPath:filePath])
+    if(indexPath.section==0)
     {
-        cell.titleImage.image = [UIImage imageWithData:[NSData dataWithContentsOfFile:filePath]];
+        EncyHomeImageCell *cell = [tableView dequeueReusableCellWithIdentifier:EN_HOMEIMAGECELLIDENTIFIER];
+        return cell;
+    }
+    else if(indexPath.section == 1)
+    {
+        EncyHomeTitleCell *cell = [tableView dequeueReusableCellWithIdentifier:EN_HOMETITLECELLIDENTIFIER];
+        cell.backgroundColor = BLUEINSI;
+        return cell;
     }
     else
     {
+        NSDictionary *dataDic = [allDataForShow objectAtIndex:indexPath.row];
+        EncyHomePageTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:EN_HOMEPAGECELLIDENTIFIER];
+        cell.readNum.text = [dataDic objectForKey:@"ency_read"];
+        cell.titleLbl.text = [dataDic objectForKey:@"ency_childN"];
+        cell.collectNum.text = [dataDic objectForKey:@"ency_collect"];
+        NSString *imageUrl = [dataDic objectForKey:@"enImage_U"];
+        NSString *lastURL = [imageUrl componentsSeparatedByString:@"/"].lastObject;
+        NSString *filePath = [fileOperation cidImagePath:lastURL];
+        if(indexPath.row%2 == 0)
+        {
+            cell.backgroundColor = BLUEINSI;
+        }
+        else
+        {
+            cell.backgroundColor = ORIGINSI;
+        }
         
-//        NSString *urlString=[NSString stringWithFormat:@"%@%@",ENCY_HOSTURL,filePath];
-        NSString *urlString = [NSString stringWithFormat:@"%@%@",ENCY_HOSTURL,imageUrl];
-        [netHelper placeURLADD:urlString];
-        cell.titleImage.image = [UIImage imageNamed:@"placePage_placeHod"];
-    }
+        if([fileOperation fileExistsAtPath:filePath])
+        {
+            cell.titleImage.image = [UIImage imageWithData:[NSData dataWithContentsOfFile:filePath]];
+        }
+        else
+        {
+            NSString *urlString = [NSString stringWithFormat:@"%@%@",ENCY_HOSTURL,imageUrl];
+            [netHelper placeURLADD:urlString];
+            cell.titleImage.image = [UIImage imageNamed:@"placePage_placeHod"];
+        }
 
-    return cell;
+        
+        
+        return cell;
+    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 64;
+    if(indexPath.section==0)
+    {
+        return 120;
+    }
+    else if(indexPath.section ==1)
+    {
+        return 37;
+    }
+    else
+    {
+        return 64;
+    }
 }
 
 /*
