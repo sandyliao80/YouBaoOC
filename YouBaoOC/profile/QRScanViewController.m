@@ -18,6 +18,8 @@
 @property (strong,nonatomic)AVCaptureVideoPreviewLayer *preview;
 
 @property (weak, nonatomic) IBOutlet UIView *lensView;
+@property (weak, nonatomic) IBOutlet UIView *layoutView;
+
 @end
 
 @implementation QRScanViewController
@@ -80,7 +82,7 @@
     self.preview = [AVCaptureVideoPreviewLayer layerWithSession:self.session];
     self.preview.videoGravity = AVLayerVideoGravityResizeAspectFill;
     self.preview.frame = CGRectMake(0,0,self.view.frame.size.width,self.view.frame.size.height);
-    [self.preview addSublayer:self.lensView.layer];
+    [self.preview addSublayer:self.layoutView.layer];
     [self.view.layer addSublayer:self.preview];
     
     // 设置监测区域
@@ -109,7 +111,19 @@
     [_session stopRunning];
     
     [self dismissViewControllerAnimated:YES completion:^{
-        NSLog(@"%@",stringValue);
+        if (self.delegate &&
+            [self.delegate respondsToSelector:@selector(QRScanViewController:didFinishScanned:)]) {
+            [self.delegate QRScanViewController:self didFinishScanned:stringValue];
+        }
+    }];
+}
+
+- (IBAction)cancelButtonPressed:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:^{
+        if (self.delegate &&
+            [self.delegate respondsToSelector:@selector(QRScanViewControllerDidCancled:)]) {
+            [self.delegate QRScanViewControllerDidCancled:self];
+        }
     }];
 }
 

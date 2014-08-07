@@ -14,8 +14,9 @@
 #import "ProfileHomeContentCell.h"
 #import "ProfileHomePetCell.h"
 #import "ProfileHomeButtonCell.h"
+#import "AddPetViewController.h"
 
-@interface ProfileHomeViewController ()<UITableViewDelegate, UITableViewDataSource>
+@interface ProfileHomeViewController ()<UITableViewDelegate, UITableViewDataSource, AddPetDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *icyTableView;
 
 @end
@@ -53,15 +54,19 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    if ([segue.identifier isEqualToString:@"addPetIdentifier"]) {
+        AddPetViewController *addPetVC = [segue destinationViewController];
+        addPetVC.delegate = self;
+    }
 }
-*/
+
 
 #pragma mark - Actions
 - (IBAction)logoutButtonPressed:(UIButton *)sender {
@@ -130,6 +135,11 @@
     }
 }
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+}
+
+#pragma mark - AddPetDelegate
+- (void)AddPetDidFinished:(AddPetViewController *)viewController{
     
 }
 

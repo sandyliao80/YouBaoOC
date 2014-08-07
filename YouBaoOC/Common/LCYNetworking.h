@@ -15,6 +15,7 @@ FOUNDATION_EXPORT NSString *const User_login;
 FOUNDATION_EXPORT NSString *const User_modifyImage;     /**< 修改头像 */
 FOUNDATION_EXPORT NSString *const PetStyle_searchAllTypePets;       /**< 获取宠物一级分类 */
 FOUNDATION_EXPORT NSString *const PetStyle_searchDetailByID;        /**< 获取宠物二级分类 */
+FOUNDATION_EXPORT NSString *const Pet_petAdd;           /**< 添加宠物 */
 
 @interface LCYNetworking : NSObject
 
@@ -52,6 +53,15 @@ FOUNDATION_EXPORT NSString *const PetStyle_searchDetailByID;        /**< 获取�
  *  @param failed     失败代理
  */
 - (void)postFileWithAPI:(NSString *)api
+             parameters:(NSDictionary *)parameters
+                fileKey:(NSString *)key
+               fileData:(NSData *)data
+               fileName:(NSString *)fileName
+               mimeType:(NSString *)mimeType
+           successBlock:(void(^)(NSDictionary *object))success
+            failedBlock:(void (^)(void))failed;
+
+- (void)testFileWithAPI:(NSString *)api
              parameters:(NSDictionary *)parameters
                 fileKey:(NSString *)key
                fileData:(NSData *)data

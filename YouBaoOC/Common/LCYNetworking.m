@@ -18,6 +18,7 @@ NSString *const User_login          = @"/User/login";
 NSString *const User_modifyImage    = @"/User/modifyImage";
 NSString *const PetStyle_searchAllTypePets      = @"/PetStyle/searchAllTypePets";
 NSString *const PetStyle_searchDetailByID       = @"/PetStyle/searchDetailByID";
+NSString *const Pet_petAdd          = @"/Pet/petAdd";
 
 @implementation LCYNetworking
 
@@ -108,6 +109,32 @@ static bool isFirstAccess = YES;
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html", @"text/plain", nil];
+    [manager POST:URLString parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        [formData appendPartWithFileData:data name:key fileName:fileName mimeType:mimeType];
+    } success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSDictionary *dic = responseObject;
+        NSLog(@"%@ response object = %@", api, dic);
+        if (success) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                success(responseObject);
+            });
+        }
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        NSLog(@"Error in api:%@: %@",api, error);
+        if (failed) {
+            dispatch_async(dispatch_get_main_queue(), failed);
+        }
+    }];
+}
+
+- (void)testFileWithAPI:(NSString *)api parameters:(NSDictionary *)parameters fileKey:(NSString *)key fileData:(NSData *)data fileName:(NSString *)fileName mimeType:(NSString *)mimeType successBlock:(void (^)(NSDictionary *))success failedBlock:(void (^)(void))failed{
+    NSString *URLString = [@"http://192.168.1.207:9001/index.php/Api/" stringByAppendingString:api];
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html", @"text/plain", nil];
+    
+    NSLog(@"testing---->%@/nwith--->%@",URLString, parameters);
+    
     [manager POST:URLString parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
         [formData appendPartWithFileData:data name:key fileName:fileName mimeType:mimeType];
     } success:^(NSURLSessionDataTask *task, id responseObject) {
