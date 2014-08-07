@@ -16,4 +16,7 @@
 
 #define ENCY_HOSTURL @"http://localhost/pet/pet"   /** <获取图片的地址 */
 
+#define BLUEINSI  [UIColor colorWithRed:221.0/255.0 green:245.0/255.0 blue:254.0/255.0 alpha:1];
+#define ORIGINSI  [UIColor colorWithRed:231.0/255.0 green:231.0/255.0 blue:231.0/255.0 alpha:1];
+
 #endif
