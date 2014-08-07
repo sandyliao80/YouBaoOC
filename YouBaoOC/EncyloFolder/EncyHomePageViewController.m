@@ -9,6 +9,7 @@
 #import "EncyHomePageViewController.h"
 #import "EncyAllNeedHeader.h"
 #import "EncyHomeCell/EncyHomeCellHeader.h"
+#import "EncyCategoryVC.h"
 @interface EncyHomePageViewController ()<UITableViewDelegate,UITableViewDataSource>
 {
     NSMutableArray *allDataForShow;
@@ -124,7 +125,8 @@
 - (void)rightItemAction
 {
     NSLog(@"haha");
-    [self performSegueWithIdentifier:@"en_clopCategorySegue" sender:nil];
+    EncyCategoryVC *categoryVC = [[EncyCategoryVC alloc] initWithNibName:@"EncyCategoryVC" bundle:nil];
+    [self.navigationController pushViewController:categoryVC animated:YES];
 }
 
 - (void)reloadDataMethod
