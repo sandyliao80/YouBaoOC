@@ -11,6 +11,7 @@
 #import "ZXYDownCIDOperation.h"
 #import "Reachability.h"
 #import "ZXYEncyPicDown.h"
+#import "ZXYPetStylePicDown.h"
 @interface ZXYNETHelper()
 {
     NSMutableArray *allURL;
@@ -125,13 +126,71 @@ static NSOperationQueue *queue;
 }
 
 
+//- (void)placeURLADD:(NSString *)url
+//{
+//    if(placeURLARR==nil)
+//    {
+//        placeURLARR = [[NSMutableArray alloc] init];
+//    }
+//
+//    if(cidOperation == nil)
+//    {
+//        if([placeURLARR containsObject:url])
+//        {
+//            [placeURLARR removeObject:url];
+//        }
+//        [placeURLARR insertObject:url atIndex:0];
+//    }
+//    else {
+//        if(!cidOperation.isExecuting)
+//        {
+//            if([placeURLARR containsObject:url])
+//            {
+//                [placeURLARR removeObject:url];
+//            }
+//            [placeURLARR insertObject:url atIndex:0];
+//            [self startDownPlaceImage];
+//        }
+//        else
+//        {
+//            if(cidOperation)
+//            {
+//                [cidOperation addURLTONeedToDown:url];
+//            }
+//            else
+//            {
+//                NSLog(@"cid operation is dead");
+//            }
+//        }
+//    }
+//}
+//
+//- (void)startDownPlaceImage
+//{
+//    if([cidOperation isFinished])
+//    {
+//        cidOperation = nil;
+//    }
+//
+//    if(cidOperation == nil)
+//    {
+//        cidOperation = [[ZXYEncyPicDown alloc] initWithFirstArr:placeURLARR];
+//        [tempQueue addOperation:cidOperation];
+//    }
+//}
+//
+//- (void)cancelPlaceImageDown
+//{
+//    isPlaceImageDown = NO;
+//}
+
 - (void)placeURLADD:(NSString *)url
 {
     if(placeURLARR==nil)
     {
         placeURLARR = [[NSMutableArray alloc] init];
     }
-
+    
     if(cidOperation == nil)
     {
         if([placeURLARR containsObject:url])
@@ -170,7 +229,7 @@ static NSOperationQueue *queue;
     {
         cidOperation = nil;
     }
-
+    
     if(cidOperation == nil)
     {
         cidOperation = [[ZXYEncyPicDown alloc] initWithFirstArr:placeURLARR];
@@ -182,4 +241,5 @@ static NSOperationQueue *queue;
 {
     isPlaceImageDown = NO;
 }
+
 @end

@@ -452,6 +452,10 @@ static ZXYProvider *instance = nil;
 
 - (BOOL)saveDataToCoreDataArr:(NSArray *)arr withDBNam:(NSString *)dbName isDelete:(BOOL)isDelete
 {
+    if(arr.count == 0)
+    {
+        return NO;
+    }
     if(isDelete)
     {
         [self deleteCoreDataFromDB:dbName];
