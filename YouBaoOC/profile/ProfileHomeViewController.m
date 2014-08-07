@@ -69,16 +69,9 @@
 
 
 #pragma mark - Actions
-- (IBAction)logoutButtonPressed:(UIButton *)sender {
-    [[LCYCommon sharedInstance] logout];
-    AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
-    UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"RegisterAndLogin" bundle:nil];
-    UINavigationController *navigationVC = storyBoard.instantiateInitialViewController;
-    appDelegate.window.rootViewController = navigationVC;
-}
 
 - (void)settingButtonPressed:(id)sender{
-    
+    [self performSegueWithIdentifier:@"ProfileToSetting" sender:nil];
 }
 
 - (void)editingButtonPressed:(id)sender{
