@@ -177,7 +177,8 @@
 - (void)toPYSection
 {
     NSMutableDictionary *allDataAtPY = [[NSMutableDictionary alloc] init];
-    allDataForShow = [allDataForShow sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+    NSArray *afterSort = [[NSArray alloc] init];
+    afterSort = [allDataForShow sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
         SubPetSyle *pet = (SubPetSyle *)obj1;
         SubPetSyle *pet2 = (SubPetSyle *)obj2;
         NSLog(@"pet %@ pet2 %@",pet.spell,pet2.spell);
@@ -190,7 +191,7 @@
             return 1;
         }
     }];
-    for(SubPetSyle *sub in allDataForShow)
+    for(SubPetSyle *sub in afterSort)
     {
         NSString *py = sub.spell;
         if([allDataAtPY objectForKey:py])
