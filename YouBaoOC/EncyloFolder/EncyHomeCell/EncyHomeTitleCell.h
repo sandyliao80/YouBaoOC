@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface EncyHomeTitleCell : UITableViewCell
-
+@property(nonatomic,strong)IBOutlet UILabel *todayInfoLabel;
+@property(nonatomic,strong)IBOutlet UIButton *moreInfoBtn;
+- (IBAction)moreInfoBtnAction:(id)sender;
 @end

@@ -13,17 +13,34 @@
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="15m-aJ-NuH" id="Jj4-02-Y1Z">
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7UH-YS-i6a">
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7UH-YS-i6a">
                         <rect key="frame" x="85" y="10" width="224" height="24"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="24" id="Bl7-JO-86d"/>
+                            <constraint firstAttribute="width" constant="224" id="zka-n6-YCA"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="static-20" translatesAutoresizingMaskIntoConstraints="NO" id="QAL-hv-ahD">
-                        <rect key="frame" x="8" y="0.0" width="45" height="45"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="static-20" translatesAutoresizingMaskIntoConstraints="NO" id="QAL-hv-ahD">
+                        <rect key="frame" x="8" y="2" width="40" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="K4t-q5-Zns"/>
+                            <constraint firstAttribute="width" constant="40" id="x7J-9h-9Rk"/>
+                        </constraints>
                     </imageView>
                 </subviews>
                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                <constraints>
+                    <constraint firstItem="QAL-hv-ahD" firstAttribute="top" secondItem="Jj4-02-Y1Z" secondAttribute="top" constant="2" id="85K-G1-Itu"/>
+                    <constraint firstItem="QAL-hv-ahD" firstAttribute="leading" secondItem="Jj4-02-Y1Z" secondAttribute="leading" constant="8" id="Gek-il-Ham"/>
+                    <constraint firstAttribute="bottom" secondItem="QAL-hv-ahD" secondAttribute="bottom" constant="2" id="K4N-ff-bqi"/>
+                    <constraint firstAttribute="bottom" secondItem="7UH-YS-i6a" secondAttribute="bottom" constant="10" id="LQf-to-b7P"/>
+                    <constraint firstItem="7UH-YS-i6a" firstAttribute="top" secondItem="Jj4-02-Y1Z" secondAttribute="top" constant="10" id="WgT-U8-FUH"/>
+                    <constraint firstAttribute="trailing" secondItem="7UH-YS-i6a" secondAttribute="trailing" constant="11" id="hFv-Gj-Gxz"/>
+                    <constraint firstItem="7UH-YS-i6a" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="QAL-hv-ahD" secondAttribute="trailing" constant="37" id="nsT-8K-KxT"/>
+                </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>

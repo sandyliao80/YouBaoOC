@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6185.11" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <deployment defaultVersion="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6190.4"/>
     </dependencies>
     <objects>
@@ -14,22 +13,33 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qWO-gt-w4M">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qWO-gt-w4M">
                         <rect key="frame" x="9" y="2" width="40" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="Rly-7I-PbD"/>
+                            <constraint firstAttribute="width" constant="40" id="XE1-j6-JPg"/>
+                        </constraints>
                     </imageView>
-                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qtu-YE-VBX">
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qtu-YE-VBX">
                         <rect key="frame" x="72" y="6" width="235" height="32"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="32" id="4WP-Yq-x0b"/>
+                            <constraint firstAttribute="width" constant="235" id="ZYa-0U-MgV"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KCz-4M-TDg">
-                        <rect key="frame" x="0.0" y="43" width="320" height="1"/>
-                        <color key="backgroundColor" name="controlDarkShadowColor" catalog="System" colorSpace="catalog"/>
-                    </imageView>
                 </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="qtu-YE-VBX" secondAttribute="trailing" constant="13" id="0vo-1a-XVQ"/>
+                    <constraint firstItem="qtu-YE-VBX" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="6" id="PmV-pz-bkY"/>
+                    <constraint firstItem="qWO-gt-w4M" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="2" id="Tg3-4n-IB9"/>
+                    <constraint firstItem="qtu-YE-VBX" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="qWO-gt-w4M" secondAttribute="trailing" constant="23" id="VFJ-qo-ubt"/>
+                    <constraint firstItem="qWO-gt-w4M" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="9" id="YLl-85-ExN"/>
+                </constraints>
             </tableViewCellContentView>
-            <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="0.72999999999999998" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
                 <outlet property="head_image" destination="qWO-gt-w4M" id="INI-RX-Ocs"/>

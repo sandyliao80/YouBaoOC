@@ -7,7 +7,7 @@
 //
 
 #import "EncyHomeTitleCell.h"
-
+#import "EN_PreDefine.h"
 @implementation EncyHomeTitleCell
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
@@ -20,6 +20,9 @@
 
 - (void)awakeFromNib {
     // Initialization code
+    self.todayInfoLabel.textColor = [UIColor colorWithRed:0.9804 green:0.5098 blue:0.4353 alpha:1];
+    [self.moreInfoBtn setTitleColor:[UIColor colorWithRed:0.9804 green:0.5098 blue:0.4353 alpha:1] forState:UIControlStateNormal];
+    [self.moreInfoBtn setTitleColor:[UIColor colorWithRed:0.9804 green:0.5098 blue:0.4353 alpha:1] forState:UIControlStateHighlighted];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -28,4 +31,8 @@
     // Configure the view for the selected state
 }
 
+- (IBAction)moreInfoBtnAction:(id)sender
+{
+ 
+}
 @end
