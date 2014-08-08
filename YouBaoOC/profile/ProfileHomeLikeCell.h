@@ -12,4 +12,9 @@ FOUNDATION_EXPORT NSString *const ProfileHomeLikeCellIdentifier;
 
 @interface ProfileHomeLikeCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UILabel *xihuan;
+
+@property (weak, nonatomic) IBOutlet UILabel *fensi;
+@property (weak, nonatomic) IBOutlet UILabel *guanzhu;
+
 @end

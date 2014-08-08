@@ -11,5 +11,7 @@
 FOUNDATION_EXPORT NSString *const ProfileHomeContentCellIdentifier;
 
 @interface ProfileHomeContentCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UIImageView *icyImageView;
+@property (weak, nonatomic) IBOutlet UILabel *icyLabel;
 
 @end

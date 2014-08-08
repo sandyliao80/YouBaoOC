@@ -36,7 +36,6 @@
 		285D89BD198A2D31005DFBEB /* searchAllTypePetsFatherStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 285D89B8198A2D31005DFBEB /* searchAllTypePetsFatherStyle.m */; };
 		285D89BE198A2D31005DFBEB /* searchAllTypePetsBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 285D89BA198A2D31005DFBEB /* searchAllTypePetsBase.m */; };
 		285D89C1198A374A005DFBEB /* FilterTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 285D89C0198A374A005DFBEB /* FilterTableViewCell.m */; };
-		286099A1198769DE00CB86D6 /* PetCoreDataPreloader.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 286099A0198769DE00CB86D6 /* PetCoreDataPreloader.sqlite */; };
 		286099A41987762800CB86D6 /* Region.m in Sources */ = {isa = PBXBuildFile; fileRef = 286099A31987762800CB86D6 /* Region.m */; };
 		2868EC90198F79A500D8726E /* ProfileHomeAvatarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2868EC8F198F79A500D8726E /* ProfileHomeAvatarCell.m */; };
 		2868EC93198F79BB00D8726E /* ProfileHomeLikeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2868EC92198F79BB00D8726E /* ProfileHomeLikeCell.m */; };
@@ -54,6 +53,11 @@
 		28922340198240CF0073BADB /* RegisterDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2892233F198240CF0073BADB /* RegisterDetailViewController.m */; };
 		28922343198249400073BADB /* UIImage+LCYResize.m in Sources */ = {isa = PBXBuildFile; fileRef = 28922342198249400073BADB /* UIImage+LCYResize.m */; };
 		28B69B8D1990CDCA0039B146 /* QRScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B69B8C1990CDCA0039B146 /* QRScanViewController.m */; };
+		28CF40161994C2570081D39A /* PetCoreDataPreloader.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 28CF40151994C2570081D39A /* PetCoreDataPreloader.sqlite */; };
+		28F7F44C199492510069D797 /* GetUserInfoUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F7F445199492510069D797 /* GetUserInfoUserInfo.m */; };
+		28F7F44D199492510069D797 /* GetUserInfoBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F7F446199492510069D797 /* GetUserInfoBase.m */; };
+		28F7F44E199492510069D797 /* GetUserInfoPetInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F7F447199492510069D797 /* GetUserInfoPetInfo.m */; };
+		28F7F4541994A3860069D797 /* LCYFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F7F4531994A3860069D797 /* LCYFileManager.m */; };
 		83A93C91E0F34B08851EE991 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEF990BC1DD24D8D89234D90 /* libPods.a */; };
 		8B6AA0FE1993397E00BF017C /* EncyCategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B6AA0FD1993397E00BF017C /* EncyCategoryCell.m */; };
 		8B6AA10019933AF600BF017C /* EncyCategoryVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B6AA0FF19933AF600BF017C /* EncyCategoryVC.xib */; };
@@ -142,7 +146,6 @@
 		285D89BC198A2D31005DFBEB /* searchAllTypePetsFatherStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = searchAllTypePetsFatherStyle.h; sourceTree = "<group>"; };
 		285D89BF198A374A005DFBEB /* FilterTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilterTableViewCell.h; sourceTree = "<group>"; };
 		285D89C0198A374A005DFBEB /* FilterTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilterTableViewCell.m; sourceTree = "<group>"; };
-		286099A0198769DE00CB86D6 /* PetCoreDataPreloader.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = PetCoreDataPreloader.sqlite; sourceTree = "<group>"; };
 		286099A21987762800CB86D6 /* Region.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Region.h; sourceTree = "<group>"; };
 		286099A31987762800CB86D6 /* Region.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Region.m; sourceTree = "<group>"; };
 		2868EC8E198F79A400D8726E /* ProfileHomeAvatarCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileHomeAvatarCell.h; sourceTree = "<group>"; };
@@ -178,6 +181,16 @@
 		28922342198249400073BADB /* UIImage+LCYResize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+LCYResize.m"; sourceTree = "<group>"; };
 		28B69B8B1990CDCA0039B146 /* QRScanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRScanViewController.h; sourceTree = "<group>"; };
 		28B69B8C1990CDCA0039B146 /* QRScanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRScanViewController.m; sourceTree = "<group>"; };
+		28CF40151994C2570081D39A /* PetCoreDataPreloader.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = PetCoreDataPreloader.sqlite; sourceTree = "<group>"; };
+		28F7F445199492510069D797 /* GetUserInfoUserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetUserInfoUserInfo.m; sourceTree = "<group>"; };
+		28F7F446199492510069D797 /* GetUserInfoBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetUserInfoBase.m; sourceTree = "<group>"; };
+		28F7F447199492510069D797 /* GetUserInfoPetInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetUserInfoPetInfo.m; sourceTree = "<group>"; };
+		28F7F448199492510069D797 /* GetUserInfoBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetUserInfoBase.h; sourceTree = "<group>"; };
+		28F7F449199492510069D797 /* GetUserInfoPetInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetUserInfoPetInfo.h; sourceTree = "<group>"; };
+		28F7F44A199492510069D797 /* GetUserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetUserInfo.h; sourceTree = "<group>"; };
+		28F7F44B199492510069D797 /* GetUserInfoUserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetUserInfoUserInfo.h; sourceTree = "<group>"; };
+		28F7F4521994A3860069D797 /* LCYFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCYFileManager.h; sourceTree = "<group>"; };
+		28F7F4531994A3860069D797 /* LCYFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCYFileManager.m; sourceTree = "<group>"; };
 		75673EC2383043228793768F /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		8B6AA0FC1993397E00BF017C /* EncyCategoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EncyCategoryCell.h; sourceTree = "<group>"; };
 		8B6AA0FD1993397E00BF017C /* EncyCategoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EncyCategoryCell.m; sourceTree = "<group>"; };
@@ -232,6 +245,8 @@
 				2832DC6B198124F2004BBAB5 /* LCYNetworking.m */,
 				285D89AF1989E1BB005DFBEB /* LCYGlobal.h */,
 				285D89B01989E1BB005DFBEB /* LCYGlobal.m */,
+				28F7F4521994A3860069D797 /* LCYFileManager.h */,
+				28F7F4531994A3860069D797 /* LCYFileManager.m */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -280,7 +295,7 @@
 		281111891979183C000A72D7 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				286099A0198769DE00CB86D6 /* PetCoreDataPreloader.sqlite */,
+				28CF40151994C2570081D39A /* PetCoreDataPreloader.sqlite */,
 				2811118A1979183C000A72D7 /* Info.plist */,
 				2811118B1979183C000A72D7 /* main.m */,
 				280FB6911980DA7400C434A8 /* YouBaoOC-Prefix.pch */,
@@ -356,6 +371,7 @@
 			children = (
 				2869796D1986571B0098F6A3 /* ProfileHomeViewController.h */,
 				2869796E1986571B0098F6A3 /* ProfileHomeViewController.m */,
+				28F7F43A1994788A0069D797 /* Model */,
 				2868EC8E198F79A400D8726E /* ProfileHomeAvatarCell.h */,
 				2868EC8F198F79A500D8726E /* ProfileHomeAvatarCell.m */,
 				2868EC91198F79BB00D8726E /* ProfileHomeLikeCell.h */,
@@ -374,6 +390,20 @@
 				280E7442199332A60036DD0B /* ProfileSettingViewController.m */,
 			);
 			path = profile;
+			sourceTree = "<group>";
+		};
+		28F7F43A1994788A0069D797 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				28F7F44A199492510069D797 /* GetUserInfo.h */,
+				28F7F44B199492510069D797 /* GetUserInfoUserInfo.h */,
+				28F7F445199492510069D797 /* GetUserInfoUserInfo.m */,
+				28F7F448199492510069D797 /* GetUserInfoBase.h */,
+				28F7F446199492510069D797 /* GetUserInfoBase.m */,
+				28F7F449199492510069D797 /* GetUserInfoPetInfo.h */,
+				28F7F447199492510069D797 /* GetUserInfoPetInfo.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 		8B1570281991D4DD00326AFC /* EncyloFolder */ = {
@@ -575,9 +605,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				281111981979183D000A72D7 /* Main.storyboard in Resources */,
-				286099A1198769DE00CB86D6 /* PetCoreDataPreloader.sqlite in Resources */,
 				8BAB3B0E1990ABEF00FD3BA0 /* Encyclope.storyboard in Resources */,
 				8B6AA10019933AF600BF017C /* EncyCategoryVC.xib in Resources */,
+				28CF40161994C2570081D39A /* PetCoreDataPreloader.sqlite in Resources */,
 				280FB6931980E34E00C434A8 /* RegisterAndLogin.storyboard in Resources */,
 				8B6AA11E19936C2100BF017C /* EncySubCategoryCell.xib in Resources */,
 				2811119A1979183D000A72D7 /* Images.xcassets in Resources */,
@@ -636,6 +666,7 @@
 				2869796A1986558D0098F6A3 /* MainViewController.m in Sources */,
 				8B6AA11019935F4200BF017C /* ZXYDownLoadImage.m in Sources */,
 				8B6AA10D19935BC200BF017C /* ZXYPetStylePicDown.m in Sources */,
+				28F7F44E199492510069D797 /* GetUserInfoPetInfo.m in Sources */,
 				28895086198B2D8C00696A95 /* SecondFilterTableViewCell.m in Sources */,
 				28922340198240CF0073BADB /* RegisterDetailViewController.m in Sources */,
 				8B6AA11319936A7B00BF017C /* SubPetSyle.m in Sources */,
@@ -666,7 +697,10 @@
 				2869796F1986571B0098F6A3 /* ProfileHomeViewController.m in Sources */,
 				2811118C1979183C000A72D7 /* main.m in Sources */,
 				28B69B8D1990CDCA0039B146 /* QRScanViewController.m in Sources */,
+				28F7F4541994A3860069D797 /* LCYFileManager.m in Sources */,
 				280E7443199332A60036DD0B /* ProfileSettingViewController.m in Sources */,
+				28F7F44D199492510069D797 /* GetUserInfoBase.m in Sources */,
+				28F7F44C199492510069D797 /* GetUserInfoUserInfo.m in Sources */,
 				280E7466199335320036DD0B /* EncyHomePageTableViewCell.m in Sources */,
 				8B6AA106199351A300BF017C /* PetStyle.m in Sources */,
 				280FB68F1980D66C00C434A8 /* LCYCommon.m in Sources */,

@@ -11,5 +11,9 @@
 FOUNDATION_EXPORT NSString *const ProfileHomePetCellIdentifier;
 
 @interface ProfileHomePetCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UIImageView *icyImageView;
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *signLabel;
+
 
 @end

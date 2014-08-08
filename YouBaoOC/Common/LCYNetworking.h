@@ -8,6 +8,7 @@
 
 
 FOUNDATION_EXPORT NSString *const hostURL;
+FOUNDATION_EXPORT NSString *const hostImageURL;
 
 FOUNDATION_EXPORT NSString *const User_authcode;
 FOUNDATION_EXPORT NSString *const User_register;        /**< 提交注册信息 */
@@ -17,6 +18,7 @@ FOUNDATION_EXPORT NSString *const PetStyle_searchAllTypePets;       /**< 获取�
 FOUNDATION_EXPORT NSString *const PetStyle_searchDetailByID;        /**< 获取宠物二级分类 */
 FOUNDATION_EXPORT NSString *const Pet_petAdd;           /**< 添加宠物 */
 FOUNDATION_EXPORT NSString *const User_getUserInfoByID; /**< 获取个人信息 */
+
 
 @interface LCYNetworking : NSObject
 
