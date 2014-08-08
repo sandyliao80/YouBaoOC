@@ -14,6 +14,7 @@
 #import "ProfileHomeContentCell.h"
 #import "ProfileHomePetCell.h"
 #import "ProfileHomeButtonCell.h"
+#import "ProfileHomeHeaderCell.h"
 #import "AddPetViewController.h"
 #import "GetUserInfo.h"
 #import <AFNetworking/AFNetworking.h>
@@ -111,7 +112,11 @@
 #pragma mark - UITableView
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     if (self.baseInfo) {
-        return 5 + [self.baseInfo.petInfo count];
+        if ([self.baseInfo.petInfo count] == 0) {
+            return 5;
+        } else {
+            return 6 + [self.baseInfo.petInfo count];
+        }
     } else {
         return 0;
     }
@@ -194,49 +199,61 @@
         cell.icyLabel.text = district;
         
         return cell;
-    }else if (indexPath.row == [self.baseInfo.petInfo count] + 4) {
+    }else if ([self.baseInfo.petInfo count] == 0) {
         // 按钮
         ProfileHomeButtonCell *cell = [tableView dequeueReusableCellWithIdentifier:ProfileHomeButtonCellIdentifier];
         return cell;
     } else {
-        // 宠物
-        ProfileHomePetCell *cell = [tableView dequeueReusableCellWithIdentifier:ProfileHomePetCellIdentifier];
-        
-        NSInteger petIndex = indexPath.row - 4;
-        GetUserInfoPetInfo *petInfo = self.baseInfo.petInfo[petIndex];
-        NSString *imageRelativePath = petInfo.headImage;
-        if (![[LCYFileManager sharedInstance] imageExistAt:imageRelativePath]) {
-            cell.icyImageView.image = nil;
-            // 头像不存在，进行下载
-            if (!self.queue) {
-                self.queue = [[NSOperationQueue alloc] init];
+        if (indexPath.row == [self.baseInfo.petInfo count] + 5) {
+            // 按钮
+            ProfileHomeButtonCell *cell = [tableView dequeueReusableCellWithIdentifier:ProfileHomeButtonCellIdentifier];
+            return cell;
+        } else if (indexPath.row == 4) {
+            // header view
+            ProfileHomeHeaderCell *cell = [tableView dequeueReusableCellWithIdentifier:ProfileHomeHeaderCellIdentifier];
+            cell.icyLabel.text = @"我的宠物";
+            return cell;
+        }else {
+            // 宠物
+            ProfileHomePetCell *cell = [tableView dequeueReusableCellWithIdentifier:ProfileHomePetCellIdentifier];
+            
+            NSInteger petIndex = indexPath.row - 5;
+            GetUserInfoPetInfo *petInfo = self.baseInfo.petInfo[petIndex];
+            NSString *imageRelativePath = petInfo.headImage;
+            if (![[LCYFileManager sharedInstance] imageExistAt:imageRelativePath]) {
+                cell.icyImageView.image = nil;
+                // 头像不存在，进行下载
+                if (!self.queue) {
+                    self.queue = [[NSOperationQueue alloc] init];
+                }
+                if (!self.operation) {
+                    self.operation = [[ProfileImageDownloadOperation alloc] init];
+                    self.operation.delegate = self;
+                    [self.queue addOperation:self.operation];
+                }
+                [self.operation addImageName:imageRelativePath atIndexPath:indexPath];
+            } else {
+                // 头像存在，直接显示
+                cell.icyImageView.image = [UIImage imageWithContentsOfFile:[[LCYFileManager sharedInstance] absolutePathFor:imageRelativePath]];
             }
-            if (!self.operation) {
-                self.operation = [[ProfileImageDownloadOperation alloc] init];
-                self.operation.delegate = self;
-                [self.queue addOperation:self.operation];
+            cell.nameLabel.text = petInfo.petName;
+            NSMutableString *misc = [NSMutableString string];
+            if ([petInfo.age integerValue] == 0) {
+                [misc appendString:@"小于1岁"];
+            } else if ([petInfo.age integerValue] == 11) {
+                [misc appendString:@"大于10岁"];
+            } else {
+                [misc appendString:petInfo.age];
+                [misc appendString:@"岁"];
             }
-            [self.operation addImageName:imageRelativePath atIndexPath:indexPath];
-        } else {
-            // 头像存在，直接显示
-            cell.icyImageView.image = [UIImage imageWithContentsOfFile:[[LCYFileManager sharedInstance] absolutePathFor:imageRelativePath]];
+            [misc appendString:@" "];
+            [misc appendString:petInfo.name];
+            cell.signLabel.text = misc;
+            
+            return cell;
         }
-        cell.nameLabel.text = petInfo.petName;
-        NSMutableString *misc = [NSMutableString string];
-        if ([petInfo.age integerValue] == 0) {
-            [misc appendString:@"小于1岁"];
-        } else if ([petInfo.age integerValue] == 11) {
-            [misc appendString:@"大于10岁"];
-        } else {
-            [misc appendString:petInfo.age];
-            [misc appendString:@"岁"];
-        }
-        [misc appendString:@" "];
-        [misc appendString:petInfo.name];
-        cell.signLabel.text = misc;
-        
-        return cell;
     }
+    
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{

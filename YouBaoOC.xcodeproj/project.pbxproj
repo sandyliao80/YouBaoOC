@@ -54,6 +54,7 @@
 		28922343198249400073BADB /* UIImage+LCYResize.m in Sources */ = {isa = PBXBuildFile; fileRef = 28922342198249400073BADB /* UIImage+LCYResize.m */; };
 		28B69B8D1990CDCA0039B146 /* QRScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B69B8C1990CDCA0039B146 /* QRScanViewController.m */; };
 		28CF40161994C2570081D39A /* PetCoreDataPreloader.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 28CF40151994C2570081D39A /* PetCoreDataPreloader.sqlite */; };
+		28CF40191994E17E0081D39A /* ProfileHomeHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 28CF40181994E17E0081D39A /* ProfileHomeHeaderCell.m */; };
 		28F7F44C199492510069D797 /* GetUserInfoUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F7F445199492510069D797 /* GetUserInfoUserInfo.m */; };
 		28F7F44D199492510069D797 /* GetUserInfoBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F7F446199492510069D797 /* GetUserInfoBase.m */; };
 		28F7F44E199492510069D797 /* GetUserInfoPetInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F7F447199492510069D797 /* GetUserInfoPetInfo.m */; };
@@ -182,6 +183,8 @@
 		28B69B8B1990CDCA0039B146 /* QRScanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRScanViewController.h; sourceTree = "<group>"; };
 		28B69B8C1990CDCA0039B146 /* QRScanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRScanViewController.m; sourceTree = "<group>"; };
 		28CF40151994C2570081D39A /* PetCoreDataPreloader.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = PetCoreDataPreloader.sqlite; sourceTree = "<group>"; };
+		28CF40171994E17E0081D39A /* ProfileHomeHeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileHomeHeaderCell.h; sourceTree = "<group>"; };
+		28CF40181994E17E0081D39A /* ProfileHomeHeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileHomeHeaderCell.m; sourceTree = "<group>"; };
 		28F7F445199492510069D797 /* GetUserInfoUserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetUserInfoUserInfo.m; sourceTree = "<group>"; };
 		28F7F446199492510069D797 /* GetUserInfoBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetUserInfoBase.m; sourceTree = "<group>"; };
 		28F7F447199492510069D797 /* GetUserInfoPetInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetUserInfoPetInfo.m; sourceTree = "<group>"; };
@@ -382,6 +385,8 @@
 				2868EC98198F79E700D8726E /* ProfileHomePetCell.m */,
 				2868EC9A198F7A1900D8726E /* ProfileHomeButtonCell.h */,
 				2868EC9B198F7A1900D8726E /* ProfileHomeButtonCell.m */,
+				28CF40171994E17E0081D39A /* ProfileHomeHeaderCell.h */,
+				28CF40181994E17E0081D39A /* ProfileHomeHeaderCell.m */,
 				2868EC9D198F99F500D8726E /* AddPetViewController.h */,
 				2868EC9E198F99F500D8726E /* AddPetViewController.m */,
 				28B69B8B1990CDCA0039B146 /* QRScanViewController.h */,
@@ -678,6 +683,7 @@
 				285D89BE198A2D31005DFBEB /* searchAllTypePetsBase.m in Sources */,
 				2832DC6C19812D87004BBAB5 /* LCYNetworking.m in Sources */,
 				280E7451199335100036DD0B /* ZXYDownCIDOperation.m in Sources */,
+				28CF40191994E17E0081D39A /* ProfileHomeHeaderCell.m in Sources */,
 				281111921979183C000A72D7 /* YouBaoOC.xcdatamodeld in Sources */,
 				285D89BD198A2D31005DFBEB /* searchAllTypePetsFatherStyle.m in Sources */,
 				285D89B7198A2B3D005DFBEB /* FilterViewController.m in Sources */,
