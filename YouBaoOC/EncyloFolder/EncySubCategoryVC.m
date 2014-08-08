@@ -24,6 +24,7 @@
     ZXYFileOperation *fileOperation;
     ZXYDownLoadImage *downLoad;
     NSNotificationCenter *datatnc;
+    NSArray *allKeys;
 }
 @end
 
@@ -41,6 +42,7 @@
         fileOperation = [ZXYFileOperation sharedSelf];
         downLoad = [[ZXYDownLoadImage alloc] init];
         [downLoad setTempDirectory:@"petStyle"];
+        allKeys = [[NSArray alloc] init];
         [self toPYSection];
     }
     return  self;
@@ -120,7 +122,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     EncySubCategoryCell *cell = [tableView dequeueReusableCellWithIdentifier:SUBCATCELLIDENTIFIER];
-    NSString *keyNow = [[dataDic allKeys] objectAtIndex:indexPath.section];
+    NSString *keyNow = [allKeys objectAtIndex:indexPath.section];
     NSMutableArray *arr = [dataDic objectForKey:keyNow];
     SubPetSyle *subPet = [arr objectAtIndex:indexPath.row];
     if(cell == nil)
@@ -153,20 +155,20 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-     NSString *keyNow = [[dataDic allKeys] objectAtIndex:section];
+     NSString *keyNow = [allKeys objectAtIndex:section];
     return keyNow;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    NSString *keyNow = [[dataDic allKeys] objectAtIndex:section];
+    NSString *keyNow = [allKeys objectAtIndex:section];
     NSMutableArray *arr = [dataDic objectForKey:keyNow];
     return arr.count;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return [dataDic allKeys].count;
+    return allKeys.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -206,17 +208,24 @@
             [allDataAtPY setObject:pyArr forKey:py];
         }
     }
+    allKeys = [allDataAtPY.allKeys sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+        NSString *str1 = obj1;
+        NSString *str2 = obj2;
+        char one = [str1 characterAtIndex:0];
+        char two = [str2 characterAtIndex:0];
+        return one>two;
+    }];
     dataDic = allDataAtPY;
 }
 
 - (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView
 {
-    return dataDic.allKeys;
+    return allKeys;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 50;
+    return 22;
 }
 
 /*
