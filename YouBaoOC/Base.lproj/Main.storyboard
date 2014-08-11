@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6185.11" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="KKL-vN-PsA">
     <dependencies>
+        <deployment defaultVersion="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6190.4"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
@@ -1072,12 +1073,45 @@
                     <view key="view" contentMode="scaleToFill" id="4uO-DE-Nyc">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Y5k-We-aNI">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Px5-oA-KOq">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="gsl" id="8WZ-K0-4fe">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="VgO-R1-T3D" id="bRU-qp-eHe"/>
+                                    <outlet property="delegate" destination="VgO-R1-T3D" id="a4d-yE-PvZ"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="Y5k-We-aNI" secondAttribute="bottom" id="jb1-fY-NXV"/>
+                            <constraint firstAttribute="trailing" secondItem="Y5k-We-aNI" secondAttribute="trailing" id="sXR-tR-nr2"/>
+                            <constraint firstItem="Y5k-We-aNI" firstAttribute="leading" secondItem="4uO-DE-Nyc" secondAttribute="leading" id="w6u-tm-Fuv"/>
+                            <constraint firstItem="Y5k-We-aNI" firstAttribute="top" secondItem="4uO-DE-Nyc" secondAttribute="top" id="wwA-ww-Awp"/>
+                        </constraints>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="Jnh-Op-78d"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="icyCollectionView" destination="Y5k-We-aNI" id="4br-Kh-sRg"/>
                         <segue destination="Kon-cp-hsb" kind="show" identifier="homePushFilter" id="1rq-Z5-xY4"/>
                     </connections>
                 </viewController>
@@ -1290,6 +1324,6 @@
         <image name="tabbarRight" width="30" height="22"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="vtD-VW-MZm"/>
+        <segue reference="1rq-Z5-xY4"/>
     </inferredMetricsTieBreakers>
 </document>
