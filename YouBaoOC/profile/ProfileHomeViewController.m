@@ -266,13 +266,27 @@
     } else if (indexPath.row == 2 || indexPath.row == 3) {
         // 个人信息
         return 44.0f;
-    }
-    else if (indexPath.row == 6) {
-        // 按钮
-        return 60.0f;
     } else {
-        // 宠物
-        return 70.0f;
+        if ([self.baseInfo.petInfo count] == 0) {
+            if (indexPath.row == 6) {
+                // 按钮
+                return 60.0f;
+            } else {
+                // 宠物
+                return 70.0f;
+            }
+        } else {
+            if (indexPath.row == [self.baseInfo.petInfo count] + 5) {
+                // 按钮
+                return 60.0f;
+            } else if (indexPath.row == 4) {
+                // 我的宠物Label
+                return 25.0f;
+            } else {
+                // 各种宠物
+                return 70.0f;
+            }
+        }
     }
 }
 

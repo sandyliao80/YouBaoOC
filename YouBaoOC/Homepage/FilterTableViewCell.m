@@ -22,6 +22,9 @@ NSString *const FilterTableViewCellIdentifier = @"FilterTableViewCellIdentifier"
 
 - (void)awakeFromNib {
     // Initialization code
+    CGFloat radius = MIN(self.icyImage.frame.size.height, self.icyImage.frame.size.width)/2.0f;
+    [self.icyImage.layer setCornerRadius:radius];
+    [self.icyImage.layer setMasksToBounds:YES];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

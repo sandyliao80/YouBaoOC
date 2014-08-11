@@ -114,4 +114,8 @@
     }
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 25.0f;
+}
+
 @end

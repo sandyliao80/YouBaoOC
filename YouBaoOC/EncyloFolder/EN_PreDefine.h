@@ -14,8 +14,8 @@
 #define CURRENTVERSION [[[UIDevice currentDevice] systemVersion] floatValue] /**< 获取当前iOS版本 */
 #define isRetina [[UIScreen mainScreen]scale]==2 /**< 判断是retaina */
 
-#define ENCY_HOSTURL @"http://localhost/pet/pet"   /** <获取图片的地址 */
-#define ZXY_HOSTURL  @"http://localhost/pet/pet/index.php/Api/"/** <获取数据 */
+#define ENCY_HOSTURL @"http://192.168.1.114/pet/pet"   /** <获取图片的地址 */
+#define ZXY_HOSTURL  @"http://192.168.1.114/pet/pet/index.php/Api/"/** <获取数据 */
 #define ZXY_PETSTYLE @"PetStyle/searchAllTypePets"             /** <宠物类型 */
 #define ZXY_SUBPETSTYLE @"PetStyle/searchDetailByID"
 

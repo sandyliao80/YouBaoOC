@@ -37,12 +37,12 @@
         searchAllTypePetsBase *base = [searchAllTypePetsBase modelObjectWithDictionary:object];
         self.filterResult = [NSArray arrayWithArray:base.fatherStyle];
         if ([self.filterResult count] != 0) {
-            UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 22)];
-            [headerView setBackgroundColor:[UIColor colorWithRed:231.0/255.0f green:242.0/255.0f blue:246.0/255.0f alpha:1.0f]];
-            UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 22)];
-            [footerView setBackgroundColor:[UIColor colorWithRed:231.0/255.0f green:242.0/255.0f blue:246.0/255.0f alpha:1.0f]];
-            [self.icyTableView setTableHeaderView:headerView];
-            [self.icyTableView setTableFooterView:footerView];
+//            UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 22)];
+//            [headerView setBackgroundColor:[UIColor colorWithRed:231.0/255.0f green:242.0/255.0f blue:246.0/255.0f alpha:1.0f]];
+//            UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 22)];
+//            [footerView setBackgroundColor:[UIColor colorWithRed:231.0/255.0f green:242.0/255.0f blue:246.0/255.0f alpha:1.0f]];
+//            [self.icyTableView setTableHeaderView:headerView];
+//            [self.icyTableView setTableFooterView:footerView];
             [self.icyTableView reloadData];
         }
     } failedBlock:^{
@@ -95,10 +95,10 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     FilterTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:FilterTableViewCellIdentifier];
     
-    if (indexPath.row %2 == 0) {
+    if (indexPath.row % 2 == 0) {
         [cell setBackgroundColor:[UIColor colorWithRed:227.0/255.0f green:247.0/255.0f blue:254.0/255.0f alpha:1.0f]];
     } else {
-        [cell setBackgroundColor:[UIColor colorWithWhite:236.0/255.0 alpha:1.0]];
+        [cell setBackgroundColor:[UIColor colorWithWhite:236.0/255.0f alpha:1.0f]];
     }
     
     searchAllTypePetsFatherStyle *fartherStyle = self.filterResult[indexPath.row];
