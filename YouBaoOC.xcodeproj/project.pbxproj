@@ -46,6 +46,7 @@
 		286979661985F5AA0098F6A3 /* WelcomeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 286979651985F5AA0098F6A3 /* WelcomeCell.m */; };
 		2869796A1986558D0098F6A3 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 286979691986558D0098F6A3 /* MainViewController.m */; };
 		2869796F1986571B0098F6A3 /* ProfileHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2869796E1986571B0098F6A3 /* ProfileHomeViewController.m */; };
+		287AFD56199863560035FF05 /* CellImageDownloadOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 287AFD55199863560035FF05 /* CellImageDownloadOperation.m */; };
 		28895083198B269D00696A95 /* SecondFilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28895082198B269D00696A95 /* SecondFilterViewController.m */; };
 		28895086198B2D8C00696A95 /* SecondFilterTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 28895085198B2D8C00696A95 /* SecondFilterTableViewCell.m */; };
 		2889508C198B315500696A95 /* SearchDetailByIDChildStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 28895088198B315500696A95 /* SearchDetailByIDChildStyle.m */; };
@@ -167,6 +168,8 @@
 		286979691986558D0098F6A3 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		2869796D1986571B0098F6A3 /* ProfileHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileHomeViewController.h; sourceTree = "<group>"; };
 		2869796E1986571B0098F6A3 /* ProfileHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileHomeViewController.m; sourceTree = "<group>"; };
+		287AFD54199863560035FF05 /* CellImageDownloadOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellImageDownloadOperation.h; sourceTree = "<group>"; };
+		287AFD55199863560035FF05 /* CellImageDownloadOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CellImageDownloadOperation.m; sourceTree = "<group>"; };
 		28895081198B269D00696A95 /* SecondFilterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondFilterViewController.h; sourceTree = "<group>"; };
 		28895082198B269D00696A95 /* SecondFilterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondFilterViewController.m; sourceTree = "<group>"; };
 		28895084198B2D8C00696A95 /* SecondFilterTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondFilterTableViewCell.h; sourceTree = "<group>"; };
@@ -250,6 +253,8 @@
 				285D89B01989E1BB005DFBEB /* LCYGlobal.m */,
 				28F7F4521994A3860069D797 /* LCYFileManager.h */,
 				28F7F4531994A3860069D797 /* LCYFileManager.m */,
+				287AFD54199863560035FF05 /* CellImageDownloadOperation.h */,
+				287AFD55199863560035FF05 /* CellImageDownloadOperation.m */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -685,6 +690,7 @@
 				280E7451199335100036DD0B /* ZXYDownCIDOperation.m in Sources */,
 				28CF40191994E17E0081D39A /* ProfileHomeHeaderCell.m in Sources */,
 				281111921979183C000A72D7 /* YouBaoOC.xcdatamodeld in Sources */,
+				287AFD56199863560035FF05 /* CellImageDownloadOperation.m in Sources */,
 				285D89BD198A2D31005DFBEB /* searchAllTypePetsFatherStyle.m in Sources */,
 				285D89B7198A2B3D005DFBEB /* FilterViewController.m in Sources */,
 				280E7446199334D80036DD0B /* ZXYProvider.m in Sources */,

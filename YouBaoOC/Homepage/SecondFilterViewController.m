@@ -9,13 +9,18 @@
 #import "SecondFilterViewController.h"
 #import "LCYCommon.h"
 #import "SecondFilterTableViewCell.h"
+#import "CellImageDownloadOperation.h"
 
-@interface SecondFilterViewController ()<UITableViewDelegate, UITableViewDataSource>
+@interface SecondFilterViewController ()<UITableViewDelegate, UITableViewDataSource, CellImageDownloadOperationDelegate>
 
 @property (strong, nonatomic) NSDictionary *detailResult;
 @property (strong, nonatomic) NSArray *keyArray;
 
 @property (weak, nonatomic) IBOutlet UITableView *icyTableView;
+
+@property (strong, nonatomic) NSOperationQueue *queue;
+
+@property (strong, nonatomic) CellImageDownloadOperation *operation;
 
 @end
 
@@ -91,6 +96,25 @@
     NSString *key = [self.keyArray objectAtIndex:section];
     SearchDetailByIDChildStyle *child = self.detailResult[key][row];
     cell.icyLabel.text = child.name;
+    
+    NSString *imageRelativePath = child.headImg;
+    if (![[LCYFileManager sharedInstance] imageExistAt:imageRelativePath]) {
+        cell.icyImageView.image = nil;
+        // 头像不存在，进行下载
+        if (!self.queue) {
+            self.queue = [[NSOperationQueue alloc] init];
+        }
+        if (!self.operation) {
+            self.operation = [[CellImageDownloadOperation alloc] init];
+            self.operation.delegate = self;
+            [self.queue addOperation:self.operation];
+        }
+        [self.operation addImageName:imageRelativePath atIndexPath:indexPath];
+    } else {
+        // 头像存在，直接显示
+        cell.icyImageView.image = [UIImage imageWithContentsOfFile:[[LCYFileManager sharedInstance] absolutePathFor:imageRelativePath]];
+    }
+    
     return cell;
 }
 
@@ -116,6 +140,11 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     return 25.0f;
+}
+
+#pragma mark - CellImageDownloadOperation
+- (void)imageDownloadOperation:(CellImageDownloadOperation *)operation didFinishedDownloadImageAt:(NSIndexPath *)indexPath{
+    [self.icyTableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
 }
 
 @end

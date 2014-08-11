@@ -10,12 +10,17 @@
 #import "LCYCommon.h"
 #import "searchAllTypePets.h"
 #import "FilterTableViewCell.h"
+#import "CellImageDownloadOperation.h"
 
-@interface FilterViewController ()<UITableViewDelegate, UITableViewDataSource>
+@interface FilterViewController ()<UITableViewDelegate, UITableViewDataSource, CellImageDownloadOperationDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *icyTableView;
 
 @property (strong, nonatomic) NSArray *filterResult;
+
+@property (strong, nonatomic) NSOperationQueue *queue;
+
+@property (strong, nonatomic) CellImageDownloadOperation *operation;
 
 @end
 
@@ -104,7 +109,32 @@
     searchAllTypePetsFatherStyle *fartherStyle = self.filterResult[indexPath.row];
     cell.icyLabel.text = fartherStyle.name;
     
+    
+    NSString *imageRelativePath = fartherStyle.headImg;
+    if (![[LCYFileManager sharedInstance] imageExistAt:imageRelativePath]) {
+        cell.icyImage.image = nil;
+        // 头像不存在，进行下载
+        if (!self.queue) {
+            self.queue = [[NSOperationQueue alloc] init];
+        }
+        if (!self.operation) {
+            self.operation = [[CellImageDownloadOperation alloc] init];
+            self.operation.delegate = self;
+            [self.queue addOperation:self.operation];
+        }
+        [self.operation addImageName:imageRelativePath atIndexPath:indexPath];
+    } else {
+        // 头像存在，直接显示
+        cell.icyImage.image = [UIImage imageWithContentsOfFile:[[LCYFileManager sharedInstance] absolutePathFor:imageRelativePath]];
+    }
+    
     return cell;
 }
 
+#pragma mark - CellImageDownloadOperation
+- (void)imageDownloadOperation:(CellImageDownloadOperation *)operation didFinishedDownloadImageAt:(NSIndexPath *)indexPath{
+    [self.icyTableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+}
+
 @end
+
