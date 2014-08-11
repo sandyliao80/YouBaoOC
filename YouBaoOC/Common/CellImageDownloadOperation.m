@@ -14,7 +14,7 @@
 
 @property (strong, atomic) NSMutableArray *imageInfoArray;
 @property (strong, atomic) NSCondition *arrayCondition;
-
+@property (strong, nonatomic) NSMutableArray *imageDownloaded;
 @end
 
 @implementation CellImageDownloadOperation
@@ -22,6 +22,7 @@
     if (self = [super init]) {
         self.imageInfoArray = [NSMutableArray array];
         self.arrayCondition = [[NSCondition alloc] init];
+        self.imageDownloaded = [NSMutableArray array];
     }
     return self;
 }
@@ -74,10 +75,22 @@
 
 - (void)addImageName:(NSString *)imageName atIndexPath:(NSIndexPath *)indexPath{
     [self.arrayCondition lock];
-    NSDictionary *imageInfo = @{@"imageName"    : imageName,
-                                @"indexPath"    : indexPath};
-    [self.imageInfoArray addObject:imageInfo];
-    NSLog(@"push object:%@",imageInfo);
+    // 检查重复，Make sure bogus URLs won't be retried again and again
+    BOOL limit = NO;
+    for (NSString *oneName in self.imageDownloaded) {
+        if ([oneName isEqualToString:imageName]) {
+            limit = YES;
+            break;
+        }
+    }
+    if (!limit) {
+        // 加入下载栈
+        NSDictionary *imageInfo = @{@"imageName"    : imageName,
+                                    @"indexPath"    : indexPath};
+        [self.imageInfoArray addObject:imageInfo];
+        NSLog(@"push object:%@",imageInfo);
+        [self.imageDownloaded addObject:imageName];
+    }
     [self.arrayCondition signal];
     [self.arrayCondition unlock];
 }

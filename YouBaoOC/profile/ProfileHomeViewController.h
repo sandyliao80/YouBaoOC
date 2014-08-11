@@ -11,14 +11,3 @@
 @interface ProfileHomeViewController : UIViewController
 @end
 
-
-@class ProfileImageDownloadOperation;
-@protocol ProfileImageDownloadOperationDelegate <NSObject>
-@optional
-- (void)imageDownloadOperation:(ProfileImageDownloadOperation *)operation didFinishedDownloadImageAt:(NSIndexPath *)indexPath;
-@end
-
-@interface ProfileImageDownloadOperation : NSOperation
-@property (weak, nonatomic) id<ProfileImageDownloadOperationDelegate>delegate;
-- (void)addImageName:(NSString *)imageName atIndexPath:(NSIndexPath *)indexPath;
-@end
