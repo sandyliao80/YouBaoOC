@@ -52,8 +52,21 @@
     [super viewDidLoad];
     [self initMB];
     [self initNavi];
-    [progress show:YES];
-    [self performSelectorInBackground:@selector(downLoadData) withObject:nil];
+    if([ZXYNETHelper isNETConnect])
+    {
+        [progress show:YES];
+        [self performSelectorInBackground:@selector(downLoadData) withObject:nil];
+    }
+    else
+    {
+        UIAlertView *noConnect = [[UIAlertView alloc] initWithTitle:@"" message:@"没有连接网络" delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
+        [noConnect show];
+        NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:_petFather.cat_id,@"f_id", nil];
+        allDataForShow = [NSMutableArray arrayWithArray:[dataProvider readCoreDataFromDB:@"SubPetSyle" withContent:_petFather.cat_id andKey:@"f_id" orderBy:@"spell" isDes:YES] ];
+        [self toPYSection];
+        [self reloadData];
+
+    }
     datatnc = [NSNotificationCenter defaultCenter];
     [datatnc addObserver:self selector:@selector(reloadData) name:@"downLoadImageFinish" object:nil];
 
@@ -226,6 +239,18 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
     return 22;
+}
+
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSString *keyNow = [allKeys objectAtIndex:indexPath.section];
+    NSMutableArray *arr = [dataDic objectForKey:keyNow];
+    SubPetSyle *subPet = [arr objectAtIndex:indexPath.row];
+    NSDictionary *userInfo = [[NSDictionary alloc] initWithObjectsAndKeys:subPet,@"subPet", nil];
+    NSNotification *addNoti = [[NSNotification alloc] initWithName:@"ency_noti_type" object:self userInfo:userInfo];
+    [[NSNotificationCenter defaultCenter] postNotification:addNoti];
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 /*
