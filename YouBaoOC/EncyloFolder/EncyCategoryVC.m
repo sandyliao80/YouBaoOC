@@ -43,6 +43,9 @@
     [super viewDidLoad];
     [self initNavi];
     [self initMB];
+    datatnc = [NSNotificationCenter defaultCenter];
+    [datatnc addObserver:self selector:@selector(reloadData) name:@"downLoadImageFinish" object:nil];
+
     if([ZXYNETHelper isNETConnect])
     {
         [progress show:YES];
@@ -55,9 +58,7 @@
         allDataForShow =[NSMutableArray arrayWithArray:[dataProvider readCoreDataFromDB:@"PetStyle" isDes:YES orderByKey:@"spell",nil] ];
         [self reloadData];
     }
-    datatnc = [NSNotificationCenter defaultCenter];
-    [datatnc addObserver:self selector:@selector(reloadData) name:@"downLoadImageFinish" object:nil];
-    // Do any additional setup after loading the view.
+        // Do any additional setup after loading the view.
 }
 
 - (void)initNavi
