@@ -64,6 +64,7 @@
 		28B69B8D1990CDCA0039B146 /* QRScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B69B8C1990CDCA0039B146 /* QRScanViewController.m */; };
 		28CF40161994C2570081D39A /* PetCoreDataPreloader.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 28CF40151994C2570081D39A /* PetCoreDataPreloader.sqlite */; };
 		28CF40191994E17E0081D39A /* ProfileHomeHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 28CF40181994E17E0081D39A /* ProfileHomeHeaderCell.m */; };
+		28D6E0371999FDE90080E5A5 /* RecommendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D6E0361999FDE90080E5A5 /* RecommendCell.m */; };
 		28F7F44C199492510069D797 /* GetUserInfoUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F7F445199492510069D797 /* GetUserInfoUserInfo.m */; };
 		28F7F44D199492510069D797 /* GetUserInfoBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F7F446199492510069D797 /* GetUserInfoBase.m */; };
 		28F7F44E199492510069D797 /* GetUserInfoPetInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F7F447199492510069D797 /* GetUserInfoPetInfo.m */; };
@@ -214,6 +215,8 @@
 		28CF40151994C2570081D39A /* PetCoreDataPreloader.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = PetCoreDataPreloader.sqlite; sourceTree = "<group>"; };
 		28CF40171994E17E0081D39A /* ProfileHomeHeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileHomeHeaderCell.h; sourceTree = "<group>"; };
 		28CF40181994E17E0081D39A /* ProfileHomeHeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileHomeHeaderCell.m; sourceTree = "<group>"; };
+		28D6E0351999FDE90080E5A5 /* RecommendCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecommendCell.h; sourceTree = "<group>"; };
+		28D6E0361999FDE90080E5A5 /* RecommendCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecommendCell.m; sourceTree = "<group>"; };
 		28F7F445199492510069D797 /* GetUserInfoUserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetUserInfoUserInfo.m; sourceTree = "<group>"; };
 		28F7F446199492510069D797 /* GetUserInfoBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetUserInfoBase.m; sourceTree = "<group>"; };
 		28F7F447199492510069D797 /* GetUserInfoPetInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetUserInfoPetInfo.m; sourceTree = "<group>"; };
@@ -413,6 +416,8 @@
 				286979691986558D0098F6A3 /* MainViewController.m */,
 				285D89B2198A2959005DFBEB /* HomePageViewController.h */,
 				285D89B3198A295A005DFBEB /* HomePageViewController.m */,
+				28D6E0351999FDE90080E5A5 /* RecommendCell.h */,
+				28D6E0361999FDE90080E5A5 /* RecommendCell.m */,
 				285D89B9198A2D31005DFBEB /* searchAllTypePets.h */,
 				285D89BC198A2D31005DFBEB /* searchAllTypePetsFatherStyle.h */,
 				285D89B8198A2D31005DFBEB /* searchAllTypePetsFatherStyle.m */,
@@ -743,6 +748,7 @@
 				8B6AA11019935F4200BF017C /* ZXYDownLoadImage.m in Sources */,
 				8B6AA10D19935BC200BF017C /* ZXYPetStylePicDown.m in Sources */,
 				2827C79F1998D13D00C25F83 /* UIScrollView+Extension.m in Sources */,
+				28D6E0371999FDE90080E5A5 /* RecommendCell.m in Sources */,
 				28F7F44E199492510069D797 /* GetUserInfoPetInfo.m in Sources */,
 				28895086198B2D8C00696A95 /* SecondFilterTableViewCell.m in Sources */,
 				28922340198240CF0073BADB /* RegisterDetailViewController.m in Sources */,

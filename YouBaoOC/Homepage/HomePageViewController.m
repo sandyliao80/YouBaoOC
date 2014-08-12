@@ -8,12 +8,13 @@
 
 #import "HomePageViewController.h"
 #import "FilterViewController.h"
-#import <SVPullToRefresh/SVPullToRefresh.h>
+#import "RecommendCell.h"
+#import <SDWebImage/UIImageView+WebCache.h>
+#import "MJRefresh.h"
 
 @interface HomePageViewController ()<UICollectionViewDelegate, UICollectionViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *icyCollectionView;
-
 
 @end
 
@@ -35,12 +36,16 @@
     UIBarButtonItem *buttonItem = [[UIBarButtonItem alloc] initWithCustomView:filterButton];
     [self.navigationItem setLeftBarButtonItems:@[fixedSpace, buttonItem]];
     
-    [self.icyCollectionView addPullToRefreshWithActionHandler:^{
+    [self.icyCollectionView addHeaderWithCallback:^{
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [self.icyCollectionView.pullToRefreshView stopAnimating];
+            [self.icyCollectionView headerEndRefreshing];
         });
     }];
-
+    [self.icyCollectionView addFooterWithCallback:^{
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self.icyCollectionView footerEndRefreshing];
+        });
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -70,12 +75,13 @@
 
 #pragma mark - CollectionView
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return 5;
+    return 24;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"gsl" forIndexPath:indexPath];
-    cell.backgroundColor = [UIColor blueColor];
+    RecommendCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:RecommendCellIdentifier forIndexPath:indexPath];
+    [cell.icyMainImage sd_setImageWithURL:[NSURL URLWithString:@"http://115.29.46.22/pet/Upload/pets/53e97c0edaf3a.png"]];
+    [cell.icySmallImage sd_setImageWithURL:[NSURL URLWithString:@"http://115.29.46.22/pet/Upload/users/53da11a0d9a69.png"]];
     return cell;
 }
 
