@@ -10,6 +10,7 @@
 #import "EncyAllNeedHeader.h"
 #import "EncyHomeCell/EncyHomeCellHeader.h"
 #import "EncyCategoryVC.h"
+#import "SubPetSyle.h"
 @interface EncyHomePageViewController ()<UITableViewDelegate,UITableViewDataSource>
 {
     NSMutableArray *allDataForShow;
@@ -30,41 +31,24 @@
     // !!!:为view注册通知
     NSNotificationCenter *datatnc = [NSNotificationCenter defaultCenter];
     [datatnc addObserver:self selector:@selector(reloadDataMethod) name:@"ency_noti" object:nil];
+    
+    NSNotificationCenter *typenc = [NSNotificationCenter defaultCenter];
+    [typenc addObserver:self selector:@selector(reloadDataWithType:) name:@"ency_noti_type" object:nil];
     //实例化初始变量
     [self initObject];
     //实例化导航栏
     [self initNaviBar];
     //实例化标题颜色
     [self initColorOFTitle];
-    [mbProgress show:YES];
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    NSDictionary *parameters = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:1001],@"petStyleID", nil];
-    [manager setResponseSerializer:[AFHTTPResponseSerializer serializer]];
-    [manager POST:@"http://localhost/pet/pet/index.php/Api/EncyType/getTodayEncy" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"operation is %@",[operation responseString]);
-        NSData *jsonData = [operation responseData];
-        NSDictionary *allDic = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:nil];
-        jsonDic = allDic;
-        NSArray *allArr = [allDic objectForKey:@"todayPush"];
-        for(int i =0;i<allArr.count;i++)
-        {
-            NSDictionary *allDic = [allArr objectAtIndex:i];
-            NSArray *allContent  = [allDic objectForKey:@"allContent"];
-            for(int j = 0;j<allContent.count;j++)
-            {
-                NSMutableDictionary *content = [NSMutableDictionary dictionaryWithDictionary: [allContent objectAtIndex:j] ];
-                [content setObject:[allDic objectForKey:@"enImage_U"] forKey:@"enImage_U"];
-                [allDataForShow addObject:content];
-                NSLog(@"all DIC %@",[content objectForKey:@"ency_childC"]);
-            }
-            
-        }
-        [self.currentTable reloadData];
-        [mbProgress hide:YES];
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        [mbProgress hide:YES];
-        NSLog(@"operation is %@",error);
-    }];
+    if([ZXYNETHelper isNETConnect])
+    {
+        [self performSelectorInBackground:@selector(downLoadData:) withObject:nil];
+    }
+    else
+    {
+        UIAlertView *noConnect = [[UIAlertView alloc] initWithTitle:@"" message:@"没有连接网络" delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
+        [noConnect show];
+    }
     
 }
 
@@ -110,6 +94,58 @@
 }
 // !!!:实例化方法结束
 
+- (void)downLoadData:(NSString *)typeID
+{
+    [mbProgress show:YES];
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    NSMutableDictionary *parameters = [NSMutableDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:1001],@"petStyleID", nil];
+    if(typeID != nil)
+    {
+        [parameters setObject:typeID forKey:@"petStyleID"];
+        [parameters setObject:@"yes" forKey:@"isSubPet"];
+    }
+    [manager setResponseSerializer:[AFHTTPResponseSerializer serializer]];
+    NSString *urlString = [NSString stringWithFormat:@"%@%@",ZXY_HOSTURL,ZXY_GETTODYPUSH];
+    [manager POST:urlString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [allDataForShow removeAllObjects];
+        NSLog(@"operation is %@",[operation responseString]);
+        NSData *jsonData = [operation responseData];
+        NSDictionary *allDic = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:nil];
+        jsonDic = allDic;
+        NSArray *allArr = [allDic objectForKey:@"todayPush"];
+        for(int i =0;i<allArr.count;i++)
+        {
+            NSDictionary *allDic = [allArr objectAtIndex:i];
+            NSArray *allContent  = [allDic objectForKey:@"allContent"];
+            for(int j = 0;j<allContent.count;j++)
+            {
+                NSMutableDictionary *content = [NSMutableDictionary dictionaryWithDictionary: [allContent objectAtIndex:j] ];
+                [content setObject:[allDic objectForKey:@"enImage_U"] forKey:@"enImage_U"];
+                [allDataForShow addObject:content];
+                NSLog(@"all DIC %@",[content objectForKey:@"ency_childC"]);
+            }
+            
+        }
+        [self performSelectorOnMainThread:@selector(hideMB) withObject:nil waitUntilDone:YES];
+        [self performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:YES];
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [self performSelectorOnMainThread:@selector(hideMB) withObject:nil waitUntilDone:YES];
+        NSLog(@"operation is %@",error);
+    }];
+
+}
+
+- (void)hideMB
+{
+    [mbProgress hide:YES];
+}
+
+- (void)reloadData
+{
+    [self.currentTable reloadData];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -132,6 +168,14 @@
 - (void)reloadDataMethod
 {
     [self.currentTable reloadData];
+}
+
+- (void)reloadDataWithType:(NSNotification *)noti
+{
+    NSDictionary *dic = [noti userInfo];
+    SubPetSyle *subpet = [dic objectForKey:@"subPet"];
+    [self downLoadData:subpet.cat_id];
+    NSLog(@"%@",subpet.name);
 }
 
 // !!!:tableView delegate

@@ -69,6 +69,8 @@
 		28F7F44E199492510069D797 /* GetUserInfoPetInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F7F447199492510069D797 /* GetUserInfoPetInfo.m */; };
 		28F7F4541994A3860069D797 /* LCYFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F7F4531994A3860069D797 /* LCYFileManager.m */; };
 		83A93C91E0F34B08851EE991 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEF990BC1DD24D8D89234D90 /* libPods.a */; };
+		8B50F0C91998C00600D70F4F /* EncyThreeCateVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B50F0C71998C00600D70F4F /* EncyThreeCateVC.m */; };
+		8B50F0CA1998C00600D70F4F /* EncyThreeCateVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B50F0C81998C00600D70F4F /* EncyThreeCateVC.xib */; };
 		8B6AA0FE1993397E00BF017C /* EncyCategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B6AA0FD1993397E00BF017C /* EncyCategoryCell.m */; };
 		8B6AA10019933AF600BF017C /* EncyCategoryVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B6AA0FF19933AF600BF017C /* EncyCategoryVC.xib */; };
 		8B6AA10219933C1400BF017C /* EncyCategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B6AA10119933C1400BF017C /* EncyCategoryCell.xib */; };
@@ -222,6 +224,9 @@
 		28F7F4521994A3860069D797 /* LCYFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCYFileManager.h; sourceTree = "<group>"; };
 		28F7F4531994A3860069D797 /* LCYFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCYFileManager.m; sourceTree = "<group>"; };
 		75673EC2383043228793768F /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		8B50F0C61998C00600D70F4F /* EncyThreeCateVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EncyThreeCateVC.h; sourceTree = "<group>"; };
+		8B50F0C71998C00600D70F4F /* EncyThreeCateVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EncyThreeCateVC.m; sourceTree = "<group>"; };
+		8B50F0C81998C00600D70F4F /* EncyThreeCateVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EncyThreeCateVC.xib; sourceTree = "<group>"; };
 		8B6AA0FC1993397E00BF017C /* EncyCategoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EncyCategoryCell.h; sourceTree = "<group>"; };
 		8B6AA0FD1993397E00BF017C /* EncyCategoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EncyCategoryCell.m; sourceTree = "<group>"; };
 		8B6AA0FF19933AF600BF017C /* EncyCategoryVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EncyCategoryVC.xib; sourceTree = "<group>"; };
@@ -486,6 +491,9 @@
 				8B6AA11419936AD700BF017C /* EncySubCategoryVC.h */,
 				8B6AA11519936AD700BF017C /* EncySubCategoryVC.m */,
 				8B6AA11619936AD700BF017C /* EncySubCategoryVC.xib */,
+				8B50F0C61998C00600D70F4F /* EncyThreeCateVC.h */,
+				8B50F0C71998C00600D70F4F /* EncyThreeCateVC.m */,
+				8B50F0C81998C00600D70F4F /* EncyThreeCateVC.xib */,
 				280E7461199335320036DD0B /* EncyHomePageViewController.h */,
 				280E7462199335320036DD0B /* EncyHomePageViewController.m */,
 				280E7463199335320036DD0B /* EveryDayPushViewController.h */,
@@ -680,6 +688,7 @@
 				8B6AA11819936AD700BF017C /* EncySubCategoryVC.xib in Resources */,
 				2827C79A1998D13D00C25F83 /* MJRefresh.bundle in Resources */,
 				8B6AA10219933C1400BF017C /* EncyCategoryCell.xib in Resources */,
+				8B50F0CA1998C00600D70F4F /* EncyThreeCateVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -749,6 +758,7 @@
 				280E7451199335100036DD0B /* ZXYDownCIDOperation.m in Sources */,
 				28CF40191994E17E0081D39A /* ProfileHomeHeaderCell.m in Sources */,
 				281111921979183C000A72D7 /* YouBaoOC.xcdatamodeld in Sources */,
+				8B50F0C91998C00600D70F4F /* EncyThreeCateVC.m in Sources */,
 				287AFD56199863560035FF05 /* CellImageDownloadOperation.m in Sources */,
 				285D89BD198A2D31005DFBEB /* searchAllTypePetsFatherStyle.m in Sources */,
 				2827C79E1998D13D00C25F83 /* MJRefreshHeaderView.m in Sources */,

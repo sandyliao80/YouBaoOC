@@ -43,8 +43,18 @@
     [super viewDidLoad];
     [self initNavi];
     [self initMB];
-    [progress show:YES];
-    [self performSelectorInBackground:@selector(startDownData) withObject:nil];
+    if([ZXYNETHelper isNETConnect])
+    {
+        [progress show:YES];
+        [self performSelectorInBackground:@selector(startDownData) withObject:nil];
+    }
+    else
+    {
+        UIAlertView *noConnect = [[UIAlertView alloc] initWithTitle:@"" message:@"没有连接网络" delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
+        [noConnect show];
+        allDataForShow =[NSMutableArray arrayWithArray:[dataProvider readCoreDataFromDB:@"PetStyle" isDes:YES orderByKey:@"spell",nil] ];
+        [self reloadData];
+    }
     datatnc = [NSNotificationCenter defaultCenter];
     [datatnc addObserver:self selector:@selector(reloadData) name:@"downLoadImageFinish" object:nil];
     // Do any additional setup after loading the view.
@@ -82,29 +92,21 @@
 
 - (void)startDownData
 {
-    if([ZXYNETHelper isNETConnect])
-    {
-        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@",ZXY_HOSTURL,ZXY_PETSTYLE]];
-        NSURLRequest *request = [NSURLRequest requestWithURL:url];
-        AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
-        [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject){
-            [progress hide:YES];
-            NSLog(@"%@",[operation responseString]);
-            NSDictionary *jsonDic = [NSJSONSerialization JSONObjectWithData:[operation responseData] options:0 error:nil];
-            [dataProvider saveDataToCoreDataArr:[jsonDic objectForKey:@"fatherStyle"] withDBNam:@"PetStyle" isDelete:YES];
-            allDataForShow =[NSMutableArray arrayWithArray:[dataProvider readCoreDataFromDB:@"PetStyle" isDes:YES orderByKey:@"spell",nil] ];
-            [self performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:YES];
-        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            [progress hide:YES];
-            NSLog(@"%@",[operation error]);
-        }];
-        [operation start];
-    }
-    else
-    {
-        UIAlertView *noConnect = [[UIAlertView alloc] initWithTitle:@"" message:@"没有连接网络" delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
-        [noConnect show];
-    }
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@",ZXY_HOSTURL,ZXY_PETSTYLE]];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject){
+        [progress hide:YES];
+        NSLog(@"%@",[operation responseString]);
+        NSDictionary *jsonDic = [NSJSONSerialization JSONObjectWithData:[operation responseData] options:0 error:nil];
+        [dataProvider saveDataToCoreDataArr:[jsonDic objectForKey:@"fatherStyle"] withDBNam:@"PetStyle" isDelete:YES];
+        allDataForShow =[NSMutableArray arrayWithArray:[dataProvider readCoreDataFromDB:@"PetStyle" isDes:YES orderByKey:@"spell",nil] ];
+        [self performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:YES];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [progress hide:YES];
+        NSLog(@"%@",[operation error]);
+    }];
+    [operation start];
 }
 
 - (void)reloadData

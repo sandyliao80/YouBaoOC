@@ -23,9 +23,13 @@
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="spell" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
+    <entity name="User" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <elements>
-        <element name="Region" positionX="-63" positionY="-18" width="128" height="120"/>
         <element name="PetStyle" positionX="-63" positionY="18" width="128" height="135"/>
+        <element name="Region" positionX="-63" positionY="-18" width="128" height="120"/>
         <element name="SubPetSyle" positionX="-54" positionY="54" width="128" height="133"/>
+        <element name="User" positionX="-54" positionY="63" width="128" height="60"/>
     </elements>
 </model>
