@@ -8,8 +8,12 @@
 
 #import "HomePageViewController.h"
 #import "FilterViewController.h"
+#import <SVPullToRefresh/SVPullToRefresh.h>
 
-@interface HomePageViewController ()
+@interface HomePageViewController ()<UICollectionViewDelegate, UICollectionViewDataSource>
+
+@property (weak, nonatomic) IBOutlet UICollectionView *icyCollectionView;
+
 
 @end
 
@@ -30,6 +34,13 @@
     [filterButton addTarget:self action:@selector(filterButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *buttonItem = [[UIBarButtonItem alloc] initWithCustomView:filterButton];
     [self.navigationItem setLeftBarButtonItems:@[fixedSpace, buttonItem]];
+    
+    [self.icyCollectionView addPullToRefreshWithActionHandler:^{
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self.icyCollectionView.pullToRefreshView stopAnimating];
+        });
+    }];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -52,6 +63,20 @@
 
 - (void)filterButtonPressed:(id)sender{
     [self performSegueWithIdentifier:@"homePushFilter" sender:nil];
+}
+
+#pragma mark - Actions
+
+
+#pragma mark - CollectionView
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+    return 5;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"gsl" forIndexPath:indexPath];
+    cell.backgroundColor = [UIColor blueColor];
+    return cell;
 }
 
 @end
