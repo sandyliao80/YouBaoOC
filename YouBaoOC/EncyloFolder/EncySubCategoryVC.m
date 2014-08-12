@@ -52,6 +52,8 @@
     [super viewDidLoad];
     [self initMB];
     [self initNavi];
+    datatnc = [NSNotificationCenter defaultCenter];
+    [datatnc addObserver:self selector:@selector(reloadData) name:@"downLoadImageFinish" object:nil];
     if([ZXYNETHelper isNETConnect])
     {
         [progress show:YES];
@@ -67,8 +69,7 @@
         [self reloadData];
 
     }
-    datatnc = [NSNotificationCenter defaultCenter];
-    [datatnc addObserver:self selector:@selector(reloadData) name:@"downLoadImageFinish" object:nil];
+    
 
     // Do any additional setup after loading the view from its nib.
 }
