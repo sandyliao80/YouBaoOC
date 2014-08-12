@@ -186,7 +186,6 @@
             break;
 	}
 }
-
 - (void)setState:(MJRefreshState)state
 {
     // 0.存储当前的contentInset
@@ -221,7 +220,7 @@
             
             // 回调
             if ([self.beginRefreshingTaget respondsToSelector:self.beginRefreshingAction]) {
-//                objc_msgSend(self.beginRefreshingTaget, self.beginRefreshingAction, self);
+//                objc_msgSend(self.beginRefreshingTaget, self.beginRefreshingAction);
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
                 [self.beginRefreshingTaget performSelector:self.beginRefreshingAction withObject:self];
