@@ -64,6 +64,9 @@
 		28B69B8D1990CDCA0039B146 /* QRScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B69B8C1990CDCA0039B146 /* QRScanViewController.m */; };
 		28CF40161994C2570081D39A /* PetCoreDataPreloader.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 28CF40151994C2570081D39A /* PetCoreDataPreloader.sqlite */; };
 		28CF40191994E17E0081D39A /* ProfileHomeHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 28CF40181994E17E0081D39A /* ProfileHomeHeaderCell.m */; };
+		28D63212199B41A00029A283 /* MoePetProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D63211199B41A00029A283 /* MoePetProfileViewController.m */; };
+		28D63214199B74710029A283 /* Introduction.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28D63213199B74710029A283 /* Introduction.storyboard */; };
+		28D63218199B76E30029A283 /* GuideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D63217199B76E30029A283 /* GuideViewController.m */; };
 		28D6E0371999FDE90080E5A5 /* RecommendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D6E0361999FDE90080E5A5 /* RecommendCell.m */; };
 		28F7F44C199492510069D797 /* GetUserInfoUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F7F445199492510069D797 /* GetUserInfoUserInfo.m */; };
 		28F7F44D199492510069D797 /* GetUserInfoBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F7F446199492510069D797 /* GetUserInfoBase.m */; };
@@ -215,6 +218,11 @@
 		28CF40151994C2570081D39A /* PetCoreDataPreloader.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = PetCoreDataPreloader.sqlite; sourceTree = "<group>"; };
 		28CF40171994E17E0081D39A /* ProfileHomeHeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileHomeHeaderCell.h; sourceTree = "<group>"; };
 		28CF40181994E17E0081D39A /* ProfileHomeHeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileHomeHeaderCell.m; sourceTree = "<group>"; };
+		28D63210199B41A00029A283 /* MoePetProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoePetProfileViewController.h; sourceTree = "<group>"; };
+		28D63211199B41A00029A283 /* MoePetProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoePetProfileViewController.m; sourceTree = "<group>"; };
+		28D63213199B74710029A283 /* Introduction.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Introduction.storyboard; sourceTree = "<group>"; };
+		28D63216199B76E30029A283 /* GuideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuideViewController.h; sourceTree = "<group>"; };
+		28D63217199B76E30029A283 /* GuideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GuideViewController.m; sourceTree = "<group>"; };
 		28D6E0351999FDE90080E5A5 /* RecommendCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecommendCell.h; sourceTree = "<group>"; };
 		28D6E0361999FDE90080E5A5 /* RecommendCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecommendCell.m; sourceTree = "<group>"; };
 		28F7F445199492510069D797 /* GetUserInfoUserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetUserInfoUserInfo.m; sourceTree = "<group>"; };
@@ -322,6 +330,7 @@
 		281111881979183C000A72D7 /* YouBaoOC */ = {
 			isa = PBXGroup;
 			children = (
+				28D63215199B76D50029A283 /* Guide */,
 				280BB2741998BAFD007A0042 /* libs */,
 				8B1570281991D4DD00326AFC /* EncyloFolder */,
 				2869796B198656FC0098F6A3 /* profile */,
@@ -333,6 +342,7 @@
 				8BAB3B0D1990ABEF00FD3BA0 /* Encyclope.storyboard */,
 				281111961979183D000A72D7 /* Main.storyboard */,
 				280FB6921980E34E00C434A8 /* RegisterAndLogin.storyboard */,
+				28D63213199B74710029A283 /* Introduction.storyboard */,
 				281111991979183D000A72D7 /* Images.xcassets */,
 				281111901979183C000A72D7 /* YouBaoOC.xcdatamodeld */,
 				281111891979183C000A72D7 /* Supporting Files */,
@@ -443,6 +453,7 @@
 		2869796B198656FC0098F6A3 /* profile */ = {
 			isa = PBXGroup;
 			children = (
+				28D6320F199B41860029A283 /* moePetProfile */,
 				2869796D1986571B0098F6A3 /* ProfileHomeViewController.h */,
 				2869796E1986571B0098F6A3 /* ProfileHomeViewController.m */,
 				28F7F43A1994788A0069D797 /* Model */,
@@ -466,6 +477,24 @@
 				280E7442199332A60036DD0B /* ProfileSettingViewController.m */,
 			);
 			path = profile;
+			sourceTree = "<group>";
+		};
+		28D6320F199B41860029A283 /* moePetProfile */ = {
+			isa = PBXGroup;
+			children = (
+				28D63210199B41A00029A283 /* MoePetProfileViewController.h */,
+				28D63211199B41A00029A283 /* MoePetProfileViewController.m */,
+			);
+			path = moePetProfile;
+			sourceTree = "<group>";
+		};
+		28D63215199B76D50029A283 /* Guide */ = {
+			isa = PBXGroup;
+			children = (
+				28D63216199B76E30029A283 /* GuideViewController.h */,
+				28D63217199B76E30029A283 /* GuideViewController.m */,
+			);
+			path = Guide;
 			sourceTree = "<group>";
 		};
 		28F7F43A1994788A0069D797 /* Model */ = {
@@ -691,6 +720,7 @@
 				8B6AA11E19936C2100BF017C /* EncySubCategoryCell.xib in Resources */,
 				2811119A1979183D000A72D7 /* Images.xcassets in Resources */,
 				8B6AA11819936AD700BF017C /* EncySubCategoryVC.xib in Resources */,
+				28D63214199B74710029A283 /* Introduction.storyboard in Resources */,
 				2827C79A1998D13D00C25F83 /* MJRefresh.bundle in Resources */,
 				8B6AA10219933C1400BF017C /* EncyCategoryCell.xib in Resources */,
 				8B50F0CA1998C00600D70F4F /* EncyThreeCateVC.xib in Resources */,
@@ -772,12 +802,14 @@
 				280E7446199334D80036DD0B /* ZXYProvider.m in Sources */,
 				285D89B11989E1BB005DFBEB /* LCYGlobal.m in Sources */,
 				2868EC99198F79E700D8726E /* ProfileHomePetCell.m in Sources */,
+				28D63212199B41A00029A283 /* MoePetProfileViewController.m in Sources */,
 				280E7449199334F70036DD0B /* ZXYFileOperation.m in Sources */,
 				286979661985F5AA0098F6A3 /* WelcomeCell.m in Sources */,
 				2811118F1979183C000A72D7 /* AppDelegate.m in Sources */,
 				2889508C198B315500696A95 /* SearchDetailByIDChildStyle.m in Sources */,
 				2827C7A01998D13D00C25F83 /* UIScrollView+MJRefresh.m in Sources */,
 				28895083198B269D00696A95 /* SecondFilterViewController.m in Sources */,
+				28D63218199B76E30029A283 /* GuideViewController.m in Sources */,
 				280E74591993351C0036DD0B /* EncyHomeImageCell.m in Sources */,
 				280E7468199335320036DD0B /* EveryDayPushViewController.m in Sources */,
 				2868EC93198F79BB00D8726E /* ProfileHomeLikeCell.m in Sources */,

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6205" systemVersion="14A314h" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="t6j-xM-kJY">
+    <dependencies>
+        <deployment defaultVersion="1792" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6198"/>
+        <capability name="Constraints with attributes relative to the layout margin" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Guide View Controller-->
+        <scene sceneID="FGt-G1-Pki">
+            <objects>
+                <viewController id="t6j-xM-kJY" customClass="GuideViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="l5w-zp-EVJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="rkT-ml-iw6"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="CQW-0p-d9g">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FZK-9F-TiC">
+                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
+                                <color key="backgroundColor" red="0.65193812080000002" green="1" blue="0.58221500869999998" alpha="1" colorSpace="calibratedRGB"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="rkT-ml-iw6" firstAttribute="top" secondItem="FZK-9F-TiC" secondAttribute="bottom" id="0cM-BT-fhf"/>
+                            <constraint firstItem="FZK-9F-TiC" firstAttribute="leading" secondItem="CQW-0p-d9g" secondAttribute="leadingMargin" constant="-16" id="Uds-Dd-49V"/>
+                            <constraint firstItem="FZK-9F-TiC" firstAttribute="top" secondItem="l5w-zp-EVJ" secondAttribute="bottom" id="hgf-PZ-vBt"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="FZK-9F-TiC" secondAttribute="trailing" constant="-16" id="l2j-yR-NkD"/>
+                        </constraints>
+                    </view>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8Ct-K9-MMX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="357" y="407"/>
+        </scene>
+    </scenes>
+</document>

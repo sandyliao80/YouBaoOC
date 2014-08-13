@@ -101,9 +101,9 @@
     FilterTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:FilterTableViewCellIdentifier];
     
     if (indexPath.row % 2 == 0) {
-        [cell setBackgroundColor:[UIColor colorWithRed:227.0/255.0f green:247.0/255.0f blue:254.0/255.0f alpha:1.0f]];
+        [cell setBackgroundColor:THEME_CELL_LIGHT_BLUE];
     } else {
-        [cell setBackgroundColor:[UIColor colorWithWhite:236.0/255.0f alpha:1.0f]];
+        [cell setBackgroundColor:THEME_CELL_LIGHT_GREY];
     }
     
     searchAllTypePetsFatherStyle *fartherStyle = self.filterResult[indexPath.row];

@@ -95,6 +95,8 @@
     if ([segue.identifier isEqualToString:@"addPetIdentifier"]) {
         AddPetViewController *addPetVC = [segue destinationViewController];
         addPetVC.delegate = self;
+    } else if ([segue.identifier isEqualToString:@"showMoePet"]) {
+        
     }
 }
 
@@ -157,16 +159,17 @@
         // 个人信息 - 签名
         ProfileHomeContentCell *cell = [tableView dequeueReusableCellWithIdentifier:ProfileHomeContentCellIdentifier];
         cell.icyImageView.image = [UIImage imageNamed:@"profileSign"];
+        [cell setBackgroundColor:THEME_CELL_LIGHT_BLUE];
         cell.icyLabel.text = self.baseInfo.userInfo.tip;
         if (cell.icyLabel.text.length == 0) {
             cell.icyLabel.text = @"这家伙很懒，什么也没有留下。";
         }
         return cell;
-    } else if (indexPath.row == 3)
-    {
+    } else if (indexPath.row == 3) {
         // 个人信息 - 地址
         ProfileHomeContentCell *cell = [tableView dequeueReusableCellWithIdentifier:ProfileHomeContentCellIdentifier];
         cell.icyImageView.image = [UIImage imageNamed:@"profileLoc"];
+        [cell setBackgroundColor:THEME_CELL_LIGHT_GREY];
         
         NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
         NSEntityDescription *entity = [NSEntityDescription entityForName:@"Region" inManagedObjectContext:self.context];
@@ -216,6 +219,12 @@
         }else {
             // 宠物
             ProfileHomePetCell *cell = [tableView dequeueReusableCellWithIdentifier:ProfileHomePetCellIdentifier];
+            
+            if (indexPath.row % 2 == 0) {
+                [cell setBackgroundColor:THEME_CELL_LIGHT_GREY];
+            } else {
+                [cell setBackgroundColor:THEME_CELL_LIGHT_BLUE];
+            }
             
             NSInteger petIndex = indexPath.row - 5;
             GetUserInfoPetInfo *petInfo = self.baseInfo.petInfo[petIndex];
@@ -287,6 +296,16 @@
                 return 70.0f;
             }
         }
+    }
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.row <= 3) {
+        return;
+    }
+    if (([self.baseInfo.petInfo count]) != 0 &&
+        (indexPath.row != ([self.baseInfo.petInfo count] + 5))) {
+        [self performSegueWithIdentifier:@"showMoePet" sender:nil];
     }
 }
 

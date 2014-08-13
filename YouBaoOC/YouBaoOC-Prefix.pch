@@ -22,4 +22,7 @@
 #define THEME_PINK [UIColor colorWithRed:0.985362f green:0.497977f blue:0.424263f alpha:1.0f]
 #define THEME_LIGHT_COLOR [UIColor colorWithRed:0.866157f green:0.961186f blue:0.994776f alpha:1.0f]
 
+#define THEME_CELL_LIGHT_BLUE [UIColor colorWithRed:227.0/255.0f green:247.0/255.0f blue:254.0/255.0f alpha:1.0f]
+#define THEME_CELL_LIGHT_GREY [UIColor colorWithWhite:236.0/255.0f alpha:1.0f]
+
 #define LOGIN_EXPIRE_TIME 720000

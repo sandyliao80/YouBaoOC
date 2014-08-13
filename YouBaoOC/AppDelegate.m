@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "LCYCommon.h"
+#import "GuideViewController.h"
 
 @interface AppDelegate ()
 
@@ -28,6 +29,15 @@
                                              NSForegroundColorAttributeName : [UIColor whiteColor]};
     [[UITabBarItem appearance] setTitleTextAttributes:selectedTextAttributes forState:UIControlStateSelected];
     [[UITabBarItem appearance] setTitleTextAttributes:normalTextAttributes forState:UIControlStateNormal];
+    
+    // 判断是否需要引导页
+//    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+//    if (![userDefaults boolForKey:@"skipIntroduction"]) {
+//        UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Introduction" bundle:nil];
+//        GuideViewController *guideVC = storyBoard.instantiateInitialViewController;
+//        self.window.rootViewController = guideVC;
+//        return YES;
+//    }
     
     // 判断登录状态
     if (![[LCYCommon sharedInstance] isUserLogin]) {
