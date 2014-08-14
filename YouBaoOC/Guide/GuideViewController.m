@@ -7,9 +7,14 @@
 //
 
 #import "GuideViewController.h"
+#import "AppDelegate.h"
+#import "LCYCommon.h"
+
+#define PAGECOUNT 4
 
 @interface GuideViewController ()
 
+@property (weak, nonatomic) IBOutlet UIScrollView *icyScrollView;
 @end
 
 @implementation GuideViewController
@@ -17,6 +22,27 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    CGRect frame = self.view.bounds;
+    frame.size.width = frame.size.width * 4;
+    UIView *contentView = [[UIView alloc] initWithFrame:frame];
+    [self.icyScrollView addSubview:contentView];
+    
+    for (int i = 1; i <= 4; i++) {
+        CGRect imageFrame = CGRectMake(self.view.frame.size.width * (i - 1), 0, self.view.frame.size.width, self.view.frame.size.height);
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:imageFrame];
+        [imageView setImage:[UIImage imageNamed:[NSString stringWithFormat:@"Guide%d",i]]];
+        [contentView addSubview:imageView];
+    }
+    self.icyScrollView.contentSize = contentView.frame.size;
+    
+    UIButton *doneButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    CGFloat x = self.view.frame.size.width * 3.5 - 55.0f;
+    [doneButton setFrame:CGRectMake(x, self.view.frame.size.height - 60.0f, 110.0f, 25.0f)];
+    [doneButton setTitle:@"开始体验" forState:UIControlStateNormal];
+    [doneButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [doneButton addTarget:self action:@selector(startButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    [doneButton setBackgroundColor:THEME_CELL_LIGHT_BLUE];
+    [contentView addSubview:doneButton];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -33,5 +59,19 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (void)startButtonPressed:(id)sender{
+    AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
+    // 判断登录状态
+    if (![[LCYCommon sharedInstance] isUserLogin]) {
+        UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"RegisterAndLogin" bundle:nil];
+        UINavigationController *navigationVC = storyBoard.instantiateInitialViewController;
+        appDelegate.window.rootViewController = navigationVC;
+    } else {
+        UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        UINavigationController *navigationVC = storyBoard.instantiateInitialViewController;
+        appDelegate.window.rootViewController = navigationVC;
+    }
+}
 
 @end

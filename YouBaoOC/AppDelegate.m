@@ -31,13 +31,15 @@
     [[UITabBarItem appearance] setTitleTextAttributes:normalTextAttributes forState:UIControlStateNormal];
     
     // 判断是否需要引导页
-//    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-//    if (![userDefaults boolForKey:@"skipIntroduction"]) {
-//        UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Introduction" bundle:nil];
-//        GuideViewController *guideVC = storyBoard.instantiateInitialViewController;
-//        self.window.rootViewController = guideVC;
-//        return YES;
-//    }
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    if (![userDefaults boolForKey:@"skipIntroduction"]) {
+        // 第一次运行会跳转到引导页
+        UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Introduction" bundle:nil];
+        GuideViewController *guideVC = storyBoard.instantiateInitialViewController;
+        self.window.rootViewController = guideVC;
+        [userDefaults setBool:YES forKey:@"skipIntroduction"];
+        return YES;
+    }
     
     // 判断登录状态
     if (![[LCYCommon sharedInstance] isUserLogin]) {
