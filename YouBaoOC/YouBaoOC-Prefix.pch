@@ -26,3 +26,7 @@
 #define THEME_CELL_LIGHT_GREY [UIColor colorWithWhite:236.0/255.0f alpha:1.0f]
 
 #define LOGIN_EXPIRE_TIME 720000
+
+#define BUTTON_CORNER_RADIUS 7.0f
+
+#define THEME_TITLE_COLOR [UIColor colorWithRed:0.3882 green:0.6235 blue:0.7569 alpha:1]

@@ -62,6 +62,7 @@
 		28922340198240CF0073BADB /* RegisterDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2892233F198240CF0073BADB /* RegisterDetailViewController.m */; };
 		28922343198249400073BADB /* UIImage+LCYResize.m in Sources */ = {isa = PBXBuildFile; fileRef = 28922342198249400073BADB /* UIImage+LCYResize.m */; };
 		28B69B8D1990CDCA0039B146 /* QRScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B69B8C1990CDCA0039B146 /* QRScanViewController.m */; };
+		28C721E6199CA919007DBB3A /* PasswordForgetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C721E5199CA919007DBB3A /* PasswordForgetViewController.m */; };
 		28CF40161994C2570081D39A /* PetCoreDataPreloader.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 28CF40151994C2570081D39A /* PetCoreDataPreloader.sqlite */; };
 		28CF40191994E17E0081D39A /* ProfileHomeHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 28CF40181994E17E0081D39A /* ProfileHomeHeaderCell.m */; };
 		28D63212199B41A00029A283 /* MoePetProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D63211199B41A00029A283 /* MoePetProfileViewController.m */; };
@@ -215,6 +216,8 @@
 		28922342198249400073BADB /* UIImage+LCYResize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+LCYResize.m"; sourceTree = "<group>"; };
 		28B69B8B1990CDCA0039B146 /* QRScanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRScanViewController.h; sourceTree = "<group>"; };
 		28B69B8C1990CDCA0039B146 /* QRScanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRScanViewController.m; sourceTree = "<group>"; };
+		28C721E4199CA919007DBB3A /* PasswordForgetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PasswordForgetViewController.h; sourceTree = "<group>"; };
+		28C721E5199CA919007DBB3A /* PasswordForgetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PasswordForgetViewController.m; sourceTree = "<group>"; };
 		28CF40151994C2570081D39A /* PetCoreDataPreloader.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = PetCoreDataPreloader.sqlite; sourceTree = "<group>"; };
 		28CF40171994E17E0081D39A /* ProfileHomeHeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileHomeHeaderCell.h; sourceTree = "<group>"; };
 		28CF40181994E17E0081D39A /* ProfileHomeHeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileHomeHeaderCell.m; sourceTree = "<group>"; };
@@ -415,6 +418,8 @@
 				2892233F198240CF0073BADB /* RegisterDetailViewController.m */,
 				286099A21987762800CB86D6 /* Region.h */,
 				286099A31987762800CB86D6 /* Region.m */,
+				28C721E4199CA919007DBB3A /* PasswordForgetViewController.h */,
+				28C721E5199CA919007DBB3A /* PasswordForgetViewController.m */,
 			);
 			path = RegisterAndLogin;
 			sourceTree = "<group>";
@@ -833,6 +838,7 @@
 				2832DC631980EFCE004BBAB5 /* RegisterAndLoginViewController.m in Sources */,
 				280E7452199335100036DD0B /* ZXYEncyPicDown.m in Sources */,
 				280E745A1993351C0036DD0B /* EncyHomeTitleCell.m in Sources */,
+				28C721E6199CA919007DBB3A /* PasswordForgetViewController.m in Sources */,
 				280E7453199335100036DD0B /* ZXYNETHelper.m in Sources */,
 				2868EC9F198F99F500D8726E /* AddPetViewController.m in Sources */,
 				2889508D198B315500696A95 /* SearchDetailByIDBase.m in Sources */,

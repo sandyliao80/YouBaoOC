@@ -64,8 +64,8 @@ typedef NS_ENUM(NSUInteger, RegisterAndLoginStatus) {
     [self.navigationItem setTitleView:segmentedControl];
     
     // 按钮圆角
-    self.sendAuthButton.layer.cornerRadius = 7.0f;
-    self.regDoneButton.layer.cornerRadius = 7.0f;
+    self.sendAuthButton.layer.cornerRadius = BUTTON_CORNER_RADIUS;
+    self.regDoneButton.layer.cornerRadius = BUTTON_CORNER_RADIUS;
 
     UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [backBtn setFrame:CGRectMake(0, 0, 40, 40)];

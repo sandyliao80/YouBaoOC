@@ -30,6 +30,10 @@
     [[UITabBarItem appearance] setTitleTextAttributes:selectedTextAttributes forState:UIControlStateSelected];
     [[UITabBarItem appearance] setTitleTextAttributes:normalTextAttributes forState:UIControlStateNormal];
     
+    // 设置导航标题字体
+    NSDictionary *navigationBarAppearance = @{ NSForegroundColorAttributeName   : THEME_TITLE_COLOR};
+    [[UINavigationBar appearance] setTitleTextAttributes:navigationBarAppearance];
+    
     // 判断是否需要引导页
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     if (![userDefaults boolForKey:@"skipIntroduction"]) {

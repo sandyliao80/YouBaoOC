@@ -36,12 +36,13 @@
     self.icyScrollView.contentSize = contentView.frame.size;
     
     UIButton *doneButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    CGFloat x = self.view.frame.size.width * 3.5 - 55.0f;
-    [doneButton setFrame:CGRectMake(x, self.view.frame.size.height - 60.0f, 110.0f, 25.0f)];
-    [doneButton setTitle:@"开始体验" forState:UIControlStateNormal];
-    [doneButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    CGFloat x = self.view.frame.size.width * 3.5 - 100.0;
+    [doneButton setFrame:CGRectMake(x, self.view.frame.size.height - 120.0f, 200.0, 38.0f)];
+    [doneButton setTitle:@"注册/登录嗨宠社区" forState:UIControlStateNormal];
+    [doneButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [doneButton addTarget:self action:@selector(startButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-    [doneButton setBackgroundColor:THEME_CELL_LIGHT_BLUE];
+    [doneButton setBackgroundColor:[UIColor blackColor]];
+    [doneButton.layer setCornerRadius:3.0f];
     [contentView addSubview:doneButton];
 }
 
