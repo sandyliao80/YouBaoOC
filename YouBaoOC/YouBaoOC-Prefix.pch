@@ -18,15 +18,20 @@
 #import "EN_PreDefine.h"
 #endif
 
-#define THEME_COLOR [UIColor colorWithRed:140.0f/255.0f green:196.0f/255.0f blue:223.0f/255.0f alpha:1.0f]
+//#define THEME_COLOR [UIColor colorWithRed:140.0f/255.0f green:196.0f/255.0f blue:223.0f/255.0f alpha:1.0f]
+#define THEME_COLOR [UIColor colorWithRed:0.3882 green:0.6235 blue:0.7569 alpha:1]
 #define THEME_PINK [UIColor colorWithRed:0.985362f green:0.497977f blue:0.424263f alpha:1.0f]
 #define THEME_LIGHT_COLOR [UIColor colorWithRed:0.866157f green:0.961186f blue:0.994776f alpha:1.0f]
 
+#define THEME_DARK_BLUE [UIColor colorWithRed:0.270588 green:0.54902 blue:0.701961 alpha:1.0f]
+
 #define THEME_CELL_LIGHT_BLUE [UIColor colorWithRed:227.0/255.0f green:247.0/255.0f blue:254.0/255.0f alpha:1.0f]
-#define THEME_CELL_LIGHT_GREY [UIColor colorWithWhite:236.0/255.0f alpha:1.0f]
+#define THEME_CELL_LIGHT_GREY [UIColor colorWithWhite:229.0/255.0f alpha:1.0f]
 
 #define LOGIN_EXPIRE_TIME 720000
 
 #define BUTTON_CORNER_RADIUS 7.0f
 
 #define THEME_TITLE_COLOR [UIColor colorWithRed:0.3882 green:0.6235 blue:0.7569 alpha:1]
+
+#define IOS8 ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0)

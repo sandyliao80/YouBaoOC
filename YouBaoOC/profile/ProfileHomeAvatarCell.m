@@ -25,6 +25,13 @@ NSString *const ProfileHomeAvatarCellIdentifier = @"ProfileHomeAvatarCellIdentif
     CGFloat radius = MIN(self.icyImageView.frame.size.height, self.icyImageView.frame.size.width)/2.0f;
     [self.icyImageView.layer setCornerRadius:radius];
     [self.icyImageView.layer setMasksToBounds:YES];
+    
+    CGFloat avatarContainerRadius = MIN(self.avatarContainerView.frame.size.height, self.avatarContainerView.frame.size.width) /2.0f;
+    [self.avatarContainerView.layer setCornerRadius:avatarContainerRadius];
+    [self.avatarContainerView.layer setMasksToBounds:YES];
+    [self.avatarContainerView.layer setBorderWidth:1.0f];
+    [self.avatarContainerView.layer setBorderColor:[THEME_DARK_BLUE CGColor]];
+    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

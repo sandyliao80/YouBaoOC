@@ -95,7 +95,12 @@
         [self.sendAutoButton setBackgroundColor:THEME_PINK];
         return;
     }
-    self.sendAutoButton.titleLabel.text = [NSString stringWithFormat:@"(%ld)秒重发",(long)self.timeLeft];
+    if (IOS8) {
+        [self.sendAutoButton setTitle:[NSString stringWithFormat:@"(%ld)秒重发",(long)self.timeLeft] forState:UIControlStateNormal];
+        [self.sendAutoButton setTitle:[NSString stringWithFormat:@"(%ld)秒重发",(long)self.timeLeft] forState:UIControlStateHighlighted];
+    } else {
+        self.sendAutoButton.titleLabel.text = [NSString stringWithFormat:@"(%ld)秒重发",(long)self.timeLeft];
+    }
     self.timeLeft--;
 }
 
@@ -151,10 +156,47 @@
 }
 - (IBAction)saveButtonPressed:(UIButton *)sender {
     [sender setEnabled:NO];
-    if (![self.phoneNumberTextField.text isEqualToString:self.phoneNumberWhenSendAutoCode]) {
-        // 手机号有改动
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"手机号与验证码不匹配，请重新输入" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+    if (self.authCode == -1) {
+        // 需要先验证
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"请先进行手机验证" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
         [alert show];
+        [sender setEnabled:YES];
+    } else if (![self.phoneNumberTextField.text isEqualToString:self.phoneNumberWhenSendAutoCode]) {
+        // 手机号有改动
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"手机号与验证码不匹配，您可以重新获取验证码" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+        [alert show];
+        [sender setEnabled:YES];
+    } else if (![[NSString stringWithFormat:@"%ld",(long)self.authCode] isEqualToString:self.authNumberTextField.text]) {
+        // 验证码不正确
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"验证码不正确" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+        [alert show];
+        [sender setEnabled:YES];
+    } else if (self.passwordTextField.text.length < 6 || self.passwordTextField.text.length > 18) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"请输入6到18位的密码" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+        [alert show];
+        [sender setEnabled:YES];
+    } else {
+        // 发送请求，重置密码
+        [[LCYCommon sharedInstance] showTips:@"请稍候" inView:self.view];
+        NSDictionary *parameters = @{ @"user_id"    : self.phoneNumberTextField.text,
+                                      @"password"   : self.passwordTextField.text};
+        [[LCYNetworking sharedInstance] postRequestWithAPI:User_setPassword parameters:parameters successBlock:^(NSDictionary *object) {
+            [[LCYCommon sharedInstance] hideTipsInView:self.view];
+            [sender setEnabled:YES];
+            if ([[object objectForKey:@"result"] boolValue]) {
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"修改成功" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+                [alert show];
+            } else {
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"修改失败" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+                [alert show];
+            }
+            
+        } failedBlock:^{
+            [[LCYCommon sharedInstance] hideTipsInView:self.view];
+            [sender setEnabled:YES];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"网络请求失败" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+            [alert show];
+        }];
     }
 }
 

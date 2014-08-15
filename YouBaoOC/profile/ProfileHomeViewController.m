@@ -68,6 +68,7 @@
         self.baseInfo = [GetUserInfoBase modelObjectWithDictionary:object];
         if (self.baseInfo.result) {
             // 加载成功
+            self.navigationItem.title = self.baseInfo.userInfo.nickName;
             [self.icyTableView reloadData];
         } else {
             // 加载失败
@@ -159,7 +160,7 @@
         // 个人信息 - 签名
         ProfileHomeContentCell *cell = [tableView dequeueReusableCellWithIdentifier:ProfileHomeContentCellIdentifier];
         cell.icyImageView.image = [UIImage imageNamed:@"profileSign"];
-        [cell setBackgroundColor:THEME_CELL_LIGHT_BLUE];
+        [cell setBackgroundColor:THEME_CELL_LIGHT_GREY];
         cell.icyLabel.text = self.baseInfo.userInfo.tip;
         if (cell.icyLabel.text.length == 0) {
             cell.icyLabel.text = @"这家伙很懒，什么也没有留下。";
@@ -169,7 +170,7 @@
         // 个人信息 - 地址
         ProfileHomeContentCell *cell = [tableView dequeueReusableCellWithIdentifier:ProfileHomeContentCellIdentifier];
         cell.icyImageView.image = [UIImage imageNamed:@"profileLoc"];
-        [cell setBackgroundColor:THEME_CELL_LIGHT_GREY];
+        [cell setBackgroundColor:THEME_CELL_LIGHT_BLUE];
         
         NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
         NSEntityDescription *entity = [NSEntityDescription entityForName:@"Region" inManagedObjectContext:self.context];
@@ -221,9 +222,9 @@
             ProfileHomePetCell *cell = [tableView dequeueReusableCellWithIdentifier:ProfileHomePetCellIdentifier];
             
             if (indexPath.row % 2 == 0) {
-                [cell setBackgroundColor:THEME_CELL_LIGHT_GREY];
-            } else {
                 [cell setBackgroundColor:THEME_CELL_LIGHT_BLUE];
+            } else {
+                [cell setBackgroundColor:THEME_CELL_LIGHT_GREY];
             }
             
             NSInteger petIndex = indexPath.row - 5;

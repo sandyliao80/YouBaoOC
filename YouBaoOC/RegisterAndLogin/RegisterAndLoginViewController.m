@@ -293,7 +293,12 @@ typedef NS_ENUM(NSUInteger, RegisterAndLoginStatus) {
         [self.sendAuthButton setBackgroundColor:THEME_PINK];
         return;
     }
-    self.sendAuthButton.titleLabel.text = [NSString stringWithFormat:@"(%ld)秒重发",(long)self.timeLeft];
+    if (IOS8) {
+        [self.sendAuthButton setTitle:[NSString stringWithFormat:@"(%ld)秒重发",(long)self.timeLeft] forState:UIControlStateNormal];
+        [self.sendAuthButton setTitle:[NSString stringWithFormat:@"(%ld)秒重发",(long)self.timeLeft] forState:UIControlStateHighlighted];
+    } else {
+        self.sendAuthButton.titleLabel.text = [NSString stringWithFormat:@"(%ld)秒重发",(long)self.timeLeft];
+    }
     self.timeLeft--;
 }
 

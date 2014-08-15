@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6205" systemVersion="14A314h" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="KKL-vN-PsA">
     <dependencies>
+        <deployment defaultVersion="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6198"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
@@ -29,32 +30,42 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tZY-cv-Wi2" id="OHe-yC-tVt">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6F2-mu-XLv">
-                                                    <rect key="frame" x="129" y="9" width="63" height="63"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="63" id="PRZ-xI-uVv"/>
-                                                        <constraint firstAttribute="width" constant="63" id="UV1-x6-afd"/>
-                                                    </constraints>
-                                                </imageView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tf2-CB-4Cl">
-                                                    <rect key="frame" x="0.0" y="40" width="129" height="1"/>
-                                                    <color key="backgroundColor" red="0.32941177490000001" green="0.62352943419999995" blue="0.76470595600000002" alpha="1" colorSpace="deviceRGB"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tf2-CB-4Cl">
+                                                    <rect key="frame" x="0.0" y="40" width="130" height="1"/>
+                                                    <color key="backgroundColor" red="0.27058823529411763" green="0.5490196078431373" blue="0.70196078431372544" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="1" id="yuT-Gx-9wM"/>
                                                     </constraints>
                                                 </imageView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qST-Wp-X7m">
-                                                    <rect key="frame" x="192" y="40" width="128" height="1"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qST-Wp-X7m">
+                                                    <rect key="frame" x="191" y="40" width="130" height="1"/>
                                                     <color key="backgroundColor" red="0.32941177490000001" green="0.62352943419999995" blue="0.76470595600000002" alpha="1" colorSpace="deviceRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="1" id="L4d-aJ-usE"/>
                                                     </constraints>
                                                 </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="b1M-CQ-dfn">
+                                                    <rect key="frame" x="129" y="9" width="63" height="63"/>
+                                                    <color key="backgroundColor" red="0.48235294222831726" green="0.72549021244049072" blue="0.84705883264541626" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="63" id="Spg-Ja-ETn"/>
+                                                        <constraint firstAttribute="width" constant="63" id="oHD-vC-gGU"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6F2-mu-XLv">
+                                                    <rect key="frame" x="133" y="13" width="55" height="55"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="55" id="PRZ-xI-uVv"/>
+                                                        <constraint firstAttribute="width" constant="55" id="UV1-x6-afd"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
                                             <color key="backgroundColor" red="0.54901963470000004" green="0.76862752440000004" blue="0.87450987099999999" alpha="1" colorSpace="deviceRGB"/>
                                             <constraints>
+                                                <constraint firstAttribute="centerX" secondItem="b1M-CQ-dfn" secondAttribute="centerX" id="2bz-m2-NqK"/>
                                                 <constraint firstAttribute="trailing" secondItem="qST-Wp-X7m" secondAttribute="trailing" id="6TM-4u-Aah"/>
                                                 <constraint firstAttribute="centerY" secondItem="6F2-mu-XLv" secondAttribute="centerY" id="6ZH-o4-kmp"/>
+                                                <constraint firstAttribute="centerY" secondItem="b1M-CQ-dfn" secondAttribute="centerY" id="COh-cI-bwN"/>
                                                 <constraint firstItem="qST-Wp-X7m" firstAttribute="leading" secondItem="6F2-mu-XLv" secondAttribute="trailing" id="OOp-On-Fd8"/>
                                                 <constraint firstItem="tf2-CB-4Cl" firstAttribute="leading" secondItem="OHe-yC-tVt" secondAttribute="leading" id="XzE-hP-5ta"/>
                                                 <constraint firstAttribute="centerY" secondItem="tf2-CB-4Cl" secondAttribute="centerY" id="YYl-3K-CdN"/>
@@ -64,6 +75,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="avatarContainerView" destination="b1M-CQ-dfn" id="4hd-LR-Paj"/>
                                             <outlet property="icyImageView" destination="6F2-mu-XLv" id="mQK-k5-2gR"/>
                                         </connections>
                                     </tableViewCell>
@@ -118,8 +130,40 @@
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qWy-nM-JRN">
+                                                    <rect key="frame" x="0.0" y="41" width="107" height="3"/>
+                                                    <color key="backgroundColor" red="0.8666666666666667" green="0.96078431372549022" blue="0.99607843137254903" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="3" id="oY4-EG-H9y"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dZh-he-GOp">
+                                                    <rect key="frame" x="107" y="41" width="107" height="3"/>
+                                                    <color key="backgroundColor" red="0.9960784912109375" green="0.58039218187332153" blue="0.49803924560546875" alpha="1" colorSpace="deviceRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="3" id="rZN-OX-TdG"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3nk-6L-rMF">
+                                                    <rect key="frame" x="214" y="41" width="107" height="3"/>
+                                                    <color key="backgroundColor" red="0.27058823529999998" green="0.54901960780000003" blue="0.70196078429999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="3" id="zVy-4N-l1c"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
                                             <color key="backgroundColor" red="0.54901963470000004" green="0.76862752440000004" blue="0.87450987099999999" alpha="1" colorSpace="deviceRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="3nk-6L-rMF" secondAttribute="bottom" id="8JQ-35-QmL"/>
+                                                <constraint firstItem="dZh-he-GOp" firstAttribute="leading" secondItem="qWy-nM-JRN" secondAttribute="trailing" id="AtJ-IW-8sf"/>
+                                                <constraint firstItem="3nk-6L-rMF" firstAttribute="leading" secondItem="dZh-he-GOp" secondAttribute="trailing" id="Nxl-NM-oeG"/>
+                                                <constraint firstAttribute="bottom" secondItem="qWy-nM-JRN" secondAttribute="bottom" id="P2Q-fS-VBm"/>
+                                                <constraint firstAttribute="trailing" secondItem="3nk-6L-rMF" secondAttribute="trailing" id="Ph0-VR-I45"/>
+                                                <constraint firstItem="qWy-nM-JRN" firstAttribute="leading" secondItem="2lv-YV-Scy" secondAttribute="leading" id="bEH-mt-duW"/>
+                                                <constraint firstItem="qWy-nM-JRN" firstAttribute="width" secondItem="dZh-he-GOp" secondAttribute="width" id="nSR-Bu-iWo"/>
+                                                <constraint firstItem="dZh-he-GOp" firstAttribute="width" secondItem="3nk-6L-rMF" secondAttribute="width" id="pic-yX-7xH"/>
+                                                <constraint firstAttribute="bottom" secondItem="dZh-he-GOp" secondAttribute="bottom" id="z5u-ge-Pa7"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="fensi" destination="xM0-Wv-Se0" id="Iio-uu-cUL"/>

@@ -71,6 +71,7 @@ typedef NS_ENUM(NSUInteger, RegisterDetailGender) {
     
     self.currentGender = RegisterDetailGenderMale;
     self.cityTextField.inputView = self.pickerView;
+//    [self.cityTextField.inputView addSubview:self.pickerView];
     self.cityTextField.inputAccessoryView = self.myToolBar;
     
     UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -93,6 +94,10 @@ typedef NS_ENUM(NSUInteger, RegisterDetailGender) {
 
 - (void)navigationBack:(UIButton *)sender{
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)viewDidLayoutSubviews{
+    NSLog(@"picker frame = %@", NSStringFromCGRect([self.pickerView frame]));
 }
 
 /*
