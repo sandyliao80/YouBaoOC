@@ -18,6 +18,7 @@ FOUNDATION_EXPORT NSString *const PetStyle_searchAllTypePets;       /**< 获取�
 FOUNDATION_EXPORT NSString *const PetStyle_searchDetailByID;        /**< 获取宠物二级分类 */
 FOUNDATION_EXPORT NSString *const Pet_petAdd;           /**< 添加宠物 */
 FOUNDATION_EXPORT NSString *const User_getUserInfoByID; /**< 获取个人信息 */
+FOUNDATION_EXPORT NSString *const User_setPassword;     /**< 修改密码 */
 
 
 @interface LCYNetworking : NSObject

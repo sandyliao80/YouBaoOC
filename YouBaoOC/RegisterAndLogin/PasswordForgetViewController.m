@@ -31,6 +31,8 @@
 
 @property (nonatomic) NSInteger authCode;
 
+@property (strong, nonatomic) NSString *phoneNumberWhenSendAutoCode;
+
 @end
 
 @implementation PasswordForgetViewController
@@ -41,6 +43,7 @@
     
     self.timeLeft = 60;
     self.authCode = -1;
+    self.phoneNumberWhenSendAutoCode = @"icylydia";
     
     UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [backBtn setFrame:CGRectMake(0, 0, 40, 40)];
@@ -110,6 +113,9 @@
         [self.sendAutoButton setBackgroundColor:[UIColor lightGrayColor]];
         self.authTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(timerFired:) userInfo:nil repeats:YES];
         [self.authTimer fire];
+        
+        // 记录发送验证码时，输入的手机号
+        self.phoneNumberWhenSendAutoCode = self.phoneNumberTextField.text;
         // 请求验证码
         NSDictionary *parameters = @{@"user_name" : self.phoneNumberTextField.text};
         [[LCYNetworking sharedInstance] postRequestWithAPI:User_authcode parameters:parameters successBlock:^(NSDictionary *object) {
@@ -141,6 +147,14 @@
             [self.sendAutoButton setBackgroundColor:THEME_PINK];
             [self.authTimer invalidate];
         }];
+    }
+}
+- (IBAction)saveButtonPressed:(UIButton *)sender {
+    [sender setEnabled:NO];
+    if (![self.phoneNumberTextField.text isEqualToString:self.phoneNumberWhenSendAutoCode]) {
+        // 手机号有改动
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"手机号与验证码不匹配，请重新输入" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+        [alert show];
     }
 }
 

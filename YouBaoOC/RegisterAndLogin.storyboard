@@ -235,10 +235,10 @@
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="qxO-he-efI" secondAttribute="centerX" id="2cS-bs-j0d"/>
                             <constraint firstItem="4Dp-Pb-sBo" firstAttribute="trailing" secondItem="qxO-he-efI" secondAttribute="trailing" constant="-10" id="5tM-QR-EHS"/>
-                            <constraint firstItem="mde-EW-8Qh" firstAttribute="top" secondItem="isu-0h-W3I" secondAttribute="bottom" constant="15" id="6C4-Gm-4jm"/>
                             <constraint firstItem="gd6-DM-gaR" firstAttribute="trailing" secondItem="62t-gL-d8R" secondAttribute="trailing" constant="10" id="6Zx-os-0YZ"/>
                             <constraint firstAttribute="centerX" secondItem="mde-EW-8Qh" secondAttribute="centerX" id="9yl-Ks-YOr"/>
                             <constraint firstItem="qxO-he-efI" firstAttribute="top" secondItem="PYQ-6y-pYb" secondAttribute="bottom" constant="15" id="GDd-aB-YLt"/>
+                            <constraint firstItem="mde-EW-8Qh" firstAttribute="top" secondItem="gd6-DM-gaR" secondAttribute="bottom" constant="75" id="Gqa-x0-da9"/>
                             <constraint firstItem="CfL-kp-B2s" firstAttribute="leading" secondItem="gd6-DM-gaR" secondAttribute="leading" id="HUX-Jc-SL2"/>
                             <constraint firstItem="isu-0h-W3I" firstAttribute="top" secondItem="gd6-DM-gaR" secondAttribute="bottom" constant="15" id="K2Q-eV-qpt"/>
                             <constraint firstItem="gd6-DM-gaR" firstAttribute="leading" secondItem="62t-gL-d8R" secondAttribute="leading" constant="-36" id="OFW-Z5-Byv"/>
@@ -259,6 +259,7 @@
                     </view>
                     <connections>
                         <outlet property="authTextField" destination="04c-6W-C9u" id="5IC-Tj-SHn"/>
+                        <outlet property="doneButtonY" destination="Gqa-x0-da9" id="okz-DF-VGP"/>
                         <outlet property="passwordForgetButton" destination="CfL-kp-B2s" id="boW-px-uOn"/>
                         <outlet property="passwordTextField" destination="62t-gL-d8R" id="WhG-Pu-OVz"/>
                         <outlet property="phoneTextField" destination="4Dp-Pb-sBo" id="Eh8-hD-KdT"/>
@@ -620,6 +621,9 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="saveButtonPressed:" destination="lyn-hC-Ypt" eventType="touchUpInside" id="9rM-df-uOt"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.48235294222831726" green="0.72549021244049072" blue="0.84705883264541626" alpha="1" colorSpace="calibratedRGB"/>

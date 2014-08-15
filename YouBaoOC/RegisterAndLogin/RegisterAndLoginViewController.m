@@ -25,7 +25,6 @@ typedef NS_ENUM(NSUInteger, RegisterAndLoginStatus) {
 #pragma mark - 发送验证码
 @property (weak, nonatomic) IBOutlet UIButton *sendAuthButton;
 @property (strong, nonatomic) IBOutlet UIView *sendAuthView;
-@property (strong, nonatomic) NSArray *sendAutoViewConstraints;
 
 #pragma mark - 注册
 @property (weak, nonatomic) IBOutlet UIButton *regDoneButton;
@@ -44,6 +43,11 @@ typedef NS_ENUM(NSUInteger, RegisterAndLoginStatus) {
 @property (nonatomic) NSInteger authCode;
 
 @property (strong, nonatomic) NSTimer *authTimer;
+
+
+#pragma mark - Constraints
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *doneButtonY;
 
 
 @end
@@ -74,7 +78,6 @@ typedef NS_ENUM(NSUInteger, RegisterAndLoginStatus) {
     UIBarButtonItem *leftBackItem = [[UIBarButtonItem alloc] initWithCustomView:backBtn];
     self.navigationItem.leftBarButtonItem = leftBackItem;
     
-    self.sendAutoViewConstraints = self.sendAuthView.constraints;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -104,23 +107,25 @@ typedef NS_ENUM(NSUInteger, RegisterAndLoginStatus) {
         self.currentStatus = RegisterAndLoginStatusRegister;
         [UIView animateWithDuration:0.35 animations:^{
             self.regDoneButton.frame = self.doneButtonFrame;
+            self.doneButtonY.constant += 45.0f;
             [self.regDoneButton setTitle:@"注册" forState:UIControlStateNormal];
             [self.regDoneButton setTitle:@"注册" forState:UIControlStateHighlighted];
             [self.passwordForgetButton setHidden:YES];
         } completion:^(BOOL finished) {
-            [self.view addSubview:self.sendAuthView];
-            [self.sendAuthView removeConstraints:self.sendAuthView.constraints];
-            [self.sendAuthView addConstraints:self.sendAutoViewConstraints];
-
+            [self.sendAuthView setHidden:NO];
         }];
     } else {
         self.doneButtonFrame = self.regDoneButton.frame;
         self.currentStatus = RegisterAndLoginStatusLogin;
         [UIView animateWithDuration:0.35 animations:^{
-            [self.sendAuthView removeFromSuperview];
+            [self.sendAuthView setHidden:YES];
             CGRect frame = self.doneButtonFrame;
+//            NSLog(@"current frame = %@", NSStringFromCGRect(frame));
             frame.origin.y -= 45.0f;
             self.regDoneButton.frame = frame;
+            
+            self.doneButtonY.constant -= 45.0f;
+            
             [self.regDoneButton setTitle:@"登录" forState:UIControlStateNormal];
             [self.regDoneButton setTitle:@"登录" forState:UIControlStateHighlighted];
         } completion:^(BOOL finished) {
