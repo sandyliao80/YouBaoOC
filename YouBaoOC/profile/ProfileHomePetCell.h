@@ -14,6 +14,17 @@ FOUNDATION_EXPORT NSString *const ProfileHomePetCellIdentifier;
 @property (weak, nonatomic) IBOutlet UIImageView *icyImageView;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *signLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *sexImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *avatarContainerView;
 
+@property (weak, nonatomic) IBOutlet UIImageView *breakLineImageView;
+
+@property (weak, nonatomic) IBOutlet UIImageView *imageOne;
+
+@property (weak, nonatomic) IBOutlet UIImageView *imageTwo;
+
+@property (weak, nonatomic) IBOutlet UIImageView *imageThree;
+
+- (void)cellTypeBreeding:(BOOL)breeding adopting:(BOOL)adopting entrust:(BOOL)entrust;
 
 @end

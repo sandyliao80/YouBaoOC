@@ -216,16 +216,17 @@
             // header view
             ProfileHomeHeaderCell *cell = [tableView dequeueReusableCellWithIdentifier:ProfileHomeHeaderCellIdentifier];
             cell.icyLabel.text = @"我的宠物";
+            cell.backgroundColor = THEME_CELL_LIGHT_GREY;
             return cell;
         }else {
             // 宠物
             ProfileHomePetCell *cell = [tableView dequeueReusableCellWithIdentifier:ProfileHomePetCellIdentifier];
             
-            if (indexPath.row % 2 == 0) {
-                [cell setBackgroundColor:THEME_CELL_LIGHT_BLUE];
-            } else {
-                [cell setBackgroundColor:THEME_CELL_LIGHT_GREY];
-            }
+//            if (indexPath.row % 2 == 0) {
+//                [cell setBackgroundColor:THEME_CELL_LIGHT_BLUE];
+//            } else {
+//                [cell setBackgroundColor:THEME_CELL_LIGHT_GREY];
+//            }
             
             NSInteger petIndex = indexPath.row - 5;
             GetUserInfoPetInfo *petInfo = self.baseInfo.petInfo[petIndex];
@@ -258,7 +259,19 @@
             }
             [misc appendString:@" "];
             [misc appendString:petInfo.name];
+            [misc appendString:@" "];
+            [misc insertString:@" " atIndex:0];
             cell.signLabel.text = misc;
+            
+            
+            // 宠物性别
+            cell.sexImageView.image = [petInfo.petSex isEqualToString:@"0"]?[UIImage imageNamed:@"icoFemale"]:[UIImage imageNamed:@"icoMaleDark"];
+            
+            cell.breakLineImageView.backgroundColor = THEME_CELL_LIGHT_GREY;
+            BOOL breeding = [petInfo.fHybridization isEqualToString:@"1"]?YES:NO;
+            BOOL adopt = [petInfo.fAdopt isEqualToString:@"1"]?YES:NO;
+            BOOL entrust = [petInfo.isEntrust isEqualToString:@"1"]?YES:NO;
+            [cell cellTypeBreeding:breeding adopting:adopt entrust:entrust];
             
             return cell;
         }
@@ -275,7 +288,7 @@
         return 44.0f;
     } else if (indexPath.row == 2 || indexPath.row == 3) {
         // 个人信息
-        return 44.0f;
+        return 50.0f;
     } else {
         if ([self.baseInfo.petInfo count] == 0) {
             if (indexPath.row == 6) {

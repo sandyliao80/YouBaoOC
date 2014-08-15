@@ -1,7 +1,7 @@
 //
 //  GetUserInfoPetInfo.m
 //
-//  Created by   on 14-8-8
+//  Created by 超逸 李 on 14/8/15
 //  Copyright (c) 2014 __MyCompanyName__. All rights reserved.
 //
 
@@ -11,10 +11,11 @@
 NSString *const kGetUserInfoPetInfoPetId = @"pet_id";
 NSString *const kGetUserInfoPetInfoFAdopt = @"f_adopt";
 NSString *const kGetUserInfoPetInfoHeadImage = @"head_image";
-NSString *const kGetUserInfoPetInfoFHybridization = @"f_hybridization";
+NSString *const kGetUserInfoPetInfoPetSex = @"pet_sex";
 NSString *const kGetUserInfoPetInfoAge = @"age";
-NSString *const kGetUserInfoPetInfoIsEntrust = @"is_entrust";
+NSString *const kGetUserInfoPetInfoFHybridization = @"f_hybridization";
 NSString *const kGetUserInfoPetInfoPetName = @"pet_name";
+NSString *const kGetUserInfoPetInfoIsEntrust = @"is_entrust";
 NSString *const kGetUserInfoPetInfoName = @"name";
 
 
@@ -29,10 +30,11 @@ NSString *const kGetUserInfoPetInfoName = @"name";
 @synthesize petId = _petId;
 @synthesize fAdopt = _fAdopt;
 @synthesize headImage = _headImage;
-@synthesize fHybridization = _fHybridization;
+@synthesize petSex = _petSex;
 @synthesize age = _age;
-@synthesize isEntrust = _isEntrust;
+@synthesize fHybridization = _fHybridization;
 @synthesize petName = _petName;
+@synthesize isEntrust = _isEntrust;
 @synthesize name = _name;
 
 
@@ -51,10 +53,11 @@ NSString *const kGetUserInfoPetInfoName = @"name";
             self.petId = [self objectOrNilForKey:kGetUserInfoPetInfoPetId fromDictionary:dict];
             self.fAdopt = [self objectOrNilForKey:kGetUserInfoPetInfoFAdopt fromDictionary:dict];
             self.headImage = [self objectOrNilForKey:kGetUserInfoPetInfoHeadImage fromDictionary:dict];
-            self.fHybridization = [self objectOrNilForKey:kGetUserInfoPetInfoFHybridization fromDictionary:dict];
+            self.petSex = [self objectOrNilForKey:kGetUserInfoPetInfoPetSex fromDictionary:dict];
             self.age = [self objectOrNilForKey:kGetUserInfoPetInfoAge fromDictionary:dict];
-            self.isEntrust = [self objectOrNilForKey:kGetUserInfoPetInfoIsEntrust fromDictionary:dict];
+            self.fHybridization = [self objectOrNilForKey:kGetUserInfoPetInfoFHybridization fromDictionary:dict];
             self.petName = [self objectOrNilForKey:kGetUserInfoPetInfoPetName fromDictionary:dict];
+            self.isEntrust = [self objectOrNilForKey:kGetUserInfoPetInfoIsEntrust fromDictionary:dict];
             self.name = [self objectOrNilForKey:kGetUserInfoPetInfoName fromDictionary:dict];
 
     }
@@ -69,10 +72,11 @@ NSString *const kGetUserInfoPetInfoName = @"name";
     [mutableDict setValue:self.petId forKey:kGetUserInfoPetInfoPetId];
     [mutableDict setValue:self.fAdopt forKey:kGetUserInfoPetInfoFAdopt];
     [mutableDict setValue:self.headImage forKey:kGetUserInfoPetInfoHeadImage];
-    [mutableDict setValue:self.fHybridization forKey:kGetUserInfoPetInfoFHybridization];
+    [mutableDict setValue:self.petSex forKey:kGetUserInfoPetInfoPetSex];
     [mutableDict setValue:self.age forKey:kGetUserInfoPetInfoAge];
-    [mutableDict setValue:self.isEntrust forKey:kGetUserInfoPetInfoIsEntrust];
+    [mutableDict setValue:self.fHybridization forKey:kGetUserInfoPetInfoFHybridization];
     [mutableDict setValue:self.petName forKey:kGetUserInfoPetInfoPetName];
+    [mutableDict setValue:self.isEntrust forKey:kGetUserInfoPetInfoIsEntrust];
     [mutableDict setValue:self.name forKey:kGetUserInfoPetInfoName];
 
     return [NSDictionary dictionaryWithDictionary:mutableDict];
@@ -100,10 +104,11 @@ NSString *const kGetUserInfoPetInfoName = @"name";
     self.petId = [aDecoder decodeObjectForKey:kGetUserInfoPetInfoPetId];
     self.fAdopt = [aDecoder decodeObjectForKey:kGetUserInfoPetInfoFAdopt];
     self.headImage = [aDecoder decodeObjectForKey:kGetUserInfoPetInfoHeadImage];
-    self.fHybridization = [aDecoder decodeObjectForKey:kGetUserInfoPetInfoFHybridization];
+    self.petSex = [aDecoder decodeObjectForKey:kGetUserInfoPetInfoPetSex];
     self.age = [aDecoder decodeObjectForKey:kGetUserInfoPetInfoAge];
-    self.isEntrust = [aDecoder decodeObjectForKey:kGetUserInfoPetInfoIsEntrust];
+    self.fHybridization = [aDecoder decodeObjectForKey:kGetUserInfoPetInfoFHybridization];
     self.petName = [aDecoder decodeObjectForKey:kGetUserInfoPetInfoPetName];
+    self.isEntrust = [aDecoder decodeObjectForKey:kGetUserInfoPetInfoIsEntrust];
     self.name = [aDecoder decodeObjectForKey:kGetUserInfoPetInfoName];
     return self;
 }
@@ -114,10 +119,11 @@ NSString *const kGetUserInfoPetInfoName = @"name";
     [aCoder encodeObject:_petId forKey:kGetUserInfoPetInfoPetId];
     [aCoder encodeObject:_fAdopt forKey:kGetUserInfoPetInfoFAdopt];
     [aCoder encodeObject:_headImage forKey:kGetUserInfoPetInfoHeadImage];
-    [aCoder encodeObject:_fHybridization forKey:kGetUserInfoPetInfoFHybridization];
+    [aCoder encodeObject:_petSex forKey:kGetUserInfoPetInfoPetSex];
     [aCoder encodeObject:_age forKey:kGetUserInfoPetInfoAge];
-    [aCoder encodeObject:_isEntrust forKey:kGetUserInfoPetInfoIsEntrust];
+    [aCoder encodeObject:_fHybridization forKey:kGetUserInfoPetInfoFHybridization];
     [aCoder encodeObject:_petName forKey:kGetUserInfoPetInfoPetName];
+    [aCoder encodeObject:_isEntrust forKey:kGetUserInfoPetInfoIsEntrust];
     [aCoder encodeObject:_name forKey:kGetUserInfoPetInfoName];
 }
 
@@ -130,10 +136,11 @@ NSString *const kGetUserInfoPetInfoName = @"name";
         copy.petId = [self.petId copyWithZone:zone];
         copy.fAdopt = [self.fAdopt copyWithZone:zone];
         copy.headImage = [self.headImage copyWithZone:zone];
-        copy.fHybridization = [self.fHybridization copyWithZone:zone];
+        copy.petSex = [self.petSex copyWithZone:zone];
         copy.age = [self.age copyWithZone:zone];
-        copy.isEntrust = [self.isEntrust copyWithZone:zone];
+        copy.fHybridization = [self.fHybridization copyWithZone:zone];
         copy.petName = [self.petName copyWithZone:zone];
+        copy.isEntrust = [self.isEntrust copyWithZone:zone];
         copy.name = [self.name copyWithZone:zone];
     }
     

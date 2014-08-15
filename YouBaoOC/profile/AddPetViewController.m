@@ -93,6 +93,8 @@
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:rightBtn];
     self.navigationItem.rightBarButtonItem = rightItem;
     
+    self.navigationItem.title = @"添加宠物";
+    
     for (UIView *view in self.corneredBGView) {
         [view.layer setCornerRadius:5.0f];
         [view.layer setMasksToBounds:YES];

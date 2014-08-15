@@ -31,6 +31,15 @@
     // Do any additional setup after loading the view.
     self.detailResult = [NSDictionary dictionary];
     
+    UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [backBtn setFrame:CGRectMake(0, 0, 40, 40)];
+    [backBtn setImage:[UIImage imageNamed:@"navigationBack"] forState:UIControlStateNormal];
+    [backBtn addTarget:self action:@selector(navigationBack:) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *leftBackItem = [[UIBarButtonItem alloc] initWithCustomView:backBtn];
+    self.navigationItem.leftBarButtonItem = leftBackItem;
+    
+    self.navigationItem.title = @"宠物种类";
+    
     [[LCYNetworking sharedInstance] postRequestWithAPI:PetStyle_searchDetailByID parameters:@{@"f_id" : self.parentID} successBlock:^(NSDictionary *object) {
         SearchDetailByIDBase *base = [SearchDetailByIDBase modelObjectWithDictionary:object];
         NSArray *result = [NSArray arrayWithArray:base.childStyle];
@@ -80,6 +89,10 @@
 */
 
 #pragma mark - Actions
+
+- (void)navigationBack:(id)sender{
+     [self.navigationController popViewControllerAnimated:YES];
+}
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return [[self.detailResult allKeys] count];
 }

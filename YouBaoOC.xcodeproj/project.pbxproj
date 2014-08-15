@@ -61,6 +61,9 @@
 		2889508D198B315500696A95 /* SearchDetailByIDBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 2889508B198B315500696A95 /* SearchDetailByIDBase.m */; };
 		28922340198240CF0073BADB /* RegisterDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2892233F198240CF0073BADB /* RegisterDetailViewController.m */; };
 		28922343198249400073BADB /* UIImage+LCYResize.m in Sources */ = {isa = PBXBuildFile; fileRef = 28922342198249400073BADB /* UIImage+LCYResize.m */; };
+		28B34C01199DEDB100240ECC /* GetUserInfoPetInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B34BFB199DEDB100240ECC /* GetUserInfoPetInfo.m */; };
+		28B34C02199DEDB100240ECC /* GetUserInfoBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B34BFE199DEDB100240ECC /* GetUserInfoBase.m */; };
+		28B34C03199DEDB100240ECC /* GetUserInfoUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B34BFF199DEDB100240ECC /* GetUserInfoUserInfo.m */; };
 		28B69B8D1990CDCA0039B146 /* QRScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B69B8C1990CDCA0039B146 /* QRScanViewController.m */; };
 		28C721E6199CA919007DBB3A /* PasswordForgetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C721E5199CA919007DBB3A /* PasswordForgetViewController.m */; };
 		28CF40161994C2570081D39A /* PetCoreDataPreloader.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 28CF40151994C2570081D39A /* PetCoreDataPreloader.sqlite */; };
@@ -69,9 +72,6 @@
 		28D63214199B74710029A283 /* Introduction.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28D63213199B74710029A283 /* Introduction.storyboard */; };
 		28D63218199B76E30029A283 /* GuideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D63217199B76E30029A283 /* GuideViewController.m */; };
 		28D6E0371999FDE90080E5A5 /* RecommendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D6E0361999FDE90080E5A5 /* RecommendCell.m */; };
-		28F7F44C199492510069D797 /* GetUserInfoUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F7F445199492510069D797 /* GetUserInfoUserInfo.m */; };
-		28F7F44D199492510069D797 /* GetUserInfoBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F7F446199492510069D797 /* GetUserInfoBase.m */; };
-		28F7F44E199492510069D797 /* GetUserInfoPetInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F7F447199492510069D797 /* GetUserInfoPetInfo.m */; };
 		28F7F4541994A3860069D797 /* LCYFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F7F4531994A3860069D797 /* LCYFileManager.m */; };
 		83A93C91E0F34B08851EE991 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEF990BC1DD24D8D89234D90 /* libPods.a */; };
 		8B50F0C91998C00600D70F4F /* EncyThreeCateVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B50F0C71998C00600D70F4F /* EncyThreeCateVC.m */; };
@@ -199,6 +199,7 @@
 		286979691986558D0098F6A3 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		2869796D1986571B0098F6A3 /* ProfileHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileHomeViewController.h; sourceTree = "<group>"; };
 		2869796E1986571B0098F6A3 /* ProfileHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileHomeViewController.m; sourceTree = "<group>"; };
+		2879C58D199E12E4001FBAAB /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		287AFD54199863560035FF05 /* CellImageDownloadOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellImageDownloadOperation.h; sourceTree = "<group>"; };
 		287AFD55199863560035FF05 /* CellImageDownloadOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CellImageDownloadOperation.m; sourceTree = "<group>"; };
 		28895081198B269D00696A95 /* SecondFilterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondFilterViewController.h; sourceTree = "<group>"; };
@@ -214,6 +215,13 @@
 		2892233F198240CF0073BADB /* RegisterDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterDetailViewController.m; sourceTree = "<group>"; };
 		28922341198249400073BADB /* UIImage+LCYResize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+LCYResize.h"; sourceTree = "<group>"; };
 		28922342198249400073BADB /* UIImage+LCYResize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+LCYResize.m"; sourceTree = "<group>"; };
+		28B34BFA199DEDB100240ECC /* GetUserInfoUserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetUserInfoUserInfo.h; sourceTree = "<group>"; };
+		28B34BFB199DEDB100240ECC /* GetUserInfoPetInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetUserInfoPetInfo.m; sourceTree = "<group>"; };
+		28B34BFC199DEDB100240ECC /* GetUserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetUserInfo.h; sourceTree = "<group>"; };
+		28B34BFD199DEDB100240ECC /* GetUserInfoPetInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetUserInfoPetInfo.h; sourceTree = "<group>"; };
+		28B34BFE199DEDB100240ECC /* GetUserInfoBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetUserInfoBase.m; sourceTree = "<group>"; };
+		28B34BFF199DEDB100240ECC /* GetUserInfoUserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetUserInfoUserInfo.m; sourceTree = "<group>"; };
+		28B34C00199DEDB100240ECC /* GetUserInfoBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetUserInfoBase.h; sourceTree = "<group>"; };
 		28B69B8B1990CDCA0039B146 /* QRScanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRScanViewController.h; sourceTree = "<group>"; };
 		28B69B8C1990CDCA0039B146 /* QRScanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRScanViewController.m; sourceTree = "<group>"; };
 		28C721E4199CA919007DBB3A /* PasswordForgetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PasswordForgetViewController.h; sourceTree = "<group>"; };
@@ -228,13 +236,6 @@
 		28D63217199B76E30029A283 /* GuideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GuideViewController.m; sourceTree = "<group>"; };
 		28D6E0351999FDE90080E5A5 /* RecommendCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecommendCell.h; sourceTree = "<group>"; };
 		28D6E0361999FDE90080E5A5 /* RecommendCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecommendCell.m; sourceTree = "<group>"; };
-		28F7F445199492510069D797 /* GetUserInfoUserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetUserInfoUserInfo.m; sourceTree = "<group>"; };
-		28F7F446199492510069D797 /* GetUserInfoBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetUserInfoBase.m; sourceTree = "<group>"; };
-		28F7F447199492510069D797 /* GetUserInfoPetInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetUserInfoPetInfo.m; sourceTree = "<group>"; };
-		28F7F448199492510069D797 /* GetUserInfoBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetUserInfoBase.h; sourceTree = "<group>"; };
-		28F7F449199492510069D797 /* GetUserInfoPetInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetUserInfoPetInfo.h; sourceTree = "<group>"; };
-		28F7F44A199492510069D797 /* GetUserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetUserInfo.h; sourceTree = "<group>"; };
-		28F7F44B199492510069D797 /* GetUserInfoUserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetUserInfoUserInfo.h; sourceTree = "<group>"; };
 		28F7F4521994A3860069D797 /* LCYFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCYFileManager.h; sourceTree = "<group>"; };
 		28F7F4531994A3860069D797 /* LCYFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCYFileManager.m; sourceTree = "<group>"; };
 		75673EC2383043228793768F /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
@@ -505,13 +506,13 @@
 		28F7F43A1994788A0069D797 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				28F7F44A199492510069D797 /* GetUserInfo.h */,
-				28F7F44B199492510069D797 /* GetUserInfoUserInfo.h */,
-				28F7F445199492510069D797 /* GetUserInfoUserInfo.m */,
-				28F7F448199492510069D797 /* GetUserInfoBase.h */,
-				28F7F446199492510069D797 /* GetUserInfoBase.m */,
-				28F7F449199492510069D797 /* GetUserInfoPetInfo.h */,
-				28F7F447199492510069D797 /* GetUserInfoPetInfo.m */,
+				28B34BFC199DEDB100240ECC /* GetUserInfo.h */,
+				28B34BFA199DEDB100240ECC /* GetUserInfoUserInfo.h */,
+				28B34BFF199DEDB100240ECC /* GetUserInfoUserInfo.m */,
+				28B34BFD199DEDB100240ECC /* GetUserInfoPetInfo.h */,
+				28B34BFB199DEDB100240ECC /* GetUserInfoPetInfo.m */,
+				28B34C00199DEDB100240ECC /* GetUserInfoBase.h */,
+				28B34BFE199DEDB100240ECC /* GetUserInfoBase.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -782,13 +783,14 @@
 				2869796A1986558D0098F6A3 /* MainViewController.m in Sources */,
 				8B6AA11019935F4200BF017C /* ZXYDownLoadImage.m in Sources */,
 				8B6AA10D19935BC200BF017C /* ZXYPetStylePicDown.m in Sources */,
+				28B34C01199DEDB100240ECC /* GetUserInfoPetInfo.m in Sources */,
 				2827C79F1998D13D00C25F83 /* UIScrollView+Extension.m in Sources */,
 				28D6E0371999FDE90080E5A5 /* RecommendCell.m in Sources */,
-				28F7F44E199492510069D797 /* GetUserInfoPetInfo.m in Sources */,
 				28895086198B2D8C00696A95 /* SecondFilterTableViewCell.m in Sources */,
 				28922340198240CF0073BADB /* RegisterDetailViewController.m in Sources */,
 				8B6AA11319936A7B00BF017C /* SubPetSyle.m in Sources */,
 				8B6AA0FE1993397E00BF017C /* EncyCategoryCell.m in Sources */,
+				28B34C03199DEDB100240ECC /* GetUserInfoUserInfo.m in Sources */,
 				2868EC90198F79A500D8726E /* ProfileHomeAvatarCell.m in Sources */,
 				2868EC9C198F7A1900D8726E /* ProfileHomeButtonCell.m in Sources */,
 				2827C79B1998D13D00C25F83 /* MJRefreshBaseView.m in Sources */,
@@ -813,6 +815,7 @@
 				2811118F1979183C000A72D7 /* AppDelegate.m in Sources */,
 				2889508C198B315500696A95 /* SearchDetailByIDChildStyle.m in Sources */,
 				2827C7A01998D13D00C25F83 /* UIScrollView+MJRefresh.m in Sources */,
+				28B34C02199DEDB100240ECC /* GetUserInfoBase.m in Sources */,
 				28895083198B269D00696A95 /* SecondFilterViewController.m in Sources */,
 				28D63218199B76E30029A283 /* GuideViewController.m in Sources */,
 				280E74591993351C0036DD0B /* EncyHomeImageCell.m in Sources */,
@@ -825,8 +828,6 @@
 				28B69B8D1990CDCA0039B146 /* QRScanViewController.m in Sources */,
 				28F7F4541994A3860069D797 /* LCYFileManager.m in Sources */,
 				280E7443199332A60036DD0B /* ProfileSettingViewController.m in Sources */,
-				28F7F44D199492510069D797 /* GetUserInfoBase.m in Sources */,
-				28F7F44C199492510069D797 /* GetUserInfoUserInfo.m in Sources */,
 				2827C79C1998D13D00C25F83 /* MJRefreshConst.m in Sources */,
 				280E7466199335320036DD0B /* EncyHomePageTableViewCell.m in Sources */,
 				8B6AA106199351A300BF017C /* PetStyle.m in Sources */,
@@ -872,6 +873,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				281111971979183D000A72D7 /* Base */,
+				2879C58D199E12E4001FBAAB /* zh-Hans */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";

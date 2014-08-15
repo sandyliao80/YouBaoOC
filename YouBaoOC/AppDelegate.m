@@ -34,6 +34,9 @@
     NSDictionary *navigationBarAppearance = @{ NSForegroundColorAttributeName   : THEME_TITLE_COLOR};
     [[UINavigationBar appearance] setTitleTextAttributes:navigationBarAppearance];
     
+    [[UINavigationBar appearance] setTintColor:THEME_COLOR];
+    
+    
     // 判断是否需要引导页
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     if (![userDefaults boolForKey:@"skipIntroduction"]) {

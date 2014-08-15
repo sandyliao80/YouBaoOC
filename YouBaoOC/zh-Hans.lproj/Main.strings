@@ -1,0 +1,87 @@
+
+/* Class = "IBUIButton"; normalTitle = "取消"; ObjectID = "16Q-gV-BXv"; */
+"16Q-gV-BXv.normalTitle" = "取消";
+
+/* Class = "IBUIButton"; normalTitle = "更多"; ObjectID = "1Bz-ie-Set"; */
+"1Bz-ie-Set.normalTitle" = "更多";
+
+/* Class = "IBUITextField"; placeholder = "编辑签名"; ObjectID = "1RH-6y-ABj"; */
+"1RH-6y-ABj.placeholder" = "编辑签名";
+
+/* Class = "IBUILabel"; text = "这家伙很懒，什么也没留下。"; ObjectID = "AN4-NQ-6wc"; */
+"AN4-NQ-6wc.text" = "这家伙很懒，什么也没留下。";
+
+/* Class = "IBUILabel"; text = "粉丝"; ObjectID = "BpL-mL-8q0"; */
+"BpL-mL-8q0.text" = "粉丝";
+
+/* Class = "IBUILabel"; text = "是否绑定？"; ObjectID = "Cd2-0M-VBV"; */
+"Cd2-0M-VBV.text" = "是否绑定？";
+
+/* Class = "IBUILabel"; text = "小于1岁"; ObjectID = "EJA-GM-edC"; */
+"EJA-GM-edC.text" = "小于1岁";
+
+/* Class = "IBUIBarButtonItem"; title = "确定"; ObjectID = "H3o-DU-7TR"; */
+"H3o-DU-7TR.title" = "确定";
+
+/* Class = "IBUILabel"; text = "关注"; ObjectID = "HQ0-Qf-JaJ"; */
+"HQ0-Qf-JaJ.text" = "关注";
+
+/* Class = "IBUITextField"; placeholder = "选择品种"; ObjectID = "Hac-es-vMB"; */
+"Hac-es-vMB.placeholder" = "选择品种";
+
+/* Class = "IBUILabel"; text = "阅读"; ObjectID = "Ilg-d9-fS0"; */
+"Ilg-d9-fS0.text" = "阅读";
+
+/* Class = "IBUILabel"; text = "柯基10岁之后的养护养护"; ObjectID = "Kmu-9g-JFG"; */
+"Kmu-9g-JFG.text" = "柯基10岁之后的养护养护";
+
+/* Class = "IBUIButton"; normalTitle = "退出"; ObjectID = "LUb-QA-HM9"; */
+"LUb-QA-HM9.normalTitle" = "退出";
+
+/* Class = "IBUILabel"; text = "150"; ObjectID = "Ldb-CI-pdx"; */
+"Ldb-CI-pdx.text" = "150";
+
+/* Class = "IBUILabel"; text = "宠物名字"; ObjectID = "Lgr-T1-fwt"; */
+"Lgr-T1-fwt.text" = "宠物名字";
+
+/* Class = "IBUITextField"; placeholder = "宠物名字"; ObjectID = "PBz-2q-d2N"; */
+"PBz-2q-d2N.placeholder" = "宠物名字";
+
+/* Class = "IBUILabel"; text = "收藏"; ObjectID = "WKk-lQ-dfu"; */
+"WKk-lQ-dfu.text" = "收藏";
+
+/* Class = "IBUITabBarItem"; title = "首页"; ObjectID = "Wui-5e-9mZ"; */
+"Wui-5e-9mZ.title" = "首页";
+
+/* Class = "IBUILabel"; text = "150"; ObjectID = "XoV-Mj-lFy"; */
+"XoV-Mj-lFy.text" = "150";
+
+/* Class = "IBUILabel"; text = "阅读"; ObjectID = "aNv-OK-Cth"; */
+"aNv-OK-Cth.text" = "阅读";
+
+/* Class = "IBUITabBarItem"; title = "我"; ObjectID = "dPy-on-d0W"; */
+"dPy-on-d0W.title" = "我";
+
+/* Class = "IBUILabel"; text = "阅读"; ObjectID = "hz2-02-Z31"; */
+"hz2-02-Z31.text" = "阅读";
+
+/* Class = "IBUILabel"; text = "今日推荐"; ObjectID = "kTB-9e-dGn"; */
+"kTB-9e-dGn.text" = "今日推荐";
+
+/* Class = "IBUITabBarItem"; title = "百科"; ObjectID = "pbO-Jy-hNG"; */
+"pbO-Jy-hNG.title" = "百科";
+
+/* Class = "IBUILabel"; text = "Label"; ObjectID = "sCa-wh-A3t"; */
+"sCa-wh-A3t.text" = "Label";
+
+/* Class = "IBUILabel"; text = "喜欢"; ObjectID = "tEB-dJ-dLf"; */
+"tEB-dJ-dLf.text" = "喜欢";
+
+/* Class = "IBUILabel"; text = "Label"; ObjectID = "uOQ-hT-1vf"; */
+"uOQ-hT-1vf.text" = "Label";
+
+/* Class = "IBUILabel"; text = "如果有需要，给它贴上标签吧："; ObjectID = "wJI-Gk-ewp"; */
+"wJI-Gk-ewp.text" = "如果有需要，给它贴上标签吧：";
+
+/* Class = "IBUILabel"; text = "150"; ObjectID = "xM0-Wv-Se0"; */
+"xM0-Wv-Se0.text" = "150";

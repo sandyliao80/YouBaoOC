@@ -31,12 +31,16 @@
     // Do any additional setup after loading the view.
     self.filterResult = [NSArray array];
     
+    self.icyTableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    
     UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [backBtn setFrame:CGRectMake(0, 0, 40, 40)];
     [backBtn setImage:[UIImage imageNamed:@"navigationBack"] forState:UIControlStateNormal];
     [backBtn addTarget:self action:@selector(navigationBack:) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *leftBackItem = [[UIBarButtonItem alloc] initWithCustomView:backBtn];
     self.navigationItem.leftBarButtonItem = leftBackItem;
+    
+    self.navigationItem.title = @"宠物种类";
     
     [[LCYNetworking sharedInstance] postRequestWithAPI:PetStyle_searchAllTypePets parameters:@{} successBlock:^(NSDictionary *object) {
         searchAllTypePetsBase *base = [searchAllTypePetsBase modelObjectWithDictionary:object];
@@ -100,11 +104,11 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     FilterTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:FilterTableViewCellIdentifier];
     
-    if (indexPath.row % 2 == 0) {
-        [cell setBackgroundColor:THEME_CELL_LIGHT_BLUE];
-    } else {
-        [cell setBackgroundColor:THEME_CELL_LIGHT_GREY];
-    }
+//    if (indexPath.row % 2 == 0) {
+//        [cell setBackgroundColor:THEME_CELL_LIGHT_BLUE];
+//    } else {
+//        [cell setBackgroundColor:THEME_CELL_LIGHT_GREY];
+//    }
     
     searchAllTypePetsFatherStyle *fartherStyle = self.filterResult[indexPath.row];
     cell.icyLabel.text = fartherStyle.name;
