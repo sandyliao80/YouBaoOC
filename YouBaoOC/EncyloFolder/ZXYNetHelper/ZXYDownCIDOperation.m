@@ -63,18 +63,6 @@
 {
     while ((firstArrToDown.count + needToDown.count)>0)
     {
-//        if(needToDown.count > 0)
-//        {
-//            //[firstArrToDown addObjectsFromArray:needToDown];
-//            for(int i =0;i<needToDown.count;i++)
-//            {
-//                if([needToDown objectAtIndex:i])
-//                {
-//                    [firstArrToDown insertObject:[needToDown objectAtIndex:i] atIndex:0];
-//                }
-//            }
-//            [needToDown removeAllObjects];
-//        }
         if(!isDownLoad)
         {
             if(needToDown.count > 0)

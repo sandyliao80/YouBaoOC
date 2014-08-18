@@ -12,6 +12,7 @@
 #import "EN_PreDefine.h"
 #import "PetStyle.h"
 #import "EncySubCategoryVC.h"
+#import "ZXYDownImageHelper.h"
 @interface EncyCategoryVC ()<UITableViewDelegate,UITableViewDataSource>
 {
     MBProgressHUD *progress;
@@ -20,8 +21,9 @@
     __weak IBOutlet UITableView *currentTable;
     ZXYFileOperation *fileOperation;
     NSNotificationCenter *datatnc;
-    ZXYDownLoadImage *downLoad;
-
+    ZXYDownImageHelper *downLoad;
+    NSString *_notiKey;
+    BOOL isDataDown;
 }
 @end
 
@@ -33,9 +35,10 @@
     {
         dataProvider = [ZXYProvider sharedInstance];
         fileOperation = [ZXYFileOperation sharedSelf];
-        downLoad = [[ZXYDownLoadImage alloc] init];
-        [downLoad setTempDirectory:@"petStyle"];
-            }
+        _notiKey = @"EncyCategoryVC";
+        isDataDown = NO;
+        downLoad = [[ZXYDownImageHelper alloc] initWithDirect:@"petStyle" andNotiKey:_notiKey];
+    }
     return self;
 }
 
@@ -44,7 +47,7 @@
     [self initNavi];
     [self initMB];
     datatnc = [NSNotificationCenter defaultCenter];
-    [datatnc addObserver:self selector:@selector(reloadData) name:@"downLoadImageFinish" object:nil];
+    [datatnc addObserver:self selector:@selector(reloadDataRow:) name:_notiKey object:nil];
 
     if([ZXYNETHelper isNETConnect])
     {
@@ -101,6 +104,7 @@
         NSLog(@"%@",[operation responseString]);
         NSDictionary *jsonDic = [NSJSONSerialization JSONObjectWithData:[operation responseData] options:0 error:nil];
         [dataProvider saveDataToCoreDataArr:[jsonDic objectForKey:@"fatherStyle"] withDBNam:@"PetStyle" isDelete:YES];
+        isDataDown = YES;
         allDataForShow =[NSMutableArray arrayWithArray:[dataProvider readCoreDataFromDB:@"PetStyle" isDes:YES orderByKey:@"spell",nil] ];
         [self performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:YES];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -113,13 +117,27 @@
 - (void)reloadData
 {
     [currentTable reloadData];
-    [downLoad startDownImage];
+    [self startLoadImage];
+}
+
+- (void)reloadDataRow:(NSNotification *)noti
+{
+    [currentTable reloadRowsAtIndexPaths:[NSArray arrayWithObjects:[noti.userInfo objectForKey:@"index"], nil] withRowAnimation:UITableViewRowAnimationNone];
+}
+
+- (void)startLoadImage
+{
+     [downLoad startDownLoadImage];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     EncyCategoryCell *cell = [tableView dequeueReusableCellWithIdentifier:@"en_categoryIdentifier"];
     PetStyle *currentPet = [allDataForShow objectAtIndex:indexPath.row];
+         NSIndexPath *indexP = [NSIndexPath indexPathForRow:indexPath.row inSection:indexPath.
+                                section];
+    NSLog(@"index is %d",indexP.row);
+
     if(cell == nil)
     {
         NSArray *nibs = [[NSBundle mainBundle] loadNibNamed:@"EncyCategoryCell" owner:self options:nil];
@@ -149,7 +167,8 @@
     else
     {
         NSString *urls = [NSString stringWithFormat:@"%@%@",ENCY_HOSTURL,currentPet.head_img];
-        [downLoad addImageURL:urls];
+       
+        [downLoad addImageURLWithIndexDic:[NSDictionary dictionaryWithObjectsAndKeys:urls,@"url",indexP,@"index", nil]];
     }
     cell.petNameLbl.text = currentPet.name;
     return cell;
@@ -179,7 +198,7 @@
 
 - (void)dealloc
 {
-    [datatnc removeObserver:self name:@"downLoadImageFinish" object:nil];
+    [datatnc removeObserver:self name:_notiKey object:nil];
 }
 
 

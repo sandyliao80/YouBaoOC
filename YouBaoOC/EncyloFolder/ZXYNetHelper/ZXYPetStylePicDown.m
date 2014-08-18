@@ -19,6 +19,7 @@
     ZXYFileOperation *fileOperate;
     ZXYProvider *provider;
     NSString *_subDire;
+    NSString *_notiKey;
 }
 @end
 
@@ -35,6 +36,11 @@
         provider = [ZXYProvider sharedInstance];
     }
     return self;
+}
+
+- (void)setNotificationKey:(NSString *)notiKey
+{
+    _notiKey = notiKey;
 }
 
 - (void)addURLTONeedToDown:(NSString *)needToDownURL
@@ -95,7 +101,6 @@
                 }
                 else
                 {
-                    //                    LocDetailInfo *loc = [[provider readCoreDataFromDB:@"LocDetailInfo" withContent:currentURL andKey:@"cid"] objectAtIndex:0];
                     NSURL *urlS = [NSURL URLWithString:[NSString stringWithFormat:@"%@",currentURL]];
                     NSURLRequest *request = [NSURLRequest requestWithURL:urlS];
                     AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
@@ -108,7 +113,12 @@
                          [firstArrToDown removeObject:currentURL];
                          currentURL = nil;
                          
-                         NSNotification *addNoti = [[NSNotification alloc] initWithName:FinishDownNoti object:self userInfo:nil];
+                         NSNotification *addNoti = [[NSNotification alloc] initWithName:_notiKey object:self userInfo:nil];
+                         if(addNoti == nil)
+                         {
+                             NSLog(@"没有找到相关的通知 key:%@",_notiKey);
+                             return ;
+                         }
                          [[NSNotificationCenter defaultCenter] postNotification:addNoti];
                          isDownLoad = NO;
                          
@@ -116,9 +126,8 @@
                      {
                          
                          [firstArrToDown removeObject:currentURL];
-                         isDownLoad = NO;
                          currentURL = nil;
-                         
+                         isDownLoad = NO;
                          NSLog(@"ZXYDownCIDOperation error is %@",error);
                      }];
                     [operation start];
