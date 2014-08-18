@@ -22,6 +22,7 @@ NSString *const PetStyle_searchDetailByID       = @"/PetStyle/searchDetailByID";
 NSString *const Pet_petAdd          = @"/Pet/petAdd";
 NSString *const User_getUserInfoByID    = @"/User/getUserInfoByID";
 NSString *const User_setPassword    = @"/User/setPassword";
+NSString *const Pet_UploadPetImage  = @"/Pet/UploadPetImage";
 
 @implementation LCYNetworking
 

@@ -81,6 +81,8 @@ typedef NS_ENUM(NSUInteger, RegisterDetailGender) {
     UIBarButtonItem *leftBackItem = [[UIBarButtonItem alloc] initWithCustomView:backBtn];
     self.navigationItem.leftBarButtonItem = leftBackItem;
     
+    [self.navigationItem setTitle:@"个人信息"];
+    
     CGFloat radius = MIN(self.icyImageView.bounds.size.width, self.icyImageView.bounds.size.height) / 2.0;
     self.icyImageView.layer.cornerRadius = radius;
     self.icyImageView.layer.masksToBounds = YES;

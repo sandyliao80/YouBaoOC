@@ -20,6 +20,7 @@
 #import "AppDelegate.h"
 #import "Region.h"
 #import "CellImageDownloadOperation.h"
+#import "moePetProfile/MoePetProfileViewController.h"
 
 @interface ProfileHomeViewController ()<UITableViewDelegate, UITableViewDataSource, AddPetDelegate, CellImageDownloadOperationDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *icyTableView;
@@ -30,6 +31,8 @@
 @property (strong, nonatomic) CellImageDownloadOperation *operation;
 
 @property (weak, nonatomic) NSManagedObjectContext *context;
+
+@property (strong, nonatomic) GetUserInfoPetInfo *petToPass;
 
 @end
 
@@ -97,7 +100,8 @@
         AddPetViewController *addPetVC = [segue destinationViewController];
         addPetVC.delegate = self;
     } else if ([segue.identifier isEqualToString:@"showMoePet"]) {
-        
+        MoePetProfileViewController *moePetVC = [segue destinationViewController];
+        moePetVC.petInfo = self.petToPass;
     }
 }
 
@@ -319,6 +323,8 @@
     }
     if (([self.baseInfo.petInfo count]) != 0 &&
         (indexPath.row != ([self.baseInfo.petInfo count] + 5))) {
+        NSInteger petIndex = indexPath.row - 5;
+        self.petToPass = self.baseInfo.petInfo[petIndex];
         [self performSegueWithIdentifier:@"showMoePet" sender:nil];
     }
 }

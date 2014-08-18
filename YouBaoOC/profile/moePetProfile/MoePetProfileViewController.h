@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GetUserInfo.h"
 
 @interface MoePetProfileViewController : UIViewController
+
+@property (strong, nonatomic) GetUserInfoPetInfo *petInfo;
 
 @end
