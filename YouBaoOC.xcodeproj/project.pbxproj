@@ -88,6 +88,8 @@
 		8B6AA11D19936C2100BF017C /* EncySubCategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B6AA11B19936C2100BF017C /* EncySubCategoryCell.m */; };
 		8B6AA11E19936C2100BF017C /* EncySubCategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B6AA11C19936C2100BF017C /* EncySubCategoryCell.xib */; };
 		8BAB3B0E1990ABEF00FD3BA0 /* Encyclope.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BAB3B0D1990ABEF00FD3BA0 /* Encyclope.storyboard */; };
+		8BC24F0C19A1C76C003C959F /* ZXYDownImageOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BC24F0B19A1C76C003C959F /* ZXYDownImageOperation.m */; };
+		8BC24F0F19A1C7C0003C959F /* ZXYDownImageHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BC24F0E19A1C7C0003C959F /* ZXYDownImageHelper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -262,6 +264,10 @@
 		8B6AA11B19936C2100BF017C /* EncySubCategoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EncySubCategoryCell.m; sourceTree = "<group>"; };
 		8B6AA11C19936C2100BF017C /* EncySubCategoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EncySubCategoryCell.xib; sourceTree = "<group>"; };
 		8BAB3B0D1990ABEF00FD3BA0 /* Encyclope.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Encyclope.storyboard; sourceTree = "<group>"; };
+		8BC24F0A19A1C76C003C959F /* ZXYDownImageOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZXYDownImageOperation.h; sourceTree = "<group>"; };
+		8BC24F0B19A1C76C003C959F /* ZXYDownImageOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZXYDownImageOperation.m; sourceTree = "<group>"; };
+		8BC24F0D19A1C7C0003C959F /* ZXYDownImageHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZXYDownImageHelper.h; sourceTree = "<group>"; };
+		8BC24F0E19A1C7C0003C959F /* ZXYDownImageHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZXYDownImageHelper.m; sourceTree = "<group>"; };
 		CEF990BC1DD24D8D89234D90 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -520,6 +526,7 @@
 		8B1570281991D4DD00326AFC /* EncyloFolder */ = {
 			isa = PBXGroup;
 			children = (
+				8BC24F0619A1C6FA003C959F /* TableViewCellImageDown */,
 				8B6AA107199351D000BF017C /* Model */,
 				8B6AA0FB1993397E00BF017C /* ENcyCategoryCell */,
 				8B6AA11919936BD700BF017C /* EncySubCategoryCell */,
@@ -625,6 +632,17 @@
 				8B6AA11C19936C2100BF017C /* EncySubCategoryCell.xib */,
 			);
 			path = EncySubCategoryCell;
+			sourceTree = "<group>";
+		};
+		8BC24F0619A1C6FA003C959F /* TableViewCellImageDown */ = {
+			isa = PBXGroup;
+			children = (
+				8BC24F0D19A1C7C0003C959F /* ZXYDownImageHelper.h */,
+				8BC24F0E19A1C7C0003C959F /* ZXYDownImageHelper.m */,
+				8BC24F0A19A1C76C003C959F /* ZXYDownImageOperation.h */,
+				8BC24F0B19A1C76C003C959F /* ZXYDownImageOperation.m */,
+			);
+			path = TableViewCellImageDown;
 			sourceTree = "<group>";
 		};
 		D404DB6CB11C422DA2E6FB61 /* Frameworks */ = {
@@ -787,6 +805,7 @@
 				2827C79F1998D13D00C25F83 /* UIScrollView+Extension.m in Sources */,
 				28D6E0371999FDE90080E5A5 /* RecommendCell.m in Sources */,
 				28895086198B2D8C00696A95 /* SecondFilterTableViewCell.m in Sources */,
+				8BC24F0C19A1C76C003C959F /* ZXYDownImageOperation.m in Sources */,
 				28922340198240CF0073BADB /* RegisterDetailViewController.m in Sources */,
 				8B6AA11319936A7B00BF017C /* SubPetSyle.m in Sources */,
 				8B6AA0FE1993397E00BF017C /* EncyCategoryCell.m in Sources */,
@@ -831,6 +850,7 @@
 				2827C79C1998D13D00C25F83 /* MJRefreshConst.m in Sources */,
 				280E7466199335320036DD0B /* EncyHomePageTableViewCell.m in Sources */,
 				8B6AA106199351A300BF017C /* PetStyle.m in Sources */,
+				8BC24F0F19A1C7C0003C959F /* ZXYDownImageHelper.m in Sources */,
 				2827C79D1998D13D00C25F83 /* MJRefreshFooterView.m in Sources */,
 				280FB68F1980D66C00C434A8 /* LCYCommon.m in Sources */,
 				280E7467199335320036DD0B /* EncyHomePageViewController.m in Sources */,
