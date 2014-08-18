@@ -16,6 +16,7 @@
     BOOL isPlaceImageDown;
     NSOperationQueue *tempQueue;
     ZXYPetStylePicDown *cidOperation;
+    NSString *_notiKey;
 }
 
 @end
@@ -37,7 +38,7 @@
     subDirectory = directory;
 }
 
--(void)addImageURL:(NSString *)url
+-(void)addImageURL:(NSString *)url 
 {
     if(placeURLARR==nil)
     {
@@ -77,6 +78,11 @@
 
 }
 
+-(void)setNotiKey:(NSString *)notiKey
+{
+    _notiKey = notiKey;
+}
+
 -(void)startDownImage
 {
     if([cidOperation isFinished])
@@ -87,6 +93,7 @@
     if(cidOperation == nil)
     {
         cidOperation = [[ZXYPetStylePicDown alloc] initWithFirstArr:placeURLARR andSaveDire:subDirectory];
+        [cidOperation setNotificationKey:_notiKey];
         [tempQueue addOperation:cidOperation];
     }
 }

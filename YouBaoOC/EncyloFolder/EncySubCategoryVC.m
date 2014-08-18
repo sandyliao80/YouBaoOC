@@ -25,6 +25,7 @@
     ZXYDownLoadImage *downLoad;
     NSNotificationCenter *datatnc;
     NSArray *allKeys;
+    NSString *_notiKey;
 }
 @end
 
@@ -43,6 +44,8 @@
         downLoad = [[ZXYDownLoadImage alloc] init];
         [downLoad setTempDirectory:@"petStyle"];
         allKeys = [[NSArray alloc] init];
+        _notiKey = @"threeCateVC";
+        [downLoad setNotiKey:_notiKey];
         [self toPYSection];
     }
     return  self;
@@ -53,7 +56,7 @@
     [self initMB];
     [self initNavi];
     datatnc = [NSNotificationCenter defaultCenter];
-    [datatnc addObserver:self selector:@selector(reloadData) name:@"downLoadImageFinish" object:nil];
+    [datatnc addObserver:self selector:@selector(reloadData) name:_notiKey object:nil];
     if([ZXYNETHelper isNETConnect])
     {
         [progress show:YES];
@@ -63,7 +66,6 @@
     {
         UIAlertView *noConnect = [[UIAlertView alloc] initWithTitle:@"" message:@"没有连接网络" delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
         [noConnect show];
-        NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:_petFather.cat_id,@"f_id", nil];
         allDataForShow = [NSMutableArray arrayWithArray:[dataProvider readCoreDataFromDB:@"SubPetSyle" withContent:_petFather.cat_id andKey:@"f_id" orderBy:@"spell" isDes:YES] ];
         [self toPYSection];
         [self reloadData];
@@ -107,6 +109,7 @@
         allDataForShow = [NSMutableArray arrayWithArray:[dataProvider readCoreDataFromDB:@"SubPetSyle" withContent:_petFather.cat_id andKey:@"f_id" orderBy:@"spell" isDes:YES] ];
         [self toPYSection];
         [self performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:YES];
+        [self performSelectorOnMainThread:@selector(loadImage) withObject:nil waitUntilDone:YES];
         [progress hide:YES];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"%@",error);
@@ -122,8 +125,11 @@
 
 - (void)reloadData
 {
-   
     [currentTable reloadData];
+}
+
+- (void)loadImage
+{
     [downLoad startDownImage];
 }
 
@@ -252,6 +258,11 @@
     NSNotification *addNoti = [[NSNotification alloc] initWithName:@"ency_noti_type" object:self userInfo:userInfo];
     [[NSNotificationCenter defaultCenter] postNotification:addNoti];
     [self.navigationController popToRootViewControllerAnimated:YES];
+}
+
+- (void)dealloc
+{
+    [datatnc removeObserver:self name:_notiKey object:nil];
 }
 
 /*
