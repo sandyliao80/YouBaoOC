@@ -14,15 +14,16 @@ NSString *const hostURL         = @"http://115.29.46.22/pet/index.php/Api/";
 NSString *const hostImageURL    = @"http://115.29.46.22/pet/";
 
 NSString *const User_authcode       = @"User/register_authcode";
-NSString *const User_register       = @"/User/register";
-NSString *const User_login          = @"/User/login";
-NSString *const User_modifyImage    = @"/User/modifyImage";
-NSString *const PetStyle_searchAllTypePets      = @"/PetStyle/searchAllTypePets";
-NSString *const PetStyle_searchDetailByID       = @"/PetStyle/searchDetailByID";
-NSString *const Pet_petAdd          = @"/Pet/petAdd";
-NSString *const User_getUserInfoByID    = @"/User/getUserInfoByID";
-NSString *const User_setPassword    = @"/User/setPassword";
-NSString *const Pet_UploadPetImage  = @"/Pet/UploadPetImage";
+NSString *const User_register       = @"User/register";
+NSString *const User_login          = @"User/login";
+NSString *const User_modifyImage    = @"User/modifyImage";
+NSString *const PetStyle_searchAllTypePets      = @"PetStyle/searchAllTypePets";
+NSString *const PetStyle_searchDetailByID       = @"PetStyle/searchDetailByID";
+NSString *const Pet_petAdd          = @"Pet/petAdd";
+NSString *const User_getUserInfoByID    = @"User/getUserInfoByID";
+NSString *const User_setPassword    = @"User/setPassword";
+NSString *const Pet_UploadPetImage  = @"Pet/UploadPetImage";
+NSString *const Pet_GetPetDetailByID= @"Pet/GetPetDetailByID";
 
 @implementation LCYNetworking
 
