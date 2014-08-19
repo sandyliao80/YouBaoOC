@@ -131,6 +131,11 @@
 
 #pragma mark - UIScrollViewDelegate
 
+- (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView{
+    [self.nicknameLabel resignFirstResponder];
+    [self.signLabel resignFirstResponder];
+}
+
 - (IBAction)contentTouchDown:(id)sender {
     [self.nicknameLabel resignFirstResponder];
     [self.signLabel resignFirstResponder];

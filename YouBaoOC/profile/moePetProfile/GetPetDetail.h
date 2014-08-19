@@ -1,8 +1,8 @@
 //
 //  DataModels.h
 //
-//  Created by 超逸 李 on 14/8/18
+//  Created by 超逸 李 on 14/8/19
 //  Copyright (c) 2014 __MyCompanyName__. All rights reserved.
 //
 
-#import "GetPetDetailPetImages.h"#import "GetPetDetailBase.h"
+#import "GetPetDetailBase.h"#import "GetPetDetailPetImages.h"#import "GetPetDetailPetInfo.h"

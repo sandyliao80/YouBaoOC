@@ -152,10 +152,10 @@
     [[LCYNetworking sharedInstance] postRequestWithAPI:Pet_GetPetDetailByID parameters:parameters successBlock:^(NSDictionary *object) {
         [[LCYCommon sharedInstance] hideTipsInView:self.view];
         self.petDetailBase = [GetPetDetailBase modelObjectWithDictionary:object];
-        if (self.petDetailBase.petSign.length == 0) {
+        if (self.petDetailBase.petInfo.sign.length == 0) {
             self.signLabel.text = @"这家伙很懒，什么也没有留下";
         } else {
-            self.signLabel.text = self.petDetailBase.petSign;
+            self.signLabel.text = self.petDetailBase.petInfo.sign;
         }
         [self.icyCollectionView reloadData];
     } failedBlock:^{

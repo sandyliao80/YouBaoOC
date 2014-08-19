@@ -1,17 +1,18 @@
 //
 //  GetPetDetailBase.m
 //
-//  Created by 超逸 李 on 14/8/18
+//  Created by 超逸 李 on 14/8/19
 //  Copyright (c) 2014 __MyCompanyName__. All rights reserved.
 //
 
 #import "GetPetDetailBase.h"
 #import "GetPetDetailPetImages.h"
+#import "GetPetDetailPetInfo.h"
 
 
 NSString *const kGetPetDetailBaseResult = @"result";
-NSString *const kGetPetDetailBasePetSign = @"pet_sign";
 NSString *const kGetPetDetailBasePetImages = @"pet_images";
+NSString *const kGetPetDetailBasePetInfo = @"pet_info";
 
 
 @interface GetPetDetailBase ()
@@ -23,8 +24,8 @@ NSString *const kGetPetDetailBasePetImages = @"pet_images";
 @implementation GetPetDetailBase
 
 @synthesize result = _result;
-@synthesize petSign = _petSign;
 @synthesize petImages = _petImages;
+@synthesize petInfo = _petInfo;
 
 
 + (instancetype)modelObjectWithDictionary:(NSDictionary *)dict
@@ -40,7 +41,6 @@ NSString *const kGetPetDetailBasePetImages = @"pet_images";
     // passed into the model class doesn't break the parsing.
     if(self && [dict isKindOfClass:[NSDictionary class]]) {
             self.result = [[self objectOrNilForKey:kGetPetDetailBaseResult fromDictionary:dict] boolValue];
-            self.petSign = [self objectOrNilForKey:kGetPetDetailBasePetSign fromDictionary:dict];
     NSObject *receivedGetPetDetailPetImages = [dict objectForKey:kGetPetDetailBasePetImages];
     NSMutableArray *parsedGetPetDetailPetImages = [NSMutableArray array];
     if ([receivedGetPetDetailPetImages isKindOfClass:[NSArray class]]) {
@@ -54,6 +54,7 @@ NSString *const kGetPetDetailBasePetImages = @"pet_images";
     }
 
     self.petImages = [NSArray arrayWithArray:parsedGetPetDetailPetImages];
+            self.petInfo = [GetPetDetailPetInfo modelObjectWithDictionary:[dict objectForKey:kGetPetDetailBasePetInfo]];
 
     }
     
@@ -65,7 +66,6 @@ NSString *const kGetPetDetailBasePetImages = @"pet_images";
 {
     NSMutableDictionary *mutableDict = [NSMutableDictionary dictionary];
     [mutableDict setValue:[NSNumber numberWithBool:self.result] forKey:kGetPetDetailBaseResult];
-    [mutableDict setValue:self.petSign forKey:kGetPetDetailBasePetSign];
     NSMutableArray *tempArrayForPetImages = [NSMutableArray array];
     for (NSObject *subArrayObject in self.petImages) {
         if([subArrayObject respondsToSelector:@selector(dictionaryRepresentation)]) {
@@ -77,6 +77,7 @@ NSString *const kGetPetDetailBasePetImages = @"pet_images";
         }
     }
     [mutableDict setValue:[NSArray arrayWithArray:tempArrayForPetImages] forKey:kGetPetDetailBasePetImages];
+    [mutableDict setValue:[self.petInfo dictionaryRepresentation] forKey:kGetPetDetailBasePetInfo];
 
     return [NSDictionary dictionaryWithDictionary:mutableDict];
 }
@@ -101,8 +102,8 @@ NSString *const kGetPetDetailBasePetImages = @"pet_images";
     self = [super init];
 
     self.result = [aDecoder decodeBoolForKey:kGetPetDetailBaseResult];
-    self.petSign = [aDecoder decodeObjectForKey:kGetPetDetailBasePetSign];
     self.petImages = [aDecoder decodeObjectForKey:kGetPetDetailBasePetImages];
+    self.petInfo = [aDecoder decodeObjectForKey:kGetPetDetailBasePetInfo];
     return self;
 }
 
@@ -110,8 +111,8 @@ NSString *const kGetPetDetailBasePetImages = @"pet_images";
 {
 
     [aCoder encodeBool:_result forKey:kGetPetDetailBaseResult];
-    [aCoder encodeObject:_petSign forKey:kGetPetDetailBasePetSign];
     [aCoder encodeObject:_petImages forKey:kGetPetDetailBasePetImages];
+    [aCoder encodeObject:_petInfo forKey:kGetPetDetailBasePetInfo];
 }
 
 - (id)copyWithZone:(NSZone *)zone
@@ -121,8 +122,8 @@ NSString *const kGetPetDetailBasePetImages = @"pet_images";
     if (copy) {
 
         copy.result = self.result;
-        copy.petSign = [self.petSign copyWithZone:zone];
         copy.petImages = [self.petImages copyWithZone:zone];
+        copy.petInfo = [self.petInfo copyWithZone:zone];
     }
     
     return copy;
