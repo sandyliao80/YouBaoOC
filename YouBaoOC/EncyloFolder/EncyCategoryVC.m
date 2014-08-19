@@ -134,7 +134,7 @@
 {
     EncyCategoryCell *cell = [tableView dequeueReusableCellWithIdentifier:@"en_categoryIdentifier"];
     PetStyle *currentPet = [allDataForShow objectAtIndex:indexPath.row];
-         NSIndexPath *indexP = [NSIndexPath indexPathForRow:indexPath.row inSection:indexPath.
+    NSIndexPath *indexP = [NSIndexPath indexPathForRow:indexPath.row inSection:indexPath.
                                 section];
     NSLog(@"index is %d",indexP.row);
 
