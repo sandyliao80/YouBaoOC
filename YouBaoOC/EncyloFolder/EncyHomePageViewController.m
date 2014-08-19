@@ -10,8 +10,11 @@
 #import "EncyAllNeedHeader.h"
 #import "EncyHomeCell/EncyHomeCellHeader.h"
 #import "EncyCategoryVC.h"
+#import "MJRefresh.h"
 #import "SubPetSyle.h"
-@interface EncyHomePageViewController ()<UITableViewDelegate,UITableViewDataSource>
+#import "ZXYScroller/ZXYScrollView.h"
+
+@interface EncyHomePageViewController ()<UITableViewDelegate,UITableViewDataSource,EncyHomeTitleDelegate>
 {
     NSMutableArray *allDataForShow;
     NSDictionary   *jsonDic ;
@@ -40,6 +43,8 @@
     [self initNaviBar];
     //实例化标题颜色
     [self initColorOFTitle];
+    
+    [self initScrollHeader];
     if([ZXYNETHelper isNETConnect])
     {
         [self performSelectorInBackground:@selector(downLoadData:) withObject:nil];
@@ -92,6 +97,18 @@
     [self.moreInfo setTitleColor:[UIColor colorWithRed:0.3882 green:0.6235 blue:0.7569 alpha:1] forState:UIControlStateHighlighted];
     self.currentTable.backgroundColor = BLUEINSI;
 }
+
+- (void)initScrollHeader
+{
+   
+    __block EncyHomePageViewController *blockSelf = self;
+    [self.currentTable addHeaderWithCallback:^{
+        [blockSelf.currentTable setHeaderPullToRefreshText:@"刷新信息"];
+        [blockSelf.currentTable setHeaderRefreshingText:@"正在刷新"];
+        [blockSelf.currentTable setHeaderReleaseToRefreshText:@"刷新完成"];
+        [blockSelf performSelectorInBackground:@selector(downLoadData:) withObject:nil];
+    }];
+}
 // !!!:实例化方法结束
 
 - (void)downLoadData:(NSString *)typeID
@@ -139,6 +156,7 @@
 - (void)hideMB
 {
     [mbProgress hide:YES];
+    [self.currentTable headerEndRefreshing];
 }
 
 - (void)reloadData
@@ -158,6 +176,11 @@
 }
 
 // !!!:分类
+- (void)dealloc
+{
+    
+}
+
 - (void)rightItemAction
 {
     NSLog(@"haha");
@@ -181,7 +204,7 @@
 // !!!:tableView delegate
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 3;
+    return 4;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -191,6 +214,10 @@
         return 1;
     }
     else if(section == 1)
+    {
+        return 1;
+    }
+    else if(section == 2)
     {
         return 1;
     }
@@ -208,10 +235,16 @@
         EncyHomeImageCell *cell = [tableView dequeueReusableCellWithIdentifier:EN_HOMEIMAGECELLIDENTIFIER];
         return cell;
     }
-    else if(indexPath.section == 1)
+    else if(indexPath.section == 2)
     {
         EncyHomeTitleCell *cell = [tableView dequeueReusableCellWithIdentifier:EN_HOMETITLECELLIDENTIFIER];
+        cell.delegate = self;
         cell.backgroundColor = BLUEINSI;
+        return cell;
+    }
+    else if(indexPath.section == 1)
+    {
+        EncyDogCatCategoryCellTable *cell = [tableView dequeueReusableCellWithIdentifier:EN_HOMEDOGCAT];
         return cell;
     }
     else
@@ -243,9 +276,6 @@
             [netHelper placeURLADD:urlString];
             cell.titleImage.image = [UIImage imageNamed:@"placePage_placeHod"];
         }
-
-        
-        
         return cell;
     }
 }
@@ -256,9 +286,13 @@
     {
         return 120;
     }
-    else if(indexPath.section ==1)
+    else if(indexPath.section ==2)
     {
         return 37;
+    }
+    else if(indexPath.section == 1)
+    {
+        return 100;
     }
     else
     {
@@ -282,19 +316,17 @@
     }
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
     [netHelper startDownPlaceImage];
 }
+
+- (void)moreInfoBtnClick
+{
+    EncyMoreEncyListViewController *moreList = [[EncyMoreEncyListViewController alloc] initWithPetId:nil];
+    [self.navigationController pushViewController:moreList animated:YES];
+}
+
 
 @end

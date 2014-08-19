@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class ZXYScrollView;
 @interface EncyHomeImageCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet ZXYScrollView *zxyScroll;
 
 @end
