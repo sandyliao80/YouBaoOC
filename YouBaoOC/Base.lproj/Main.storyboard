@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6205" systemVersion="14A314h" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="KKL-vN-PsA">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6185.11" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="KKL-vN-PsA">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6198"/>
+        <deployment defaultVersion="1792" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6190.4"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
@@ -136,14 +137,14 @@
                                                         <constraint firstAttribute="height" constant="3" id="oY4-EG-H9y"/>
                                                     </constraints>
                                                 </imageView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dZh-he-GOp">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dZh-he-GOp">
                                                     <rect key="frame" x="107" y="41" width="107" height="3"/>
                                                     <color key="backgroundColor" red="0.9960784912109375" green="0.58039218187332153" blue="0.49803924560546875" alpha="1" colorSpace="deviceRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="3" id="rZN-OX-TdG"/>
                                                     </constraints>
                                                 </imageView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3nk-6L-rMF">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3nk-6L-rMF">
                                                     <rect key="frame" x="214" y="41" width="107" height="3"/>
                                                     <color key="backgroundColor" red="0.27058823529999998" green="0.54901960780000003" blue="0.70196078429999997" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
@@ -594,7 +595,7 @@
                                                     <constraint firstItem="wJI-Gk-ewp" firstAttribute="leading" secondItem="IlP-eL-WK4" secondAttribute="leading" constant="8" id="sxJ-o0-H8V"/>
                                                 </constraints>
                                             </view>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HdS-1q-tZF">
+                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HdS-1q-tZF">
                                                 <rect key="frame" x="10" y="221" width="95" height="33"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="95" id="Yrq-sN-eAb"/>
@@ -963,6 +964,7 @@
                                     <constraint firstAttribute="width" constant="320" id="1tP-Nd-4pT"/>
                                     <constraint firstAttribute="height" constant="518" id="YPd-Pd-Khv"/>
                                 </constraints>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="EncyHomeIdentifier" rowHeight="64" id="ICF-zw-atC" customClass="EncyHomePageTableViewCell">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1084,22 +1086,25 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0Ms-tg-ycM" id="0UB-Hk-buV">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="en_Home" translatesAutoresizingMaskIntoConstraints="NO" id="jf2-8W-25I">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F4I-dH-RS0" customClass="ZXYScrollView">
                                                     <rect key="frame" x="0.0" y="0.0" width="320" height="119"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="119" id="1wA-JN-Pdy"/>
-                                                        <constraint firstAttribute="width" constant="320" id="4Rv-HE-WdC"/>
-                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="119" id="FbC-6z-apz"/>
-                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="320" id="nCI-wE-mdo"/>
+                                                        <constraint firstAttribute="width" constant="320" id="UXg-tg-QZh"/>
+                                                        <constraint firstAttribute="height" constant="119" id="b5k-jV-5Aq"/>
                                                     </constraints>
-                                                </imageView>
+                                                </view>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="centerY" secondItem="jf2-8W-25I" secondAttribute="centerY" id="Df6-5Y-ih5"/>
-                                                <constraint firstAttribute="centerX" secondItem="jf2-8W-25I" secondAttribute="centerX" id="cLg-ux-aNA"/>
+                                                <constraint firstItem="F4I-dH-RS0" firstAttribute="top" secondItem="0UB-Hk-buV" secondAttribute="top" id="75f-AN-7k9"/>
+                                                <constraint firstAttribute="bottom" secondItem="F4I-dH-RS0" secondAttribute="bottom" id="CqF-60-Tts"/>
+                                                <constraint firstAttribute="centerX" secondItem="F4I-dH-RS0" secondAttribute="centerX" id="iVw-mF-jcc"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <outlet property="zxyScroll" destination="F4I-dH-RS0" id="891-tm-9rE"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="EncyHomeTitleCell" rowHeight="37" id="6Gd-1y-prA" customClass="EncyHomeTitleCell">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1147,6 +1152,56 @@
                                             <outlet property="todayInfoLabel" destination="kTB-9e-dGn" id="3Oh-Nt-R27"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="EncyDogCatCategoryCellTable" rowHeight="100" id="6jr-jb-G4A" customClass="EncyDogCatCategoryCellTable">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6jr-jb-G4A" id="rSD-Zj-AOQ">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G3R-Oq-k71">
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
+                                                    <subviews>
+                                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0HA-tN-M72">
+                                                            <rect key="frame" x="20" y="22" width="55" height="55"/>
+                                                            <state key="normal" image="bigDog">
+                                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                            </state>
+                                                        </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zPM-ZO-MW1">
+                                                            <rect key="frame" x="93" y="22" width="55" height="55"/>
+                                                            <state key="normal" image="midDog">
+                                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                            </state>
+                                                        </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rwG-Qh-gcR">
+                                                            <rect key="frame" x="172" y="22" width="55" height="55"/>
+                                                            <state key="normal" image="smallDog">
+                                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                            </state>
+                                                        </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cUY-Ek-Z6A">
+                                                            <rect key="frame" x="245" y="22" width="55" height="55"/>
+                                                            <state key="normal" image="cat">
+                                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                            </state>
+                                                        </button>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="320" id="fKV-4y-RA4"/>
+                                                        <constraint firstAttribute="height" constant="100" id="qAh-lY-Rva"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstItem="G3R-Oq-k71" firstAttribute="top" secondItem="rSD-Zj-AOQ" secondAttribute="top" id="PI5-EL-6au"/>
+                                                <constraint firstAttribute="centerX" secondItem="G3R-Oq-k71" secondAttribute="centerX" id="rPh-Lx-qu9"/>
+                                                <constraint firstAttribute="bottom" secondItem="G3R-Oq-k71" secondAttribute="bottom" constant="-1" id="z6u-J5-b7w"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </tableViewCell>
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="KPC-3l-eWK" id="RX1-ju-7Wf"/>
@@ -1169,7 +1224,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GRG-qT-3NB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1497" y="977"/>
+            <point key="canvasLocation" x="1497" y="975"/>
         </scene>
         <!--首页-->
         <scene sceneID="odT-5c-2wz">
@@ -1589,23 +1644,26 @@
         <image name="addPetButton" width="300" height="45"/>
         <image name="addPetCamera" width="19" height="14"/>
         <image name="adoptButton" width="95" height="33"/>
+        <image name="bigDog" width="55" height="55"/>
         <image name="breedingButton" width="95" height="33"/>
+        <image name="cat" width="55" height="55"/>
         <image name="detailDownButton" width="11" height="8"/>
-        <image name="en_Home" width="320" height="120"/>
         <image name="en_collect" width="37" height="16"/>
         <image name="en_read" width="37" height="16"/>
         <image name="fosterButton" width="95" height="33"/>
         <image name="icoMale" width="18" height="20"/>
+        <image name="midDog" width="55" height="55"/>
         <image name="profileCare" width="18" height="18"/>
         <image name="profileFans" width="18" height="18"/>
         <image name="profileLike" width="18" height="18"/>
         <image name="profilePetClaw" width="15" height="15"/>
         <image name="profileSign" width="18" height="18"/>
+        <image name="smallDog" width="55" height="55"/>
         <image name="tabbarLeft" width="30" height="22"/>
         <image name="tabbarMid" width="30" height="22"/>
         <image name="tabbarRight" width="30" height="22"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="1rq-Z5-xY4"/>
+        <segue reference="vtD-VW-MZm"/>
     </inferredMetricsTieBreakers>
 </document>

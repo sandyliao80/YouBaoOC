@@ -16,4 +16,5 @@
 #import "EN_PreDefine.h"
 #import "ZXYDataProvider/ZXYProvider.h"
 #import "ZXYDownLoadImage.h"
+#import "EncyMoreEncyListViewController.h"
 #endif
