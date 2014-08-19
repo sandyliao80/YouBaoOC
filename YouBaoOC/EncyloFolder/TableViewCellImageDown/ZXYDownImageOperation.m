@@ -111,15 +111,14 @@
                          [imageData writeToFile:filePath atomically:YES];
                          
                          [downLoadArr removeObject:currentDownDic];
-                         currentDownDic = nil;
-                         
-                         NSNotification *addNoti = [[NSNotification alloc] initWithName:_notiKey object:nil userInfo:currentDownDic];
+                         NSNotification *addNoti = [[NSNotification alloc] initWithName:_notiKey object:self userInfo:currentDownDic];
                          if(addNoti == nil)
                          {
                              NSLog(@"没有找到相关的通知 key:%@",_notiKey);
                              return ;
                          }
                          [[NSNotificationCenter defaultCenter] postNotification:addNoti];
+                         currentDownDic = nil;
                          isDown = NO;
                          
                      } failure:^(AFHTTPRequestOperation *operation, NSError *error)
