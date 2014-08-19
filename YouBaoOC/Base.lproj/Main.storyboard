@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6205" systemVersion="14A314h" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="KKL-vN-PsA">
     <dependencies>
+        <deployment defaultVersion="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6198"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
@@ -183,8 +184,8 @@
                                                         <constraint firstAttribute="height" constant="18" id="Yfg-gC-Dwc"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="这家伙很懒，什么也没留下。" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="263" translatesAutoresizingMaskIntoConstraints="NO" id="AN4-NQ-6wc">
-                                                    <rect key="frame" x="37" y="11" width="263" height="21"/>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="这家伙很懒，什么也没留下。" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="182" translatesAutoresizingMaskIntoConstraints="NO" id="AN4-NQ-6wc">
+                                                    <rect key="frame" x="37" y="11" width="182" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="uME-SG-Uco"/>
                                                     </constraints>
@@ -252,8 +253,8 @@
                                                         <constraint firstAttribute="width" constant="18" id="zZc-bh-g0i"/>
                                                     </constraints>
                                                 </imageView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HkN-jY-3uv">
-                                                    <rect key="frame" x="5" y="69" width="277" height="1"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HkN-jY-3uv">
+                                                    <rect key="frame" x="5" y="69" width="310" height="1"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="1" id="6Hm-ff-WlJ"/>
                                                     </constraints>
@@ -636,25 +637,25 @@
                                                     <action selector="adoptButtonPressed:" destination="L0E-W2-VD1" eventType="touchUpInside" id="RRE-vl-GR6"/>
                                                 </connections>
                                             </button>
-                                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="714-rj-8ci">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="714-rj-8ci">
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" id="aJr-V5-wPX"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PZE-HT-nDX">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PZE-HT-nDX">
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" id="fbf-pp-Qos"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jAk-SE-8g2">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jAk-SE-8g2">
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" id="wHZ-gn-Z8O"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="U0f-kN-i9I">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U0f-kN-i9I">
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" id="e2J-XB-Ve9"/>
@@ -712,7 +713,7 @@
                                                     <constraint firstAttribute="width" constant="127" id="9aq-8I-g3g"/>
                                                     <constraint firstAttribute="height" constant="127" id="pMp-VZ-hzg"/>
                                                 </constraints>
-                                                <state key="normal" image="QRScanButton">
+                                                <state key="normal" backgroundImage="QRScanButton">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
@@ -784,6 +785,7 @@
                     </view>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="QRButton" destination="Nrp-FZ-eXY" id="3vq-4f-3T5"/>
                         <outlet property="QRSwitch" destination="d2G-ax-ARE" id="Hfk-qe-yRO"/>
                         <outlet property="ageLabel" destination="EJA-GM-edC" id="ddd-VR-XVb"/>
                         <outlet property="agePicker" destination="jLe-BC-amU" id="SP2-wC-58o"/>
@@ -1277,6 +1279,20 @@
                                             <constraint firstAttribute="height" constant="50" id="Gyv-qa-65j"/>
                                         </constraints>
                                     </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wso-27-bEq">
+                                        <rect key="frame" x="273" y="29" width="39" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="QOG-mg-qIY"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <state key="normal" title=" 编辑 ">
+                                            <color key="titleColor" red="0.27058823529999998" green="0.54901960780000003" blue="0.70196078429999997" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="pg0-Cm-4Ku" kind="show" identifier="showEditing" id="lDi-qo-Vwk"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.48235294222831726" green="0.72549021244049072" blue="0.84705883264541626" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -1286,9 +1302,11 @@
                                     <constraint firstItem="6CI-z4-BS5" firstAttribute="leading" secondItem="LH5-W8-DJl" secondAttribute="trailing" constant="6" id="Bbb-2B-bdK"/>
                                     <constraint firstItem="6CI-z4-BS5" firstAttribute="centerY" secondItem="LH5-W8-DJl" secondAttribute="centerY" id="ISH-av-3LQ"/>
                                     <constraint firstItem="JPg-Vj-glO" firstAttribute="leading" secondItem="X8d-Bv-CAM" secondAttribute="trailing" constant="8" id="MJ4-Cp-DrS"/>
+                                    <constraint firstAttribute="centerY" secondItem="Wso-27-bEq" secondAttribute="centerY" id="P7A-oh-jsL"/>
                                     <constraint firstAttribute="centerY" secondItem="X8d-Bv-CAM" secondAttribute="centerY" id="Tg7-Mi-vjL"/>
                                     <constraint firstItem="X8d-Bv-CAM" firstAttribute="top" secondItem="JPg-Vj-glO" secondAttribute="top" id="VpM-yd-eQx"/>
                                     <constraint firstItem="GZE-90-E9M" firstAttribute="leading" secondItem="JPg-Vj-glO" secondAttribute="trailing" constant="8" id="Z3x-Jo-Up4"/>
+                                    <constraint firstAttribute="trailing" secondItem="Wso-27-bEq" secondAttribute="trailing" constant="8" id="cta-80-op5"/>
                                     <constraint firstAttribute="height" constant="80" id="fpe-PH-CZN"/>
                                     <constraint firstItem="fAc-JD-1ql" firstAttribute="centerX" secondItem="X8d-Bv-CAM" secondAttribute="centerX" id="jae-9O-Z2g"/>
                                     <constraint firstItem="X8d-Bv-CAM" firstAttribute="bottom" secondItem="M6u-Jj-TIT" secondAttribute="bottom" id="ny4-7w-p6K"/>
@@ -1318,7 +1336,7 @@
                                     <constraint firstAttribute="bottom" secondItem="BPX-Ac-pVY" secondAttribute="bottom" id="vli-2D-0Ri"/>
                                 </constraints>
                             </view>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="sQz-fI-Ya3">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="sQz-fI-Ya3">
                                 <rect key="frame" x="0.0" y="165" width="320" height="403"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="5" id="Kos-gj-yJq">
@@ -1406,6 +1424,7 @@
                     <connections>
                         <outlet property="avatarContent" destination="fAc-JD-1ql" id="QYw-l9-1ov"/>
                         <outlet property="avatarLightBG" destination="X8d-Bv-CAM" id="750-Z4-RMK"/>
+                        <outlet property="editingButton" destination="Wso-27-bEq" id="N1N-K6-fMy"/>
                         <outlet property="icyCollectionView" destination="sQz-fI-Ya3" id="JPZ-kw-sOF"/>
                         <outlet property="imageOne" destination="iWX-8X-kow" id="zCb-cd-oO7"/>
                         <outlet property="imageThree" destination="6CI-z4-BS5" id="atK-Rg-YNy"/>
@@ -1420,6 +1439,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uGf-C1-xlw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2345" y="284"/>
+        </scene>
+        <!--修改宠物信息-->
+        <scene sceneID="cMt-rP-RLX">
+            <objects>
+                <viewController title="宠物编辑" id="pg0-Cm-4Ku" userLabel="修改宠物信息" customClass="ModifyMoePetViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="7Vk-I3-mjo"/>
+                        <viewControllerLayoutGuide type="bottom" id="Y5L-RM-z1W"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="fF7-Yo-xQk">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dT3-jn-Cfi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2735" y="285"/>
         </scene>
         <!--修改个人信息-->
         <scene sceneID="o7W-Cx-omf">
@@ -1438,7 +1475,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zMg-xQ-uXt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2710" y="465"/>
+            <point key="canvasLocation" x="2580" y="993"/>
         </scene>
         <!--首页-->
         <scene sceneID="UCv-XI-Rn6">
@@ -1718,6 +1755,6 @@
         <image name="tabbarRight" width="30" height="22"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="1rq-Z5-xY4"/>
+        <segue reference="vtD-VW-MZm"/>
     </inferredMetricsTieBreakers>
 </document>

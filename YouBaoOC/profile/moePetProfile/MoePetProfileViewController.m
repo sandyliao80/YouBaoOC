@@ -13,6 +13,7 @@
 #import "MoeCameraCell.h"
 #import "MoePictureCell.h"
 #import "UIImage+LCYResize.h"
+#import "modifyMoePet/ModifyMoePetViewController.h"
 
 @interface MoePetProfileViewController ()<UICollectionViewDelegate, UICollectionViewDataSource, UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
@@ -38,6 +39,8 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *signBGHeight;
 
 @property (weak, nonatomic) IBOutlet UICollectionView *icyCollectionView;
+
+@property (weak, nonatomic) IBOutlet UIButton *editingButton;
 
 #pragma mark - Properties
 
@@ -71,6 +74,9 @@
     [self.avatarContent.layer setCornerRadius:avatarContentRadius];
     [self.avatarContent.layer setMasksToBounds:YES];
     
+    [self.editingButton.layer setCornerRadius:BUTTON_CORNER_RADIUS];
+    [self.editingButton.layer setMasksToBounds:YES];
+    [self.editingButton setBackgroundColor:THEME_LIGHT_COLOR];
     
     if (!self.petInfo) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"宠物信息获取失败" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
@@ -122,15 +128,23 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    if ([segue.identifier isEqualToString:@"showEditing"]) {
+        ModifyMoePetViewController *modifyMPVC = [segue destinationViewController];
+        if (!self.petDetailBase) {
+            modifyMPVC.userPetInfo = self.petInfo;
+        } else {
+            modifyMPVC.petDetailBase = self.petDetailBase;
+        }
+    }
 }
-*/
+
 
 #pragma mark - Actions
 - (void)reloadPetData{
@@ -200,7 +214,7 @@
         MoePictureCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:MoePictureCellIdentifier forIndexPath:indexPath];
         GetPetDetailPetImages *petDetailPetImage = self.petDetailBase.petImages[petIndex];
         NSString *urlString = [hostImageURL stringByAppendingString:petDetailPetImage.imagePath];
-        [cell.icyImageView sd_setImageWithURL:[NSURL URLWithString:urlString]];
+        [cell.icyImageView sd_setImageWithURL:[NSURL URLWithString:urlString] placeholderImage:[UIImage imageNamed:@"profilePetPlaceHolder"]];
         return cell;
     }
 }
