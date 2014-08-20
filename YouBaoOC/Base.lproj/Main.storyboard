@@ -973,12 +973,13 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="64" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="zQO-zK-xuL">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="518"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.82745098039999998" green="0.95294117649999999" blue="0.99607843139999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="zQO-zK-xuL" secondAttribute="height" multiplier="160:259" id="02l-2H-KOj"/>
                                     <constraint firstAttribute="width" constant="320" id="1tP-Nd-4pT"/>
                                     <constraint firstAttribute="height" constant="518" id="YPd-Pd-Khv"/>
                                 </constraints>
+                                <color key="sectionIndexBackgroundColor" red="0.82745098039999998" green="0.95294117649999999" blue="0.99607843139999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="EncyHomeIdentifier" rowHeight="64" id="ICF-zw-atC" customClass="EncyHomePageTableViewCell">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1100,22 +1101,26 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0Ms-tg-ycM" id="0UB-Hk-buV">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="en_Home" translatesAutoresizingMaskIntoConstraints="NO" id="jf2-8W-25I">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FOD-JD-EhD" customClass="ZXYScrollView">
                                                     <rect key="frame" x="0.0" y="0.0" width="320" height="119"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="119" id="1wA-JN-Pdy"/>
-                                                        <constraint firstAttribute="width" constant="320" id="4Rv-HE-WdC"/>
-                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="119" id="FbC-6z-apz"/>
-                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="320" id="nCI-wE-mdo"/>
+                                                        <constraint firstAttribute="width" constant="320" id="342-Tk-0Oh"/>
+                                                        <constraint firstAttribute="height" constant="119" id="LCJ-oS-x1c"/>
                                                     </constraints>
-                                                </imageView>
+                                                </view>
                                             </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <constraints>
-                                                <constraint firstAttribute="centerY" secondItem="jf2-8W-25I" secondAttribute="centerY" id="Df6-5Y-ih5"/>
-                                                <constraint firstAttribute="centerX" secondItem="jf2-8W-25I" secondAttribute="centerX" id="cLg-ux-aNA"/>
+                                                <constraint firstAttribute="bottom" secondItem="FOD-JD-EhD" secondAttribute="bottom" id="88H-So-cki"/>
+                                                <constraint firstItem="FOD-JD-EhD" firstAttribute="top" secondItem="0UB-Hk-buV" secondAttribute="top" id="v3b-df-vbK"/>
+                                                <constraint firstAttribute="centerX" secondItem="FOD-JD-EhD" secondAttribute="centerX" id="vfF-bx-0Hs"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <outlet property="zxyScroll" destination="FOD-JD-EhD" id="zYd-kv-iOR"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="EncyHomeTitleCell" rowHeight="37" id="6Gd-1y-prA" customClass="EncyHomeTitleCell">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1210,6 +1215,7 @@
                                                 <constraint firstItem="Ued-U7-eax" firstAttribute="top" secondItem="EPv-sY-sPz" secondAttribute="top" id="n85-UC-g7H"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -1218,7 +1224,7 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.82745098039215681" green="0.95294117647058818" blue="0.99607843137254903" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="zQO-zK-xuL" firstAttribute="leading" secondItem="zbB-Cv-Kqd" secondAttribute="leading" id="YhH-5M-Kqa"/>
                             <constraint firstItem="AgA-BU-ga0" firstAttribute="top" secondItem="zQO-zK-xuL" secondAttribute="bottom" constant="1" id="Yto-0G-ijI"/>
@@ -2172,7 +2178,6 @@
         <image name="breedingButton" width="95" height="33"/>
         <image name="cat" width="55" height="55"/>
         <image name="detailDownButton" width="11" height="8"/>
-        <image name="en_Home" width="320" height="120"/>
         <image name="en_collect" width="37" height="16"/>
         <image name="en_read" width="37" height="16"/>
         <image name="fosterButton" width="95" height="33"/>
