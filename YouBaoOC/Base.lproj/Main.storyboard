@@ -1233,6 +1233,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="fXH-Iv-rQm"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="currentTable" destination="zQO-zK-xuL" id="WP9-hM-1c6"/>
                     </connections>
