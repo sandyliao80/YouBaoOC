@@ -161,7 +161,49 @@
 - (NSString *)getTextAt:(NSIndexPath *)indexPath{
     
     // TODO: 返回该行显示的内容
-    return @"";
+    if (indexPath.section == 1) {
+        switch (indexPath.row) {
+            case 0:
+                return self.userInfoBase.userInfo.nickName;
+                break;
+            case 1:
+                return @"性别";
+                break;
+            case 3:
+                return @"常用地址";
+                break;
+                
+            default:
+                return @"";
+                break;
+        }
+    } else if (indexPath.section == 2) {
+        return @"签名";
+    } else if (indexPath.section == 3) {
+        switch (indexPath.row) {
+            case 0:
+                return @"QQ";
+                break;
+            case 1:
+                return @"微信";
+                break;
+            case 2:
+                return @"新浪微博";
+                break;
+            case 3:
+                return @"固定电话";
+                break;
+            case 4:
+                return @"详细地址";
+                break;
+                
+            default:
+                return @"";
+                break;
+        }
+    } else {
+        return @"";
+    }
 }
 
 #pragma mark - UITableView
@@ -217,10 +259,12 @@
     } else if(indexPath.section == 1) {
         ProfileEditingNameCell *cell = [tableView dequeueReusableCellWithIdentifier:ProfileEditingNameCellIdentifier];
         cell.icyImage.image = [UIImage imageNamed:[self getImageNameAt:indexPath]];
+        cell.icyLabel.text = [self getTextAt:indexPath];
         return cell;
     } else {
         ProfileEditingSignCell *cell = [tableView dequeueReusableCellWithIdentifier:ProfileEditingSignCellIdentifier];
         cell.icyLabel.text = [self getTitleAt:indexPath];
+        cell.detailTextLabel.text = [self getTextAt:indexPath];
         cell.indexPath = [NSIndexPath indexPathForRow:indexPath.row inSection:indexPath.section];
         cell.delegate = self;
         return cell;
@@ -287,6 +331,7 @@
 //    self.titleForPassing = [self getTitleAt:indexPath];
     self.indexPathForPassing = [NSIndexPath indexPathForRow:indexPath.row inSection:indexPath.section];
     [self performSegueWithIdentifier:@"showModify" sender:nil];
+    
 }
 
 #pragma mark - ModifyText
