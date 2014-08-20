@@ -54,6 +54,8 @@
 
 @property (strong, nonatomic) NSString *QRString;
 
+@property (weak, nonatomic) IBOutlet UIButton *QRButton;
+
 @end
 
 @implementation AddPetViewController
@@ -128,6 +130,11 @@
 }
 
 #pragma mark - UIScrollViewDelegate
+
+- (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView{
+    [self.nicknameLabel resignFirstResponder];
+    [self.signLabel resignFirstResponder];
+}
 
 - (IBAction)contentTouchDown:(id)sender {
     [self.nicknameLabel resignFirstResponder];
@@ -341,6 +348,7 @@
 - (void)QRScanViewController:(QRScanViewController *)QRScanVC didFinishScanned:(NSString *)info{
     self.QRString = info;
     [self.QRSwitch setEnabled:YES];
+    [self.QRButton setBackgroundImage:[UIImage imageNamed:@"QRDuostec"] forState:UIControlStateNormal];
 }
 
 - (void)QRScanViewControllerDidCancled:(QRScanViewController *)QRScanVC{

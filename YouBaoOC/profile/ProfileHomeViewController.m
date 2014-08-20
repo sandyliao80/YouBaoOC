@@ -21,6 +21,7 @@
 #import "Region.h"
 #import "CellImageDownloadOperation.h"
 #import "moePetProfile/MoePetProfileViewController.h"
+#import "ProfileEditingViewController.h"
 
 @interface ProfileHomeViewController ()<UITableViewDelegate, UITableViewDataSource, AddPetDelegate, CellImageDownloadOperationDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *icyTableView;
@@ -102,6 +103,8 @@
     } else if ([segue.identifier isEqualToString:@"showMoePet"]) {
         MoePetProfileViewController *moePetVC = [segue destinationViewController];
         moePetVC.petInfo = self.petToPass;
+    } else if ([segue.identifier isEqualToString:@"showEditing"]) {
+//        ProfileEditingViewController *profileEditingVC = [segue destinationViewController];
     }
 }
 
@@ -113,7 +116,7 @@
 }
 
 - (void)editingButtonPressed:(id)sender{
-    
+    [self performSegueWithIdentifier:@"showEditing" sender:nil];
 }
 
 #pragma mark - UITableView
