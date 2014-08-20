@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GetUserInfo.h"
 
 @interface ProfileEditingViewController : UIViewController
+
+@property (strong, nonatomic) GetUserInfoBase *userInfoBase;
 
 @end
