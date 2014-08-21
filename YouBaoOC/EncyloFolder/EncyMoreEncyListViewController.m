@@ -7,11 +7,15 @@
 //
 
 #import "EncyMoreEncyListViewController.h"
-
+#import "UIViewController+HideTabBar.h"
 @interface EncyMoreEncyListViewController ()
 {
     NSString *_petID;
+    IBOutletCollection(UIButton) NSArray *allBtns;
+    
+    IBOutletCollection(UIImageView) NSArray *allImages;
 }
+- (IBAction)selectOneBtn:(id)sender;
 @end
 
 @implementation EncyMoreEncyListViewController
@@ -26,6 +30,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self initNavi];
+    [self initImageSlide];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -35,18 +41,52 @@
 
 - (void)initNavi
 {
-    UIButton *leftBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 45, 45)];
-    [leftBtn setImage:[UIImage imageNamed:@"navigationBack"] forState:UIControlStateNormal];
-    [leftBtn setImage:[UIImage imageNamed:@"navigationBack"] forState:UIControlStateHighlighted];
-    [leftBtn addTarget:self action:@selector(leftItemAction) forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem *leftBtnItem = [[UIBarButtonItem alloc] initWithCustomView:leftBtn];
-    [self.navigationItem setLeftBarButtonItem:leftBtnItem];
+    [self setNaviLeftItem];
     //self.view.backgroundColor = BLUEINSI;
+}
+
+- (void)initImageSlide
+{
+    for(UIImageView *slideView in allImages)
+    {
+        if(slideView.tag == 1002)
+        {
+            slideView.backgroundColor = [UIColor colorWithRed:255.0/255.0 green:125.0/255.0 blue:105.0/255.0 alpha:1];
+        }
+        else
+        {
+            slideView.backgroundColor = [UIColor colorWithRed:53.0/255.0 green:135.0/255.0 blue:175.0/255.0 alpha:1];
+        }
+    }
 }
 
 - (void)leftItemAction
 {
+    [self showTabBarWithSelector];
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+- (IBAction)selectOneBtn:(id)sender
+{
+    UIButton *selectedBtn = (UIButton *)sender;
+    for(UIButton *oneBtn in allBtns)
+    {
+        if(oneBtn == selectedBtn)
+        {
+            [oneBtn setSelected:YES];
+            [oneBtn setUserInteractionEnabled:NO];
+            NSInteger index = [allBtns indexOfObject:oneBtn];
+            UIImageView *currentView = [allImages objectAtIndex:index];
+            currentView.backgroundColor = [UIColor colorWithRed:255.0/255.0 green:125.0/255.0 blue:105.0/255.0 alpha:1];
+        }
+        else
+        {
+            [oneBtn setSelected:NO];
+            [oneBtn setUserInteractionEnabled:YES];
+            NSInteger index = [allBtns indexOfObject:oneBtn];
+            UIImageView *currentView = [allImages objectAtIndex:index];
+            currentView.backgroundColor = [UIColor colorWithRed:53.0/255.0 green:135.0/255.0 blue:175.0/255.0 alpha:1];
+        }
+    }
+}
 @end
