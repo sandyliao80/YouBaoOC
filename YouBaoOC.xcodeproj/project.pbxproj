@@ -54,7 +54,11 @@
 		286979661985F5AA0098F6A3 /* WelcomeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 286979651985F5AA0098F6A3 /* WelcomeCell.m */; };
 		2869796A1986558D0098F6A3 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 286979691986558D0098F6A3 /* MainViewController.m */; };
 		2869796F1986571B0098F6A3 /* ProfileHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2869796E1986571B0098F6A3 /* ProfileHomeViewController.m */; };
-		287A63B019A2FD3000CB6526 /* ProfileEditingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 287A63AF19A2FD3000CB6526 /* ProfileEditingViewController.m */; };
+		28763D1F19A4797C002A05D5 /* GetUserInfoPetInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 28763D1819A4797C002A05D5 /* GetUserInfoPetInfo.m */; };
+		28763D2019A4797C002A05D5 /* GetUserInfoBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 28763D1919A4797C002A05D5 /* GetUserInfoBase.m */; };
+		28763D2119A4797C002A05D5 /* GetUserInfoUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 28763D1E19A4797C002A05D5 /* GetUserInfoUserInfo.m */; };
+		2879CDD719A487D1006586DA /* ModifyTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2879CDD619A487D1006586DA /* ModifyTextViewController.m */; };
+		2879CDDA19A4A4FB006586DA /* ModifyTextCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2879CDD919A4A4FB006586DA /* ModifyTextCell.m */; };
 		287A63B419A32AC000CB6526 /* ModifyMoePetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 287A63B319A32AC000CB6526 /* ModifyMoePetViewController.m */; };
 		287A63C619A355C700CB6526 /* GetPetDetailBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 287A63C019A355C700CB6526 /* GetPetDetailBase.m */; };
 		287A63C719A355C700CB6526 /* GetPetDetailPetInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 287A63C419A355C700CB6526 /* GetPetDetailPetInfo.m */; };
@@ -68,9 +72,10 @@
 		2889508D198B315500696A95 /* SearchDetailByIDBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 2889508B198B315500696A95 /* SearchDetailByIDBase.m */; };
 		28922340198240CF0073BADB /* RegisterDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2892233F198240CF0073BADB /* RegisterDetailViewController.m */; };
 		28922343198249400073BADB /* UIImage+LCYResize.m in Sources */ = {isa = PBXBuildFile; fileRef = 28922342198249400073BADB /* UIImage+LCYResize.m */; };
-		28B34C01199DEDB100240ECC /* GetUserInfoPetInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B34BFB199DEDB100240ECC /* GetUserInfoPetInfo.m */; };
-		28B34C02199DEDB100240ECC /* GetUserInfoBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B34BFE199DEDB100240ECC /* GetUserInfoBase.m */; };
-		28B34C03199DEDB100240ECC /* GetUserInfoUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B34BFF199DEDB100240ECC /* GetUserInfoUserInfo.m */; };
+		28A54A1419A4472F00AFDDED /* ProfileEditingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28A54A1319A4472F00AFDDED /* ProfileEditingViewController.m */; };
+		28A54A1719A4477500AFDDED /* ProfileEditingHeadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 28A54A1619A4477500AFDDED /* ProfileEditingHeadCell.m */; };
+		28A54A1A19A447B300AFDDED /* ProfileEditingNameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 28A54A1919A447B300AFDDED /* ProfileEditingNameCell.m */; };
+		28A54A1D19A447C400AFDDED /* ProfileEditingSignCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 28A54A1C19A447C400AFDDED /* ProfileEditingSignCell.m */; };
 		28B69B8D1990CDCA0039B146 /* QRScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B69B8C1990CDCA0039B146 /* QRScanViewController.m */; };
 		28C721E6199CA919007DBB3A /* PasswordForgetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C721E5199CA919007DBB3A /* PasswordForgetViewController.m */; };
 		28CF40161994C2570081D39A /* PetCoreDataPreloader.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 28CF40151994C2570081D39A /* PetCoreDataPreloader.sqlite */; };
@@ -210,9 +215,18 @@
 		286979691986558D0098F6A3 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		2869796D1986571B0098F6A3 /* ProfileHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileHomeViewController.h; sourceTree = "<group>"; };
 		2869796E1986571B0098F6A3 /* ProfileHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileHomeViewController.m; sourceTree = "<group>"; };
+		28763D1819A4797C002A05D5 /* GetUserInfoPetInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetUserInfoPetInfo.m; sourceTree = "<group>"; };
+		28763D1919A4797C002A05D5 /* GetUserInfoBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetUserInfoBase.m; sourceTree = "<group>"; };
+		28763D1A19A4797C002A05D5 /* GetUserInfoBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetUserInfoBase.h; sourceTree = "<group>"; };
+		28763D1B19A4797C002A05D5 /* GetUserInfoPetInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetUserInfoPetInfo.h; sourceTree = "<group>"; };
+		28763D1C19A4797C002A05D5 /* GetUserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetUserInfo.h; sourceTree = "<group>"; };
+		28763D1D19A4797C002A05D5 /* GetUserInfoUserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetUserInfoUserInfo.h; sourceTree = "<group>"; };
+		28763D1E19A4797C002A05D5 /* GetUserInfoUserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetUserInfoUserInfo.m; sourceTree = "<group>"; };
 		2879C58D199E12E4001FBAAB /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
-		287A63AE19A2FD3000CB6526 /* ProfileEditingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileEditingViewController.h; sourceTree = "<group>"; };
-		287A63AF19A2FD3000CB6526 /* ProfileEditingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileEditingViewController.m; sourceTree = "<group>"; };
+		2879CDD519A487D1006586DA /* ModifyTextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModifyTextViewController.h; sourceTree = "<group>"; };
+		2879CDD619A487D1006586DA /* ModifyTextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModifyTextViewController.m; sourceTree = "<group>"; };
+		2879CDD819A4A4FB006586DA /* ModifyTextCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModifyTextCell.h; sourceTree = "<group>"; };
+		2879CDD919A4A4FB006586DA /* ModifyTextCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModifyTextCell.m; sourceTree = "<group>"; };
 		287A63B219A32AC000CB6526 /* ModifyMoePetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModifyMoePetViewController.h; sourceTree = "<group>"; };
 		287A63B319A32AC000CB6526 /* ModifyMoePetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModifyMoePetViewController.m; sourceTree = "<group>"; };
 		287A63BF19A355C700CB6526 /* GetPetDetailPetInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetPetDetailPetInfo.h; sourceTree = "<group>"; };
@@ -241,13 +255,14 @@
 		2892233F198240CF0073BADB /* RegisterDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterDetailViewController.m; sourceTree = "<group>"; };
 		28922341198249400073BADB /* UIImage+LCYResize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+LCYResize.h"; sourceTree = "<group>"; };
 		28922342198249400073BADB /* UIImage+LCYResize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+LCYResize.m"; sourceTree = "<group>"; };
-		28B34BFA199DEDB100240ECC /* GetUserInfoUserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetUserInfoUserInfo.h; sourceTree = "<group>"; };
-		28B34BFB199DEDB100240ECC /* GetUserInfoPetInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetUserInfoPetInfo.m; sourceTree = "<group>"; };
-		28B34BFC199DEDB100240ECC /* GetUserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetUserInfo.h; sourceTree = "<group>"; };
-		28B34BFD199DEDB100240ECC /* GetUserInfoPetInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetUserInfoPetInfo.h; sourceTree = "<group>"; };
-		28B34BFE199DEDB100240ECC /* GetUserInfoBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetUserInfoBase.m; sourceTree = "<group>"; };
-		28B34BFF199DEDB100240ECC /* GetUserInfoUserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetUserInfoUserInfo.m; sourceTree = "<group>"; };
-		28B34C00199DEDB100240ECC /* GetUserInfoBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetUserInfoBase.h; sourceTree = "<group>"; };
+		28A54A1219A4472F00AFDDED /* ProfileEditingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileEditingViewController.h; sourceTree = "<group>"; };
+		28A54A1319A4472F00AFDDED /* ProfileEditingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileEditingViewController.m; sourceTree = "<group>"; };
+		28A54A1519A4477500AFDDED /* ProfileEditingHeadCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileEditingHeadCell.h; sourceTree = "<group>"; };
+		28A54A1619A4477500AFDDED /* ProfileEditingHeadCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileEditingHeadCell.m; sourceTree = "<group>"; };
+		28A54A1819A447B300AFDDED /* ProfileEditingNameCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileEditingNameCell.h; sourceTree = "<group>"; };
+		28A54A1919A447B300AFDDED /* ProfileEditingNameCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileEditingNameCell.m; sourceTree = "<group>"; };
+		28A54A1B19A447C400AFDDED /* ProfileEditingSignCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileEditingSignCell.h; sourceTree = "<group>"; };
+		28A54A1C19A447C400AFDDED /* ProfileEditingSignCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileEditingSignCell.m; sourceTree = "<group>"; };
 		28B69B8B1990CDCA0039B146 /* QRScanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRScanViewController.h; sourceTree = "<group>"; };
 		28B69B8C1990CDCA0039B146 /* QRScanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRScanViewController.m; sourceTree = "<group>"; };
 		28C721E4199CA919007DBB3A /* PasswordForgetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PasswordForgetViewController.h; sourceTree = "<group>"; };
@@ -496,8 +511,7 @@
 				28D6320F199B41860029A283 /* moePetProfile */,
 				2869796D1986571B0098F6A3 /* ProfileHomeViewController.h */,
 				2869796E1986571B0098F6A3 /* ProfileHomeViewController.m */,
-				287A63AE19A2FD3000CB6526 /* ProfileEditingViewController.h */,
-				287A63AF19A2FD3000CB6526 /* ProfileEditingViewController.m */,
+				28A54A1119A4471600AFDDED /* profileEditing */,
 				28F7F43A1994788A0069D797 /* Model */,
 				2868EC8E198F79A400D8726E /* ProfileHomeAvatarCell.h */,
 				2868EC8F198F79A500D8726E /* ProfileHomeAvatarCell.m */,
@@ -530,15 +544,34 @@
 			path = modifyMoePet;
 			sourceTree = "<group>";
 		};
+		28A54A1119A4471600AFDDED /* profileEditing */ = {
+			isa = PBXGroup;
+			children = (
+				28A54A1219A4472F00AFDDED /* ProfileEditingViewController.h */,
+				28A54A1319A4472F00AFDDED /* ProfileEditingViewController.m */,
+				28A54A1519A4477500AFDDED /* ProfileEditingHeadCell.h */,
+				28A54A1619A4477500AFDDED /* ProfileEditingHeadCell.m */,
+				28A54A1819A447B300AFDDED /* ProfileEditingNameCell.h */,
+				28A54A1919A447B300AFDDED /* ProfileEditingNameCell.m */,
+				28A54A1B19A447C400AFDDED /* ProfileEditingSignCell.h */,
+				28A54A1C19A447C400AFDDED /* ProfileEditingSignCell.m */,
+				2879CDD519A487D1006586DA /* ModifyTextViewController.h */,
+				2879CDD619A487D1006586DA /* ModifyTextViewController.m */,
+				2879CDD819A4A4FB006586DA /* ModifyTextCell.h */,
+				2879CDD919A4A4FB006586DA /* ModifyTextCell.m */,
+			);
+			path = profileEditing;
+			sourceTree = "<group>";
+		};
 		28D6320F199B41860029A283 /* moePetProfile */ = {
 			isa = PBXGroup;
 			children = (
+				287A63C319A355C700CB6526 /* GetPetDetail.h */,
 				287A63BF19A355C700CB6526 /* GetPetDetailPetInfo.h */,
+				287A63C419A355C700CB6526 /* GetPetDetailPetInfo.m */,
+				287A63C219A355C700CB6526 /* GetPetDetailBase.h */,
 				287A63C019A355C700CB6526 /* GetPetDetailBase.m */,
 				287A63C119A355C700CB6526 /* GetPetDetailPetImages.h */,
-				287A63C219A355C700CB6526 /* GetPetDetailBase.h */,
-				287A63C319A355C700CB6526 /* GetPetDetail.h */,
-				287A63C419A355C700CB6526 /* GetPetDetailPetInfo.m */,
 				287A63C519A355C700CB6526 /* GetPetDetailPetImages.m */,
 				287A63B119A32AB000CB6526 /* modifyMoePet */,
 				28D63210199B41A00029A283 /* MoePetProfileViewController.h */,
@@ -563,13 +596,13 @@
 		28F7F43A1994788A0069D797 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				28B34BFC199DEDB100240ECC /* GetUserInfo.h */,
-				28B34BFA199DEDB100240ECC /* GetUserInfoUserInfo.h */,
-				28B34BFF199DEDB100240ECC /* GetUserInfoUserInfo.m */,
-				28B34BFD199DEDB100240ECC /* GetUserInfoPetInfo.h */,
-				28B34BFB199DEDB100240ECC /* GetUserInfoPetInfo.m */,
-				28B34C00199DEDB100240ECC /* GetUserInfoBase.h */,
-				28B34BFE199DEDB100240ECC /* GetUserInfoBase.m */,
+				28763D1C19A4797C002A05D5 /* GetUserInfo.h */,
+				28763D1A19A4797C002A05D5 /* GetUserInfoBase.h */,
+				28763D1919A4797C002A05D5 /* GetUserInfoBase.m */,
+				28763D1B19A4797C002A05D5 /* GetUserInfoPetInfo.h */,
+				28763D1819A4797C002A05D5 /* GetUserInfoPetInfo.m */,
+				28763D1D19A4797C002A05D5 /* GetUserInfoUserInfo.h */,
+				28763D1E19A4797C002A05D5 /* GetUserInfoUserInfo.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -864,16 +897,14 @@
 				2869796A1986558D0098F6A3 /* MainViewController.m in Sources */,
 				8B6AA11019935F4200BF017C /* ZXYDownLoadImage.m in Sources */,
 				8B6AA10D19935BC200BF017C /* ZXYPetStylePicDown.m in Sources */,
-				287A63B019A2FD3000CB6526 /* ProfileEditingViewController.m in Sources */,
-				28B34C01199DEDB100240ECC /* GetUserInfoPetInfo.m in Sources */,
 				2827C79F1998D13D00C25F83 /* UIScrollView+Extension.m in Sources */,
 				28D6E0371999FDE90080E5A5 /* RecommendCell.m in Sources */,
 				28895086198B2D8C00696A95 /* SecondFilterTableViewCell.m in Sources */,
+				28A54A1D19A447C400AFDDED /* ProfileEditingSignCell.m in Sources */,
 				8BC24F0C19A1C76C003C959F /* ZXYDownImageOperation.m in Sources */,
 				28922340198240CF0073BADB /* RegisterDetailViewController.m in Sources */,
 				8B6AA11319936A7B00BF017C /* SubPetSyle.m in Sources */,
 				8B6AA0FE1993397E00BF017C /* EncyCategoryCell.m in Sources */,
-				28B34C03199DEDB100240ECC /* GetUserInfoUserInfo.m in Sources */,
 				2868EC90198F79A500D8726E /* ProfileHomeAvatarCell.m in Sources */,
 				2868EC9C198F7A1900D8726E /* ProfileHomeButtonCell.m in Sources */,
 				2827C79B1998D13D00C25F83 /* MJRefreshBaseView.m in Sources */,
@@ -887,6 +918,8 @@
 				287AFD56199863560035FF05 /* CellImageDownloadOperation.m in Sources */,
 				285D89BD198A2D31005DFBEB /* searchAllTypePetsFatherStyle.m in Sources */,
 				2827C79E1998D13D00C25F83 /* MJRefreshHeaderView.m in Sources */,
+				28A54A1A19A447B300AFDDED /* ProfileEditingNameCell.m in Sources */,
+				2879CDDA19A4A4FB006586DA /* ModifyTextCell.m in Sources */,
 				287DD73619A20E9B0080C268 /* MoePictureCell.m in Sources */,
 				285D89B7198A2B3D005DFBEB /* FilterViewController.m in Sources */,
 				280E7446199334D80036DD0B /* ZXYProvider.m in Sources */,
@@ -896,11 +929,12 @@
 				28D63212199B41A00029A283 /* MoePetProfileViewController.m in Sources */,
 				280E7449199334F70036DD0B /* ZXYFileOperation.m in Sources */,
 				8BED672319A3562F009C2B72 /* EncyMoreEncyListViewController.m in Sources */,
+				28763D2019A4797C002A05D5 /* GetUserInfoBase.m in Sources */,
 				286979661985F5AA0098F6A3 /* WelcomeCell.m in Sources */,
 				2811118F1979183C000A72D7 /* AppDelegate.m in Sources */,
+				28763D2119A4797C002A05D5 /* GetUserInfoUserInfo.m in Sources */,
 				2889508C198B315500696A95 /* SearchDetailByIDChildStyle.m in Sources */,
 				2827C7A01998D13D00C25F83 /* UIScrollView+MJRefresh.m in Sources */,
-				28B34C02199DEDB100240ECC /* GetUserInfoBase.m in Sources */,
 				28895083198B269D00696A95 /* SecondFilterViewController.m in Sources */,
 				28D63218199B76E30029A283 /* GuideViewController.m in Sources */,
 				280E74591993351C0036DD0B /* EncyHomeImageCell.m in Sources */,
@@ -910,6 +944,7 @@
 				285D89C1198A374A005DFBEB /* FilterTableViewCell.m in Sources */,
 				8B6AA11D19936C2100BF017C /* EncySubCategoryCell.m in Sources */,
 				287A63B419A32AC000CB6526 /* ModifyMoePetViewController.m in Sources */,
+				28763D1F19A4797C002A05D5 /* GetUserInfoPetInfo.m in Sources */,
 				2869796F1986571B0098F6A3 /* ProfileHomeViewController.m in Sources */,
 				2811118C1979183C000A72D7 /* main.m in Sources */,
 				28B69B8D1990CDCA0039B146 /* QRScanViewController.m in Sources */,
@@ -931,12 +966,15 @@
 				287A63C719A355C700CB6526 /* GetPetDetailPetInfo.m in Sources */,
 				287A63C619A355C700CB6526 /* GetPetDetailBase.m in Sources */,
 				280E745A1993351C0036DD0B /* EncyHomeTitleCell.m in Sources */,
+				28A54A1719A4477500AFDDED /* ProfileEditingHeadCell.m in Sources */,
 				28C721E6199CA919007DBB3A /* PasswordForgetViewController.m in Sources */,
 				280E7453199335100036DD0B /* ZXYNETHelper.m in Sources */,
+				28A54A1419A4472F00AFDDED /* ProfileEditingViewController.m in Sources */,
 				2868EC9F198F99F500D8726E /* AddPetViewController.m in Sources */,
 				2889508D198B315500696A95 /* SearchDetailByIDBase.m in Sources */,
 				2868EC96198F79D300D8726E /* ProfileHomeContentCell.m in Sources */,
 				2832DC661980F00C004BBAB5 /* WelcomeViewController.m in Sources */,
+				2879CDD719A487D1006586DA /* ModifyTextViewController.m in Sources */,
 				8B6AA11719936AD700BF017C /* EncySubCategoryVC.m in Sources */,
 				280E7465199335320036DD0B /* EncyCategoryVC.m in Sources */,
 			);

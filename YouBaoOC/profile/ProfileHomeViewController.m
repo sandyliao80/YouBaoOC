@@ -104,7 +104,8 @@
         MoePetProfileViewController *moePetVC = [segue destinationViewController];
         moePetVC.petInfo = self.petToPass;
     } else if ([segue.identifier isEqualToString:@"showEditing"]) {
-//        ProfileEditingViewController *profileEditingVC = [segue destinationViewController];
+        ProfileEditingViewController *profileEditingVC = [segue destinationViewController];
+        profileEditingVC.userInfoBase = self.baseInfo;
     }
 }
 
@@ -116,8 +117,14 @@
 }
 
 - (void)editingButtonPressed:(id)sender{
-    [self performSegueWithIdentifier:@"showEditing" sender:nil];
+    if (self.baseInfo) {
+        [self performSegueWithIdentifier:@"showEditing" sender:nil];
+    } else {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"请等待获取用户信息" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+        [alert show];
+    }
 }
+
 
 #pragma mark - UITableView
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -264,8 +271,10 @@
                 [misc appendString:petInfo.age];
                 [misc appendString:@"岁"];
             }
-            [misc appendString:@" "];
-            [misc appendString:petInfo.name];
+            if (petInfo.name) {
+                [misc appendString:@" "];
+                [misc appendString:petInfo.name];
+            }
             [misc appendString:@" "];
             [misc insertString:@" " atIndex:0];
             cell.signLabel.text = misc;
