@@ -103,7 +103,11 @@
         [progress hide:YES];
         NSLog(@"%@",[operation responseString]);
         NSDictionary *jsonDic = [NSJSONSerialization JSONObjectWithData:[operation responseData] options:0 error:nil];
-        [dataProvider saveDataToCoreDataArr:[jsonDic objectForKey:@"fatherStyle"] withDBNam:@"PetStyle" isDelete:YES];
+        NSArray *dataToCore = [jsonDic objectForKey:@"fatherStyle"];
+        if(dataToCore!=[NSNull null])
+        {
+            [dataProvider saveDataToCoreDataArr:[jsonDic objectForKey:@"fatherStyle"] withDBNam:@"PetStyle" isDelete:YES];
+        }
         isDataDown = YES;
         allDataForShow =[NSMutableArray arrayWithArray:[dataProvider readCoreDataFromDB:@"PetStyle" isDes:YES orderByKey:@"spell",nil] ];
         [self performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:YES];

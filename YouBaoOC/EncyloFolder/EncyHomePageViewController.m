@@ -130,18 +130,21 @@
         NSDictionary *allDic = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:nil];
         jsonDic = allDic;
         NSArray *allArr = [allDic objectForKey:@"todayPush"];
-        for(int i =0;i<allArr.count;i++)
+        if(allArr!=[NSNull null])
         {
-            NSDictionary *allDic = [allArr objectAtIndex:i];
-            NSArray *allContent  = [allDic objectForKey:@"allContent"];
-            for(int j = 0;j<allContent.count;j++)
+            for(int i =0;i<allArr.count;i++)
             {
-                NSMutableDictionary *content = [NSMutableDictionary dictionaryWithDictionary: [allContent objectAtIndex:j] ];
-                [content setObject:[allDic objectForKey:@"enImage_U"] forKey:@"enImage_U"];
-                [allDataForShow addObject:content];
-                NSLog(@"all DIC %@",[content objectForKey:@"ency_childC"]);
+                NSDictionary *allDic = [allArr objectAtIndex:i];
+                NSArray *allContent  = [allDic objectForKey:@"allContent"];
+                for(int j = 0;j<allContent.count;j++)
+                {
+                    NSMutableDictionary *content = [NSMutableDictionary dictionaryWithDictionary: [allContent objectAtIndex:j] ];
+                    [content setObject:[allDic objectForKey:@"enImage_U"] forKey:@"enImage_U"];
+                    [allDataForShow addObject:content];
+                    NSLog(@"all DIC %@",[content objectForKey:@"ency_childC"]);
+                }
+                
             }
-            
         }
         [self performSelectorOnMainThread:@selector(hideMB) withObject:nil waitUntilDone:YES];
         [self performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:YES];

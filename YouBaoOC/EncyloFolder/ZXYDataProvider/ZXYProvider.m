@@ -405,7 +405,16 @@ static ZXYProvider *instance = nil;
         
         NSString *onekey = [dic.allKeys objectAtIndex:i];
         NSString *value  = [NSString stringWithFormat:@"%@",[dic valueForKey:onekey] ];
-        [object setValue:value forKey:onekey];
+        @try {
+             [object setValue:value forKey:onekey];
+        }
+        @catch (NSException *exception) {
+            NSLog(@"没有key");
+        }
+        @finally {
+            continue;
+        }
+       
     }
     NSError *error = nil;
     [manageContext save:&error];
