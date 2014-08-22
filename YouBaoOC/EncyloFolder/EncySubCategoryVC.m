@@ -27,7 +27,6 @@
     NSNotificationCenter *datatnc;
     NSArray *allKeys;
     NSString *_notiKey;
-    
 }
 @end
 
@@ -53,17 +52,12 @@
     return  self;
 }
 
-- (void)setChooseConditionisFather:(BOOL)condition
-{
-    
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initMB];
     [self initNavi];
     datatnc = [NSNotificationCenter defaultCenter];
-    NSLog(@"%d",_petFather.cat_id);
     [datatnc addObserver:self selector:@selector(reloadData) name:_notiKey object:nil];
     if([ZXYNETHelper isNETConnect])
     {
@@ -105,9 +99,10 @@
     [manager POST:urlString parameters:dic success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"%@",[operation responseString]);
         NSDictionary *jsonDic = [NSJSONSerialization JSONObjectWithData:[operation responseData] options:0 error:nil];
-        if([jsonDic objectForKey:@"childStyle"]!=[NSNull null])
+        if([jsonDic objectForKey:@"childStyle"]!=[NSNull null]&&[jsonDic objectForKey:@"childStyle"])
         {
-            [dataProvider saveDataToCoreDataArr:[jsonDic objectForKey:@"childStyle"] withDBNam:@"SubPetSyle" isDelete:YES];
+        
+            [dataProvider saveDataToCoreDataArr:[jsonDic objectForKey:@"childStyle"] withDBNam:@"SubPetSyle"withDeletePredict:@"cat_id"];
         }
         allDataForShow = [NSMutableArray arrayWithArray:[dataProvider readCoreDataFromDB:@"SubPetSyle" withContent:_petFather.cat_id andKey:@"f_id" orderBy:@"spell" isDes:YES] ];
         [self toPYSection];
@@ -254,9 +249,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    PetStyle *currentPet = [allDataForShow objectAtIndex:indexPath.row];
-    EncySubCategoryVC *subView = [[EncySubCategoryVC alloc] initWIthFather:currentPet];
-    [self.navigationController pushViewController:subView animated:YES];
+    NSLog(@"hello");
 }
 
 - (void)dealloc
