@@ -32,11 +32,12 @@
 {
     UIScreen *screen = [UIScreen mainScreen];
     float width = screen.bounds.size.width;
-    float widthUnit = width/19;
+    int   countOfSub  =  width/20;
+    float widthUnit = width/countOfSub;
     float widthAnchor = widthUnit/2;
     CGContextRef context = UIGraphicsGetCurrentContext();
     CGContextMoveToPoint(context, 0, height);
-    for(int i = 1;i<=19;i++)
+    for(int i = 1;i<=countOfSub;i++)
     {
         CGPoint pointAncho;
         CGPoint pointSub;
@@ -57,18 +58,18 @@
     
     CGContextAddLineToPoint(context,width, self.frame.size.height-height);
     float heights = self.frame.size.height-height;
-    for(int i = 1;i<=19;i++)
+    for(int i = 1;i<=countOfSub;i++)
     {
         CGPoint pointAncho;
         CGPoint pointSub;
         if(i%2==0)
         {
-            pointAncho = CGPointMake(width-i*widthUnit+widthAnchor, heights+5);
+            pointAncho = CGPointMake(width-i*widthUnit+widthAnchor, heights-5);
             pointSub   = CGPointMake(width-i*widthUnit,heights );
         }
         else
         {
-            pointAncho = CGPointMake(width-i*widthUnit+widthAnchor,heights-5);
+            pointAncho = CGPointMake(width-i*widthUnit+widthAnchor,heights+5);
             pointSub   = CGPointMake(width-i*widthUnit,heights);
         }
         CGContextAddQuadCurveToPoint(context,pointAncho.x, pointAncho.y, pointSub.x, pointSub.y);

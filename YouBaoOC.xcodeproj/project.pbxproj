@@ -86,6 +86,7 @@
 		28D6E0371999FDE90080E5A5 /* RecommendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D6E0361999FDE90080E5A5 /* RecommendCell.m */; };
 		28F7F4541994A3860069D797 /* LCYFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F7F4531994A3860069D797 /* LCYFileManager.m */; };
 		83A93C91E0F34B08851EE991 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEF990BC1DD24D8D89234D90 /* libPods.a */; };
+		8B129DAC19A591D100554F3C /* UIViewController+HideTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B129DAB19A591D100554F3C /* UIViewController+HideTabBar.m */; };
 		8B1911E619A2EBEE0070CD7E /* ZXYScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B1911E519A2EBEE0070CD7E /* ZXYScrollView.m */; };
 		8B1911E919A31AA30070CD7E /* EncyDogCatCategoryCellTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B1911E819A31AA30070CD7E /* EncyDogCatCategoryCellTable.m */; };
 		8B6AA0FE1993397E00BF017C /* EncyCategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B6AA0FD1993397E00BF017C /* EncyCategoryCell.m */; };
@@ -280,6 +281,8 @@
 		28F7F4521994A3860069D797 /* LCYFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCYFileManager.h; sourceTree = "<group>"; };
 		28F7F4531994A3860069D797 /* LCYFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCYFileManager.m; sourceTree = "<group>"; };
 		75673EC2383043228793768F /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		8B129DAA19A591D100554F3C /* UIViewController+HideTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+HideTabBar.h"; sourceTree = "<group>"; };
+		8B129DAB19A591D100554F3C /* UIViewController+HideTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+HideTabBar.m"; sourceTree = "<group>"; };
 		8B1911E419A2EBEE0070CD7E /* ZXYScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZXYScrollView.h; sourceTree = "<group>"; };
 		8B1911E519A2EBEE0070CD7E /* ZXYScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZXYScrollView.m; sourceTree = "<group>"; };
 		8B1911E719A31AA30070CD7E /* EncyDogCatCategoryCellTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EncyDogCatCategoryCellTable.h; sourceTree = "<group>"; };
@@ -615,6 +618,8 @@
 				8B6AA107199351D000BF017C /* Model */,
 				8B6AA0FB1993397E00BF017C /* ENcyCategoryCell */,
 				8B6AA11919936BD700BF017C /* EncySubCategoryCell */,
+				8B129DAA19A591D100554F3C /* UIViewController+HideTabBar.h */,
+				8B129DAB19A591D100554F3C /* UIViewController+HideTabBar.m */,
 				280E745B199335320036DD0B /* EN_PreDefine.h */,
 				280E745C199335320036DD0B /* EncyAllNeedHeader.h */,
 				280E745D199335320036DD0B /* EncyCategoryVC.h */,
@@ -920,6 +925,7 @@
 				2827C79E1998D13D00C25F83 /* MJRefreshHeaderView.m in Sources */,
 				28A54A1A19A447B300AFDDED /* ProfileEditingNameCell.m in Sources */,
 				2879CDDA19A4A4FB006586DA /* ModifyTextCell.m in Sources */,
+				8B129DAC19A591D100554F3C /* UIViewController+HideTabBar.m in Sources */,
 				287DD73619A20E9B0080C268 /* MoePictureCell.m in Sources */,
 				285D89B7198A2B3D005DFBEB /* FilterViewController.m in Sources */,
 				280E7446199334D80036DD0B /* ZXYProvider.m in Sources */,

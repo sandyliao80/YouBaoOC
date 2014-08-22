@@ -2028,8 +2028,13 @@
                                                     <color key="textColor" red="0.32941177487373352" green="0.62352943420410156" blue="0.76470595598220825" alpha="1" colorSpace="deviceRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+<<<<<<< HEAD
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W5i-te-m2C">
                                                     <rect key="frame" x="200" y="16" width="38" height="21"/>
+=======
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W5i-te-m2C">
+                                                    <rect key="frame" x="201" y="16" width="38" height="21"/>
+>>>>>>> 8d9b6b2ad1adaec3a52023f819754243d0e04b1e
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="eje-5F-8ih"/>
                                                     </constraints>
