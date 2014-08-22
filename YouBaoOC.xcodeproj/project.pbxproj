@@ -100,6 +100,8 @@
 		8B6AA11819936AD700BF017C /* EncySubCategoryVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B6AA11619936AD700BF017C /* EncySubCategoryVC.xib */; };
 		8B6AA11D19936C2100BF017C /* EncySubCategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B6AA11B19936C2100BF017C /* EncySubCategoryCell.m */; };
 		8B6AA11E19936C2100BF017C /* EncySubCategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B6AA11C19936C2100BF017C /* EncySubCategoryCell.xib */; };
+		8B94A67C19A6CE9F0027A2B8 /* EncyCategorySecondStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B94A67A19A6CE9F0027A2B8 /* EncyCategorySecondStyle.m */; };
+		8B94A67D19A6CE9F0027A2B8 /* EncyCategorySecondStyle.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B94A67B19A6CE9F0027A2B8 /* EncyCategorySecondStyle.xib */; };
 		8BAB3B0E1990ABEF00FD3BA0 /* Encyclope.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BAB3B0D1990ABEF00FD3BA0 /* Encyclope.storyboard */; };
 		8BC24F0C19A1C76C003C959F /* ZXYDownImageOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BC24F0B19A1C76C003C959F /* ZXYDownImageOperation.m */; };
 		8BC24F0F19A1C7C0003C959F /* ZXYDownImageHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BC24F0E19A1C7C0003C959F /* ZXYDownImageHelper.m */; };
@@ -306,6 +308,9 @@
 		8B6AA11A19936C2100BF017C /* EncySubCategoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EncySubCategoryCell.h; sourceTree = "<group>"; };
 		8B6AA11B19936C2100BF017C /* EncySubCategoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EncySubCategoryCell.m; sourceTree = "<group>"; };
 		8B6AA11C19936C2100BF017C /* EncySubCategoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EncySubCategoryCell.xib; sourceTree = "<group>"; };
+		8B94A67919A6CE9F0027A2B8 /* EncyCategorySecondStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EncyCategorySecondStyle.h; sourceTree = "<group>"; };
+		8B94A67A19A6CE9F0027A2B8 /* EncyCategorySecondStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EncyCategorySecondStyle.m; sourceTree = "<group>"; };
+		8B94A67B19A6CE9F0027A2B8 /* EncyCategorySecondStyle.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EncyCategorySecondStyle.xib; sourceTree = "<group>"; };
 		8BAB3B0D1990ABEF00FD3BA0 /* Encyclope.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Encyclope.storyboard; sourceTree = "<group>"; };
 		8BC24F0A19A1C76C003C959F /* ZXYDownImageOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZXYDownImageOperation.h; sourceTree = "<group>"; };
 		8BC24F0B19A1C76C003C959F /* ZXYDownImageOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZXYDownImageOperation.m; sourceTree = "<group>"; };
@@ -625,6 +630,9 @@
 				280E745D199335320036DD0B /* EncyCategoryVC.h */,
 				280E745E199335320036DD0B /* EncyCategoryVC.m */,
 				8B6AA0FF19933AF600BF017C /* EncyCategoryVC.xib */,
+				8B94A67919A6CE9F0027A2B8 /* EncyCategorySecondStyle.h */,
+				8B94A67A19A6CE9F0027A2B8 /* EncyCategorySecondStyle.m */,
+				8B94A67B19A6CE9F0027A2B8 /* EncyCategorySecondStyle.xib */,
 				8B6AA11419936AD700BF017C /* EncySubCategoryVC.h */,
 				8B6AA11519936AD700BF017C /* EncySubCategoryVC.m */,
 				8B6AA11619936AD700BF017C /* EncySubCategoryVC.xib */,
@@ -846,6 +854,7 @@
 				2811119A1979183D000A72D7 /* Images.xcassets in Resources */,
 				8BED672419A3562F009C2B72 /* EncyMoreEncyListViewController.xib in Resources */,
 				8B6AA11819936AD700BF017C /* EncySubCategoryVC.xib in Resources */,
+				8B94A67D19A6CE9F0027A2B8 /* EncyCategorySecondStyle.xib in Resources */,
 				28D63214199B74710029A283 /* Introduction.storyboard in Resources */,
 				2827C79A1998D13D00C25F83 /* MJRefresh.bundle in Resources */,
 				8B6AA10219933C1400BF017C /* EncyCategoryCell.xib in Resources */,
@@ -960,6 +969,7 @@
 				280E7466199335320036DD0B /* EncyHomePageTableViewCell.m in Sources */,
 				8B6AA106199351A300BF017C /* PetStyle.m in Sources */,
 				8BC24F0F19A1C7C0003C959F /* ZXYDownImageHelper.m in Sources */,
+				8B94A67C19A6CE9F0027A2B8 /* EncyCategorySecondStyle.m in Sources */,
 				2827C79D1998D13D00C25F83 /* MJRefreshFooterView.m in Sources */,
 				280FB68F1980D66C00C434A8 /* LCYCommon.m in Sources */,
 				280E7467199335320036DD0B /* EncyHomePageViewController.m in Sources */,

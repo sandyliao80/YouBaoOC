@@ -10,4 +10,5 @@
 @class PetStyle;
 @interface EncySubCategoryVC : UIViewController
 - (id)initWIthFather:(PetStyle *)petFather;
+- (void)setChooseConditionisFather:(BOOL)condition;
 @end

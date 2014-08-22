@@ -24,14 +24,15 @@
 
 - (void)drawRect:(CGRect)rect
 {
-    [super drawRect:rect];
     [self drowArcBethWithHeight:5];
+    [super drawRect:rect];
+    
 }
 
 - (void)drowArcBethWithHeight:(float)height
 {
     UIScreen *screen = [UIScreen mainScreen];
-    float width = screen.bounds.size.width;
+    float width = self.bounds.size.width;
     int   countOfSub  =  width/20;
     float widthUnit = width/countOfSub;
     float widthAnchor = widthUnit/2;

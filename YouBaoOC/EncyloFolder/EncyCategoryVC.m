@@ -14,6 +14,7 @@
 #import "EncySubCategoryVC.h"
 #import "ZXYDownImageHelper.h"
 #import "UIViewController+HideTabBar.h"
+#import "EncyCategorySecondStyle.h"
 @interface EncyCategoryVC ()<UITableViewDelegate,UITableViewDataSource>
 {
     MBProgressHUD *progress;

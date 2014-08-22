@@ -27,6 +27,7 @@
     NSNotificationCenter *datatnc;
     NSArray *allKeys;
     NSString *_notiKey;
+    
 }
 @end
 
@@ -52,11 +53,17 @@
     return  self;
 }
 
+- (void)setChooseConditionisFather:(BOOL)condition
+{
+    
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initMB];
     [self initNavi];
     datatnc = [NSNotificationCenter defaultCenter];
+    NSLog(@"%d",_petFather.cat_id);
     [datatnc addObserver:self selector:@selector(reloadData) name:_notiKey object:nil];
     if([ZXYNETHelper isNETConnect])
     {
@@ -247,13 +254,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString *keyNow = [allKeys objectAtIndex:indexPath.section];
-    NSMutableArray *arr = [dataDic objectForKey:keyNow];
-    SubPetSyle *subPet = [arr objectAtIndex:indexPath.row];
-    NSDictionary *userInfo = [[NSDictionary alloc] initWithObjectsAndKeys:subPet,@"subPet", nil];
-    NSNotification *addNoti = [[NSNotification alloc] initWithName:@"ency_noti_type" object:self userInfo:userInfo];
-    [[NSNotificationCenter defaultCenter] postNotification:addNoti];
-    [self.navigationController popToRootViewControllerAnimated:YES];
+    PetStyle *currentPet = [allDataForShow objectAtIndex:indexPath.row];
+    EncySubCategoryVC *subView = [[EncySubCategoryVC alloc] initWIthFather:currentPet];
+    [self.navigationController pushViewController:subView animated:YES];
 }
 
 - (void)dealloc

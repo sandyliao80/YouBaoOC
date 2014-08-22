@@ -13,7 +13,7 @@
 #import "MJRefresh.h"
 #import "SubPetSyle.h"
 #import "ZXYScroller/ZXYScrollView.h"
-
+#import "EncyMoreEncyListViewController.h"
 @interface EncyHomePageViewController ()<UITableViewDelegate,UITableViewDataSource,EncyHomeTitleDelegate>
 {
     NSMutableArray *allDataForShow;
