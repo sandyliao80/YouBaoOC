@@ -35,6 +35,8 @@
 
 @property (strong, nonatomic) GetUserInfoPetInfo *petToPass;
 
+@property (nonatomic) BOOL isBack;
+
 @end
 
 @implementation ProfileHomeViewController
@@ -42,6 +44,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    self.isBack = NO;
+    
     AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
     self.context = appDelegate.managedObjectContext;
     
@@ -90,6 +95,13 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)viewDidAppear:(BOOL)animated{
+    if (self.isBack) {
+        [self.icyTableView reloadData];
+        self.isBack = NO;
+    }
+}
+
 
 #pragma mark - Navigation
 
@@ -106,6 +118,7 @@
     } else if ([segue.identifier isEqualToString:@"showEditing"]) {
         ProfileEditingViewController *profileEditingVC = [segue destinationViewController];
         profileEditingVC.userInfoBase = self.baseInfo;
+        self.isBack = YES;
     }
 }
 

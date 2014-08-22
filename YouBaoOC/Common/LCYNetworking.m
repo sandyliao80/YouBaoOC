@@ -24,6 +24,7 @@ NSString *const User_getUserInfoByID    = @"User/getUserInfoByID";
 NSString *const User_setPassword    = @"User/setPassword";
 NSString *const Pet_UploadPetImage  = @"Pet/UploadPetImage";
 NSString *const Pet_GetPetDetailByID= @"Pet/GetPetDetailByID";
+NSString *const User_modifyInfo     = @"User/modifyInfo";
 
 @implementation LCYNetworking
 

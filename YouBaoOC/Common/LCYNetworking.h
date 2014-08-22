@@ -21,6 +21,7 @@ FOUNDATION_EXPORT NSString *const User_getUserInfoByID; /**< 获取个人信息 
 FOUNDATION_EXPORT NSString *const User_setPassword;     /**< 修改密码 */
 FOUNDATION_EXPORT NSString *const Pet_UploadPetImage;   /**< 上传宠物图片 */
 FOUNDATION_EXPORT NSString *const Pet_GetPetDetailByID; /**< 获取宠物签名和宠物图片 */
+FOUNDATION_EXPORT NSString *const User_modifyInfo;      /**< 修改个人信息 */
 
 
 @interface LCYNetworking : NSObject

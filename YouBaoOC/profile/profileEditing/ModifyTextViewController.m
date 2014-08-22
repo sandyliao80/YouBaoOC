@@ -8,6 +8,7 @@
 
 #import "ModifyTextViewController.h"
 #import "ModifyTextCell.h"
+#import "LCYCommon.h"
 
 @interface ModifyTextViewController ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -63,17 +64,18 @@
 
 #pragma mark - Actions
 - (void)navigationBack:(id)sender{
+    [self.navigationController popViewControllerAnimated:YES];
     if (self.delegate &&
         [self.delegate respondsToSelector:@selector(cancleModifyText:)]) {
         [self.delegate cancleModifyText:self.modifyTitle];
     }
-    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)doneButtonPressed:(id)sender{
+    [[LCYCommon sharedInstance] showTips:@"修改中" inView:self.view];
     if (self.delegate &&
         [self.delegate respondsToSelector:@selector(didModifyText:textInfo:)]) {
-        [self.delegate didModifyText:self.modifyTitle textInfo:@"afdasdf"];
+        [self.delegate didModifyText:self.modifyTitle textInfo:self.icyTextField.text];
     }
     [self.navigationController popViewControllerAnimated:YES];
 }
