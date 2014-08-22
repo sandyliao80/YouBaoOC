@@ -74,13 +74,15 @@
 		28922343198249400073BADB /* UIImage+LCYResize.m in Sources */ = {isa = PBXBuildFile; fileRef = 28922342198249400073BADB /* UIImage+LCYResize.m */; };
 		28A4FDB919A71EBB00C3CD85 /* ThirdFilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28A4FDB819A71EBB00C3CD85 /* ThirdFilterViewController.m */; };
 		28A4FDBC19A724A600C3CD85 /* ThirdFilterCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 28A4FDBB19A724A600C3CD85 /* ThirdFilterCellTableViewCell.m */; };
+		28A4FDBF19A7436D00C3CD85 /* ModifyLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28A4FDBE19A7436D00C3CD85 /* ModifyLocationViewController.m */; };
+		28A4FDC119A7438E00C3CD85 /* ModifyLocation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28A4FDC019A7438E00C3CD85 /* ModifyLocation.storyboard */; };
+		28A4FDC519A74D9000C3CD85 /* PetCoreDataPreloader.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 28A4FDC419A74D9000C3CD85 /* PetCoreDataPreloader.sqlite */; };
 		28A54A1419A4472F00AFDDED /* ProfileEditingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28A54A1319A4472F00AFDDED /* ProfileEditingViewController.m */; };
 		28A54A1719A4477500AFDDED /* ProfileEditingHeadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 28A54A1619A4477500AFDDED /* ProfileEditingHeadCell.m */; };
 		28A54A1A19A447B300AFDDED /* ProfileEditingNameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 28A54A1919A447B300AFDDED /* ProfileEditingNameCell.m */; };
 		28A54A1D19A447C400AFDDED /* ProfileEditingSignCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 28A54A1C19A447C400AFDDED /* ProfileEditingSignCell.m */; };
 		28B69B8D1990CDCA0039B146 /* QRScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B69B8C1990CDCA0039B146 /* QRScanViewController.m */; };
 		28C721E6199CA919007DBB3A /* PasswordForgetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C721E5199CA919007DBB3A /* PasswordForgetViewController.m */; };
-		28CF40161994C2570081D39A /* PetCoreDataPreloader.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 28CF40151994C2570081D39A /* PetCoreDataPreloader.sqlite */; };
 		28CF40191994E17E0081D39A /* ProfileHomeHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 28CF40181994E17E0081D39A /* ProfileHomeHeaderCell.m */; };
 		28D63212199B41A00029A283 /* MoePetProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D63211199B41A00029A283 /* MoePetProfileViewController.m */; };
 		28D63214199B74710029A283 /* Introduction.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28D63213199B74710029A283 /* Introduction.storyboard */; };
@@ -264,6 +266,10 @@
 		28A4FDB819A71EBB00C3CD85 /* ThirdFilterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThirdFilterViewController.m; sourceTree = "<group>"; };
 		28A4FDBA19A724A600C3CD85 /* ThirdFilterCellTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThirdFilterCellTableViewCell.h; sourceTree = "<group>"; };
 		28A4FDBB19A724A600C3CD85 /* ThirdFilterCellTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThirdFilterCellTableViewCell.m; sourceTree = "<group>"; };
+		28A4FDBD19A7436D00C3CD85 /* ModifyLocationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModifyLocationViewController.h; sourceTree = "<group>"; };
+		28A4FDBE19A7436D00C3CD85 /* ModifyLocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModifyLocationViewController.m; sourceTree = "<group>"; };
+		28A4FDC019A7438E00C3CD85 /* ModifyLocation.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ModifyLocation.storyboard; sourceTree = "<group>"; };
+		28A4FDC419A74D9000C3CD85 /* PetCoreDataPreloader.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = PetCoreDataPreloader.sqlite; sourceTree = "<group>"; };
 		28A54A1219A4472F00AFDDED /* ProfileEditingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileEditingViewController.h; sourceTree = "<group>"; };
 		28A54A1319A4472F00AFDDED /* ProfileEditingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileEditingViewController.m; sourceTree = "<group>"; };
 		28A54A1519A4477500AFDDED /* ProfileEditingHeadCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileEditingHeadCell.h; sourceTree = "<group>"; };
@@ -276,7 +282,6 @@
 		28B69B8C1990CDCA0039B146 /* QRScanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRScanViewController.m; sourceTree = "<group>"; };
 		28C721E4199CA919007DBB3A /* PasswordForgetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PasswordForgetViewController.h; sourceTree = "<group>"; };
 		28C721E5199CA919007DBB3A /* PasswordForgetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PasswordForgetViewController.m; sourceTree = "<group>"; };
-		28CF40151994C2570081D39A /* PetCoreDataPreloader.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = PetCoreDataPreloader.sqlite; sourceTree = "<group>"; };
 		28CF40171994E17E0081D39A /* ProfileHomeHeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileHomeHeaderCell.h; sourceTree = "<group>"; };
 		28CF40181994E17E0081D39A /* ProfileHomeHeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileHomeHeaderCell.m; sourceTree = "<group>"; };
 		28D63210199B41A00029A283 /* MoePetProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoePetProfileViewController.h; sourceTree = "<group>"; };
@@ -410,6 +415,7 @@
 				281111961979183D000A72D7 /* Main.storyboard */,
 				280FB6921980E34E00C434A8 /* RegisterAndLogin.storyboard */,
 				28D63213199B74710029A283 /* Introduction.storyboard */,
+				28A4FDC019A7438E00C3CD85 /* ModifyLocation.storyboard */,
 				281111991979183D000A72D7 /* Images.xcassets */,
 				281111901979183C000A72D7 /* YouBaoOC.xcdatamodeld */,
 				281111891979183C000A72D7 /* Supporting Files */,
@@ -421,7 +427,7 @@
 		281111891979183C000A72D7 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				28CF40151994C2570081D39A /* PetCoreDataPreloader.sqlite */,
+				28A4FDC419A74D9000C3CD85 /* PetCoreDataPreloader.sqlite */,
 				2811118A1979183C000A72D7 /* Info.plist */,
 				2811118B1979183C000A72D7 /* main.m */,
 				280FB6911980DA7400C434A8 /* YouBaoOC-Prefix.pch */,
@@ -577,6 +583,8 @@
 				2879CDD619A487D1006586DA /* ModifyTextViewController.m */,
 				2879CDD819A4A4FB006586DA /* ModifyTextCell.h */,
 				2879CDD919A4A4FB006586DA /* ModifyTextCell.m */,
+				28A4FDBD19A7436D00C3CD85 /* ModifyLocationViewController.h */,
+				28A4FDBE19A7436D00C3CD85 /* ModifyLocationViewController.m */,
 			);
 			path = profileEditing;
 			sourceTree = "<group>";
@@ -856,9 +864,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				281111981979183D000A72D7 /* Main.storyboard in Resources */,
+				28A4FDC119A7438E00C3CD85 /* ModifyLocation.storyboard in Resources */,
 				8BAB3B0E1990ABEF00FD3BA0 /* Encyclope.storyboard in Resources */,
 				8B6AA10019933AF600BF017C /* EncyCategoryVC.xib in Resources */,
-				28CF40161994C2570081D39A /* PetCoreDataPreloader.sqlite in Resources */,
 				280FB6931980E34E00C434A8 /* RegisterAndLogin.storyboard in Resources */,
 				8B6AA11E19936C2100BF017C /* EncySubCategoryCell.xib in Resources */,
 				2811119A1979183D000A72D7 /* Images.xcassets in Resources */,
@@ -866,6 +874,7 @@
 				8B6AA11819936AD700BF017C /* EncySubCategoryVC.xib in Resources */,
 				8B94A67D19A6CE9F0027A2B8 /* EncyCategorySecondStyle.xib in Resources */,
 				28D63214199B74710029A283 /* Introduction.storyboard in Resources */,
+				28A4FDC519A74D9000C3CD85 /* PetCoreDataPreloader.sqlite in Resources */,
 				2827C79A1998D13D00C25F83 /* MJRefresh.bundle in Resources */,
 				8B6AA10219933C1400BF017C /* EncyCategoryCell.xib in Resources */,
 			);
@@ -951,6 +960,7 @@
 				280E7446199334D80036DD0B /* ZXYProvider.m in Sources */,
 				285D89B11989E1BB005DFBEB /* LCYGlobal.m in Sources */,
 				8B1911E919A31AA30070CD7E /* EncyDogCatCategoryCellTable.m in Sources */,
+				28A4FDBF19A7436D00C3CD85 /* ModifyLocationViewController.m in Sources */,
 				2868EC99198F79E700D8726E /* ProfileHomePetCell.m in Sources */,
 				28D63212199B41A00029A283 /* MoePetProfileViewController.m in Sources */,
 				280E7449199334F70036DD0B /* ZXYFileOperation.m in Sources */,

@@ -16,6 +16,7 @@
 #import "Region.h"
 #import "AppDelegate.h"
 #import "UIImage+LCYResize.h"
+#import "ModifyLocationViewController.h"
 
 
 @interface ProfileEditingViewController ()<UITableViewDelegate, UITableViewDataSource, ModifyTextDelegate, ProfileEditingSignCellDelegate, UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
@@ -453,6 +454,9 @@
     if (indexPath.section == 1 &&
         indexPath.row == 3) {
         // 所在城市
+        UIStoryboard *locationSB = [UIStoryboard storyboardWithName:@"ModifyLocation" bundle:nil];
+        ModifyLocationViewController *modifyLocationVC = [locationSB instantiateInitialViewController];
+        [self.navigationController pushViewController:modifyLocationVC animated:YES];
         return;
     }
     if (indexPath.section == 1 &&
