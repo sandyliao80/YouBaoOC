@@ -43,6 +43,7 @@
  *  增加一条数据，要保持字段与数据库一致 删除条件
  */
 -(BOOL)saveDataToCoreData:(NSDictionary *)dic withDBName:(NSString *)dbName isDelete:(BOOL)isDelete content:(NSString *)content withKey:(NSString *)key;
+- (BOOL)saveDataToCoreDataArr:(NSArray *)arr withDBNam:(NSString *)dbName  withDeletePredict:(NSString *)deleteCondition;
 
 /**
  *  增加一组数据，要保持字段与数据库一致

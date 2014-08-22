@@ -32,6 +32,7 @@
     [super viewDidLoad];
     [self initNavi];
     [self initImageSlide];
+    [self hideTabBar];
 }
 
 - (void)didReceiveMemoryWarning {

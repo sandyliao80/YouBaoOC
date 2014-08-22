@@ -105,6 +105,29 @@ static ZXYProvider *instance = nil;
     }
 
 }
+
+-(BOOL)deleteCoreDataFromDB:(NSString *)stringName Byformat:(NSString *)formatter
+{
+    AppDelegate *app = [[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext *manageContext = [app managedObjectContext];
+    NSArray *deleteObjects = [self readCoreDataFromDB:stringName withLike:formatter];
+    NSError *error;
+    for(int i = 0;i<deleteObjects.count;i++)
+    {
+        NSManagedObject *deleteObject = [deleteObjects objectAtIndex:i];
+        [manageContext deleteObject:deleteObject];
+    }
+    if([manageContext save:&error])
+    {
+        return YES;
+    }
+    else
+    {
+        return NO;
+    }
+    
+}
+
 #pragma mark - read
 - (NSArray *)readCoreDataFromDB:(NSString *)stringName
 {
@@ -475,6 +498,25 @@ static ZXYProvider *instance = nil;
     }
     return YES;
 }
+
+- (BOOL)saveDataToCoreDataArr:(NSArray *)arr withDBNam:(NSString *)dbName  withDeletePredict:(NSString *)deleteCondition
+{
+    if(arr.count == 0)
+    {
+        return NO;
+    }
+    
+    for(NSDictionary *dic in arr)
+    {
+        if(deleteCondition)
+        {
+            [self deleteCoreDataFromDB:dbName withContent:[dic objectForKey:deleteCondition] byKey:deleteCondition];
+        }
+        [self saveDataToCoreData:dic withDBName:dbName isDelete:NO];
+    }
+    return YES;
+}
+
 
 - (BOOL)saveDataToCoreDataArr:(NSArray *)arr withDBNam:(NSString *)dbName isDelete:(BOOL)isDelete groupByKey:(NSString *)key
 {
