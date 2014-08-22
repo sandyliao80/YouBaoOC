@@ -45,6 +45,8 @@
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:doneButton];
     [doneButton addTarget:self action:@selector(doneButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.rightBarButtonItem = rightItem;
+    
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -94,6 +96,10 @@
     self.icyTextField = cell.icyTextField;
     if (self.defaultText) {
         self.icyTextField.text = self.defaultText;
+    }
+    if ([self.modifyTitle isEqualToString:@"QQ"] ||
+        [self.modifyTitle isEqualToString:@"固定电话"]) {
+        [self.icyTextField setKeyboardType:UIKeyboardTypeNumberPad];
     }
     [self.icyTextField becomeFirstResponder];
     return cell;

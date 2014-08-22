@@ -1,37 +1,31 @@
 //
-//  SecondFilterViewController.m
+//  ThirdFilterViewController.m
 //  YouBaoOC
 //
-//  Created by Licy on 14-8-1.
+//  Created by eagle on 14/8/22.
 //  Copyright (c) 2014年 Duostec. All rights reserved.
 //
 
-#import "SecondFilterViewController.h"
+#import "ThirdFilterViewController.h"
 #import "LCYCommon.h"
-#import "SecondFilterTableViewCell.h"
-#import "CellImageDownloadOperation.h"
+#import <SDWebImage/UIImageView+WebCache.h>
+#import "ThirdFilterCellTableViewCell.h"
 
-
-@interface SecondFilterViewController ()<UITableViewDelegate, UITableViewDataSource, CellImageDownloadOperationDelegate>
-
+@interface ThirdFilterViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (strong, nonatomic) NSDictionary *detailResult;
 @property (strong, nonatomic) NSArray *keyArray;
 
 @property (weak, nonatomic) IBOutlet UITableView *icyTableView;
 
-@property (strong, nonatomic) NSOperationQueue *queue;
-
-@property (strong, nonatomic) CellImageDownloadOperation *operation;
-
-@property (strong, nonatomic) NSString *childID;
 
 @end
 
-@implementation SecondFilterViewController
+@implementation ThirdFilterViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
     self.detailResult = [NSDictionary dictionary];
     
     UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -81,26 +75,22 @@
     // Dispose of any resources that can be recreated.
 }
 
-
+/*
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
-    if ([segue.identifier isEqualToString:@"showThird"]) {
-        ThirdFilterViewController *thirdVC = [segue destinationViewController];
-        thirdVC.delegate = self.delegate;
-        thirdVC.parentID = self.childID;
-    }
 }
-
+*/
 
 #pragma mark - Actions
-
 - (void)navigationBack:(id)sender{
-     [self.navigationController popViewControllerAnimated:YES];
+    [self.navigationController popViewControllerAnimated:YES];
 }
+
+#pragma mark - UITableView
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return [[self.detailResult allKeys] count];
 }
@@ -111,7 +101,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    SecondFilterTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:SecondFilterTableViewCellIdentifier];
+    ThirdFilterCellTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ThirdFilterCellTableViewCellIdentifier];
     NSInteger section = indexPath.section;
     NSInteger row = indexPath.row;
     NSString *key = [self.keyArray objectAtIndex:section];
@@ -119,22 +109,8 @@
     cell.icyLabel.text = child.name;
     
     NSString *imageRelativePath = child.headImg;
-    if (![[LCYFileManager sharedInstance] imageExistAt:imageRelativePath]) {
-        cell.icyImageView.image = nil;
-        // 头像不存在，进行下载
-        if (!self.queue) {
-            self.queue = [[NSOperationQueue alloc] init];
-        }
-        if (!self.operation) {
-            self.operation = [[CellImageDownloadOperation alloc] init];
-            self.operation.delegate = self;
-            [self.queue addOperation:self.operation];
-        }
-        [self.operation addImageName:imageRelativePath atIndexPath:indexPath];
-    } else {
-        // 头像存在，直接显示
-        cell.icyImageView.image = [UIImage imageWithContentsOfFile:[[LCYFileManager sharedInstance] absolutePathFor:imageRelativePath]];
-    }
+    NSString *imagePath = [hostImageURL stringByAppendingString:imageRelativePath];
+    [cell.icyImageView sd_setImageWithURL:[NSURL URLWithString:imagePath]];
     
     return cell;
 }
@@ -148,30 +124,19 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-//    if (self.delegate &&
-//        [self.delegate respondsToSelector:@selector(filterDidSelected:)]) {
-//        NSInteger section = indexPath.section;
-//        NSInteger row = indexPath.row;
-//        NSString *key = [self.keyArray objectAtIndex:section];
-//        SearchDetailByIDChildStyle *child = self.detailResult[key][row];
-//        [self.delegate filterDidSelected:child];
-//        [self.navigationController popToViewController:self.delegate animated:YES];
-//    }
-    NSInteger section = indexPath.section;
-    NSInteger row = indexPath.row;
-    NSString *key = [self.keyArray objectAtIndex:section];
-    SearchDetailByIDChildStyle *child = self.detailResult[key][row];
-    self.childID = child.catId;
-    [self performSegueWithIdentifier:@"showThird" sender:nil];
+    if (self.delegate &&
+        [self.delegate respondsToSelector:@selector(filterDidSelected:)]) {
+        NSInteger section = indexPath.section;
+        NSInteger row = indexPath.row;
+        NSString *key = [self.keyArray objectAtIndex:section];
+        SearchDetailByIDChildStyle *child = self.detailResult[key][row];
+        [self.delegate filterDidSelected:child];
+        [self.navigationController popToViewController:self.delegate animated:YES];
+    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     return 25.0f;
-}
-
-#pragma mark - CellImageDownloadOperation
-- (void)imageDownloadOperation:(CellImageDownloadOperation *)operation didFinishedDownloadImageAt:(NSIndexPath *)indexPath{
-    [self.icyTableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
 }
 
 @end

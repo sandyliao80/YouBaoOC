@@ -72,6 +72,8 @@
 		2889508D198B315500696A95 /* SearchDetailByIDBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 2889508B198B315500696A95 /* SearchDetailByIDBase.m */; };
 		28922340198240CF0073BADB /* RegisterDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2892233F198240CF0073BADB /* RegisterDetailViewController.m */; };
 		28922343198249400073BADB /* UIImage+LCYResize.m in Sources */ = {isa = PBXBuildFile; fileRef = 28922342198249400073BADB /* UIImage+LCYResize.m */; };
+		28A4FDB919A71EBB00C3CD85 /* ThirdFilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28A4FDB819A71EBB00C3CD85 /* ThirdFilterViewController.m */; };
+		28A4FDBC19A724A600C3CD85 /* ThirdFilterCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 28A4FDBB19A724A600C3CD85 /* ThirdFilterCellTableViewCell.m */; };
 		28A54A1419A4472F00AFDDED /* ProfileEditingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28A54A1319A4472F00AFDDED /* ProfileEditingViewController.m */; };
 		28A54A1719A4477500AFDDED /* ProfileEditingHeadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 28A54A1619A4477500AFDDED /* ProfileEditingHeadCell.m */; };
 		28A54A1A19A447B300AFDDED /* ProfileEditingNameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 28A54A1919A447B300AFDDED /* ProfileEditingNameCell.m */; };
@@ -258,6 +260,10 @@
 		2892233F198240CF0073BADB /* RegisterDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterDetailViewController.m; sourceTree = "<group>"; };
 		28922341198249400073BADB /* UIImage+LCYResize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+LCYResize.h"; sourceTree = "<group>"; };
 		28922342198249400073BADB /* UIImage+LCYResize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+LCYResize.m"; sourceTree = "<group>"; };
+		28A4FDB719A71EBB00C3CD85 /* ThirdFilterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThirdFilterViewController.h; sourceTree = "<group>"; };
+		28A4FDB819A71EBB00C3CD85 /* ThirdFilterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThirdFilterViewController.m; sourceTree = "<group>"; };
+		28A4FDBA19A724A600C3CD85 /* ThirdFilterCellTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThirdFilterCellTableViewCell.h; sourceTree = "<group>"; };
+		28A4FDBB19A724A600C3CD85 /* ThirdFilterCellTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThirdFilterCellTableViewCell.m; sourceTree = "<group>"; };
 		28A54A1219A4472F00AFDDED /* ProfileEditingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileEditingViewController.h; sourceTree = "<group>"; };
 		28A54A1319A4472F00AFDDED /* ProfileEditingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileEditingViewController.m; sourceTree = "<group>"; };
 		28A54A1519A4477500AFDDED /* ProfileEditingHeadCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileEditingHeadCell.h; sourceTree = "<group>"; };
@@ -509,6 +515,10 @@
 				28895082198B269D00696A95 /* SecondFilterViewController.m */,
 				28895084198B2D8C00696A95 /* SecondFilterTableViewCell.h */,
 				28895085198B2D8C00696A95 /* SecondFilterTableViewCell.m */,
+				28A4FDB719A71EBB00C3CD85 /* ThirdFilterViewController.h */,
+				28A4FDB819A71EBB00C3CD85 /* ThirdFilterViewController.m */,
+				28A4FDBA19A724A600C3CD85 /* ThirdFilterCellTableViewCell.h */,
+				28A4FDBB19A724A600C3CD85 /* ThirdFilterCellTableViewCell.m */,
 			);
 			path = Homepage;
 			sourceTree = "<group>";
@@ -912,6 +922,7 @@
 				8B6AA11019935F4200BF017C /* ZXYDownLoadImage.m in Sources */,
 				8B6AA10D19935BC200BF017C /* ZXYPetStylePicDown.m in Sources */,
 				2827C79F1998D13D00C25F83 /* UIScrollView+Extension.m in Sources */,
+				28A4FDB919A71EBB00C3CD85 /* ThirdFilterViewController.m in Sources */,
 				28D6E0371999FDE90080E5A5 /* RecommendCell.m in Sources */,
 				28895086198B2D8C00696A95 /* SecondFilterTableViewCell.m in Sources */,
 				28A54A1D19A447C400AFDDED /* ProfileEditingSignCell.m in Sources */,
@@ -953,6 +964,7 @@
 				28895083198B269D00696A95 /* SecondFilterViewController.m in Sources */,
 				28D63218199B76E30029A283 /* GuideViewController.m in Sources */,
 				280E74591993351C0036DD0B /* EncyHomeImageCell.m in Sources */,
+				28A4FDBC19A724A600C3CD85 /* ThirdFilterCellTableViewCell.m in Sources */,
 				280E7468199335320036DD0B /* EveryDayPushViewController.m in Sources */,
 				8B1911E619A2EBEE0070CD7E /* ZXYScrollView.m in Sources */,
 				2868EC93198F79BB00D8726E /* ProfileHomeLikeCell.m in Sources */,
