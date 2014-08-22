@@ -13,11 +13,11 @@
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="15m-aJ-NuH" id="Jj4-02-Y1Z">
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7UH-YS-i6a">
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7UH-YS-i6a">
                         <rect key="frame" x="85" y="10" width="224" height="24"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="24" id="Bl7-JO-86d"/>
-                            <constraint firstAttribute="width" constant="224" id="zka-n6-YCA"/>
+                            <constraint firstAttribute="height" constant="24" id="28I-r8-RFo"/>
+                            <constraint firstAttribute="width" constant="224" id="YfY-fe-PHU"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.39215686274509803" green="0.34509803921568627" blue="0.33333333333333331" alpha="1" colorSpace="calibratedRGB"/>
@@ -33,13 +33,13 @@
                 </subviews>
                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
-                    <constraint firstItem="QAL-hv-ahD" firstAttribute="top" secondItem="Jj4-02-Y1Z" secondAttribute="top" constant="2" id="85K-G1-Itu"/>
-                    <constraint firstItem="QAL-hv-ahD" firstAttribute="leading" secondItem="Jj4-02-Y1Z" secondAttribute="leading" constant="8" id="Gek-il-Ham"/>
-                    <constraint firstAttribute="bottom" secondItem="QAL-hv-ahD" secondAttribute="bottom" constant="2" id="K4N-ff-bqi"/>
-                    <constraint firstAttribute="bottom" secondItem="7UH-YS-i6a" secondAttribute="bottom" constant="10" id="LQf-to-b7P"/>
-                    <constraint firstItem="7UH-YS-i6a" firstAttribute="top" secondItem="Jj4-02-Y1Z" secondAttribute="top" constant="10" id="WgT-U8-FUH"/>
-                    <constraint firstAttribute="trailing" secondItem="7UH-YS-i6a" secondAttribute="trailing" constant="11" id="hFv-Gj-Gxz"/>
-                    <constraint firstItem="7UH-YS-i6a" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="QAL-hv-ahD" secondAttribute="trailing" constant="37" id="nsT-8K-KxT"/>
+                    <constraint firstAttribute="bottom" secondItem="QAL-hv-ahD" secondAttribute="bottom" constant="2" id="8E1-sV-zpU"/>
+                    <constraint firstItem="QAL-hv-ahD" firstAttribute="leading" secondItem="Jj4-02-Y1Z" secondAttribute="leading" constant="8" id="8n7-QU-l1d"/>
+                    <constraint firstAttribute="bottom" secondItem="7UH-YS-i6a" secondAttribute="bottom" constant="10" id="BFg-xB-NoE"/>
+                    <constraint firstItem="7UH-YS-i6a" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="QAL-hv-ahD" secondAttribute="trailing" constant="37" id="IfL-oU-OBI"/>
+                    <constraint firstAttribute="trailing" secondItem="7UH-YS-i6a" secondAttribute="trailing" constant="-22" id="MDE-oA-Xmd"/>
+                    <constraint firstItem="QAL-hv-ahD" firstAttribute="top" secondItem="Jj4-02-Y1Z" secondAttribute="top" constant="2" id="UlV-yH-bPx"/>
+                    <constraint firstItem="7UH-YS-i6a" firstAttribute="top" secondItem="Jj4-02-Y1Z" secondAttribute="top" constant="10" id="tFP-qB-003"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>

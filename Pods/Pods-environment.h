@@ -78,3 +78,9 @@
 #define COCOAPODS_VERSION_MINOR_SDWebImage_Core 7
 #define COCOAPODS_VERSION_PATCH_SDWebImage_Core 1
 
+// WebViewJavascriptBridge
+#define COCOAPODS_POD_AVAILABLE_WebViewJavascriptBridge
+#define COCOAPODS_VERSION_MAJOR_WebViewJavascriptBridge 4
+#define COCOAPODS_VERSION_MINOR_WebViewJavascriptBridge 1
+#define COCOAPODS_VERSION_PATCH_WebViewJavascriptBridge 3
+

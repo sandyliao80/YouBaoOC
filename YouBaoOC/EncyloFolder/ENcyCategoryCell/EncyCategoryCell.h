@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface EncyCategoryCell : UITableViewCell
+
 @property(nonatomic,strong)IBOutlet UILabel *petNameLbl;
 @property(nonatomic,strong)IBOutlet UIImageView *petHeadImage;
 @end
