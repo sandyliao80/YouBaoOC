@@ -178,7 +178,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     PetStyle *currentPet = [allDataForShow objectAtIndex:indexPath.row];
-    EncySubCategoryVC *subView = [[EncySubCategoryVC alloc] initWIthFather:currentPet];
+    EncyCategorySecondStyle *subView = [[EncyCategorySecondStyle alloc] initWIthFather:currentPet];
     [self.navigationController pushViewController:subView animated:YES];
 }
 

@@ -3,7 +3,6 @@
     <dependencies>
         <deployment defaultVersion="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6190.4"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--我-->
@@ -974,11 +973,6 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="64" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="zQO-zK-xuL">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" red="0.82745098039999998" green="0.95294117649999999" blue="0.99607843139999996" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="zQO-zK-xuL" secondAttribute="height" multiplier="160:259" id="02l-2H-KOj"/>
-                                    <constraint firstAttribute="width" constant="320" id="1tP-Nd-4pT"/>
-                                    <constraint firstAttribute="height" constant="518" id="YPd-Pd-Khv"/>
-                                </constraints>
                                 <color key="sectionIndexBackgroundColor" red="0.82745098039999998" green="0.95294117649999999" blue="0.99607843139999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="EncyHomeIdentifier" rowHeight="64" id="ICF-zw-atC" customClass="EncyHomePageTableViewCell">
@@ -1076,7 +1070,6 @@
                                                 <constraint firstItem="zdS-Vi-nw3" firstAttribute="leading" secondItem="WKk-lQ-dfu" secondAttribute="trailing" constant="8" id="fcb-Bl-FBH"/>
                                                 <constraint firstItem="aNv-OK-Cth" firstAttribute="top" secondItem="hz2-02-Z31" secondAttribute="bottom" constant="12" id="fkE-Ek-ulz"/>
                                                 <constraint firstItem="hz2-02-Z31" firstAttribute="top" secondItem="exP-Dd-R4i" secondAttribute="top" constant="11" id="ktJ-aD-VID"/>
-                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="axw-a7-mN0" secondAttribute="trailing" constant="20" id="mVt-9d-3gi"/>
                                                 <constraint firstItem="WKk-lQ-dfu" firstAttribute="top" secondItem="Ilg-d9-fS0" secondAttribute="bottom" constant="11" id="mgz-fS-hpy"/>
                                                 <constraint firstItem="WKk-lQ-dfu" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Kmu-9g-JFG" secondAttribute="trailing" constant="2" id="osu-lk-N93"/>
                                                 <constraint firstItem="WKk-lQ-dfu" firstAttribute="top" secondItem="Ilg-d9-fS0" secondAttribute="bottom" constant="11" id="otg-JI-JVu"/>
@@ -1156,7 +1149,6 @@
                                                 <constraint firstItem="kTB-9e-dGn" firstAttribute="leading" secondItem="r7f-vP-mc6" secondAttribute="leading" constant="20" id="A98-km-oQ5"/>
                                                 <constraint firstAttribute="trailing" secondItem="1Bz-ie-Set" secondAttribute="trailing" constant="20" id="GZT-kG-GwG"/>
                                                 <constraint firstAttribute="bottom" secondItem="1Bz-ie-Set" secondAttribute="bottom" constant="2" id="dVx-G3-NMR"/>
-                                                <constraint firstItem="kTB-9e-dGn" firstAttribute="top" relation="lessThanOrEqual" secondItem="r7f-vP-mc6" secondAttribute="top" constant="8" id="ftU-M5-jSQ"/>
                                                 <constraint firstAttribute="bottom" secondItem="kTB-9e-dGn" secondAttribute="bottom" constant="8" id="j6I-zZ-yIN"/>
                                                 <constraint firstItem="1Bz-ie-Set" firstAttribute="top" secondItem="r7f-vP-mc6" secondAttribute="top" constant="5" id="wNN-PO-UvJ"/>
                                                 <constraint firstItem="1Bz-ie-Set" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="kTB-9e-dGn" secondAttribute="trailing" constant="162" id="ye5-CR-Qht"/>
@@ -1218,13 +1210,6 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </tableViewCell>
                                 </prototypes>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="02l-2H-KOj"/>
-                                        <exclude reference="1tP-Nd-4pT"/>
-                                        <exclude reference="YPd-Pd-Khv"/>
-                                    </mask>
-                                </variation>
                                 <connections>
                                     <outlet property="dataSource" destination="KPC-3l-eWK" id="RX1-ju-7Wf"/>
                                     <outlet property="delegate" destination="KPC-3l-eWK" id="ahw-Xa-QL1"/>

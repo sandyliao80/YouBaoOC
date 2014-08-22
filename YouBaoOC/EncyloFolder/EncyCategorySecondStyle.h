@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class  PetStyle;
 @interface EncyCategorySecondStyle : UIViewController
-
+- (id)initWIthFather:(PetStyle *)petFather;
 @end
