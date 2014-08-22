@@ -130,7 +130,7 @@
         NSDictionary *allDic = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:nil];
         jsonDic = allDic;
         NSArray *allArr = [allDic objectForKey:@"todayPush"];
-        if(allArr!=[NSNull null])
+        if(allArr)
         {
             for(int i =0;i<allArr.count;i++)
             {

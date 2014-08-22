@@ -13,6 +13,7 @@
 #import "SubPetSyle.h"
 #import "EncySubCategoryCell.h"
 #import "ZXYDownLoadImage.h"
+#import "UIViewController+HideTabBar.h"
 @interface EncySubCategoryVC ()<UITableViewDelegate,UITableViewDataSource>
 {
     NSMutableArray *allDataForShow;
@@ -83,12 +84,7 @@
 
 - (void)initNavi
 {
-    UIButton *leftBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 45, 45)];
-    [leftBtn setImage:[UIImage imageNamed:@"navigationBack"] forState:UIControlStateNormal];
-    [leftBtn setImage:[UIImage imageNamed:@"navigationBack"] forState:UIControlStateHighlighted];
-    [leftBtn addTarget:self action:@selector(leftItemAction) forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem *leftBtnItem = [[UIBarButtonItem alloc] initWithCustomView:leftBtn];
-    [self.navigationItem setLeftBarButtonItem:leftBtnItem];
+    [self setNaviLeftItem];
    // self.view.backgroundColor = BLUEINSI;
    //currentTable.backgroundColor = BLUEINSI;
 }
