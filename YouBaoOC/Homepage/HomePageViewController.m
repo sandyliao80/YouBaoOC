@@ -11,10 +11,19 @@
 #import "RecommendCell.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "MJRefresh.h"
+#import "LCYCommon.h"
+#import "PetRecommend.h"
+#import <SDWebImage/UIImageView+WebCache.h>
+
+#define HOME_NUMBER_PER_PAGE @15
 
 @interface HomePageViewController ()<UICollectionViewDelegate, UICollectionViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *icyCollectionView;
+
+@property (strong, nonatomic) SearchDetailByIDChildStyle *filterStyle;
+
+@property (strong, nonatomic) PetRecommendBase *recommendBase;
 
 @end
 
@@ -35,6 +44,9 @@
     [filterButton addTarget:self action:@selector(filterButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *buttonItem = [[UIBarButtonItem alloc] initWithCustomView:filterButton];
     [self.navigationItem setLeftBarButtonItems:@[fixedSpace, buttonItem]];
+    
+    // 初始化信息
+    [self loadInitData];
     
     [self.icyCollectionView addHeaderWithCallback:^{
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
@@ -72,16 +84,41 @@
 
 #pragma mark - Actions
 
+- (void)loadInitData{
+    NSDictionary *parameters;
+    if (self.filterStyle) {
+        parameters = @{@"cat_id"    : self.filterStyle.catId,
+                       @"number"    : HOME_NUMBER_PER_PAGE};
+    } else {
+        parameters = @{@"number"    : HOME_NUMBER_PER_PAGE};
+    }
+    [[LCYNetworking sharedInstance] postRequestWithAPI:Pet_recommend parameters:parameters successBlock:^(NSDictionary *object) {
+        if ([object[@"result"] boolValue]) {
+            // 加载成功
+            self.recommendBase = [PetRecommendBase modelObjectWithDictionary:object];
+            [self.icyCollectionView reloadData];
+        } else {
+            // 加载失败
+        }
+    } failedBlock:^{
+        // 网络问题
+    }];
+}
+
 
 #pragma mark - CollectionView
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return 24;
+    if (!self.recommendBase) {
+        return 0;
+    } else {
+        return [self.recommendBase.listInfo count];
+    }
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     RecommendCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:RecommendCellIdentifier forIndexPath:indexPath];
-    [cell.icyMainImage sd_setImageWithURL:[NSURL URLWithString:@"http://115.29.46.22/pet/Upload/pets/53e97c0edaf3a.png"]];
-    [cell.icySmallImage sd_setImageWithURL:[NSURL URLWithString:@"http://115.29.46.22/pet/Upload/users/53da11a0d9a69.png"]];
+    PetRecommendListInfo *listInfo = self.recommendBase.listInfo[indexPath.row];
+//    cell.icyMainImage
     return cell;
 }
 

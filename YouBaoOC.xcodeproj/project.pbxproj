@@ -70,6 +70,8 @@
 		28895086198B2D8C00696A95 /* SecondFilterTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 28895085198B2D8C00696A95 /* SecondFilterTableViewCell.m */; };
 		2889508C198B315500696A95 /* SearchDetailByIDChildStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 28895088198B315500696A95 /* SearchDetailByIDChildStyle.m */; };
 		2889508D198B315500696A95 /* SearchDetailByIDBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 2889508B198B315500696A95 /* SearchDetailByIDBase.m */; };
+		288A92DD19AB2A0400DB3187 /* PetRecommendBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 288A92D919AB2A0400DB3187 /* PetRecommendBase.m */; };
+		288A92DE19AB2A0400DB3187 /* PetRecommendListInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 288A92DC19AB2A0400DB3187 /* PetRecommendListInfo.m */; };
 		28922340198240CF0073BADB /* RegisterDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2892233F198240CF0073BADB /* RegisterDetailViewController.m */; };
 		28922343198249400073BADB /* UIImage+LCYResize.m in Sources */ = {isa = PBXBuildFile; fileRef = 28922342198249400073BADB /* UIImage+LCYResize.m */; };
 		28A4FDB919A71EBB00C3CD85 /* ThirdFilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28A4FDB819A71EBB00C3CD85 /* ThirdFilterViewController.m */; };
@@ -258,6 +260,11 @@
 		28895089198B315500696A95 /* SearchDetailByID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchDetailByID.h; sourceTree = "<group>"; };
 		2889508A198B315500696A95 /* SearchDetailByIDBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchDetailByIDBase.h; sourceTree = "<group>"; };
 		2889508B198B315500696A95 /* SearchDetailByIDBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchDetailByIDBase.m; sourceTree = "<group>"; };
+		288A92D819AB2A0400DB3187 /* PetRecommendListInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PetRecommendListInfo.h; sourceTree = "<group>"; };
+		288A92D919AB2A0400DB3187 /* PetRecommendBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PetRecommendBase.m; sourceTree = "<group>"; };
+		288A92DA19AB2A0400DB3187 /* PetRecommend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PetRecommend.h; sourceTree = "<group>"; };
+		288A92DB19AB2A0400DB3187 /* PetRecommendBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PetRecommendBase.h; sourceTree = "<group>"; };
+		288A92DC19AB2A0400DB3187 /* PetRecommendListInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PetRecommendListInfo.m; sourceTree = "<group>"; };
 		2892233E198240CF0073BADB /* RegisterDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterDetailViewController.h; sourceTree = "<group>"; };
 		2892233F198240CF0073BADB /* RegisterDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterDetailViewController.m; sourceTree = "<group>"; };
 		28922341198249400073BADB /* UIImage+LCYResize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+LCYResize.h"; sourceTree = "<group>"; };
@@ -501,6 +508,7 @@
 				286979691986558D0098F6A3 /* MainViewController.m */,
 				285D89B2198A2959005DFBEB /* HomePageViewController.h */,
 				285D89B3198A295A005DFBEB /* HomePageViewController.m */,
+				288A92D719AB29F700DB3187 /* PetRecommendModels */,
 				28D6E0351999FDE90080E5A5 /* RecommendCell.h */,
 				28D6E0361999FDE90080E5A5 /* RecommendCell.m */,
 				285D89B9198A2D31005DFBEB /* searchAllTypePets.h */,
@@ -566,6 +574,18 @@
 				287A63B319A32AC000CB6526 /* ModifyMoePetViewController.m */,
 			);
 			path = modifyMoePet;
+			sourceTree = "<group>";
+		};
+		288A92D719AB29F700DB3187 /* PetRecommendModels */ = {
+			isa = PBXGroup;
+			children = (
+				288A92DA19AB2A0400DB3187 /* PetRecommend.h */,
+				288A92DB19AB2A0400DB3187 /* PetRecommendBase.h */,
+				288A92D919AB2A0400DB3187 /* PetRecommendBase.m */,
+				288A92D819AB2A0400DB3187 /* PetRecommendListInfo.h */,
+				288A92DC19AB2A0400DB3187 /* PetRecommendListInfo.m */,
+			);
+			name = PetRecommendModels;
 			sourceTree = "<group>";
 		};
 		28A54A1119A4471600AFDDED /* profileEditing */ = {
@@ -941,6 +961,7 @@
 				8B6AA0FE1993397E00BF017C /* EncyCategoryCell.m in Sources */,
 				2868EC90198F79A500D8726E /* ProfileHomeAvatarCell.m in Sources */,
 				2868EC9C198F7A1900D8726E /* ProfileHomeButtonCell.m in Sources */,
+				288A92DD19AB2A0400DB3187 /* PetRecommendBase.m in Sources */,
 				2827C79B1998D13D00C25F83 /* MJRefreshBaseView.m in Sources */,
 				285D89B4198A295A005DFBEB /* HomePageViewController.m in Sources */,
 				28922343198249400073BADB /* UIImage+LCYResize.m in Sources */,
@@ -994,6 +1015,7 @@
 				8B94A67C19A6CE9F0027A2B8 /* EncyCategorySecondStyle.m in Sources */,
 				2827C79D1998D13D00C25F83 /* MJRefreshFooterView.m in Sources */,
 				280FB68F1980D66C00C434A8 /* LCYCommon.m in Sources */,
+				288A92DE19AB2A0400DB3187 /* PetRecommendListInfo.m in Sources */,
 				280E7467199335320036DD0B /* EncyHomePageViewController.m in Sources */,
 				2827C7A11998D13D00C25F83 /* UIView+Extension.m in Sources */,
 				286099A41987762800CB86D6 /* Region.m in Sources */,
