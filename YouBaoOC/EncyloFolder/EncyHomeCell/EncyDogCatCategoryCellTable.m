@@ -8,6 +8,13 @@
 
 #import "EncyDogCatCategoryCellTable.h"
 #import "EN_PreDefine.h"
+@interface EncyDogCatCategoryCellTable()
+- (IBAction)selectCategory:(id)sender;
+@property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *cateBtns;
+
+
+@end
+
 @implementation EncyDogCatCategoryCellTable
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
@@ -88,4 +95,12 @@
     [super setSelected:selected animated:animated];
 }
 
+- (IBAction)selectCategory:(id)sender
+{
+    UIButton *btn = (UIButton *)sender;
+    if([self.delegate respondsToSelector:@selector(selectTypeIS:)])
+    {
+        [self.delegate selectTypeIS:[NSString stringWithFormat:@"%d",btn.tag]];
+    }
+}
 @end

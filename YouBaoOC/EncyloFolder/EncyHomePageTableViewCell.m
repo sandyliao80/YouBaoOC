@@ -7,6 +7,7 @@
 //
 
 #import "EncyHomePageTableViewCell.h"
+#define LANSECELLCOLOR [UIColor colorWithRed:0.2824 green:0.5725 blue:0.7137 alpha:1]
 @interface EncyHomePageTableViewCell()
 
 @end
@@ -29,6 +30,10 @@
     self.collectNum.textColor = [UIColor whiteColor];
     self.titleImage.layer.cornerRadius = self.titleImage.frame.size.height/2;
     self.titleImage.layer.masksToBounds = YES;
+    self.keyWork.textColor  = LANSECELLCOLOR;
+    self.firstKey.textColor = LANSECELLCOLOR;
+    self.secondKey.textColor= LANSECELLCOLOR;
+    self.thirdKey.textColor = LANSECELLCOLOR;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
