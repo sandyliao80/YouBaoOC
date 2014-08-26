@@ -21,7 +21,13 @@ PODS:
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
   - CocoaSecurity (1.2.4)
+  - DACircularProgress (2.2.0)
+  - IDMPhotoBrowser (1.4):
+    - AFNetworking
+    - DACircularProgress
+    - pop
   - MBProgressHUD (0.9)
+  - pop (1.0.6)
   - Reachability (3.1.1)
   - SDWebImage (3.7.1):
     - SDWebImage/Core
@@ -31,7 +37,10 @@ PODS:
 DEPENDENCIES:
   - AFNetworking (~> 2.3)
   - CocoaSecurity (~> 1.2)
+  - DACircularProgress (~> 2.2)
+  - IDMPhotoBrowser (~> 1.4)
   - MBProgressHUD (~> 0.8)
+  - pop (~> 1.0)
   - Reachability (~> 3.1)
   - SDWebImage (~> 3.7)
   - WebViewJavascriptBridge (~> 4.1)
@@ -39,7 +48,10 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   AFNetworking: 6d7b76aa5d04c8c37daad3eef4b7e3f2a7620da3
   CocoaSecurity: 7ce1b967863d4e96dcffdbad17671117900e6c6e
+  DACircularProgress: 3b41941891a56dc6aa17971f5322a9a38a6f446e
+  IDMPhotoBrowser: da2110d99ea8735ad9a0ba52f2d184e756104a71
   MBProgressHUD: 2038dbcf3dce73215abed6001657043d53aa79a8
+  pop: e518794da38942c05255eb64b36d894e70cb4f00
   Reachability: 8e9635e3cb4f98e7f825e51147f677ecc694d0e7
   SDWebImage: 116e88633b5b416ea0ca4b334a4ac59cf72dd38d
   WebViewJavascriptBridge: f8557635af3293970ea48da55f48116c13ab0926

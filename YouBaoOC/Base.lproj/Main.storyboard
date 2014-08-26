@@ -1598,19 +1598,8 @@
                                                     <constraint firstAttribute="centerY" secondItem="kIU-HC-NtE" secondAttribute="centerY" id="yhf-ZT-9Zd"/>
                                                 </constraints>
                                             </view>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aAh-TO-q2q">
-                                                <rect key="frame" x="9" y="221" width="95" height="33"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="95" id="84E-4a-o6b"/>
-                                                    <constraint firstAttribute="height" constant="33" id="uVq-at-grA"/>
-                                                </constraints>
-                                                <state key="normal" image="breedingButton">
-                                                    <color key="titleColor" red="0.32941177490000001" green="0.62352943419999995" blue="0.76470595600000002" alpha="1" colorSpace="deviceRGB"/>
-                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                            </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IQm-6q-auq">
-                                                <rect key="frame" x="113" y="221" width="95" height="33"/>
+                                                <rect key="frame" x="114" y="221" width="95" height="33"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="95" id="a9u-u6-gFU"/>
                                                     <constraint firstAttribute="height" constant="33" id="pzp-6s-q9T"/>
@@ -1620,25 +1609,25 @@
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                             </button>
-                                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hxk-LC-dNH">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hxk-LC-dNH">
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" id="up6-rS-jeE"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jdt-gN-xYZ">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jdt-gN-xYZ">
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" id="Vet-BO-Y5z"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gQe-Kf-vVY">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gQe-Kf-vVY">
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" id="TOD-FL-kik"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ygx-1l-geR">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ygx-1l-geR">
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" id="5JI-D9-ry2"/>
@@ -1810,6 +1799,17 @@
                                                     <constraint firstAttribute="centerY" secondItem="NY6-Su-Gz7" secondAttribute="centerY" id="z9I-es-T2I"/>
                                                 </constraints>
                                             </view>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aAh-TO-q2q">
+                                                <rect key="frame" x="10" y="221" width="95" height="33"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="95" id="84E-4a-o6b"/>
+                                                    <constraint firstAttribute="height" constant="33" id="uVq-at-grA"/>
+                                                </constraints>
+                                                <state key="normal" image="breedingButton">
+                                                    <color key="titleColor" red="0.32941177490000001" green="0.62352943419999995" blue="0.76470595600000002" alpha="1" colorSpace="deviceRGB"/>
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -1874,9 +1874,13 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="ageLabel" destination="By0-Kg-Dvl" id="pyD-0J-fuZ"/>
                         <outlet property="avatarImageView" destination="h84-71-PVx" id="O27-0Z-aNx"/>
                         <outlet property="categoryTextField" destination="5k6-OX-xcy" id="XPK-hU-qMv"/>
+                        <outlet property="fadoptButton" destination="IQm-6q-auq" id="a0F-su-q4X"/>
+                        <outlet property="fbreedingButton" destination="aAh-TO-q2q" id="j5t-iI-9iG"/>
                         <outlet property="nickNameTextField" destination="iou-ET-pEp" id="rFF-Uh-91O"/>
+                        <outlet property="sexImageView" destination="wjS-E3-Lhd" id="w2y-9z-fbz"/>
                         <outlet property="signTextField" destination="jtI-ML-Obu" id="pCe-tY-JCZ"/>
                         <outletCollection property="corneredBGView" destination="Jr1-dd-qAj" id="WaS-Jk-4cP"/>
                         <outletCollection property="corneredBGView" destination="hej-Hz-fsy" id="8o7-u9-Lk5"/>
@@ -2300,7 +2304,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="50" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="SU8-ci-8aS">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <color key="backgroundColor" red="0.48235294220000002" green="0.7254902124" blue="0.84705883260000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" red="0.48235294222831726" green="0.72549021244049072" blue="0.84705883264541626" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="SecondFilterTableViewCellIdentifier" id="2cD-6b-dYz" customClass="SecondFilterTableViewCell">
@@ -2346,7 +2350,7 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.48235294222831726" green="0.72549021244049072" blue="0.84705883264541626" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="SU8-ci-8aS" firstAttribute="leading" secondItem="mn4-ie-aqC" secondAttribute="leading" id="ASd-hd-8rs"/>
                             <constraint firstItem="SU8-ci-8aS" firstAttribute="top" secondItem="mn4-ie-aqC" secondAttribute="top" id="F9o-si-kr1"/>
@@ -2378,6 +2382,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="50" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="cFE-Ct-nfX">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <color key="tintColor" red="0.48235294220000002" green="0.7254902124" blue="0.84705883260000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="ThirdFilterCellTableViewCellIdentifier" id="ty7-R1-jGQ" customClass="ThirdFilterCellTableViewCell">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -2422,7 +2427,7 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.48235294220000002" green="0.7254902124" blue="0.84705883260000003" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="cFE-Ct-nfX" firstAttribute="leading" secondItem="tGw-Bq-qhu" secondAttribute="leading" id="VTX-AU-ILf"/>
                             <constraint firstItem="hbx-Zn-DrW" firstAttribute="top" secondItem="cFE-Ct-nfX" secondAttribute="bottom" id="VvD-WK-ZUC"/>

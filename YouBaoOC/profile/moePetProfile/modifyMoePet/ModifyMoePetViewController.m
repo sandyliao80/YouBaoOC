@@ -25,7 +25,20 @@
 
 @property (strong, nonatomic) UITextField *zombieTextField;             /**< 站位 */
 
+@property (weak, nonatomic) IBOutlet UIImageView *sexImageView;         /**< 性别 */
+
+@property (weak, nonatomic) IBOutlet UILabel *ageLabel;                 /**< 年龄 */
+
+@property (weak, nonatomic) IBOutlet UIButton *fbreedingButton;         /**< 找配种 */
+
+@property (weak, nonatomic) IBOutlet UIButton *fadoptButton;            /**< 求领养 */
+
+
+
 @property (nonatomic) CGRect originalFrame;
+
+// 纪录用户修改的信息，在确定修改之前，原始记录不会改变
+@property (strong, nonatomic) GetPetDetailBase *tempPetDetailBase;
 
 
 #pragma mark - 纪录存储信息
@@ -72,6 +85,8 @@
         [self reloadPetData];
     } else {
         // 无需加载宠物信息
+        self.tempPetDetailBase = [[GetPetDetailBase alloc] initWithDictionary:[self.petDetailBase dictionaryRepresentation]];
+        
         [self makeScene];
     }
 }
@@ -114,6 +129,7 @@
     [[LCYNetworking sharedInstance] postRequestWithAPI:Pet_GetPetDetailByID parameters:parameters successBlock:^(NSDictionary *object) {
         [[LCYCommon sharedInstance] hideTipsInView:self.view];
         self.petDetailBase = [GetPetDetailBase modelObjectWithDictionary:object];
+        self.tempPetDetailBase = [[GetPetDetailBase alloc] initWithDictionary:[self.petDetailBase dictionaryRepresentation]];
         // 下载成功，加载界面
         [self makeScene];
     } failedBlock:^{
@@ -123,8 +139,15 @@
 
 - (void)makeScene{
     // 加载场景内容
+    
+    // 头像
     NSString *avatarImageURLString = [hostImageURL stringByAppendingString:self.petDetailBase.petInfo.headImage];
     [self.avatarImageView sd_setImageWithURL:[NSURL URLWithString:avatarImageURLString]];
+    
+    // 昵称
+    self.nickNameTextField.text = self.petDetailBase.petInfo.petName;
+    
+    // 性别
 }
 
 #pragma mark - UIScrollViewDelegate

@@ -169,6 +169,7 @@
     return 25.0f;
 }
 
+
 #pragma mark - CellImageDownloadOperation
 - (void)imageDownloadOperation:(CellImageDownloadOperation *)operation didFinishedDownloadImageAt:(NSIndexPath *)indexPath{
     [self.icyTableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];

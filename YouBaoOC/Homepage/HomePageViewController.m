@@ -14,10 +14,11 @@
 #import "LCYCommon.h"
 #import "PetRecommend.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+#import <IDMPhotoBrowser/IDMPhotoBrowser.h>
 
 #define HOME_NUMBER_PER_PAGE @15
 
-@interface HomePageViewController ()<UICollectionViewDelegate, UICollectionViewDataSource>
+@interface HomePageViewController ()<UICollectionViewDelegate, UICollectionViewDataSource, SecondFilterDelegate>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *icyCollectionView;
 
@@ -72,7 +73,8 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
     if ([segue.identifier isEqualToString:@"homePushFilter"]) {
-        
+        FilterViewController *filterVC = [segue destinationViewController];
+        filterVC.delegate = self;
     }
 }
 
@@ -156,6 +158,30 @@
     [cell.icyMainImage sd_setImageWithURL:[NSURL URLWithString:iURLString] placeholderImage:[UIImage imageNamed:@"profilePetPlaceHolder"]];
     [cell.icySmallImage sd_setImageWithURL:[NSURL URLWithString:siURLString] placeholderImage:[UIImage imageNamed:@"avatarDefault"]];
     return cell;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    PetRecommendListInfo *listInfo = self.baseArray[indexPath.row];
+
+    NSArray *photosURL = @[[NSURL URLWithString:[hostImageURL stringByAppendingString:listInfo.imagePath]]];
+    
+    // Or use this constructor to receive an NSArray of IDMPhoto objects from your NSURL objects
+    NSArray *photos = [IDMPhoto photosWithURLs:photosURL];
+    
+    IDMPhotoBrowser *browser = [[IDMPhotoBrowser alloc] initWithPhotos:photos];
+    browser.displayActionButton = NO;
+    browser.displayArrowButton = NO;
+    browser.displayCounterLabel = NO;
+    browser.actionButtonTitles = @[@"Option 1", @"Option 2", @"Option 3", @"Option 4"];
+    [self presentViewController:browser animated:YES completion:nil];
+}
+
+
+
+#pragma mark - FilterDelegate
+- (void)filterDidSelected:(SearchDetailByIDChildStyle *)category{
+    self.filterStyle = category;
+    [self loadInitData];
 }
 
 @end
