@@ -60,9 +60,6 @@
 		2879CDD719A487D1006586DA /* ModifyTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2879CDD619A487D1006586DA /* ModifyTextViewController.m */; };
 		2879CDDA19A4A4FB006586DA /* ModifyTextCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2879CDD919A4A4FB006586DA /* ModifyTextCell.m */; };
 		287A63B419A32AC000CB6526 /* ModifyMoePetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 287A63B319A32AC000CB6526 /* ModifyMoePetViewController.m */; };
-		287A63C619A355C700CB6526 /* GetPetDetailBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 287A63C019A355C700CB6526 /* GetPetDetailBase.m */; };
-		287A63C719A355C700CB6526 /* GetPetDetailPetInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 287A63C419A355C700CB6526 /* GetPetDetailPetInfo.m */; };
-		287A63C819A355C700CB6526 /* GetPetDetailPetImages.m in Sources */ = {isa = PBXBuildFile; fileRef = 287A63C519A355C700CB6526 /* GetPetDetailPetImages.m */; };
 		287AFD56199863560035FF05 /* CellImageDownloadOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 287AFD55199863560035FF05 /* CellImageDownloadOperation.m */; };
 		287DD73319A20E840080C268 /* MoeCameraCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 287DD73219A20E840080C268 /* MoeCameraCell.m */; };
 		287DD73619A20E9B0080C268 /* MoePictureCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 287DD73519A20E9B0080C268 /* MoePictureCell.m */; };
@@ -83,6 +80,9 @@
 		28A54A1719A4477500AFDDED /* ProfileEditingHeadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 28A54A1619A4477500AFDDED /* ProfileEditingHeadCell.m */; };
 		28A54A1A19A447B300AFDDED /* ProfileEditingNameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 28A54A1919A447B300AFDDED /* ProfileEditingNameCell.m */; };
 		28A54A1D19A447C400AFDDED /* ProfileEditingSignCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 28A54A1C19A447C400AFDDED /* ProfileEditingSignCell.m */; };
+		28B0681F19AC91DA009D4A4D /* GetPetDetailBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B0681819AC91DA009D4A4D /* GetPetDetailBase.m */; };
+		28B0682019AC91DA009D4A4D /* GetPetDetailPetInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B0681A19AC91DA009D4A4D /* GetPetDetailPetInfo.m */; };
+		28B0682119AC91DA009D4A4D /* GetPetDetailPetImages.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B0681D19AC91DA009D4A4D /* GetPetDetailPetImages.m */; };
 		28B69B8D1990CDCA0039B146 /* QRScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B69B8C1990CDCA0039B146 /* QRScanViewController.m */; };
 		28C721E6199CA919007DBB3A /* PasswordForgetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C721E5199CA919007DBB3A /* PasswordForgetViewController.m */; };
 		28CF40191994E17E0081D39A /* ProfileHomeHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 28CF40181994E17E0081D39A /* ProfileHomeHeaderCell.m */; };
@@ -240,13 +240,6 @@
 		2879CDD919A4A4FB006586DA /* ModifyTextCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModifyTextCell.m; sourceTree = "<group>"; };
 		287A63B219A32AC000CB6526 /* ModifyMoePetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModifyMoePetViewController.h; sourceTree = "<group>"; };
 		287A63B319A32AC000CB6526 /* ModifyMoePetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModifyMoePetViewController.m; sourceTree = "<group>"; };
-		287A63BF19A355C700CB6526 /* GetPetDetailPetInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetPetDetailPetInfo.h; sourceTree = "<group>"; };
-		287A63C019A355C700CB6526 /* GetPetDetailBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetPetDetailBase.m; sourceTree = "<group>"; };
-		287A63C119A355C700CB6526 /* GetPetDetailPetImages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetPetDetailPetImages.h; sourceTree = "<group>"; };
-		287A63C219A355C700CB6526 /* GetPetDetailBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetPetDetailBase.h; sourceTree = "<group>"; };
-		287A63C319A355C700CB6526 /* GetPetDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetPetDetail.h; sourceTree = "<group>"; };
-		287A63C419A355C700CB6526 /* GetPetDetailPetInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetPetDetailPetInfo.m; sourceTree = "<group>"; };
-		287A63C519A355C700CB6526 /* GetPetDetailPetImages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetPetDetailPetImages.m; sourceTree = "<group>"; };
 		287AFD54199863560035FF05 /* CellImageDownloadOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellImageDownloadOperation.h; sourceTree = "<group>"; };
 		287AFD55199863560035FF05 /* CellImageDownloadOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CellImageDownloadOperation.m; sourceTree = "<group>"; };
 		287DD73119A20E840080C268 /* MoeCameraCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoeCameraCell.h; sourceTree = "<group>"; };
@@ -287,6 +280,13 @@
 		28A54A1919A447B300AFDDED /* ProfileEditingNameCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileEditingNameCell.m; sourceTree = "<group>"; };
 		28A54A1B19A447C400AFDDED /* ProfileEditingSignCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileEditingSignCell.h; sourceTree = "<group>"; };
 		28A54A1C19A447C400AFDDED /* ProfileEditingSignCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileEditingSignCell.m; sourceTree = "<group>"; };
+		28B0681819AC91DA009D4A4D /* GetPetDetailBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetPetDetailBase.m; sourceTree = "<group>"; };
+		28B0681919AC91DA009D4A4D /* GetPetDetailBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetPetDetailBase.h; sourceTree = "<group>"; };
+		28B0681A19AC91DA009D4A4D /* GetPetDetailPetInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetPetDetailPetInfo.m; sourceTree = "<group>"; };
+		28B0681B19AC91DA009D4A4D /* GetPetDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetPetDetail.h; sourceTree = "<group>"; };
+		28B0681C19AC91DA009D4A4D /* GetPetDetailPetImages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetPetDetailPetImages.h; sourceTree = "<group>"; };
+		28B0681D19AC91DA009D4A4D /* GetPetDetailPetImages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetPetDetailPetImages.m; sourceTree = "<group>"; };
+		28B0681E19AC91DA009D4A4D /* GetPetDetailPetInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetPetDetailPetInfo.h; sourceTree = "<group>"; };
 		28B69B8B1990CDCA0039B146 /* QRScanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRScanViewController.h; sourceTree = "<group>"; };
 		28B69B8C1990CDCA0039B146 /* QRScanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRScanViewController.m; sourceTree = "<group>"; };
 		28C721E4199CA919007DBB3A /* PasswordForgetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PasswordForgetViewController.h; sourceTree = "<group>"; };
@@ -617,13 +617,13 @@
 		28D6320F199B41860029A283 /* moePetProfile */ = {
 			isa = PBXGroup;
 			children = (
-				287A63C319A355C700CB6526 /* GetPetDetail.h */,
-				287A63BF19A355C700CB6526 /* GetPetDetailPetInfo.h */,
-				287A63C419A355C700CB6526 /* GetPetDetailPetInfo.m */,
-				287A63C219A355C700CB6526 /* GetPetDetailBase.h */,
-				287A63C019A355C700CB6526 /* GetPetDetailBase.m */,
-				287A63C119A355C700CB6526 /* GetPetDetailPetImages.h */,
-				287A63C519A355C700CB6526 /* GetPetDetailPetImages.m */,
+				28B0681B19AC91DA009D4A4D /* GetPetDetail.h */,
+				28B0681919AC91DA009D4A4D /* GetPetDetailBase.h */,
+				28B0681819AC91DA009D4A4D /* GetPetDetailBase.m */,
+				28B0681E19AC91DA009D4A4D /* GetPetDetailPetInfo.h */,
+				28B0681A19AC91DA009D4A4D /* GetPetDetailPetInfo.m */,
+				28B0681C19AC91DA009D4A4D /* GetPetDetailPetImages.h */,
+				28B0681D19AC91DA009D4A4D /* GetPetDetailPetImages.m */,
 				287A63B119A32AB000CB6526 /* modifyMoePet */,
 				28D63210199B41A00029A283 /* MoePetProfileViewController.h */,
 				28D63211199B41A00029A283 /* MoePetProfileViewController.m */,
@@ -986,6 +986,7 @@
 				2879CDDA19A4A4FB006586DA /* ModifyTextCell.m in Sources */,
 				8B129DAC19A591D100554F3C /* UIViewController+HideTabBar.m in Sources */,
 				287DD73619A20E9B0080C268 /* MoePictureCell.m in Sources */,
+				28B0681F19AC91DA009D4A4D /* GetPetDetailBase.m in Sources */,
 				285D89B7198A2B3D005DFBEB /* FilterViewController.m in Sources */,
 				280E7446199334D80036DD0B /* ZXYProvider.m in Sources */,
 				285D89B11989E1BB005DFBEB /* LCYGlobal.m in Sources */,
@@ -1004,10 +1005,12 @@
 				28895083198B269D00696A95 /* SecondFilterViewController.m in Sources */,
 				28D63218199B76E30029A283 /* GuideViewController.m in Sources */,
 				280E74591993351C0036DD0B /* EncyHomeImageCell.m in Sources */,
+				28B0682019AC91DA009D4A4D /* GetPetDetailPetInfo.m in Sources */,
 				28A4FDBC19A724A600C3CD85 /* ThirdFilterCellTableViewCell.m in Sources */,
 				8B78477119AC4C9300592C7C /* EncySearchVC.m in Sources */,
 				280E7468199335320036DD0B /* EveryDayPushViewController.m in Sources */,
 				8B1911E619A2EBEE0070CD7E /* ZXYScrollView.m in Sources */,
+				28B0682119AC91DA009D4A4D /* GetPetDetailPetImages.m in Sources */,
 				2868EC93198F79BB00D8726E /* ProfileHomeLikeCell.m in Sources */,
 				285D89C1198A374A005DFBEB /* FilterTableViewCell.m in Sources */,
 				8B6AA11D19936C2100BF017C /* EncySubCategoryCell.m in Sources */,
@@ -1029,12 +1032,9 @@
 				280E7467199335320036DD0B /* EncyHomePageViewController.m in Sources */,
 				2827C7A11998D13D00C25F83 /* UIView+Extension.m in Sources */,
 				286099A41987762800CB86D6 /* Region.m in Sources */,
-				287A63C819A355C700CB6526 /* GetPetDetailPetImages.m in Sources */,
 				287DD73319A20E840080C268 /* MoeCameraCell.m in Sources */,
 				2832DC631980EFCE004BBAB5 /* RegisterAndLoginViewController.m in Sources */,
 				280E7452199335100036DD0B /* ZXYEncyPicDown.m in Sources */,
-				287A63C719A355C700CB6526 /* GetPetDetailPetInfo.m in Sources */,
-				287A63C619A355C700CB6526 /* GetPetDetailBase.m in Sources */,
 				280E745A1993351C0036DD0B /* EncyHomeTitleCell.m in Sources */,
 				28A54A1719A4477500AFDDED /* ProfileEditingHeadCell.m in Sources */,
 				28C721E6199CA919007DBB3A /* PasswordForgetViewController.m in Sources */,

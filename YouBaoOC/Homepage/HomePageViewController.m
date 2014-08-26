@@ -18,7 +18,7 @@
 
 #define HOME_NUMBER_PER_PAGE @15
 
-@interface HomePageViewController ()<UICollectionViewDelegate, UICollectionViewDataSource>
+@interface HomePageViewController ()<UICollectionViewDelegate, UICollectionViewDataSource, SecondFilterDelegate>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *icyCollectionView;
 
@@ -74,7 +74,8 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
     if ([segue.identifier isEqualToString:@"homePushFilter"]) {
-        
+        FilterViewController *filterVC = [segue destinationViewController];
+        filterVC.delegate = self;
     }
 }
 
@@ -171,6 +172,12 @@
     IDMPhotoBrowser *browser = [[IDMPhotoBrowser alloc] initWithPhotos:photos];
     
     [self presentViewController:browser animated:YES completion:nil];
+}
+
+#pragma mark - FilterDelegate
+- (void)filterDidSelected:(SearchDetailByIDChildStyle *)category{
+    self.filterStyle = category;
+    [self loadInitData];
 }
 
 @end

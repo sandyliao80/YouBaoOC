@@ -87,7 +87,7 @@
         [self.avatarContent sd_setImageWithURL:avatarURL];
         
         // 宠物性别
-        self.sexImageView.image = [self.petInfo.petSex isEqualToString:@"0"]?[UIImage imageNamed:@"icoFemale"]:[UIImage imageNamed:@"icoMaleDark"];
+        self.sexImageView.image = [self.petInfo.petSex isEqualToString:@"1"]?[UIImage imageNamed:@"icoFemale"]:[UIImage imageNamed:@"icoMaleDark"];
         
         // 三个状态图标
         BOOL breeding = [self.petInfo.fHybridization isEqualToString:@"1"]?YES:NO;

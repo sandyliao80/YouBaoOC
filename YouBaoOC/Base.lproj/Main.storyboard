@@ -1767,6 +1767,7 @@
                                                         </state>
                                                         <connections>
                                                             <action selector="sexButtonPressed:" destination="L0E-W2-VD1" eventType="touchUpInside" id="agt-dv-uOx"/>
+                                                            <action selector="sexButtonPressed:" destination="pg0-Cm-4Ku" eventType="touchUpInside" id="m11-Or-sy4"/>
                                                         </connections>
                                                     </button>
                                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="小于1岁" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="By0-Kg-Dvl">
@@ -1892,9 +1893,16 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="QRButton" destination="yZ2-p6-vOi" id="hg0-2l-KFH"/>
+                        <outlet property="QRSwitch" destination="bDE-AI-zrM" id="jP6-6W-UCU"/>
+                        <outlet property="adoptButton" destination="IQm-6q-auq" id="QGR-yO-xGU"/>
+                        <outlet property="ageLabel" destination="By0-Kg-Dvl" id="tEZ-D4-VPY"/>
                         <outlet property="avatarImageView" destination="h84-71-PVx" id="O27-0Z-aNx"/>
+                        <outlet property="breedingButton" destination="aAh-TO-q2q" id="BiH-BT-C9G"/>
                         <outlet property="categoryTextField" destination="5k6-OX-xcy" id="XPK-hU-qMv"/>
+                        <outlet property="entrustButton" destination="Axc-YN-teo" id="UOT-qm-7I6"/>
                         <outlet property="nickNameTextField" destination="iou-ET-pEp" id="rFF-Uh-91O"/>
+                        <outlet property="sexImageView" destination="wjS-E3-Lhd" id="DqJ-P5-0J7"/>
                         <outlet property="signTextField" destination="jtI-ML-Obu" id="pCe-tY-JCZ"/>
                         <outletCollection property="corneredBGView" destination="Jr1-dd-qAj" id="WaS-Jk-4cP"/>
                         <outletCollection property="corneredBGView" destination="hej-Hz-fsy" id="8o7-u9-Lk5"/>

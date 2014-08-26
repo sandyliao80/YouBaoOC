@@ -19,13 +19,33 @@
 
 @property (weak, nonatomic) IBOutlet UITextField *nickNameTextField;    /**< 昵称 */
 
-@property (weak, nonatomic) IBOutlet UITextField *categoryTextField;    /**< 昵称 */
+@property (weak, nonatomic) IBOutlet UITextField *categoryTextField;    /**< 品种 */
 
 @property (weak, nonatomic) IBOutlet UITextField *signTextField;        /**< 签名 */
+
+@property (weak, nonatomic) IBOutlet UIImageView *sexImageView;         /**< 性别 */
+
+@property (weak, nonatomic) IBOutlet UILabel *ageLabel;                 /**< 年龄 */
+
+@property (weak, nonatomic) IBOutlet UIButton *breedingButton;          /**< 找配种 */
+
+@property (weak, nonatomic) IBOutlet UIButton *adoptButton;             /**< 求领养 */
+
+@property (weak, nonatomic) IBOutlet UIButton *entrustButton;           /**< 被寄养 */
+
+@property (weak, nonatomic) IBOutlet UIButton *QRButton;                /**< 二维码扫描 */
+
+@property (weak, nonatomic) IBOutlet UISwitch *QRSwitch;
+
+
 
 @property (strong, nonatomic) UITextField *zombieTextField;             /**< 站位 */
 
 @property (nonatomic) CGRect originalFrame;
+
+@property (strong, nonatomic) GetPetDetailBase *tpPetBase;              /**< 用于记录修改的内容，在按下确定之前，不会更新原始数据 */
+
+
 
 
 #pragma mark - 纪录存储信息
@@ -69,9 +89,11 @@
     if (!self.petDetailBase) {
         // 需要加载宠物信息
         [[LCYCommon sharedInstance] showTips:@"加载宠物信息" inView:self.view];
+        
         [self reloadPetData];
     } else {
         // 无需加载宠物信息
+        self.tpPetBase = [[GetPetDetailBase alloc] initWithDictionary:[self.petDetailBase dictionaryRepresentation]];
         [self makeScene];
     }
 }
@@ -115,6 +137,7 @@
         [[LCYCommon sharedInstance] hideTipsInView:self.view];
         self.petDetailBase = [GetPetDetailBase modelObjectWithDictionary:object];
         // 下载成功，加载界面
+        self.tpPetBase = [[GetPetDetailBase alloc] initWithDictionary:[self.petDetailBase dictionaryRepresentation]];
         [self makeScene];
     } failedBlock:^{
         [[LCYCommon sharedInstance] hideTipsInView:self.view];
@@ -125,7 +148,53 @@
     // 加载场景内容
     NSString *avatarImageURLString = [hostImageURL stringByAppendingString:self.petDetailBase.petInfo.headImage];
     [self.avatarImageView sd_setImageWithURL:[NSURL URLWithString:avatarImageURLString]];
+    
+    // 昵称
+    self.nickNameTextField.text = self.tpPetBase.petInfo.petName;
+    
+    // 性别
+    self.sexImageView.image = [self.tpPetBase.petInfo.petSex isEqualToString:@"0"]?[UIImage imageNamed:@"icoMale"]:[UIImage imageNamed:@"icoFemale"];
+    
+    // 品种
+    self.categoryTextField.text = self.tpPetBase.petInfo.cateName;
+    
+    // 签名
+    self.signTextField.text = self.tpPetBase.petInfo.sign;
+    
+    // 三个状态
+    if ([self.tpPetBase.petInfo.fHybridization isEqualToString:@"1"]) {
+        [self.breedingButton setImage:[UIImage imageNamed:@"breedingDown"] forState:UIControlStateNormal];
+    }
+    
+    if ([self.tpPetBase.petInfo.fAdopt isEqualToString:@"1"]) {
+        [self.adoptButton setImage:[UIImage imageNamed:@"adoptDown"] forState:UIControlStateNormal];
+    }
+    
+    if ([self.tpPetBase.petInfo.isEntrust isEqualToString:@"1"]) {
+        [self.entrustButton setImage:[UIImage imageNamed:@"fosterDown"] forState:UIControlStateNormal];
+    }
+    
+    // 二维码
+    if (self.tpPetBase.petInfo.petCode &&
+        [self.tpPetBase.petInfo.petCode length] > 0) {
+        // 二维码存在
+        [self.QRButton setBackgroundImage:[UIImage imageNamed:@"QRDuostec"] forState:UIControlStateNormal];
+        [self.QRSwitch setEnabled:YES];
+        [self.QRSwitch setOn:YES];
+    }
+    
 }
+
+- (IBAction)sexButtonPressed:(id)sender {
+    if ([self.tpPetBase.petInfo.petSex isEqualToString:@"1"]) {
+        self.tpPetBase.petInfo.petSex = @"0";
+        
+    } else {
+        self.tpPetBase.petInfo.petSex = @"1";
+    }
+    self.sexImageView.image = [self.tpPetBase.petInfo.petSex isEqualToString:@"0"]?[UIImage imageNamed:@"icoMale"]:[UIImage imageNamed:@"icoFemale"];
+}
+
 
 #pragma mark - UIScrollViewDelegate
 - (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView{

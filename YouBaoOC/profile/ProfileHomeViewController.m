@@ -294,7 +294,7 @@
             
             
             // 宠物性别
-            cell.sexImageView.image = [petInfo.petSex isEqualToString:@"0"]?[UIImage imageNamed:@"icoFemale"]:[UIImage imageNamed:@"icoMaleDark"];
+            cell.sexImageView.image = [petInfo.petSex isEqualToString:@"1"]?[UIImage imageNamed:@"icoFemale"]:[UIImage imageNamed:@"icoMaleDark"];
             
             cell.breakLineImageView.backgroundColor = THEME_CELL_LIGHT_GREY;
             BOOL breeding = [petInfo.fHybridization isEqualToString:@"1"]?YES:NO;
