@@ -228,7 +228,6 @@
         NSInteger petIndex= indexPath.row - 1;
         GetPetDetailPetImages *petDetailPetImage = self.petDetailBase.petImages[petIndex];
         NSString *urlString = [hostImageURL stringByAppendingString:petDetailPetImage.imagePath];
-         q
         NSArray *photosURL = @[[NSURL URLWithString:urlString]];
         
         NSArray *photos = [IDMPhoto photosWithURLs:photosURL];
