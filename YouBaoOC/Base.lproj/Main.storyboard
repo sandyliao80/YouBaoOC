@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6205" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="KKL-vN-PsA">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6206.8" systemVersion="14A329f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="KKL-vN-PsA">
     <dependencies>
         <deployment defaultVersion="1792" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6198"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7026.1"/>
     </dependencies>
     <scenes>
         <!--我-->
@@ -136,14 +136,14 @@
                                                         <constraint firstAttribute="height" constant="3" id="oY4-EG-H9y"/>
                                                     </constraints>
                                                 </imageView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dZh-he-GOp">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dZh-he-GOp">
                                                     <rect key="frame" x="107" y="41" width="107" height="3"/>
                                                     <color key="backgroundColor" red="0.9960784912109375" green="0.58039218187332153" blue="0.49803924560546875" alpha="1" colorSpace="deviceRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="3" id="rZN-OX-TdG"/>
                                                     </constraints>
                                                 </imageView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3nk-6L-rMF">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3nk-6L-rMF">
                                                     <rect key="frame" x="214" y="41" width="107" height="3"/>
                                                     <color key="backgroundColor" red="0.27058823529999998" green="0.54901960780000003" blue="0.70196078429999997" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
@@ -608,7 +608,7 @@
                                                     <constraint firstItem="wJI-Gk-ewp" firstAttribute="leading" secondItem="IlP-eL-WK4" secondAttribute="leading" constant="8" id="sxJ-o0-H8V"/>
                                                 </constraints>
                                             </view>
-                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HdS-1q-tZF">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HdS-1q-tZF">
                                                 <rect key="frame" x="10" y="221" width="95" height="33"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="95" id="Yrq-sN-eAb"/>
@@ -1627,7 +1627,7 @@
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IQm-6q-auq">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IQm-6q-auq">
                                                 <rect key="frame" x="113" y="221" width="95" height="33"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="95" id="a9u-u6-gFU"/>
@@ -1995,7 +1995,7 @@
                                                         <constraint firstAttribute="width" constant="18" id="fV5-lO-Gvi"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B0Y-C5-Cvn">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B0Y-C5-Cvn">
                                                     <rect key="frame" x="262" y="12" width="38" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="rq8-js-3Y0"/>
@@ -2410,7 +2410,7 @@
                                                         <constraint firstAttribute="height" constant="40" id="sN5-ke-gIr"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DiJ-ES-1OX">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DiJ-ES-1OX">
                                                     <rect key="frame" x="58" y="15" width="177" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="177" id="EAX-zD-y89"/>
