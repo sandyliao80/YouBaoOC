@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@protocol EncyDogCatClassDelegate <NSObject>
+- (void)selectTypeIS:(NSString *)typeID;
+@end
 @interface EncyDogCatCategoryCellTable : UITableViewCell
-
+@property (nonatomic,strong)id<EncyDogCatClassDelegate>delegate;
 @end

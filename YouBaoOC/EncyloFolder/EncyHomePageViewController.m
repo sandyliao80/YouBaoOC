@@ -14,13 +14,18 @@
 #import "SubPetSyle.h"
 #import "ZXYScroller/ZXYScrollView.h"
 #import "EncyMoreEncyListViewController.h"
-@interface EncyHomePageViewController ()<UITableViewDelegate,UITableViewDataSource,EncyHomeTitleDelegate>
+#import "ZXYDownImageHelper.h"
+@interface EncyHomePageViewController ()<UITableViewDelegate,UITableViewDataSource,EncyHomeTitleDelegate,EncyDogCatClassDelegate>
 {
     NSMutableArray *allDataForShow;
     NSDictionary   *jsonDic ;
     ZXYFileOperation *fileOperation ;
     ZXYNETHelper *netHelper;
     MBProgressHUD *mbProgress;
+    NSString *currentTitle;
+    NSInteger *currentPage;
+    ZXYDownImageHelper *downImage;
+    NSNotificationCenter *datatnc;
 }
 @property(nonatomic,strong)IBOutlet UITableView *currentTable;
 @property(nonatomic,strong)IBOutlet UILabel *everyDayPush;
@@ -32,11 +37,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // !!!:为view注册通知
-    NSNotificationCenter *datatnc = [NSNotificationCenter defaultCenter];
-    [datatnc addObserver:self selector:@selector(reloadDataMethod) name:@"ency_noti" object:nil];
+    datatnc = [NSNotificationCenter defaultCenter];
+    [datatnc addObserver:self selector:@selector(reloadDataMethod) name:@"ency_image" object:nil];
     
-    NSNotificationCenter *typenc = [NSNotificationCenter defaultCenter];
-    [typenc addObserver:self selector:@selector(reloadDataWithType:) name:@"ency_noti_type" object:nil];
+    
     //实例化初始变量
     [self initObject];
     //实例化导航栏
@@ -45,6 +49,11 @@
     [self initColorOFTitle];
     
     [self initScrollHeader];
+    if(currentTitle)
+    {
+        self.title = currentTitle;
+    }
+    
     if([ZXYNETHelper isNETConnect])
     {
         [self performSelectorInBackground:@selector(downLoadData:) withObject:nil];
@@ -54,6 +63,7 @@
         UIAlertView *noConnect = [[UIAlertView alloc] initWithTitle:@"" message:@"没有连接网络" delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
         [noConnect show];
     }
+    currentPage = 0;
     
 }
 
@@ -66,6 +76,7 @@
     allDataForShow = [[NSMutableArray alloc] init];
     mbProgress = [[MBProgressHUD alloc] initWithView:self.view];
     [self.view addSubview:mbProgress];
+    downImage = [[ZXYDownImageHelper alloc] initWithDirect:@"ency_image" andNotiKey:@"ency_image"];
 }
 
 - (void)initNaviBar
@@ -124,26 +135,17 @@
     [manager setResponseSerializer:[AFHTTPResponseSerializer serializer]];
     NSString *urlString = [NSString stringWithFormat:@"%@%@",ZXY_HOSTURL,ZXY_GETTODYPUSH];
     [manager POST:urlString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        [allDataForShow removeAllObjects];
+        //[allDataForShow removeAllObjects];
         NSLog(@"operation is %@",[operation responseString]);
         NSData *jsonData = [operation responseData];
         NSDictionary *allDic = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:nil];
         jsonDic = allDic;
-        NSArray *allArr = [allDic objectForKey:@"todayPush"];
+        NSArray *allArr = [allDic objectForKey:@"data"];
         if(allArr)
         {
             for(int i =0;i<allArr.count;i++)
             {
-                NSDictionary *allDic = [allArr objectAtIndex:i];
-                NSArray *allContent  = [allDic objectForKey:@"allContent"];
-                for(int j = 0;j<allContent.count;j++)
-                {
-                    NSMutableDictionary *content = [NSMutableDictionary dictionaryWithDictionary: [allContent objectAtIndex:j] ];
-                    [content setObject:[allDic objectForKey:@"enImage_U"] forKey:@"enImage_U"];
-                    [allDataForShow addObject:content];
-                    NSLog(@"all DIC %@",[content objectForKey:@"ency_childC"]);
-                }
-                
+                [allDataForShow addObject:allArr[i]];
             }
         }
         [self performSelectorOnMainThread:@selector(hideMB) withObject:nil waitUntilDone:YES];
@@ -154,6 +156,35 @@
         NSLog(@"operation is %@",error);
     }];
 
+}
+
+- (void)selectTypeIS:(NSString *)typeID
+{
+    UIStoryboard *story = [UIStoryboard storyboardWithName:@"EncyMoreEncyListSB" bundle:nil];
+    EncyMoreEncyListViewController *moreVC = [story instantiateInitialViewController];
+    [moreVC hideSearchBtn];
+    NSString *titleString;
+    NSInteger currentInt = typeID.integerValue;
+    switch (currentInt) {
+        case 101:
+            titleString = @"大型犬";
+            break;
+        case 102:
+            titleString = @"中型犬";
+            break;
+        case 103:
+            titleString = @"小型犬";
+            break;
+        case 104:
+            titleString = @"猫咪";
+            break;
+            
+        default:
+            titleString = @"";
+            break;
+    }
+    [moreVC setTitles:titleString];
+    [self.navigationController pushViewController:moreVC animated:YES];
 }
 
 - (void)hideMB
@@ -178,11 +209,6 @@
     
 }
 
-// !!!:分类
-- (void)dealloc
-{
-    
-}
 
 - (void)rightItemAction
 {
@@ -194,14 +220,6 @@
 - (void)reloadDataMethod
 {
     [self.currentTable reloadData];
-}
-
-- (void)reloadDataWithType:(NSNotification *)noti
-{
-    NSDictionary *dic = [noti userInfo];
-    SubPetSyle *subpet = [dic objectForKey:@"subPet"];
-    [self downLoadData:subpet.cat_id];
-    NSLog(@"%@",subpet.name);
 }
 
 // !!!:tableView delegate
@@ -248,6 +266,7 @@
     else if(indexPath.section == 1)
     {
         EncyDogCatCategoryCellTable *cell = [tableView dequeueReusableCellWithIdentifier:EN_HOMEDOGCAT];
+        cell.delegate = self;
         return cell;
     }
     else
@@ -255,11 +274,10 @@
         NSDictionary *dataDic = [allDataForShow objectAtIndex:indexPath.row];
         EncyHomePageTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:EN_HOMEPAGECELLIDENTIFIER];
         cell.readNum.text = [dataDic objectForKey:@"ency_read"];
-        cell.titleLbl.text = [dataDic objectForKey:@"ency_childN"];
+        cell.titleLbl.text = [dataDic objectForKey:@"title"];
         cell.collectNum.text = [dataDic objectForKey:@"ency_collect"];
-        NSString *imageUrl = [dataDic objectForKey:@"enImage_U"];
-        NSString *lastURL = [imageUrl componentsSeparatedByString:@"/"].lastObject;
-        NSString *filePath = [fileOperation cidImagePath:lastURL];
+        NSString *imageUrl = [dataDic objectForKey:@"image_path"];
+        NSString *filePath = [fileOperation pathTempFile:@"ency_image" andURL:imageUrl];
         if(indexPath.row%2 == 0)
         {
             cell.backgroundColor = BLUEINSI;
@@ -275,8 +293,7 @@
         }
         else
         {
-            NSString *urlString = [NSString stringWithFormat:@"%@%@",ENCY_HOSTURL,imageUrl];
-            [netHelper placeURLADD:urlString];
+            [downImage addImageURLWithIndexDic:[NSDictionary dictionaryWithObjectsAndKeys:imageUrl,@"url",indexPath,@"index", nil]];
             cell.titleImage.image = [UIImage imageNamed:@"placePage_placeHod"];
         }
         return cell;
@@ -319,17 +336,30 @@
     }
 }
 
+- (void)reloadDataRow:(NSNotification *)noti
+{
+    [self.currentTable reloadRowsAtIndexPaths:[NSArray arrayWithObjects:[noti.userInfo objectForKey:@"index"], nil] withRowAnimation:UITableViewRowAnimationNone];
+}
+
+
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    [netHelper startDownPlaceImage];
+    [downImage startDownLoadImage];
 }
+
 
 - (void)moreInfoBtnClick
 {
-    EncyMoreEncyListViewController *moreList = [[EncyMoreEncyListViewController alloc] initWithPetId:nil];
-    [self.navigationController pushViewController:moreList animated:YES];
+    UIStoryboard *story = [UIStoryboard storyboardWithName:@"EncyMoreEncyListSB" bundle:nil];
+    EncyMoreEncyListViewController *more = [story instantiateInitialViewController];
+    [more setTitles:@"宠物百科"];
+    [self.navigationController pushViewController:more animated:YES];
 }
 
+- (void)dealloc
+{
+    [datatnc removeObserver:self name:@"ency_image" object:nil];
+}
 
 @end
