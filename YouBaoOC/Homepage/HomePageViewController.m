@@ -14,6 +14,7 @@
 #import "LCYCommon.h"
 #import "PetRecommend.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+#import <IDMPhotoBrowser/IDMPhotoBrowser.h>
 
 #define HOME_NUMBER_PER_PAGE @15
 
@@ -157,6 +158,19 @@
     [cell.icyMainImage sd_setImageWithURL:[NSURL URLWithString:iURLString] placeholderImage:[UIImage imageNamed:@"profilePetPlaceHolder"]];
     [cell.icySmallImage sd_setImageWithURL:[NSURL URLWithString:siURLString] placeholderImage:[UIImage imageNamed:@"avatarDefault"]];
     return cell;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    PetRecommendListInfo *listInfo = self.baseArray[indexPath.row];
+    NSString *iURLString = [hostImageURL stringByAppendingString:listInfo.imagePath];
+    
+    NSArray *photosURL = @[[NSURL URLWithString:iURLString]];
+    
+    NSArray *photos = [IDMPhoto photosWithURLs:photosURL];
+    
+    IDMPhotoBrowser *browser = [[IDMPhotoBrowser alloc] initWithPhotos:photos];
+    
+    [self presentViewController:browser animated:YES completion:nil];
 }
 
 @end

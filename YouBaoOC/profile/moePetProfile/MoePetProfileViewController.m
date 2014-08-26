@@ -14,6 +14,7 @@
 #import "MoePictureCell.h"
 #import "UIImage+LCYResize.h"
 #import "modifyMoePet/ModifyMoePetViewController.h"
+#import <IDMPhotoBrowser/IDMPhotoBrowser.h>
 
 @interface MoePetProfileViewController ()<UICollectionViewDelegate, UICollectionViewDataSource, UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
@@ -224,7 +225,17 @@
         UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"从照片中选择", @"拍照", nil];
         [actionSheet showInView:self.view];
     } else {
+        NSInteger petIndex= indexPath.row - 1;
+        GetPetDetailPetImages *petDetailPetImage = self.petDetailBase.petImages[petIndex];
+        NSString *urlString = [hostImageURL stringByAppendingString:petDetailPetImage.imagePath];
+         q
+        NSArray *photosURL = @[[NSURL URLWithString:urlString]];
         
+        NSArray *photos = [IDMPhoto photosWithURLs:photosURL];
+        
+        IDMPhotoBrowser *browser = [[IDMPhotoBrowser alloc] initWithPhotos:photos];
+        
+        [self presentViewController:browser animated:YES completion:nil];
     }
 }
 
