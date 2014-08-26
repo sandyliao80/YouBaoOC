@@ -106,13 +106,15 @@
 		8B6AA11819936AD700BF017C /* EncySubCategoryVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B6AA11619936AD700BF017C /* EncySubCategoryVC.xib */; };
 		8B6AA11D19936C2100BF017C /* EncySubCategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B6AA11B19936C2100BF017C /* EncySubCategoryCell.m */; };
 		8B6AA11E19936C2100BF017C /* EncySubCategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B6AA11C19936C2100BF017C /* EncySubCategoryCell.xib */; };
+		8B73491319AC134200D6E31F /* EncyHomePageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B73491219AC134200D6E31F /* EncyHomePageTableViewCell.xib */; };
+		8B78476D19AC26A500592C7C /* EncyMoreEncyListSB.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B78476C19AC26A500592C7C /* EncyMoreEncyListSB.storyboard */; };
+		8B78477119AC4C9300592C7C /* EncySearchVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B78476F19AC4C9300592C7C /* EncySearchVC.m */; };
 		8B94A67C19A6CE9F0027A2B8 /* EncyCategorySecondStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B94A67A19A6CE9F0027A2B8 /* EncyCategorySecondStyle.m */; };
 		8B94A67D19A6CE9F0027A2B8 /* EncyCategorySecondStyle.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B94A67B19A6CE9F0027A2B8 /* EncyCategorySecondStyle.xib */; };
 		8BAB3B0E1990ABEF00FD3BA0 /* Encyclope.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BAB3B0D1990ABEF00FD3BA0 /* Encyclope.storyboard */; };
 		8BC24F0C19A1C76C003C959F /* ZXYDownImageOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BC24F0B19A1C76C003C959F /* ZXYDownImageOperation.m */; };
 		8BC24F0F19A1C7C0003C959F /* ZXYDownImageHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BC24F0E19A1C7C0003C959F /* ZXYDownImageHelper.m */; };
 		8BED672319A3562F009C2B72 /* EncyMoreEncyListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BED672119A3562F009C2B72 /* EncyMoreEncyListViewController.m */; };
-		8BED672419A3562F009C2B72 /* EncyMoreEncyListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BED672219A3562F009C2B72 /* EncyMoreEncyListViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -326,6 +328,10 @@
 		8B6AA11A19936C2100BF017C /* EncySubCategoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EncySubCategoryCell.h; sourceTree = "<group>"; };
 		8B6AA11B19936C2100BF017C /* EncySubCategoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EncySubCategoryCell.m; sourceTree = "<group>"; };
 		8B6AA11C19936C2100BF017C /* EncySubCategoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EncySubCategoryCell.xib; sourceTree = "<group>"; };
+		8B73491219AC134200D6E31F /* EncyHomePageTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EncyHomePageTableViewCell.xib; sourceTree = "<group>"; };
+		8B78476C19AC26A500592C7C /* EncyMoreEncyListSB.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = EncyMoreEncyListSB.storyboard; sourceTree = "<group>"; };
+		8B78476E19AC4C9300592C7C /* EncySearchVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EncySearchVC.h; sourceTree = "<group>"; };
+		8B78476F19AC4C9300592C7C /* EncySearchVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EncySearchVC.m; sourceTree = "<group>"; };
 		8B94A67919A6CE9F0027A2B8 /* EncyCategorySecondStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EncyCategorySecondStyle.h; sourceTree = "<group>"; };
 		8B94A67A19A6CE9F0027A2B8 /* EncyCategorySecondStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EncyCategorySecondStyle.m; sourceTree = "<group>"; };
 		8B94A67B19A6CE9F0027A2B8 /* EncyCategorySecondStyle.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EncyCategorySecondStyle.xib; sourceTree = "<group>"; };
@@ -336,7 +342,6 @@
 		8BC24F0E19A1C7C0003C959F /* ZXYDownImageHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZXYDownImageHelper.m; sourceTree = "<group>"; };
 		8BED672019A3562F009C2B72 /* EncyMoreEncyListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EncyMoreEncyListViewController.h; sourceTree = "<group>"; };
 		8BED672119A3562F009C2B72 /* EncyMoreEncyListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EncyMoreEncyListViewController.m; sourceTree = "<group>"; };
-		8BED672219A3562F009C2B72 /* EncyMoreEncyListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EncyMoreEncyListViewController.xib; sourceTree = "<group>"; };
 		CEF990BC1DD24D8D89234D90 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -676,7 +681,9 @@
 				8B6AA11619936AD700BF017C /* EncySubCategoryVC.xib */,
 				8BED672019A3562F009C2B72 /* EncyMoreEncyListViewController.h */,
 				8BED672119A3562F009C2B72 /* EncyMoreEncyListViewController.m */,
-				8BED672219A3562F009C2B72 /* EncyMoreEncyListViewController.xib */,
+				8B78476E19AC4C9300592C7C /* EncySearchVC.h */,
+				8B78476F19AC4C9300592C7C /* EncySearchVC.m */,
+				8B78476C19AC26A500592C7C /* EncyMoreEncyListSB.storyboard */,
 				280E7461199335320036DD0B /* EncyHomePageViewController.h */,
 				280E7462199335320036DD0B /* EncyHomePageViewController.m */,
 				280E7463199335320036DD0B /* EveryDayPushViewController.h */,
@@ -694,6 +701,7 @@
 			children = (
 				280E745F199335320036DD0B /* EncyHomePageTableViewCell.h */,
 				280E7460199335320036DD0B /* EncyHomePageTableViewCell.m */,
+				8B73491219AC134200D6E31F /* EncyHomePageTableViewCell.xib */,
 				280E74541993351C0036DD0B /* EncyHomeCellHeader.h */,
 				280E74551993351C0036DD0B /* EncyHomeImageCell.h */,
 				280E74561993351C0036DD0B /* EncyHomeImageCell.m */,
@@ -889,8 +897,9 @@
 				8B6AA10019933AF600BF017C /* EncyCategoryVC.xib in Resources */,
 				280FB6931980E34E00C434A8 /* RegisterAndLogin.storyboard in Resources */,
 				8B6AA11E19936C2100BF017C /* EncySubCategoryCell.xib in Resources */,
+				8B78476D19AC26A500592C7C /* EncyMoreEncyListSB.storyboard in Resources */,
+				8B73491319AC134200D6E31F /* EncyHomePageTableViewCell.xib in Resources */,
 				2811119A1979183D000A72D7 /* Images.xcassets in Resources */,
-				8BED672419A3562F009C2B72 /* EncyMoreEncyListViewController.xib in Resources */,
 				8B6AA11819936AD700BF017C /* EncySubCategoryVC.xib in Resources */,
 				8B94A67D19A6CE9F0027A2B8 /* EncyCategorySecondStyle.xib in Resources */,
 				28D63214199B74710029A283 /* Introduction.storyboard in Resources */,
@@ -996,6 +1005,7 @@
 				28D63218199B76E30029A283 /* GuideViewController.m in Sources */,
 				280E74591993351C0036DD0B /* EncyHomeImageCell.m in Sources */,
 				28A4FDBC19A724A600C3CD85 /* ThirdFilterCellTableViewCell.m in Sources */,
+				8B78477119AC4C9300592C7C /* EncySearchVC.m in Sources */,
 				280E7468199335320036DD0B /* EveryDayPushViewController.m in Sources */,
 				8B1911E619A2EBEE0070CD7E /* ZXYScrollView.m in Sources */,
 				2868EC93198F79BB00D8726E /* ProfileHomeLikeCell.m in Sources */,

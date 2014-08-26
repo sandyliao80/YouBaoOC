@@ -10,4 +10,6 @@
 
 @interface EncyMoreEncyListViewController : UIViewController
 -(id)initWithPetId:(NSString *)petID;
+- (void)setTitles:(NSString *)title;
+- (void)hideSearchBtn;
 @end

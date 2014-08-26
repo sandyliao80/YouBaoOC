@@ -12,4 +12,8 @@
 - (void)hideTabBar;
 - (void)showTabBarWithSelector;
 - (void)setNaviLeftItem;
+- (void)setNaviRightItem:(NSString *)imageName;
+- (void)setRightItemAction;
+- (UIToolbar*)forKeyBoardHide:(NSString *)itemName;
+- (void)hideKeyBoard:(id)sender;
 @end
