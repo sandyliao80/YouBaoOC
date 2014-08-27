@@ -26,6 +26,7 @@ NSString *const Pet_UploadPetImage  = @"Pet/UploadPetImage";
 NSString *const Pet_GetPetDetailByID= @"Pet/GetPetDetailByID";
 NSString *const User_modifyInfo     = @"User/modifyInfo";
 NSString *const Pet_recommend       = @"Pet/recommend";
+NSString *const Pet_updatePetInfo   = @"Pet/updatePetInfo";
 
 @implementation LCYNetworking
 

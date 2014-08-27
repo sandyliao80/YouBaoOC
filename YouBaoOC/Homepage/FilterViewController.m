@@ -40,7 +40,7 @@
     UIBarButtonItem *leftBackItem = [[UIBarButtonItem alloc] initWithCustomView:backBtn];
     self.navigationItem.leftBarButtonItem = leftBackItem;
     
-    self.navigationItem.title = @"宠物种类";
+    self.navigationItem.title = @"科目";
     
     [[LCYNetworking sharedInstance] postRequestWithAPI:PetStyle_searchAllTypePets parameters:@{} successBlock:^(NSDictionary *object) {
         searchAllTypePetsBase *base = [searchAllTypePetsBase modelObjectWithDictionary:object];

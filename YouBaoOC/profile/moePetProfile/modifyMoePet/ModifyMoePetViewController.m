@@ -10,8 +10,9 @@
 #import "LCYCommon.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "FilterViewController.h"
+#import "QRScanViewController.h"
 
-@interface ModifyMoePetViewController ()<UITextFieldDelegate, UIScrollViewDelegate, SecondFilterDelegate>
+@interface ModifyMoePetViewController ()<UITextFieldDelegate, UIScrollViewDelegate, SecondFilterDelegate, QRScanDelegate, UIPickerViewDataSource, UIPickerViewDelegate>
 
 @property (strong, nonatomic) IBOutletCollection(UIView) NSArray *corneredBGView;
 
@@ -38,6 +39,10 @@
 @property (weak, nonatomic) IBOutlet UISwitch *QRSwitch;
 
 
+@property (strong, nonatomic) IBOutlet UIPickerView *agePicker;
+@property (strong, nonatomic) IBOutlet UIToolbar *pickerToolBar;
+
+
 
 @property (strong, nonatomic) UITextField *zombieTextField;             /**< 站位 */
 
@@ -46,6 +51,8 @@
 @property (strong, nonatomic) GetPetDetailBase *tpPetBase;              /**< 用于记录修改的内容，在按下确定之前，不会更新原始数据 */
 
 
+@property (strong, nonatomic) NSArray *ageKeys;
+@property (strong, nonatomic) NSDictionary *ageMap;
 
 
 #pragma mark - 纪录存储信息
@@ -58,6 +65,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.ageMap = @{@"小于1岁" : @0,
+                    @"1岁"   : @1,
+                    @"2岁"   : @2,
+                    @"3岁"   : @3,
+                    @"4岁"   : @4,
+                    @"5岁"   : @5,
+                    @"6岁"   : @6,
+                    @"7岁"   : @7,
+                    @"8岁"   : @8,
+                    @"9岁"   : @9,
+                    @"10岁"   : @10,
+                    @"大于10岁": @11};
+    self.ageKeys = @[@"小于1岁", @"1岁", @"2岁", @"3岁", @"4岁", @"5岁", @"6岁", @"7岁", @"8岁", @"9岁", @"10岁", @"大于10岁"];
     
     // 返回按钮
     UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -118,6 +138,9 @@
     if ([segue.identifier isEqualToString:@"pushFilter"]) {
         FilterViewController *filterVC = [segue destinationViewController];
         filterVC.delegate = self;
+    } else if ([segue.identifier isEqualToString:@"presentQRVC"]) {
+        QRScanViewController *qrVC = [segue destinationViewController];
+        qrVC.delegate = self;
     }
 }
 
@@ -129,6 +152,30 @@
 
 - (void)doneButtonPressed:(id)sender{
     // 确定，上传宠物信息
+    NSDictionary *parameters;
+    if (self.category) {
+        parameters = @{@"pet_id"    : self.tpPetBase.petInfo.petId,
+                       @"pet_name"  : self.nickNameTextField.text,
+                       @"cat_id"    : self.category.catId,
+                       @"pet_sex"   : self.ageMap[self.ageLabel.text],
+                       @"tip"       : self.signTextField.text,
+                       @"f_hybridization"   : self.tpPetBase.petInfo.fHybridization,
+                       @"f_adopt"   : self.tpPetBase.petInfo.fAdopt,
+                       @"is_entrust": self.tpPetBase.petInfo.isEntrust};
+    } else {
+        parameters = @{@"pet_id"    : self.tpPetBase.petInfo.petId,
+                       @"pet_name"  : self.nickNameTextField.text,
+                       @"pet_sex"   : self.ageMap[self.ageLabel.text],
+                       @"tip"       : self.signTextField.text,
+                       @"f_hybridization"   : self.tpPetBase.petInfo.fHybridization,
+                       @"f_adopt"   : self.tpPetBase.petInfo.fAdopt,
+                       @"is_entrust": self.tpPetBase.petInfo.isEntrust};
+    }
+    [[LCYNetworking sharedInstance] postRequestWithAPI:Pet_updatePetInfo parameters:parameters successBlock:^(NSDictionary *object) {
+        ;
+    } failedBlock:^{
+        ;
+    }];
 }
 
 - (void)reloadPetData{
@@ -161,6 +208,15 @@
     // 签名
     self.signTextField.text = self.tpPetBase.petInfo.sign;
     
+    // 年龄
+    if ([self.tpPetBase.petInfo.age integerValue] == 0) {
+        self.ageLabel.text = @"小于1岁";
+    } else if ([self.tpPetBase.petInfo.age integerValue] == 11) {
+        self.ageLabel.text = @"大于10岁";
+    } else {
+        self.ageLabel.text = [NSString stringWithFormat:@"%ld岁", (long)[self.tpPetBase.petInfo.age integerValue]];
+    }
+    
     // 三个状态
     if ([self.tpPetBase.petInfo.fHybridization isEqualToString:@"1"]) {
         [self.breedingButton setImage:[UIImage imageNamed:@"breedingDown"] forState:UIControlStateNormal];
@@ -188,13 +244,66 @@
 - (IBAction)sexButtonPressed:(id)sender {
     if ([self.tpPetBase.petInfo.petSex isEqualToString:@"1"]) {
         self.tpPetBase.petInfo.petSex = @"0";
-        
     } else {
         self.tpPetBase.petInfo.petSex = @"1";
     }
     self.sexImageView.image = [self.tpPetBase.petInfo.petSex isEqualToString:@"0"]?[UIImage imageNamed:@"icoMale"]:[UIImage imageNamed:@"icoFemale"];
 }
 
+- (IBAction)ageButtonPressed:(id)sender {
+    if (!self.zombieTextField) {
+        self.zombieTextField = [[UITextField alloc] initWithFrame:CGRectZero];
+        self.zombieTextField.inputView = self.agePicker;
+        self.zombieTextField.inputAccessoryView = self.pickerToolBar;
+        [self.view addSubview:self.zombieTextField];
+    }
+    [self.zombieTextField becomeFirstResponder];
+}
+
+- (IBAction)ageDoneButtonPressed:(id)sender {
+    NSInteger row = [self.agePicker selectedRowInComponent:0];
+    self.ageLabel.text = self.ageKeys[row];
+    [self.zombieTextField resignFirstResponder];
+}
+
+- (IBAction)breedingButtonPressed:(id)sender {
+    if ([self.tpPetBase.petInfo.fHybridization isEqualToString:@"1"]) {
+        self.tpPetBase.petInfo.fHybridization = @"0";
+    } else {
+        self.tpPetBase.petInfo.fHybridization = @"1";
+    }
+    if ([self.tpPetBase.petInfo.fHybridization isEqualToString:@"1"]) {
+        [self.breedingButton setImage:[UIImage imageNamed:@"breedingDown"] forState:UIControlStateNormal];
+    } else {
+        [self.breedingButton setImage:[UIImage imageNamed:@"breedingButton"] forState:UIControlStateNormal];
+    }
+}
+
+- (IBAction)adoptButtonPressed:(id)sender {
+    if ([self.tpPetBase.petInfo.fAdopt isEqualToString:@"1"]) {
+        self.tpPetBase.petInfo.fAdopt = @"0";
+    } else {
+        self.tpPetBase.petInfo.fAdopt = @"1";
+    }
+    if ([self.tpPetBase.petInfo.fAdopt isEqualToString:@"1"]) {
+        [self.adoptButton setImage:[UIImage imageNamed:@"adoptDown"] forState:UIControlStateNormal];
+    } else {
+        [self.adoptButton setImage:[UIImage imageNamed:@"adoptButton"] forState:UIControlStateNormal];
+    }
+}
+
+- (IBAction)entrustButtonPressed:(id)sender {
+    if ([self.tpPetBase.petInfo.isEntrust isEqualToString:@"1"]) {
+        self.tpPetBase.petInfo.isEntrust = @"0";
+    } else {
+        self.tpPetBase.petInfo.isEntrust = @"1";
+    }
+    if ([self.tpPetBase.petInfo.isEntrust isEqualToString:@"1"]) {
+        [self.entrustButton setImage:[UIImage imageNamed:@"fosterDown"] forState:UIControlStateNormal];
+    } else {
+        [self.entrustButton setImage:[UIImage imageNamed:@"fosterButton"] forState:UIControlStateNormal];
+    }
+}
 
 #pragma mark - UIScrollViewDelegate
 - (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView{
@@ -256,5 +365,22 @@
     self.categoryTextField.text = category.name;
 }
 
+#pragma mark - QRScan
+- (void)QRScanViewController:(QRScanViewController *)QRScanVC didFinishScanned:(NSString *)info{
+    self.tpPetBase.petInfo.petCode = info;
+    [self.QRSwitch setEnabled:YES];
+    [self.QRButton setBackgroundImage:[UIImage imageNamed:@"QRDuostec"] forState:UIControlStateNormal];
+}
+
+#pragma mark - UIPickerView
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
+    return 1;
+}
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
+    return [self.ageKeys count];
+}
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
+    return [self.ageKeys objectAtIndex:row];
+}
 
 @end

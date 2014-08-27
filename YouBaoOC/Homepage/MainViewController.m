@@ -18,6 +18,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self.tabBar setTintColor:THEME_COLOR];
+    
+    [self setSelectedIndex:1];
 }
 
 - (void)didReceiveMemoryWarning {

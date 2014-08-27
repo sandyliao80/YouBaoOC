@@ -333,7 +333,7 @@
                 return 60.0f;
             } else if (indexPath.row == 4) {
                 // 我的宠物Label
-                return 25.0f;
+                return 32.0f;
             } else {
                 // 各种宠物
                 return 70.0f;
