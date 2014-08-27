@@ -15,6 +15,8 @@
 #import "ZXYScroller/ZXYScrollView.h"
 #import "EncyMoreEncyListViewController.h"
 #import "ZXYDownImageHelper.h"
+#import "PeyStyleForEncy.h"
+#import "EncyDetailPetWeb.h"
 @interface EncyHomePageViewController ()<UITableViewDelegate,UITableViewDataSource,EncyHomeTitleDelegate,EncyDogCatClassDelegate>
 {
     NSMutableArray *allDataForShow;
@@ -22,10 +24,13 @@
     ZXYFileOperation *fileOperation ;
     ZXYNETHelper *netHelper;
     MBProgressHUD *mbProgress;
+    MBProgressHUD *textHUD;
     NSString *currentTitle;
-    NSInteger *currentPage;
+    NSInteger currentPage;
     ZXYDownImageHelper *downImage;
     NSNotificationCenter *datatnc;
+    ZXYProvider *dataProvider;
+    NSMutableDictionary *lunboDic;
 }
 @property(nonatomic,strong)IBOutlet UITableView *currentTable;
 @property(nonatomic,strong)IBOutlet UILabel *everyDayPush;
@@ -37,10 +42,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // !!!:为view注册通知
+    dataProvider = [ZXYProvider sharedInstance];
     datatnc = [NSNotificationCenter defaultCenter];
     [datatnc addObserver:self selector:@selector(reloadDataMethod) name:@"ency_image" object:nil];
-    
-    
+    currentPage = 0;
+    lunboDic = [[NSMutableDictionary alloc] init];
     //实例化初始变量
     [self initObject];
     //实例化导航栏
@@ -56,15 +62,33 @@
     
     if([ZXYNETHelper isNETConnect])
     {
-        [self performSelectorInBackground:@selector(downLoadData:) withObject:nil];
+        [self performSelectorInBackground:@selector(downLoadType) withObject:nil];
+        [self performSelectorInBackground:@selector(downLunBo) withObject:nil];
     }
     else
     {
         UIAlertView *noConnect = [[UIAlertView alloc] initWithTitle:@"" message:@"没有连接网络" delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
         [noConnect show];
     }
-    currentPage = 0;
+    currentPage = 1;
     
+}
+
+- (void)downLunBo
+{
+    NSString *urlString = [NSString stringWithFormat:@"%@%@",ZXY_HOSTURL,ZXY_ENCYLB];
+    NSURL *url = [NSURL URLWithString:urlString];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    AFHTTPRequestOperation *manager = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    [manager setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"%@",[operation responseString]);
+        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:[operation responseData] options:0 error:nil];
+        
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+    }];
+    [manager start];
 }
 
 // !!!:所有的实例化方法
@@ -75,6 +99,10 @@
     jsonDic = [[NSDictionary alloc] init];
     allDataForShow = [[NSMutableArray alloc] init];
     mbProgress = [[MBProgressHUD alloc] initWithView:self.view];
+    textHUD    = [[MBProgressHUD alloc] initWithView:self.view];
+    textHUD.mode = MBProgressHUDModeText;
+    textHUD.labelText = @"已经是最后一页了";
+    [self.view addSubview:textHUD];
     [self.view addSubview:mbProgress];
     downImage = [[ZXYDownImageHelper alloc] initWithDirect:@"ency_image" andNotiKey:@"ency_image"];
 }
@@ -117,14 +145,57 @@
         [blockSelf.currentTable setHeaderPullToRefreshText:@"刷新信息"];
         [blockSelf.currentTable setHeaderRefreshingText:@"正在刷新"];
         [blockSelf.currentTable setHeaderReleaseToRefreshText:@"刷新完成"];
-        [blockSelf performSelectorInBackground:@selector(downLoadData:) withObject:nil];
+        [blockSelf performSelector:@selector(refreshData) withObject:nil];
+    }];
+    [self.currentTable addFooterWithCallback:^{
+        [blockSelf.currentTable setFooterPullToRefreshText:@"加载数据"];
+        [blockSelf.currentTable setFooterRefreshingText:@"正在加载数据"];
+        [blockSelf.currentTable setFooterReleaseToRefreshText:@"加载数据"];
+        [blockSelf performSelector:@selector(addLoadData:) withObject:nil ];
     }];
 }
 // !!!:实例化方法结束
 
-- (void)downLoadData:(NSString *)typeID
+- (void)addLoadData:(NSString *)param
+{
+    currentPage += 1;
+    [self downLoadData:nil];
+}
+
+- (void)refreshData
+{
+    currentPage = 1;
+    [allDataForShow removeAllObjects];
+    [self downLoadData:nil];
+}
+
+- (void)downLoadType
 {
     [mbProgress show:YES];
+    NSString *urlString = [NSString stringWithFormat:@"%@%@",ZXY_HOSTURL,ZXY_GETTYPE];
+    NSURL *url = [NSURL URLWithString:urlString];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    AFHTTPRequestOperation *manager = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    [manager setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"%@",[operation responseString]);
+        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:[operation responseData] options:0 error:nil];
+        if([dic objectForKey:@"msg"]!=[NSNull null])
+        {
+            [dataProvider saveDataToCoreDataArr:[dic objectForKey:@"msg"] withDBNam:@"PeyStyleForEncy" withDeletePredict:@"cate_name"];
+        }
+        [self downLoadData:nil];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+    }];
+    [manager start];
+}
+
+- (void)downLoadData:(NSString *)typeID
+{
+    if([mbProgress isHidden])
+    {
+        [mbProgress show:YES];
+    }
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSMutableDictionary *parameters = [NSMutableDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:1001],@"petStyleID", nil];
     if(typeID != nil)
@@ -133,23 +204,32 @@
         [parameters setObject:@"yes" forKey:@"isSubPet"];
     }
     [manager setResponseSerializer:[AFHTTPResponseSerializer serializer]];
-    NSString *urlString = [NSString stringWithFormat:@"%@%@",ZXY_HOSTURL,ZXY_GETTODYPUSH];
+    NSString *urlString = [NSString stringWithFormat:@"%@%@?p=%ld",ZXY_HOSTURL,ZXY_GETTODYPUSH,(long)currentPage];
     [manager POST:urlString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         //[allDataForShow removeAllObjects];
         NSLog(@"operation is %@",[operation responseString]);
         NSData *jsonData = [operation responseData];
         NSDictionary *allDic = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:nil];
         jsonDic = allDic;
-        NSArray *allArr = [allDic objectForKey:@"data"];
-        if(allArr)
+        if([allDic objectForKey:@"data"] == [NSNull null])
         {
-            for(int i =0;i<allArr.count;i++)
-            {
-                [allDataForShow addObject:allArr[i]];
-            }
+            [self performSelectorOnMainThread:@selector(isLastPage) withObject:nil waitUntilDone:YES];
         }
-        [self performSelectorOnMainThread:@selector(hideMB) withObject:nil waitUntilDone:YES];
-        [self performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:YES];
+        else
+        {
+            NSArray *allArr = [allDic objectForKey:@"data"];
+            if(allArr)
+            {
+                for(int i =0;i<allArr.count;i++)
+                {
+                    [allDataForShow addObject:allArr[i]];
+                }
+            }
+            
+            [self performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:YES];
+            [self performSelectorOnMainThread:@selector(hideMB) withObject:nil waitUntilDone:YES];
+        }
+        
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [self performSelectorOnMainThread:@selector(hideMB) withObject:nil waitUntilDone:YES];
@@ -158,39 +238,89 @@
 
 }
 
+- (void)isLastPage
+{
+    
+    currentPage -=1;
+    [mbProgress hide:YES];
+    [textHUD show:YES];
+    [self performSelector:@selector(hideMB) withObject:nil afterDelay:3];
+    [self.currentTable footerEndRefreshing];
+}
+
 - (void)selectTypeIS:(NSString *)typeID
 {
     UIStoryboard *story = [UIStoryboard storyboardWithName:@"EncyMoreEncyListSB" bundle:nil];
-    EncyMoreEncyListViewController *moreVC = [story instantiateInitialViewController];
-    [moreVC hideSearchBtn];
+   
+    PeyStyleForEncy *currentPet;
+    
     NSString *titleString;
     NSInteger currentInt = typeID.integerValue;
     switch (currentInt) {
         case 101:
+        {
             titleString = @"大型犬";
+            NSArray *suchArr = [dataProvider readCoreDataFromDB:@"PeyStyleForEncy" withContent:@"大型犬" andKey:@"cate_name"];
+            if(suchArr.count)
+            {
+                currentPet = [suchArr objectAtIndex:0];
+            }
             break;
+        }
         case 102:
+        {
             titleString = @"中型犬";
+            NSArray *suchArr = [dataProvider readCoreDataFromDB:@"PeyStyleForEncy" withContent:@"中型犬" andKey:@"cate_name"];
+            if(suchArr.count)
+            {
+                currentPet = [suchArr objectAtIndex:0];
+            }
+
             break;
+        }
         case 103:
+        {
             titleString = @"小型犬";
+            
+            NSArray *suchArr = [dataProvider readCoreDataFromDB:@"PeyStyleForEncy" withContent:@"小型犬" andKey:@"cate_name"];
+            if(suchArr.count)
+            {
+                currentPet = [suchArr objectAtIndex:0];
+            }
+
             break;
+        }
         case 104:
+        {
+            
+            NSArray *suchArr = [dataProvider readCoreDataFromDB:@"PeyStyleForEncy" withContent:@"猫咪" andKey:@"cate_name"];
+            if(suchArr.count)
+            {
+                currentPet = [suchArr objectAtIndex:0];
+            }
+
             titleString = @"猫咪";
             break;
-            
+        }
         default:
+        {
             titleString = @"";
             break;
+        }
     }
+    EncyMoreEncyListViewController *moreVC = [story instantiateInitialViewController];
+    [moreVC hideSearchBtn];
     [moreVC setTitles:titleString];
+    [moreVC setPetID:currentPet.cate_id.intValue];
     [self.navigationController pushViewController:moreVC animated:YES];
 }
 
 - (void)hideMB
 {
     [mbProgress hide:YES];
+    [textHUD hide:YES];
     [self.currentTable headerEndRefreshing];
+    [self.currentTable footerEndRefreshing];
 }
 
 - (void)reloadData
@@ -276,7 +406,7 @@
         cell.readNum.text = [dataDic objectForKey:@"ency_read"];
         cell.titleLbl.text = [dataDic objectForKey:@"title"];
         cell.collectNum.text = [dataDic objectForKey:@"ency_collect"];
-        NSString *imageUrl = [dataDic objectForKey:@"image_path"];
+        NSString *imageUrl = [dataDic objectForKey:@"head_image"];
         NSString *filePath = [fileOperation pathTempFile:@"ency_image" andURL:imageUrl];
         if(indexPath.row%2 == 0)
         {
@@ -336,6 +466,22 @@
     }
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSDictionary *dataDic = [allDataForShow objectAtIndex:indexPath.row];
+    NSString *petID = [dataDic objectForKey:@"ency_id"];
+    EncyDetailPetWeb *webView = [[EncyDetailPetWeb alloc] initWithPetID:petID.integerValue andType:NO];
+    if([ZXYNETHelper isNETConnect])
+    {
+        [self.navigationController pushViewController:webView animated:YES];
+    }
+    else
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"没有连接网络" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        [alert show];
+    }
+}
+
 - (void)reloadDataRow:(NSNotification *)noti
 {
     [self.currentTable reloadRowsAtIndexPaths:[NSArray arrayWithObjects:[noti.userInfo objectForKey:@"index"], nil] withRowAnimation:UITableViewRowAnimationNone];
@@ -362,4 +508,8 @@
     [datatnc removeObserver:self name:@"ency_image" object:nil];
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    NSLog(@"hello");
+}
 @end

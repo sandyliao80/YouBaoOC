@@ -14,6 +14,7 @@
 #import "EncySubCategoryCell.h"
 #import "ZXYDownLoadImage.h"
 #import "UIViewController+HideTabBar.h"
+#import "EncyDetailPetWeb.h"
 @interface EncySubCategoryVC ()<UITableViewDelegate,UITableViewDataSource>
 {
     NSMutableArray *allDataForShow;
@@ -57,6 +58,8 @@
     [super viewDidLoad];
     [self initMB];
     [self initNavi];
+    self.title =@"品种";
+    currentTable.backgroundColor = BLUEINSI;
     datatnc = [NSNotificationCenter defaultCenter];
     [datatnc addObserver:self selector:@selector(reloadData) name:_notiKey object:nil];
     if([ZXYNETHelper isNETConnect])
@@ -250,6 +253,11 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSLog(@"hello");
+    NSString *keyNow = [allKeys objectAtIndex:indexPath.section];
+    NSMutableArray *arr = [dataDic objectForKey:keyNow];
+    SubPetSyle *subPet = [arr objectAtIndex:indexPath.row];
+    EncyDetailPetWeb *detailWeb = [[EncyDetailPetWeb alloc] initWithPetID:subPet.cat_id.intValue andType:YES];
+    [self.navigationController pushViewController:detailWeb animated:YES];
 }
 
 - (void)dealloc

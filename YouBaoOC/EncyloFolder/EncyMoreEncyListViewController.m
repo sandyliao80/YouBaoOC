@@ -10,47 +10,66 @@
 #import "UIViewController+HideTabBar.h"
 #import "EncyHomePageTableViewCell.h"
 #import "EN_PreDefine.h"
+#import "ZXYNETHelper.h"
 #import "MJRefresh.h"
 #import <MBProgressHUD/MBProgressHUD.h>
 #import "EncySearchVC.h"
+#import <AFNetworking/AFNetworking.h>
+#import <SDWebImage/UIImageView+WebCache.h>
+#import "EncyDetailPetWeb.h"
 typedef enum
 {
-    Ency_JianKang = 0,
-    Ency_YangHu   = 1,
-    Ency_XunDao   = 2,
+    Ency_JianKang = 1,
+    Ency_YangHu   = 2,
+    Ency_XunDao   = 3,
 }EncyTypeChoose;
 
 @interface EncyMoreEncyListViewController ()<UITableViewDataSource,UITableViewDelegate>
 {
-    NSString *_petID;
+    NSInteger _petID;
     IBOutletCollection(UIButton) NSArray *allBtns;
-    
+    NSInteger currentPage;
     IBOutletCollection(UIImageView) NSArray *allImages;
     __weak IBOutlet UITableView *currentTable;
     MBProgressHUD *progress;
+    MBProgressHUD *textHUD;
     NSString *currentTitle;
     BOOL isSearchHidden;
+    NSMutableArray *allDataForShow;
+    EncyTypeChoose chooseType;
+    BOOL isAdd;
 }
 - (IBAction)selectOneBtn:(id)sender;
 @end
 
 @implementation EncyMoreEncyListViewController
--(id)initWithPetId:(NSString *)petID
+-(id)initWithPetId:(NSInteger )petID
 {
     if(self = [super initWithNibName:@"EncyMoreEncyListViewController" bundle:nil])
     {
         _petID = petID;
+        
     }
     return self;
 }
 
+- (void)setPetID:(NSInteger)petID
+{
+    _petID = petID;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    isAdd = NO;
+    chooseType = 2;
+    currentPage = 1;
+    allDataForShow = [[NSMutableArray alloc] init];
     [self initNavi];
     [self initImageSlide];
     [self hideTabBar];
     [self initScrollHeader];
     [self initMBHUD];
+    currentTable.backgroundColor = BLUEINSI;
     if(currentTitle)
     {
         self.title = currentTitle;
@@ -60,6 +79,107 @@ typedef enum
     {
         [self setNaviRightItem:@"en_search"];
     }
+    
+    if([ZXYNETHelper isNETConnect])
+    {
+        [progress show:YES];
+        [self performSelectorInBackground: @selector(downLoadMoreData:) withObject:[NSNumber numberWithInt:chooseType] ];
+    }
+    else
+    {
+        textHUD.labelText = @"没有连接网络";
+        [self performSelector:@selector(hideTextHUD) withObject:nil afterDelay:2];
+    }
+}
+
+- (void)refreshData:(NSString *)param
+{
+    [allDataForShow removeAllObjects];
+    currentPage = 1;
+    [self downLoadMoreData:[NSNumber numberWithInt:chooseType]];
+}
+
+- (void)addLoadData:(NSString *)param
+{
+    isAdd = YES;
+    currentPage += 1;
+    [self downLoadMoreData:[NSNumber numberWithInt:chooseType]];
+}
+
+- (void)hideTextHUD
+{
+    [textHUD hide:YES];
+}
+
+- (void)downLoadMoreData:(NSNumber *)typeIDNum
+{
+    NSInteger typeID = [typeIDNum integerValue];
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager setResponseSerializer:[AFHTTPResponseSerializer serializer]];
+    if(!_petID)
+    {
+        _petID=0;
+    }
+    NSString *urlString = [NSString stringWithFormat:@"%@%@?cate_id=%ld&type_id=%ld&p=%ld",ZXY_HOSTURL,ZXY_GETMORE,_petID,typeID,currentPage];
+    [manager POST:urlString parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        //[allDataForShow removeAllObjects];
+        NSLog(@"operation is %@",[operation responseString]);
+        NSData *jsonData = [operation responseData];
+        NSDictionary *allDic = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:nil];
+        if([allDic objectForKey:@"data"] == [NSNull null])
+        {
+            if(isAdd)
+            {
+                [self performSelectorOnMainThread:@selector(isLastPage) withObject:nil waitUntilDone:YES];
+            }
+            else
+            {
+                [self performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:YES];
+                [self performSelectorOnMainThread:@selector(hideMB) withObject:nil waitUntilDone:YES];
+            }
+        }
+        else
+        {
+            NSArray *allArr = [allDic objectForKey:@"data"];
+            if(allArr)
+            {
+                for(int i =0;i<allArr.count;i++)
+                {
+                    [allDataForShow addObject:allArr[i]];
+                }
+            }
+            
+            [self performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:YES];
+            [self performSelectorOnMainThread:@selector(hideMB) withObject:nil waitUntilDone:YES];
+        }
+        
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [self performSelectorOnMainThread:@selector(hideMB) withObject:nil waitUntilDone:YES];
+        NSLog(@"operation is %@",error);
+    }];
+
+}
+
+- (void)isLastPage
+{
+    isAdd = NO;
+    [textHUD setLabelText:@"已经是最后一页了"];
+    [textHUD show:YES];
+    [self performSelector:@selector(hideTextHUD) withObject:nil afterDelay:2];
+    [self hideMB];
+}
+
+- (void)reloadData
+{
+    [currentTable reloadData];
+}
+
+- (void)hideMB
+{
+    [progress hide:YES];
+    [currentTable footerEndRefreshing];
+    [currentTable headerEndRefreshing];
 }
 
 - (void)setTitles:(NSString *)title
@@ -79,9 +199,12 @@ typedef enum
 
 - (void)initMBHUD
 {
+    textHUD = [[MBProgressHUD alloc] initWithView:self.view];
     progress = [[MBProgressHUD alloc] initWithView:self.view];
+    textHUD.mode = MBProgressHUDModeText;
+    textHUD.labelText = @"已经是最后一页了";
+    [self.view addSubview:textHUD];
     [self.view addSubview:progress];
-    [progress setMinShowTime:3];
 }
 
 - (void)initScrollHeader
@@ -92,7 +215,7 @@ typedef enum
         [currentTable setHeaderPullToRefreshText:@"刷新信息"];
         [currentTable setHeaderRefreshingText:@"正在刷新"];
         [currentTable setHeaderReleaseToRefreshText:@"刷新完成"];
-        [blockSelf performSelector:@selector(downLoadData:) withObject:nil];
+        [blockSelf performSelector:@selector(refreshData:) withObject:nil];
     }];
     
     [currentTable addFooterWithCallback:^{
@@ -103,22 +226,6 @@ typedef enum
     }];
 }
 
-- (void)downLoadData:(NSString *)param
-{
-    [self performSelector:@selector(finishLoad) withObject:nil afterDelay:3];
-}
-
-- (void)addLoadData:(NSString *)param
-{
-    [self performSelector:@selector(finishLoad) withObject:nil afterDelay:3];
-}
-
-- (void)finishLoad
-{
-    
-    [self performSelectorOnMainThread:@selector(mainFinish) withObject:nil waitUntilDone:YES];
-    NSLog(@"haha");
-}
 
 - (void)mainFinish
 {
@@ -161,7 +268,7 @@ typedef enum
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 20;
+    return allDataForShow.count;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -177,6 +284,7 @@ typedef enum
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     EncyHomePageTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellIdentifier"];
+    NSDictionary *dataDic = [allDataForShow objectAtIndex:indexPath.row];
     if(cell == nil)
     {
         NSArray *nibs = [[NSBundle mainBundle] loadNibNamed:@"EncyHomePageTableViewCell" owner:self options:nil];
@@ -196,12 +304,64 @@ typedef enum
     {
         cell.backgroundColor = ORIGINSI;
     }
+    cell.readNum.text = [dataDic objectForKey:@"ency_read"];
+    cell.titleLbl.text = [dataDic objectForKey:@"title"];
+    cell.collectNum.text = [dataDic objectForKey:@"ency_collect"];
+    if([dataDic objectForKey:@"keyword"]==[NSNull null])
+    {
+        cell.firstKey.text  = @"";
+    }
+    else
+    {
+        cell.firstKey.text  = [dataDic objectForKey:@"keyword"];
+    }
+    
+    NSURL *imageURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@",ENCY_HOSTURL,[dataDic objectForKey:@"head_img"] ]];
+    [cell.titleImage sd_setImageWithURL:imageURL placeholderImage:[UIImage imageNamed:@"static-00"]];
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSDictionary *dataDic = [allDataForShow objectAtIndex:indexPath.row];
+    NSString *petID = [dataDic objectForKey:@"ency_id"];
+    EncyDetailPetWeb *webView = [[EncyDetailPetWeb alloc] initWithPetID:petID.integerValue andType:NO];
+    if([ZXYNETHelper isNETConnect])
+    {
+        [self.navigationController pushViewController:webView animated:YES];
+    }
+    else
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"没有连接网络" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        [alert show];
+
+    }
 }
 
 - (IBAction)selectOneBtn:(id)sender
 {
+    if(![ZXYNETHelper isNETConnect])
+    {
+        return;
+    }
+    currentPage = 1;
+    [allDataForShow removeAllObjects];
+    [progress show:YES];
     UIButton *selectedBtn = (UIButton *)sender;
+    switch (selectedBtn.tag) {
+        case 1:
+            chooseType=1;
+            break;
+        case 2:
+            chooseType=2;
+            break;
+        case 3:
+            chooseType = 3;
+            break;
+        default:
+            chooseType = 2;
+            break;
+    }
     for(UIButton *oneBtn in allBtns)
     {
         if(oneBtn == selectedBtn)
@@ -221,6 +381,7 @@ typedef enum
             currentView.backgroundColor = [UIColor colorWithRed:53.0/255.0 green:135.0/255.0 blue:175.0/255.0 alpha:1];
         }
     }
+    [self performSelectorInBackground:@selector(downLoadMoreData:) withObject:[NSNumber numberWithInt:chooseType]];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

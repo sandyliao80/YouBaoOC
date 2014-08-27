@@ -48,6 +48,7 @@
     [super viewDidLoad];
     [self initNavi];
     [self initMB];
+    self.title = @"科目";
     datatnc = [NSNotificationCenter defaultCenter];
     [datatnc addObserver:self selector:@selector(reloadDataRow:) name:_notiKey object:nil];
 

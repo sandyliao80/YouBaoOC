@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6208.6" systemVersion="13E28" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6220.8" systemVersion="13E28" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="PetStyle" representedClassName="PetStyle" syncable="YES">
         <attribute name="cat_id" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="f_id" optional="YES" attributeType="String" syncable="YES"/>
@@ -7,6 +7,10 @@
         <attribute name="head_imgS" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="spell" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="PeyStyleForEncy" representedClassName="PeyStyleForEncy" syncable="YES">
+        <attribute name="cate_id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="cate_name" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="Region" representedClassName="Region" syncable="YES">
         <attribute name="agency_id" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
@@ -27,5 +31,6 @@
         <element name="PetStyle" positionX="-63" positionY="18" width="128" height="135"/>
         <element name="Region" positionX="-63" positionY="-18" width="128" height="120"/>
         <element name="SubPetSyle" positionX="-54" positionY="54" width="128" height="133"/>
+        <element name="PeyStyleForEncy" positionX="-54" positionY="63" width="128" height="75"/>
     </elements>
 </model>

@@ -31,7 +31,7 @@
 
 - (void)drawRect:(CGRect)rect
 {
-    [self drowArcBethWithHeight:5];
+    //[self drowArcBethWithHeight:5];
     [super drawRect:rect];
     
 }
