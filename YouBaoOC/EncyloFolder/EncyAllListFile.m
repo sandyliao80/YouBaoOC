@@ -24,6 +24,7 @@
     MBProgressHUD *progress;
     MBProgressHUD *textHUD;
       __weak IBOutlet UITableView *currentTable;
+    BOOL isFirstDown;
 }
 @end
 
@@ -45,6 +46,7 @@
     [self initMBHUD];
     currentPage = 1;
     allDataForShow = [[NSMutableArray alloc] init];
+    isFirstDown = YES;
     [self downLoadMoreData];
     currentTable.backgroundColor = BLUEINSI;
     // Do any additional setup after loading the view from its nib.
@@ -218,6 +220,17 @@
     {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"没有连接网络" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
         [alert show];
+    }
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    if(!isFirstDown)
+    {
+        [allDataForShow removeAllObjects];
+        isFirstDown = NO;
+        [self performSelectorInBackground:@selector(downLoadMoreData) withObject:nil];
     }
 }
 @end

@@ -38,6 +38,7 @@ typedef enum
     NSMutableArray *allDataForShow;
     EncyTypeChoose chooseType;
     BOOL isAdd;
+    BOOL isFirstDown;
 }
 - (IBAction)selectOneBtn:(id)sender;
 @end
@@ -64,6 +65,7 @@ typedef enum
     chooseType = 2;
     currentPage = 1;
     allDataForShow = [[NSMutableArray alloc] init];
+    isFirstDown = YES;
     [self initNavi];
     [self initImageSlide];
     [self hideTabBar];
@@ -335,6 +337,17 @@ typedef enum
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"没有连接网络" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
         [alert show];
 
+    }
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    if(!isFirstDown)
+    {
+        [allDataForShow removeAllObjects];
+        [self performSelectorInBackground:@selector(downLoadMoreData:) withObject:nil];
+        isFirstDown = NO;
     }
 }
 

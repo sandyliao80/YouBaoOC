@@ -31,6 +31,7 @@
     NSNotificationCenter *datatnc;
     ZXYProvider *dataProvider;
     NSMutableDictionary *lunboDic;
+    BOOL isFirstDown;
 }
 @property(nonatomic,strong)IBOutlet UITableView *currentTable;
 @property(nonatomic,strong)IBOutlet UILabel *everyDayPush;
@@ -42,6 +43,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // !!!:为view注册通知
+    isFirstDown = YES;
     dataProvider = [ZXYProvider sharedInstance];
     datatnc = [NSNotificationCenter defaultCenter];
     [datatnc addObserver:self selector:@selector(reloadDataMethod) name:@"ency_image" object:nil];
@@ -72,6 +74,20 @@
     }
     currentPage = 1;
     
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    if(!isFirstDown)
+    {
+        [allDataForShow removeAllObjects];
+        [self refreshData];
+       
+        
+    }
+    isFirstDown = NO;
+    [downImage startDownLoadImage];
 }
 
 - (void)downLunBo
@@ -488,11 +504,7 @@
 }
 
 
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-    [downImage startDownLoadImage];
-}
+
 
 
 - (void)moreInfoBtnClick
