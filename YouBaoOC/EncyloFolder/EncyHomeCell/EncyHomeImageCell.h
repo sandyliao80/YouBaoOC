@@ -7,8 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+@protocol EncyHomeImageCellDelegate<NSObject>
+- (void)selectADImageWithEncy_ID:(NSString *)ency_id;
+@end
+
 @class ZXYScrollView;
 @interface EncyHomeImageCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet ZXYScrollView *zxyScroll;
-
+@property (nonatomic,strong)id<EncyHomeImageCellDelegate>delegate;
 @end

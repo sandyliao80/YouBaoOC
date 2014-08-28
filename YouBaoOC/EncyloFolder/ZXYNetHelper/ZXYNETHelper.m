@@ -69,7 +69,7 @@ static NSOperationQueue *queue;
 // !!!:isNETConnect
 +(BOOL)isNETConnect
 {
-    Reachability *r = [Reachability reachabilityWithHostname:@"www.baidu.com"];
+    Reachability *r = [Reachability reachabilityWithHostname:@"http://115.29.46.22/pet/index.php/Api/"];
     BOOL flag;
     switch ([r currentReachabilityStatus])
     {

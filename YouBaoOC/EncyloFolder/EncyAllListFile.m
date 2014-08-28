@@ -25,6 +25,7 @@
     MBProgressHUD *textHUD;
       __weak IBOutlet UITableView *currentTable;
     BOOL isFirstDown;
+    
 }
 @end
 
@@ -145,7 +146,10 @@
 - (void)isLastPage
 {
     [textHUD setLabelText:@"已经是最后一页了"];
-    [textHUD show:YES];
+    if(currentPage != 1)
+    {
+        [textHUD show:YES];
+    }
     [self performSelector:@selector(hideTextHUD) withObject:nil afterDelay:2];
     [self hideMB];
 }
@@ -229,8 +233,10 @@
     if(!isFirstDown)
     {
         [allDataForShow removeAllObjects];
-        isFirstDown = NO;
-        [self performSelectorInBackground:@selector(downLoadMoreData) withObject:nil];
+        [self performSelectorInBackground: @selector(downLoadMoreData) withObject:nil ];
+        currentPage=1;
+        
     }
+    isFirstDown = NO;
 }
 @end

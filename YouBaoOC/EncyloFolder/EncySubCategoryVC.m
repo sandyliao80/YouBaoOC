@@ -15,6 +15,7 @@
 #import "ZXYDownLoadImage.h"
 #import "UIViewController+HideTabBar.h"
 #import "EncyDetailPetWeb.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 @interface EncySubCategoryVC ()<UITableViewDelegate,UITableViewDataSource>
 {
     NSMutableArray *allDataForShow;
@@ -157,19 +158,8 @@
             }
         }
     }
-    NSString *lastURL = [subPet.head_img componentsSeparatedByString:@"/"].lastObject;
-    NSString *filePath = [fileOperation pathTempFile:@"petStyle" andURL:lastURL];
-    if([fileOperation fileExistsAtPath:filePath])
-    {
-        NSData *data = [NSData dataWithContentsOfFile:filePath];
-        cell.head_image.image = [UIImage imageWithData:data];
-    }
-    else
-    {
-        NSString *urls = [NSString stringWithFormat:@"%@%@",ENCY_HOSTURL,subPet.head_img];
-        [downLoad addImageURL:urls];
-    }
-
+    NSString *urls = [NSString stringWithFormat:@"%@%@",ENCY_HOSTURL,subPet.head_img];
+    [cell.head_image sd_setImageWithURL:[NSURL URLWithString:urls] placeholderImage:[UIImage imageNamed:@"static-01"]];
     cell.petNameLbl.text = subPet.name;
     return cell;
 }
