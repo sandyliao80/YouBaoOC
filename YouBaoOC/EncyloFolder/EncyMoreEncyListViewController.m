@@ -302,10 +302,6 @@ typedef enum
         EncyCategoryVC *categoryVC = [[EncyCategoryVC alloc] initWithNibName:@"EncyCategoryVC" bundle:nil];
         [self.navigationController pushViewController:categoryVC animated:YES];
     }
-    else
-    {
-        [self performSegueWithIdentifier:@"EN_moreToSearch" sender:nil];
-    }
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
