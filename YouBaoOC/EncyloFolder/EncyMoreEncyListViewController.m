@@ -18,6 +18,7 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "EncyDetailPetWeb.h"
 #import "EncyCategoryVC.h"
+
 typedef enum
 {
     Ency_JianKang = 1,
@@ -109,7 +110,7 @@ typedef enum
 
 - (void)setRightItemAction
 {
-    [self.navigationController performSegueWithIdentifier:@"EN_moreToSearch" sender:nil];
+    [self performSegueWithIdentifier:@"EN_moreToSearch" sender:self];
 }
 
 - (void)viewDidAppear:(BOOL)animated
