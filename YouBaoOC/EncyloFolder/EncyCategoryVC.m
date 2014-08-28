@@ -15,6 +15,7 @@
 #import "ZXYDownImageHelper.h"
 #import "UIViewController+HideTabBar.h"
 #import "EncyCategorySecondStyle.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 @interface EncyCategoryVC ()<UITableViewDelegate,UITableViewDataSource>
 {
     MBProgressHUD *progress;
@@ -159,19 +160,10 @@
     {
         cell.backgroundColor = ORIGINSI;
     }
-    NSString *lastURL = [currentPet.head_img componentsSeparatedByString:@"/"].lastObject;
-    NSString *filePath = [fileOperation pathTempFile:@"petStyle" andURL:lastURL];
-    if([fileOperation fileExistsAtPath:filePath])
-    {
-        NSData *data = [NSData dataWithContentsOfFile:filePath];
-        cell.petHeadImage.image = [UIImage imageWithData:data];
-    }
-    else
-    {
-        NSString *urls = [NSString stringWithFormat:@"%@%@",ENCY_HOSTURL,currentPet.head_img];
-       
-        [downLoad addImageURLWithIndexDic:[NSDictionary dictionaryWithObjectsAndKeys:urls,@"url",indexP,@"index", nil]];
-    }
+    
+    
+    NSString *urls = [NSString stringWithFormat:@"%@%@",ENCY_HOSTURL,currentPet.head_img];
+    [cell.petHeadImage sd_setImageWithURL:[NSURL URLWithString:urls] placeholderImage:[UIImage imageNamed:@"static-01"]];
     cell.petNameLbl.text = currentPet.name;
     return cell;
 }

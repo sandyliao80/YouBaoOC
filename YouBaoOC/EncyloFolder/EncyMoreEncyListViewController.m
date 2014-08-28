@@ -17,6 +17,8 @@
 #import <AFNetworking/AFNetworking.h>
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "EncyDetailPetWeb.h"
+#import "EncyCategoryVC.h"
+
 typedef enum
 {
     Ency_JianKang = 1,
@@ -68,7 +70,7 @@ typedef enum
     isFirstDown = YES;
     [self initNavi];
     [self initImageSlide];
-    [self hideTabBar];
+//    [self hideTabBar];
     [self initScrollHeader];
     [self initMBHUD];
     currentTable.backgroundColor = BLUEINSI;
@@ -81,6 +83,18 @@ typedef enum
     {
         [self setNaviRightItem:@"en_search"];
     }
+    else
+    {
+        UIButton *rightBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 50, 24)];
+        rightBtn.layer.cornerRadius=4;
+        rightBtn.layer.masksToBounds = YES;
+        [rightBtn setTitle:@"分类" forState:UIControlStateNormal];
+        [rightBtn setTitle:@"分类" forState:UIControlStateHighlighted];
+        [rightBtn addTarget:self action:@selector(rightItemAction) forControlEvents:UIControlEventTouchUpInside];
+        [rightBtn setBackgroundColor:[UIColor colorWithRed:0.3882 green:0.6235 blue:0.7569 alpha:1]];
+        UIBarButtonItem *rightBtnItem = [[UIBarButtonItem alloc] initWithCustomView:rightBtn];
+        [self.navigationItem setRightBarButtonItem:rightBtnItem];
+    }
     
     if([ZXYNETHelper isNETConnect])
     {
@@ -92,6 +106,24 @@ typedef enum
         textHUD.labelText = @"没有连接网络";
         [self performSelector:@selector(hideTextHUD) withObject:nil afterDelay:2];
     }
+}
+
+- (void)setRightItemAction
+{
+    [self performSegueWithIdentifier:@"EN_moreToSearch" sender:self];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    if(!isFirstDown)
+    {
+        [allDataForShow removeAllObjects];
+        [self performSelectorInBackground: @selector(downLoadMoreData:) withObject:[NSNumber numberWithInt:chooseType] ];
+        currentPage=1;
+        
+    }
+    isFirstDown = NO;
 }
 
 - (void)refreshData:(NSString *)param
@@ -263,9 +295,17 @@ typedef enum
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (void)setRightItemAction
+- (void)rightItemAction
 {
-    [self performSegueWithIdentifier:@"EN_moreToSearch" sender:nil];
+    if(isSearchHidden)
+    {
+        EncyCategoryVC *categoryVC = [[EncyCategoryVC alloc] initWithNibName:@"EncyCategoryVC" bundle:nil];
+        [self.navigationController pushViewController:categoryVC animated:YES];
+    }
+    else
+    {
+        [self performSegueWithIdentifier:@"EN_moreToSearch" sender:nil];
+    }
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -340,16 +380,6 @@ typedef enum
     }
 }
 
--(void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-    if(!isFirstDown)
-    {
-        [allDataForShow removeAllObjects];
-        [self performSelectorInBackground:@selector(downLoadMoreData:) withObject:nil];
-        isFirstDown = NO;
-    }
-}
 
 - (IBAction)selectOneBtn:(id)sender
 {

@@ -17,7 +17,8 @@
 #import "ZXYDownImageHelper.h"
 #import "PeyStyleForEncy.h"
 #import "EncyDetailPetWeb.h"
-@interface EncyHomePageViewController ()<UITableViewDelegate,UITableViewDataSource,EncyHomeTitleDelegate,EncyDogCatClassDelegate>
+#import <SDWebImage/UIImageView+WebCache.h>
+@interface EncyHomePageViewController ()<UITableViewDelegate,UITableViewDataSource,EncyHomeTitleDelegate,EncyDogCatClassDelegate,EncyHomeImageCellDelegate>
 {
     NSMutableArray *allDataForShow;
     NSDictionary   *jsonDic ;
@@ -27,7 +28,7 @@
     MBProgressHUD *textHUD;
     NSString *currentTitle;
     NSInteger currentPage;
-    ZXYDownImageHelper *downImage;
+    
     NSNotificationCenter *datatnc;
     ZXYProvider *dataProvider;
     NSMutableDictionary *lunboDic;
@@ -83,11 +84,10 @@
     {
         [allDataForShow removeAllObjects];
         [self refreshData];
-       
+        currentPage=1;
         
     }
     isFirstDown = NO;
-    [downImage startDownLoadImage];
 }
 
 - (void)downLunBo
@@ -120,7 +120,6 @@
     textHUD.labelText = @"已经是最后一页了";
     [self.view addSubview:textHUD];
     [self.view addSubview:mbProgress];
-    downImage = [[ZXYDownImageHelper alloc] initWithDirect:@"ency_image" andNotiKey:@"ency_image"];
 }
 
 - (void)initNaviBar
@@ -400,6 +399,7 @@
     if(indexPath.section==0)
     {
         EncyHomeImageCell *cell = [tableView dequeueReusableCellWithIdentifier:EN_HOMEIMAGECELLIDENTIFIER];
+        cell.delegate= self;
         return cell;
     }
     else if(indexPath.section == 2)
@@ -422,8 +422,7 @@
         cell.readNum.text = [dataDic objectForKey:@"ency_read"];
         cell.titleLbl.text = [dataDic objectForKey:@"title"];
         cell.collectNum.text = [dataDic objectForKey:@"ency_collect"];
-        NSString *imageUrl = [dataDic objectForKey:@"head_image"];
-        NSString *filePath = [fileOperation pathTempFile:@"ency_image" andURL:imageUrl];
+        NSString *imageUrl = [dataDic objectForKey:@"head_img"];
         if(indexPath.row%2 == 0)
         {
             cell.backgroundColor = BLUEINSI;
@@ -432,16 +431,9 @@
         {
             cell.backgroundColor = ORIGINSI;
         }
-        
-        if([fileOperation fileExistsAtPath:filePath])
-        {
-            cell.titleImage.image = [UIImage imageWithData:[NSData dataWithContentsOfFile:filePath]];
-        }
-        else
-        {
-            [downImage addImageURLWithIndexDic:[NSDictionary dictionaryWithObjectsAndKeys:imageUrl,@"url",indexPath,@"index", nil]];
-            cell.titleImage.image = [UIImage imageNamed:@"placePage_placeHod"];
-        }
+        NSString *stringURL = [NSString stringWithFormat:@"%@%@",ENCY_HOSTURL,imageUrl];
+        NSURL *urls = [NSURL URLWithString:stringURL];
+        [cell.titleImage sd_setImageWithURL:urls placeholderImage:[UIImage imageNamed:@"placePage_placeHod"]];
         return cell;
     }
 }
@@ -503,10 +495,6 @@
     [self.currentTable reloadRowsAtIndexPaths:[NSArray arrayWithObjects:[noti.userInfo objectForKey:@"index"], nil] withRowAnimation:UITableViewRowAnimationNone];
 }
 
-
-
-
-
 - (void)moreInfoBtnClick
 {
     UIStoryboard *story = [UIStoryboard storyboardWithName:@"EncyMoreEncyListSB" bundle:nil];
@@ -523,5 +511,20 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     NSLog(@"hello");
+}
+
+-(void)selectADImageWithEncy_ID:(NSString *)ency_id
+{
+    EncyDetailPetWeb *webView = [[EncyDetailPetWeb alloc] initWithPetID:ency_id.integerValue andType:NO];
+    if([ZXYNETHelper isNETConnect])
+    {
+        [self.navigationController pushViewController:webView animated:YES];
+    }
+    else
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"没有连接网络" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        [alert show];
+    }
+
 }
 @end

@@ -38,4 +38,5 @@
 @property (nonatomic,readonly) UIScrollView *scrollV;
 @property (nonatomic,readonly) UIPageControl *pageV;
 @property (nonatomic,readonly) NSMutableArray *viewS;
+- (void)reloadDataImage;
 @end

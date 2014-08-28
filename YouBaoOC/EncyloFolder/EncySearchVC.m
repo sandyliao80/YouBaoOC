@@ -13,6 +13,8 @@
 #import <MBProgressHUD/MBProgressHUD.h>
 #import "MJRefresh.h"
 #import "EncyHomePageTableViewCell.h"
+#import "EncyDetailPetWeb.h"
+#import "ZXYNETHelper.h"
 @interface EncySearchVC ()<UISearchBarDelegate,UITableViewDelegate,UITableViewDataSource>
 {
     UIToolbar *topBar;
@@ -21,7 +23,7 @@
     MBProgressHUD *progress;
     MBProgressHUD *textHUD;
     __weak IBOutlet UITableView *currentTable;
-    
+    BOOL isFirstDown;
 }
 
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
@@ -32,6 +34,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    isFirstDown = YES;
     [self initScrollHeader];
     [self initMBHUD];
     currentTable.backgroundColor = BLUEINSI;
@@ -52,6 +55,19 @@
     allDataForShow = [[NSMutableArray alloc] init];
     self.searchBar.delegate = self;
     // Do any additional setup after loading the view from its nib.
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    if(!isFirstDown)
+    {
+        [allDataForShow removeAllObjects];
+        [self performSelectorInBackground: @selector(downLoadMoreData:) withObject:self.searchBar.text];
+        currentPage=1;
+        
+    }
+    isFirstDown = NO;
 }
 
 - (void)initScrollHeader
@@ -244,6 +260,23 @@
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSDictionary *dataDic = [allDataForShow objectAtIndex:indexPath.row];
+    NSString *petID = [dataDic objectForKey:@"ency_id"];
+    EncyDetailPetWeb *webView = [[EncyDetailPetWeb alloc] initWithPetID:petID.integerValue andType:NO];
+    if([ZXYNETHelper isNETConnect])
+    {
+        UINavigationController *cotroller = self.navigationController;
+        [self.navigationController pushViewController:webView animated:YES];
+    }
+    else
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"没有连接网络" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        [alert show];
+    }
+
+}
 
 - (BOOL)prefersStatusBarHidden
 {

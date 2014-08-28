@@ -51,7 +51,7 @@
 
 - (void)setNaviRightItem:(NSString *)imageName
 {
-    UIButton *leftBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 45, 45)];
+    UIButton *leftBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
     [leftBtn setImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
     [leftBtn setImage:[UIImage imageNamed:imageName] forState:UIControlStateHighlighted];
     [leftBtn addTarget:self action:@selector(setRightItemAction) forControlEvents:UIControlEventTouchUpInside];

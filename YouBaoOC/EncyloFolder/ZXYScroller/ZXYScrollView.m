@@ -168,4 +168,10 @@
         [_scrollV addSubview:view];
     }
 }
+
+- (void)reloadDataImage
+{
+    [self setDataSource:self.dataSource];
+    [self setDelegate:self.delegate];
+}
 @end
