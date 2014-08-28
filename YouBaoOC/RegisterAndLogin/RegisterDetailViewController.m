@@ -231,6 +231,7 @@ typedef NS_ENUM(NSUInteger, RegisterDetailGender) {
         if (fetchedObjects == nil) {
             return 0;
         } else {
+            NSLog(@"fetched %ld",(long)fetchedObjects.count);
             self.pickerData0 = [NSArray arrayWithArray:fetchedObjects];
             return [self.pickerData0 count];
         }
