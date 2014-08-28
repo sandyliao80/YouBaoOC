@@ -267,6 +267,7 @@
     EncyDetailPetWeb *webView = [[EncyDetailPetWeb alloc] initWithPetID:petID.integerValue andType:NO];
     if([ZXYNETHelper isNETConnect])
     {
+        UINavigationController *cotroller = self.navigationController;
         [self.navigationController pushViewController:webView animated:YES];
     }
     else
