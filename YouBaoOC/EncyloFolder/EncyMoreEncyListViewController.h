@@ -9,7 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface EncyMoreEncyListViewController : UIViewController
--(id)initWithPetId:(NSString *)petID;
+-(id)initWithPetId:(NSInteger)petID;
 - (void)setTitles:(NSString *)title;
 - (void)hideSearchBtn;
+- (void)setPetID:(NSInteger)petID;
+
 @end

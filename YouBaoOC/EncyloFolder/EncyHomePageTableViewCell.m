@@ -32,8 +32,7 @@
     self.titleImage.layer.masksToBounds = YES;
     self.keyWork.textColor  = LANSECELLCOLOR;
     self.firstKey.textColor = LANSECELLCOLOR;
-    self.secondKey.textColor= LANSECELLCOLOR;
-    self.thirdKey.textColor = LANSECELLCOLOR;
+   
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

@@ -63,7 +63,7 @@
     [super viewDidLoad];
     [self initMB];
     [self initNavi];
-    
+    self.title =@"分类";
     datatnc = [NSNotificationCenter defaultCenter];
     [datatnc addObserver:self selector:@selector(reloadData) name:_notiKey object:nil];
     if([ZXYNETHelper isNETConnect])

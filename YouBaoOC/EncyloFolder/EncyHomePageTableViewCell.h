@@ -17,6 +17,5 @@
 @property(nonatomic,strong)IBOutlet UILabel *readNum;
 @property (weak, nonatomic) IBOutlet UILabel *keyWork;
 @property (weak, nonatomic) IBOutlet UILabel *firstKey;
-@property (weak, nonatomic) IBOutlet UILabel *secondKey;
-@property (weak, nonatomic) IBOutlet UILabel *thirdKey;
+
 @end
