@@ -119,6 +119,7 @@
 		8BAB3B0E1990ABEF00FD3BA0 /* Encyclope.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BAB3B0D1990ABEF00FD3BA0 /* Encyclope.storyboard */; };
 		8BC24F0C19A1C76C003C959F /* ZXYDownImageOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BC24F0B19A1C76C003C959F /* ZXYDownImageOperation.m */; };
 		8BC24F0F19A1C7C0003C959F /* ZXYDownImageHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BC24F0E19A1C7C0003C959F /* ZXYDownImageHelper.m */; };
+		8BD661DB19AF3CBD00C85428 /* EncySearchVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BD661DA19AF3CBD00C85428 /* EncySearchVC.xib */; };
 		8BED672319A3562F009C2B72 /* EncyMoreEncyListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BED672119A3562F009C2B72 /* EncyMoreEncyListViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -353,6 +354,7 @@
 		8BC24F0B19A1C76C003C959F /* ZXYDownImageOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZXYDownImageOperation.m; sourceTree = "<group>"; };
 		8BC24F0D19A1C7C0003C959F /* ZXYDownImageHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZXYDownImageHelper.h; sourceTree = "<group>"; };
 		8BC24F0E19A1C7C0003C959F /* ZXYDownImageHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZXYDownImageHelper.m; sourceTree = "<group>"; };
+		8BD661DA19AF3CBD00C85428 /* EncySearchVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EncySearchVC.xib; sourceTree = "<group>"; };
 		8BED672019A3562F009C2B72 /* EncyMoreEncyListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EncyMoreEncyListViewController.h; sourceTree = "<group>"; };
 		8BED672119A3562F009C2B72 /* EncyMoreEncyListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EncyMoreEncyListViewController.m; sourceTree = "<group>"; };
 		CEF990BC1DD24D8D89234D90 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -699,6 +701,7 @@
 				8BED672119A3562F009C2B72 /* EncyMoreEncyListViewController.m */,
 				8B78476E19AC4C9300592C7C /* EncySearchVC.h */,
 				8B78476F19AC4C9300592C7C /* EncySearchVC.m */,
+				8BD661DA19AF3CBD00C85428 /* EncySearchVC.xib */,
 				8BA39D2119ADD61500C9FCDD /* EncyDetailPetWeb.h */,
 				8BA39D2219ADD61500C9FCDD /* EncyDetailPetWeb.m */,
 				8BA39D2319ADD61500C9FCDD /* EncyDetailPetWeb.xib */,
@@ -921,6 +924,7 @@
 				8B6AA11E19936C2100BF017C /* EncySubCategoryCell.xib in Resources */,
 				8B78476D19AC26A500592C7C /* EncyMoreEncyListSB.storyboard in Resources */,
 				282A441D19AF06AF0047A224 /* PetCoreDataPreloader.sqlite in Resources */,
+				8BD661DB19AF3CBD00C85428 /* EncySearchVC.xib in Resources */,
 				8B73491319AC134200D6E31F /* EncyHomePageTableViewCell.xib in Resources */,
 				2811119A1979183D000A72D7 /* Images.xcassets in Resources */,
 				8B6AA11819936AD700BF017C /* EncySubCategoryVC.xib in Resources */,
