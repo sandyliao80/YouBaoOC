@@ -95,6 +95,12 @@
 		8B129DAC19A591D100554F3C /* UIViewController+HideTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B129DAB19A591D100554F3C /* UIViewController+HideTabBar.m */; };
 		8B1911E619A2EBEE0070CD7E /* ZXYScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B1911E519A2EBEE0070CD7E /* ZXYScrollView.m */; };
 		8B1911E919A31AA30070CD7E /* EncyDogCatCategoryCellTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B1911E819A31AA30070CD7E /* EncyDogCatCategoryCellTable.m */; };
+		8B2E91B019B0BE7F0086D8EB /* EncyMoreInfoForTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B2E91AE19B0BE7F0086D8EB /* EncyMoreInfoForTypeViewController.m */; };
+		8B2E91B119B0BE7F0086D8EB /* EncyMoreInfoForTypeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B2E91AF19B0BE7F0086D8EB /* EncyMoreInfoForTypeViewController.xib */; };
+		8B2E91B619B0BF1F0086D8EB /* EncyTouXiangTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B2E91B419B0BF1F0086D8EB /* EncyTouXiangTableViewCell.m */; };
+		8B2E91B719B0BF1F0086D8EB /* EncyTouXiangTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B2E91B519B0BF1F0086D8EB /* EncyTouXiangTableViewCell.xib */; };
+		8B2E91BB19B0BF5E0086D8EB /* EncyTabThreeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B2E91B919B0BF5E0086D8EB /* EncyTabThreeCell.m */; };
+		8B2E91BC19B0BF5E0086D8EB /* EncyTabThreeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B2E91BA19B0BF5E0086D8EB /* EncyTabThreeCell.xib */; };
 		8B6AA0FE1993397E00BF017C /* EncyCategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B6AA0FD1993397E00BF017C /* EncyCategoryCell.m */; };
 		8B6AA10019933AF600BF017C /* EncyCategoryVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B6AA0FF19933AF600BF017C /* EncyCategoryVC.xib */; };
 		8B6AA10219933C1400BF017C /* EncyCategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B6AA10119933C1400BF017C /* EncyCategoryCell.xib */; };
@@ -315,6 +321,15 @@
 		8B1911E519A2EBEE0070CD7E /* ZXYScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZXYScrollView.m; sourceTree = "<group>"; };
 		8B1911E719A31AA30070CD7E /* EncyDogCatCategoryCellTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EncyDogCatCategoryCellTable.h; sourceTree = "<group>"; };
 		8B1911E819A31AA30070CD7E /* EncyDogCatCategoryCellTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EncyDogCatCategoryCellTable.m; sourceTree = "<group>"; };
+		8B2E91AD19B0BE7F0086D8EB /* EncyMoreInfoForTypeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EncyMoreInfoForTypeViewController.h; sourceTree = "<group>"; };
+		8B2E91AE19B0BE7F0086D8EB /* EncyMoreInfoForTypeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EncyMoreInfoForTypeViewController.m; sourceTree = "<group>"; };
+		8B2E91AF19B0BE7F0086D8EB /* EncyMoreInfoForTypeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EncyMoreInfoForTypeViewController.xib; sourceTree = "<group>"; };
+		8B2E91B319B0BF1F0086D8EB /* EncyTouXiangTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EncyTouXiangTableViewCell.h; sourceTree = "<group>"; };
+		8B2E91B419B0BF1F0086D8EB /* EncyTouXiangTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EncyTouXiangTableViewCell.m; sourceTree = "<group>"; };
+		8B2E91B519B0BF1F0086D8EB /* EncyTouXiangTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EncyTouXiangTableViewCell.xib; sourceTree = "<group>"; };
+		8B2E91B819B0BF5E0086D8EB /* EncyTabThreeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EncyTabThreeCell.h; sourceTree = "<group>"; };
+		8B2E91B919B0BF5E0086D8EB /* EncyTabThreeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EncyTabThreeCell.m; sourceTree = "<group>"; };
+		8B2E91BA19B0BF5E0086D8EB /* EncyTabThreeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EncyTabThreeCell.xib; sourceTree = "<group>"; };
 		8B6AA0FC1993397E00BF017C /* EncyCategoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EncyCategoryCell.h; sourceTree = "<group>"; };
 		8B6AA0FD1993397E00BF017C /* EncyCategoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EncyCategoryCell.m; sourceTree = "<group>"; };
 		8B6AA0FF19933AF600BF017C /* EncyCategoryVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EncyCategoryVC.xib; sourceTree = "<group>"; };
@@ -694,6 +709,10 @@
 				8B6AA11419936AD700BF017C /* EncySubCategoryVC.h */,
 				8B6AA11519936AD700BF017C /* EncySubCategoryVC.m */,
 				8B6AA11619936AD700BF017C /* EncySubCategoryVC.xib */,
+				8B2E91AD19B0BE7F0086D8EB /* EncyMoreInfoForTypeViewController.h */,
+				8B2E91AE19B0BE7F0086D8EB /* EncyMoreInfoForTypeViewController.m */,
+				8B2E91AF19B0BE7F0086D8EB /* EncyMoreInfoForTypeViewController.xib */,
+				8B2E91B219B0BEFE0086D8EB /* encymoreinfo */,
 				8BA39D2619ADDEDF00C9FCDD /* EncyAllListFile.h */,
 				8BA39D2719ADDEDF00C9FCDD /* EncyAllListFile.m */,
 				8BA39D2819ADDEDF00C9FCDD /* EncyAllListFile.xib */,
@@ -778,6 +797,19 @@
 				8B1911E519A2EBEE0070CD7E /* ZXYScrollView.m */,
 			);
 			path = ZXYScroller;
+			sourceTree = "<group>";
+		};
+		8B2E91B219B0BEFE0086D8EB /* encymoreinfo */ = {
+			isa = PBXGroup;
+			children = (
+				8B2E91B319B0BF1F0086D8EB /* EncyTouXiangTableViewCell.h */,
+				8B2E91B419B0BF1F0086D8EB /* EncyTouXiangTableViewCell.m */,
+				8B2E91B519B0BF1F0086D8EB /* EncyTouXiangTableViewCell.xib */,
+				8B2E91B819B0BF5E0086D8EB /* EncyTabThreeCell.h */,
+				8B2E91B919B0BF5E0086D8EB /* EncyTabThreeCell.m */,
+				8B2E91BA19B0BF5E0086D8EB /* EncyTabThreeCell.xib */,
+			);
+			path = encymoreinfo;
 			sourceTree = "<group>";
 		};
 		8B6AA0FB1993397E00BF017C /* ENcyCategoryCell */ = {
@@ -916,6 +948,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				281111981979183D000A72D7 /* Main.storyboard in Resources */,
+				8B2E91B119B0BE7F0086D8EB /* EncyMoreInfoForTypeViewController.xib in Resources */,
 				28A4FDC119A7438E00C3CD85 /* ModifyLocation.storyboard in Resources */,
 				8BAB3B0E1990ABEF00FD3BA0 /* Encyclope.storyboard in Resources */,
 				8B6AA10019933AF600BF017C /* EncyCategoryVC.xib in Resources */,
@@ -925,6 +958,7 @@
 				8B78476D19AC26A500592C7C /* EncyMoreEncyListSB.storyboard in Resources */,
 				282A441D19AF06AF0047A224 /* PetCoreDataPreloader.sqlite in Resources */,
 				8BD661DB19AF3CBD00C85428 /* EncySearchVC.xib in Resources */,
+				8B2E91B719B0BF1F0086D8EB /* EncyTouXiangTableViewCell.xib in Resources */,
 				8B73491319AC134200D6E31F /* EncyHomePageTableViewCell.xib in Resources */,
 				2811119A1979183D000A72D7 /* Images.xcassets in Resources */,
 				8B6AA11819936AD700BF017C /* EncySubCategoryVC.xib in Resources */,
@@ -933,6 +967,7 @@
 				2827C79A1998D13D00C25F83 /* MJRefresh.bundle in Resources */,
 				8BA39D2519ADD61500C9FCDD /* EncyDetailPetWeb.xib in Resources */,
 				8B6AA10219933C1400BF017C /* EncyCategoryCell.xib in Resources */,
+				8B2E91BC19B0BF5E0086D8EB /* EncyTabThreeCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1006,6 +1041,7 @@
 				285D89BE198A2D31005DFBEB /* searchAllTypePetsBase.m in Sources */,
 				2832DC6C19812D87004BBAB5 /* LCYNetworking.m in Sources */,
 				280E7451199335100036DD0B /* ZXYDownCIDOperation.m in Sources */,
+				8B2E91B619B0BF1F0086D8EB /* EncyTouXiangTableViewCell.m in Sources */,
 				28CF40191994E17E0081D39A /* ProfileHomeHeaderCell.m in Sources */,
 				281111921979183C000A72D7 /* YouBaoOC.xcdatamodeld in Sources */,
 				287AFD56199863560035FF05 /* CellImageDownloadOperation.m in Sources */,
@@ -1017,6 +1053,7 @@
 				287DD73619A20E9B0080C268 /* MoePictureCell.m in Sources */,
 				28B0681F19AC91DA009D4A4D /* GetPetDetailBase.m in Sources */,
 				285D89B7198A2B3D005DFBEB /* FilterViewController.m in Sources */,
+				8B2E91BB19B0BF5E0086D8EB /* EncyTabThreeCell.m in Sources */,
 				280E7446199334D80036DD0B /* ZXYProvider.m in Sources */,
 				285D89B11989E1BB005DFBEB /* LCYGlobal.m in Sources */,
 				8B1911E919A31AA30070CD7E /* EncyDogCatCategoryCellTable.m in Sources */,
@@ -1069,6 +1106,7 @@
 				28C721E6199CA919007DBB3A /* PasswordForgetViewController.m in Sources */,
 				280E7453199335100036DD0B /* ZXYNETHelper.m in Sources */,
 				28A54A1419A4472F00AFDDED /* ProfileEditingViewController.m in Sources */,
+				8B2E91B019B0BE7F0086D8EB /* EncyMoreInfoForTypeViewController.m in Sources */,
 				2868EC9F198F99F500D8726E /* AddPetViewController.m in Sources */,
 				8BA39D2019ADBCC300C9FCDD /* PeyStyleForEncy.m in Sources */,
 				2889508D198B315500696A95 /* SearchDetailByIDBase.m in Sources */,
@@ -1199,7 +1237,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "YouBaoOC/YouBaoOC-Prefix.pch";
 				INFOPLIST_FILE = YouBaoOC/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -1220,7 +1258,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "YouBaoOC/YouBaoOC-Prefix.pch";
 				INFOPLIST_FILE = YouBaoOC/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
