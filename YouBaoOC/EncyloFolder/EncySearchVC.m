@@ -271,6 +271,7 @@
     if([ZXYNETHelper isNETConnect])
     {
          UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:webView];
+        webView.title = [dataDic objectForKey:@"title"];
         [self presentViewController:navi animated:YES completion:^{
             
         }];

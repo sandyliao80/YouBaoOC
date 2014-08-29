@@ -7,13 +7,12 @@
 //
 
 #import "EncyDetailPetWeb.h"
-#import <WebViewJavascriptBridge/WebViewJavascriptBridge.h>
 #import "EncyAllListFile.h"
 #import "UIViewController+HideTabBar.h"
-@interface EncyDetailPetWeb ()<UIWebViewDelegate>
+@interface EncyDetailPetWeb ()
 {
     NSInteger pet_id;
-    WebViewJavascriptBridge *bridge;
+    
     BOOL _isPet;
 }
 @property (weak, nonatomic) IBOutlet UIWebView *currentWeb;
@@ -38,37 +37,13 @@
     if(!_isPet)
     {
         urlStrings = [NSString stringWithFormat:@"%@%@%ld",ZXY_HOSTURL,ZXY_ENCYHTML,(long)pet_id];
+        [self setNaviLeftItem];
     }
     NSURL *url = [NSURL URLWithString:urlStrings];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     [self.currentWeb loadRequest:request];
-    [self setNaviLeftItem];
-    if(_isPet)
-    {
-        bridge = [WebViewJavascriptBridge bridgeForWebView:self.currentWeb webViewDelegate:self handler:^(id data, WVJBResponseCallback responseCallback) {
-            NSLog(@"init Ok");
-            
-        }];
-        
-        [bridge registerHandler:@"jiankang" handler:^(id data, WVJBResponseCallback responseCallback) {
-            NSLog(@"jiankang");
-            EncyAllListFile *allFile = [[EncyAllListFile alloc] initPetID:[NSString stringWithFormat:@"%ld",(long)pet_id] andTypeID:@"1"];
-            [self.navigationController pushViewController:allFile animated:YES];
-        }];
-        
-        [bridge registerHandler:@"yanghu" handler:^(id data, WVJBResponseCallback responseCallback) {
-            NSLog(@"yanghu");
-            EncyAllListFile *allFile = [[EncyAllListFile alloc] initPetID:[NSString stringWithFormat:@"%ld",(long)pet_id] andTypeID:@"2"];
-            [self.navigationController pushViewController:allFile animated:YES];
-        }];
-        
-        [bridge registerHandler:@"xundao" handler:^(id data, WVJBResponseCallback responseCallback) {
-            NSLog(@"xundao");
-            EncyAllListFile *allFile = [[EncyAllListFile alloc] initPetID:[NSString stringWithFormat:@"%ld",(long)pet_id] andTypeID:@"3"];
-            [self.navigationController pushViewController:allFile animated:YES];
-        }];
-    }
-    // Do any additional setup after loading the view from its nib.
+    
+
 }
 
 - (void)didReceiveMemoryWarning {
