@@ -54,6 +54,7 @@
     }
     allDataForShow = [[NSMutableArray alloc] init];
     self.searchBar.delegate = self;
+   
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -62,6 +63,7 @@
     [super viewDidAppear:animated];
     if(!isFirstDown)
     {
+        [progress show:YES];
         [allDataForShow removeAllObjects];
         [self performSelectorInBackground: @selector(downLoadMoreData:) withObject:self.searchBar.text];
         currentPage=1;
@@ -144,6 +146,7 @@
         NSDictionary *allDic = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:nil];
         if([allDic objectForKey:@"data"] == [NSNull null])
         {
+            
             [self performSelectorOnMainThread:@selector(isLastPage) withObject:nil waitUntilDone:YES];
         }
         else
@@ -267,8 +270,11 @@
     EncyDetailPetWeb *webView = [[EncyDetailPetWeb alloc] initWithPetID:petID.integerValue andType:NO];
     if([ZXYNETHelper isNETConnect])
     {
-        UINavigationController *cotroller = self.navigationController;
-        [self.navigationController pushViewController:webView animated:YES];
+         UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:webView];
+        webView.title = [dataDic objectForKey:@"title"];
+        [self presentViewController:navi animated:YES completion:^{
+            
+        }];
     }
     else
     {

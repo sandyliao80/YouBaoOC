@@ -119,6 +119,7 @@ typedef enum
     if(!isFirstDown)
     {
         [allDataForShow removeAllObjects];
+        [progress show:YES];
         [self performSelectorInBackground: @selector(downLoadMoreData:) withObject:[NSNumber numberWithInt:chooseType] ];
         currentPage=1;
         
@@ -366,6 +367,7 @@ typedef enum
     EncyDetailPetWeb *webView = [[EncyDetailPetWeb alloc] initWithPetID:petID.integerValue andType:NO];
     if([ZXYNETHelper isNETConnect])
     {
+        webView.title = [dataDic objectForKey:@"title"];
         [self.navigationController pushViewController:webView animated:YES];
     }
     else
