@@ -9,6 +9,7 @@
 #import "EncyDetailPetWeb.h"
 #import <WebViewJavascriptBridge/WebViewJavascriptBridge.h>
 #import "EncyAllListFile.h"
+#import "UIViewController+HideTabBar.h"
 @interface EncyDetailPetWeb ()<UIWebViewDelegate>
 {
     NSInteger pet_id;
@@ -33,14 +34,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSString *urlStrings = [NSString stringWithFormat:@"%@%@%d",ZXY_HOSTURL,ZXY_TYPEHTML,pet_id];
+    NSString *urlStrings = [NSString stringWithFormat:@"%@%@%ld",ZXY_HOSTURL,ZXY_TYPEHTML,(long)pet_id];
     if(!_isPet)
     {
-        urlStrings = [NSString stringWithFormat:@"%@%@%d",ZXY_HOSTURL,ZXY_ENCYHTML,pet_id];
+        urlStrings = [NSString stringWithFormat:@"%@%@%ld",ZXY_HOSTURL,ZXY_ENCYHTML,(long)pet_id];
     }
     NSURL *url = [NSURL URLWithString:urlStrings];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     [self.currentWeb loadRequest:request];
+    [self setNaviLeftItem];
     if(_isPet)
     {
         bridge = [WebViewJavascriptBridge bridgeForWebView:self.currentWeb webViewDelegate:self handler:^(id data, WVJBResponseCallback responseCallback) {
@@ -50,19 +52,19 @@
         
         [bridge registerHandler:@"jiankang" handler:^(id data, WVJBResponseCallback responseCallback) {
             NSLog(@"jiankang");
-            EncyAllListFile *allFile = [[EncyAllListFile alloc] initPetID:[NSString stringWithFormat:@"%d",pet_id] andTypeID:@"1"];
+            EncyAllListFile *allFile = [[EncyAllListFile alloc] initPetID:[NSString stringWithFormat:@"%ld",(long)pet_id] andTypeID:@"1"];
             [self.navigationController pushViewController:allFile animated:YES];
         }];
         
         [bridge registerHandler:@"yanghu" handler:^(id data, WVJBResponseCallback responseCallback) {
             NSLog(@"yanghu");
-            EncyAllListFile *allFile = [[EncyAllListFile alloc] initPetID:[NSString stringWithFormat:@"%d",pet_id] andTypeID:@"2"];
+            EncyAllListFile *allFile = [[EncyAllListFile alloc] initPetID:[NSString stringWithFormat:@"%ld",(long)pet_id] andTypeID:@"2"];
             [self.navigationController pushViewController:allFile animated:YES];
         }];
         
         [bridge registerHandler:@"xundao" handler:^(id data, WVJBResponseCallback responseCallback) {
             NSLog(@"xundao");
-            EncyAllListFile *allFile = [[EncyAllListFile alloc] initPetID:[NSString stringWithFormat:@"%d",pet_id] andTypeID:@"3"];
+            EncyAllListFile *allFile = [[EncyAllListFile alloc] initPetID:[NSString stringWithFormat:@"%ld",(long)pet_id] andTypeID:@"3"];
             [self.navigationController pushViewController:allFile animated:YES];
         }];
     }
@@ -72,6 +74,13 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)leftItemAction
+{
+    [self dismissViewControllerAnimated:YES completion:^{
+        
+    }];
 }
 
 /*
