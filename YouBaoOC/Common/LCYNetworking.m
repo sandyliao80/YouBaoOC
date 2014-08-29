@@ -10,8 +10,14 @@
 #import <Reachability/Reachability.h>
 #import <AFNetworking/AFNetworking.h>
 
+#ifndef CHENGYUDEBUG
 NSString *const hostURL         = @"http://115.29.46.22/pet/index.php/Api/";
 NSString *const hostImageURL    = @"http://115.29.46.22/pet/";
+#else
+NSString *const hostURL         = @"http://192.168.1.106/pet/index.php/Api/";
+NSString *const hostImageURL    = @"http://192.168.1.106/pet/";
+NSString *const Common_Upload_index = @"Common/Upload/index";
+#endif //CHENGYUDEBUF
 
 NSString *const User_authcode       = @"User/register_authcode";
 NSString *const User_register       = @"User/register";
@@ -27,6 +33,7 @@ NSString *const Pet_GetPetDetailByID= @"Pet/GetPetDetailByID";
 NSString *const User_modifyInfo     = @"User/modifyInfo";
 NSString *const Pet_recommend       = @"Pet/recommend";
 NSString *const Pet_updatePetInfo   = @"Pet/updatePetInfo";
+NSString *const User_reset_password_authcode    = @"User/reset_password_authcode";
 
 @implementation LCYNetworking
 
@@ -159,6 +166,35 @@ static bool isFirstAccess = YES;
             dispatch_async(dispatch_get_main_queue(), failed);
         }
     }];
+}
+
+- (void)testFileWithAPI:(NSString *)api parameters:(NSDictionary *)parameters progress:(NSProgress *)progress fileKey:(NSString *)key fileData:(NSData *)data fileName:(NSString *)fileName mimeType:(NSString *)mimeType successBlock:(void (^)(NSDictionary *))success failedBlock:(void (^)(void))failed{
+    NSString *URLString = [@"http://192.168.1.106/pet/index.php" stringByAppendingString:api];
+    
+    NSMutableURLRequest *request = [[AFHTTPRequestSerializer serializer] multipartFormRequestWithMethod:@"POST" URLString:URLString parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        [formData appendPartWithFileData:data name:key fileName:fileName mimeType:mimeType];
+//        [formData appendPartWithFileURL:[NSURL fileURLWithPath:@"file://path/to/image.jpg"] name:@"file" fileName:@"filename.jpg" mimeType:@"image/jpeg" error:nil];
+    } error:nil];
+    
+    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+    
+    NSURLSessionUploadTask *uploadTask = [manager uploadTaskWithStreamedRequest:request progress:&progress completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
+        if (error) {
+            NSLog(@"Error: %@", error);
+            if (failed) {
+                dispatch_async(dispatch_get_main_queue(), failed);
+            }
+        } else {
+//            NSLog(@"%@ %@", response, responseObject);
+            if (success) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    success(responseObject);
+                });
+            }
+        }
+    }];
+    
+    [uploadTask resume];
 }
 
 

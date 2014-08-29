@@ -71,12 +71,12 @@ typedef NS_ENUM(NSUInteger, RegisterAndLoginStatus) {
     self.sendAuthButton.layer.cornerRadius = BUTTON_CORNER_RADIUS;
     self.regDoneButton.layer.cornerRadius = BUTTON_CORNER_RADIUS;
 
-    UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [backBtn setFrame:CGRectMake(0, 0, 40, 40)];
-    [backBtn setImage:[UIImage imageNamed:@"navigationBack"] forState:UIControlStateNormal];
-    [backBtn addTarget:self action:@selector(navigationBack:) forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem *leftBackItem = [[UIBarButtonItem alloc] initWithCustomView:backBtn];
-    self.navigationItem.leftBarButtonItem = leftBackItem;
+//    UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+//    [backBtn setFrame:CGRectMake(0, 0, 40, 40)];
+//    [backBtn setImage:[UIImage imageNamed:@"navigationBack"] forState:UIControlStateNormal];
+//    [backBtn addTarget:self action:@selector(navigationBack:) forControlEvents:UIControlEventTouchUpInside];
+//    UIBarButtonItem *leftBackItem = [[UIBarButtonItem alloc] initWithCustomView:backBtn];
+//    self.navigationItem.leftBarButtonItem = leftBackItem;
     
 }
 

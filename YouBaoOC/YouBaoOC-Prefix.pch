@@ -35,3 +35,5 @@
 #define THEME_TITLE_COLOR [UIColor colorWithRed:0.3882 green:0.6235 blue:0.7569 alpha:1]
 
 #define IOS8 ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0)
+
+#define CHENGYUDEBUG

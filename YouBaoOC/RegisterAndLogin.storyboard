@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6185.11" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="xas-hZ-9J4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6206.8" systemVersion="14A329f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="xas-hZ-9J4">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6190.4"/>
+        <deployment defaultVersion="1792" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7026.1"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -18,12 +19,12 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="Wvu-LH-MyQ" kind="relationship" relationship="rootViewController" id="WnT-NG-cKe"/>
+                        <segue destination="UMn-fV-pe2" kind="relationship" relationship="rootViewController" id="rFw-bk-Knm"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N2D-xM-He9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-343" y="400"/>
+            <point key="canvasLocation" x="5" y="316"/>
         </scene>
         <!--Welcome View Controller-->
         <scene sceneID="YQq-iR-5dG">
@@ -43,15 +44,12 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="QmE-Lk-9sH"/>
                                     <barButtonItem title="手机号注册/登录" style="plain" id="bcx-Cj-3iK">
                                         <color key="tintColor" red="0.54901963472366333" green="0.76862752437591553" blue="0.87450987100601196" alpha="1" colorSpace="deviceRGB"/>
-                                        <connections>
-                                            <segue destination="UMn-fV-pe2" kind="show" id="bnr-L6-d6E"/>
-                                        </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="8vM-ze-zrt"/>
                                 </items>
                             </toolbar>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="XlT-m2-8GD">
-                                <rect key="frame" x="0.0" y="64" width="320" height="460"/>
+                                <rect key="frame" x="0.0" y="20" width="320" height="504"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="5" id="eE5-aS-frm">
                                     <size key="itemSize" width="100" height="100"/>
@@ -102,10 +100,15 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="1PP-Hx-7Cv"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4">
+                        <size key="portraitSize" width="320" height="568"/>
+                        <size key="landscapeSize" width="568" height="320"/>
+                    </simulatedScreenMetrics>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FE2-6L-Ngy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="48" y="400"/>
+            <point key="canvasLocation" x="5" y="966"/>
         </scene>
         <!--Register And Login View Controller-->
         <scene sceneID="YLn-2E-Tbs">
@@ -225,7 +228,7 @@
                                     <segue destination="lyn-hC-Ypt" kind="show" id="cdZ-Gp-guJ"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="regWave" translatesAutoresizingMaskIntoConstraints="NO" id="IGv-FU-Jnb">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IGv-FU-Jnb">
                                 <rect key="frame" x="0.0" y="541" width="320" height="27"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="27" id="W4k-5d-WRP"/>
@@ -258,6 +261,7 @@
                             <action selector="backgroundTouchDown:" destination="UMn-fV-pe2" eventType="touchDown" id="dZj-zi-hYR"/>
                         </connections>
                     </view>
+                    <navigationItem key="navigationItem" id="RLq-a2-VWK"/>
                     <connections>
                         <outlet property="authTextField" destination="04c-6W-C9u" id="5IC-Tj-SHn"/>
                         <outlet property="doneButtonY" destination="Gqa-x0-da9" id="okz-DF-VGP"/>
@@ -506,7 +510,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="regWave" translatesAutoresizingMaskIntoConstraints="NO" id="4Kb-EU-48e">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4Kb-EU-48e">
                                 <rect key="frame" x="0.0" y="541" width="320" height="27"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="27" id="F6f-Ll-4pP"/>
@@ -668,6 +672,5 @@
         <image name="regAuthBG" width="190" height="45"/>
         <image name="regPasswordBG" width="300" height="45"/>
         <image name="regPhoneBG" width="300" height="45"/>
-        <image name="regWave" width="320" height="27"/>
     </resources>
 </document>

@@ -12,9 +12,11 @@
 
 #define PAGECOUNT 4
 
-@interface GuideViewController ()
+@interface GuideViewController ()<UIScrollViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIScrollView *icyScrollView;
+@property (weak, nonatomic) IBOutlet UIPageControl *icyPageControl;
+
 @end
 
 @implementation GuideViewController
@@ -73,6 +75,12 @@
         UINavigationController *navigationVC = storyBoard.instantiateInitialViewController;
         appDelegate.window.rootViewController = navigationVC;
     }
+}
+
+#pragma mark - UIScrollView
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    NSInteger pageNumber = (scrollView.contentOffset.x + 1) / self.view.bounds.size.width;
+    [self.icyPageControl setCurrentPage:pageNumber];
 }
 
 @end

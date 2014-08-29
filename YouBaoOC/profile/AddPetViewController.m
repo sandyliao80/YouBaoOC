@@ -88,11 +88,24 @@
     UIBarButtonItem *leftBackItem = [[UIBarButtonItem alloc] initWithCustomView:backBtn];
     self.navigationItem.leftBarButtonItem = leftBackItem;
     
-    UIButton *rightBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [rightBtn setFrame:CGRectMake(0, 0, 50, 44)];
-    [rightBtn setImage:[UIImage imageNamed:@"addPetSave"] forState:UIControlStateNormal];
-    [rightBtn addTarget:self action:@selector(saveButtonPressed:) forControlEvents:UIControlEventTouchUpInside];;
-    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:rightBtn];
+//    UIButton *rightBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+//    [rightBtn setFrame:CGRectMake(0, 0, 50, 44)];
+//    [rightBtn setImage:[UIImage imageNamed:@"addPetSave"] forState:UIControlStateNormal];
+//    [rightBtn addTarget:self action:@selector(saveButtonPressed:) forControlEvents:UIControlEventTouchUpInside];;
+//    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:rightBtn];
+//    self.navigationItem.rightBarButtonItem = rightItem;
+    
+    // 确定按钮
+    UIButton *doneButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [doneButton setFrame:CGRectMake(0, 0, 40, 24)];
+    [doneButton setTitle:@" 确定 " forState:UIControlStateNormal];
+    [doneButton.titleLabel setFont:[UIFont systemFontOfSize:15.0f]];
+    doneButton.layer.cornerRadius = 4.0f;
+    doneButton.layer.masksToBounds = YES;
+    [doneButton setBackgroundColor:THEME_DARK_BLUE];
+    [doneButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:doneButton];
+    [doneButton addTarget:self action:@selector(saveButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.rightBarButtonItem = rightItem;
     
     self.navigationItem.title = @"添加宠物";

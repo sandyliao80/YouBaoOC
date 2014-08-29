@@ -123,7 +123,7 @@
         self.phoneNumberWhenSendAutoCode = self.phoneNumberTextField.text;
         // 请求验证码
         NSDictionary *parameters = @{@"user_name" : self.phoneNumberTextField.text};
-        [[LCYNetworking sharedInstance] postRequestWithAPI:User_authcode parameters:parameters successBlock:^(NSDictionary *object) {
+        [[LCYNetworking sharedInstance] postRequestWithAPI:User_reset_password_authcode parameters:parameters successBlock:^(NSDictionary *object) {
             if (![object[@"result"] boolValue]) {
                 // 验证码发送失败
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:object[@"msg"] delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
@@ -139,6 +139,7 @@
             } else {
                 // 发送成功，记录验证码
                 self.authCode = [object[@"code"] integerValue];
+                NSLog(@"reset authcode = %@",object[@"code"]);
             }
         } failedBlock:^{
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"验证码发送失败" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];

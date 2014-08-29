@@ -6,6 +6,9 @@
 //  Copyright (c) 2014年 Duostec. All rights reserved.
 //
 
+#ifdef CHENGYUDEBUG
+FOUNDATION_EXPORT NSString *const Common_Upload_index;  /** 测试上传文件 */
+#endif
 
 FOUNDATION_EXPORT NSString *const hostURL;
 FOUNDATION_EXPORT NSString *const hostImageURL;
@@ -24,6 +27,7 @@ FOUNDATION_EXPORT NSString *const Pet_GetPetDetailByID; /**< 获取宠物签名�
 FOUNDATION_EXPORT NSString *const User_modifyInfo;      /**< 修改个人信息 */
 FOUNDATION_EXPORT NSString *const Pet_recommend;        /**< 获取首页显示 */
 FOUNDATION_EXPORT NSString *const Pet_updatePetInfo;    /**< 更新宠物信息 */
+FOUNDATION_EXPORT NSString *const User_reset_password_authcode; /**< 重置密码时的验证码 */
 
 @interface LCYNetworking : NSObject
 
@@ -76,5 +80,15 @@ FOUNDATION_EXPORT NSString *const Pet_updatePetInfo;    /**< 更新宠物信息 
                fileName:(NSString *)fileName
                mimeType:(NSString *)mimeType
            successBlock:(void(^)(NSDictionary *object))success
+            failedBlock:(void (^)(void))failed;
+
+- (void)testFileWithAPI:(NSString *)api
+             parameters:(NSDictionary *)parameters
+               progress:(NSProgress *)progress
+                fileKey:(NSString *)key
+               fileData:(NSData *)data
+               fileName:(NSString *)fileName
+               mimeType:(NSString *)mimeType
+           successBlock:(void (^)(NSDictionary *))success
             failedBlock:(void (^)(void))failed;
 @end
