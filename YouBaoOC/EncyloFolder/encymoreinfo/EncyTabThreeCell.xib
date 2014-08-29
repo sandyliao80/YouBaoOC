@@ -6,35 +6,27 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="44" id="KGk-i7-Jjw" customClass="EncyTabThreeCell">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="ENCYTABT" rowHeight="44" id="KGk-i7-Jjw" customClass="EncyTabThreeCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="45"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <button opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iSj-jp-s59">
-                        <rect key="frame" x="106" y="0.0" width="106" height="44"/>
-                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        <state key="normal" image="yanghulan">
-                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                        </state>
-                        <state key="selected" image="yanghu_s">
-                            <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        </state>
-                        <state key="highlighted" image="yanghu_s"/>
-                    </button>
-                    <imageView userInteractionEnabled="NO" tag="1001" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uYc-Vm-86u">
-                        <rect key="frame" x="-1" y="41" width="107" height="3"/>
+                    <imageView userInteractionEnabled="NO" tag="1001" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uYc-Vm-86u">
+                        <rect key="frame" x="0.0" y="41" width="107" height="3"/>
+                        <constraints>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="107" id="7dP-UJ-c1w"/>
+                        </constraints>
                     </imageView>
-                    <imageView userInteractionEnabled="NO" tag="1003" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nmv-zB-jGz">
-                        <rect key="frame" x="213" y="41" width="107" height="3"/>
+                    <imageView userInteractionEnabled="NO" tag="1003" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nmv-zB-jGz">
+                        <rect key="frame" x="214" y="41" width="107" height="3"/>
                     </imageView>
-                    <imageView userInteractionEnabled="NO" tag="1002" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zDH-Es-RVV">
-                        <rect key="frame" x="106" y="41" width="107" height="3"/>
+                    <imageView userInteractionEnabled="NO" tag="1002" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zDH-Es-RVV">
+                        <rect key="frame" x="107" y="41" width="107" height="3"/>
                     </imageView>
-                    <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gl9-Wt-iis">
-                        <rect key="frame" x="-1" y="0.0" width="107" height="44"/>
+                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gl9-Wt-iis">
+                        <rect key="frame" x="0.0" y="0.0" width="107" height="44"/>
                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <state key="normal" image="jiankang">
                             <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -44,9 +36,12 @@
                             <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         </state>
                         <state key="highlighted" image="jiankanghong_s"/>
+                        <connections>
+                            <action selector="selectOneBtn:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="VSV-27-Law"/>
+                        </connections>
                     </button>
-                    <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L9n-e8-j3f">
-                        <rect key="frame" x="212" y="0.0" width="107" height="44"/>
+                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L9n-e8-j3f">
+                        <rect key="frame" x="214" y="0.0" width="107" height="44"/>
                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <state key="normal" image="xundao">
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -55,9 +50,62 @@
                             <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         </state>
                         <state key="highlighted" image="xundaohong_s"/>
+                        <connections>
+                            <action selector="selectOneBtn:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="YBc-sA-OSw"/>
+                        </connections>
+                    </button>
+                    <button opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iSj-jp-s59">
+                        <rect key="frame" x="107" y="0.0" width="107" height="44"/>
+                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <state key="normal" image="yanghulan">
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <state key="selected" image="yanghu_s">
+                            <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        </state>
+                        <state key="highlighted" image="yanghu_s"/>
+                        <connections>
+                            <action selector="selectOneBtn:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="kHE-uS-WBH"/>
+                        </connections>
                     </button>
                 </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="nmv-zB-jGz" secondAttribute="bottom" id="1ds-LO-UPD"/>
+                    <constraint firstAttribute="bottom" secondItem="uYc-Vm-86u" secondAttribute="bottom" id="4n8-9o-G0s"/>
+                    <constraint firstItem="iSj-jp-s59" firstAttribute="leading" secondItem="Gl9-Wt-iis" secondAttribute="trailing" id="AqP-bS-LgY"/>
+                    <constraint firstAttribute="trailing" secondItem="L9n-e8-j3f" secondAttribute="trailing" constant="-1" id="D8L-Mp-Yko"/>
+                    <constraint firstItem="iSj-jp-s59" firstAttribute="width" secondItem="L9n-e8-j3f" secondAttribute="width" id="D9s-WQ-1NU"/>
+                    <constraint firstItem="iSj-jp-s59" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Ea7-RX-o6b"/>
+                    <constraint firstItem="zDH-Es-RVV" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="41" id="HY4-CC-evC"/>
+                    <constraint firstItem="uYc-Vm-86u" firstAttribute="centerX" secondItem="Gl9-Wt-iis" secondAttribute="centerX" id="JmU-xA-x8o"/>
+                    <constraint firstItem="uYc-Vm-86u" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="41" id="UF0-1J-95x"/>
+                    <constraint firstItem="Gl9-Wt-iis" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Us4-3B-bIL"/>
+                    <constraint firstItem="iSj-jp-s59" firstAttribute="centerX" secondItem="zDH-Es-RVV" secondAttribute="centerX" id="Z1C-N1-bCk"/>
+                    <constraint firstAttribute="bottom" secondItem="zDH-Es-RVV" secondAttribute="bottom" id="Z4B-AV-ihL"/>
+                    <constraint firstItem="nmv-zB-jGz" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="41" id="be1-Ne-Iwr"/>
+                    <constraint firstItem="L9n-e8-j3f" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="dLA-xf-aPx"/>
+                    <constraint firstAttribute="bottom" secondItem="L9n-e8-j3f" secondAttribute="bottom" id="dih-iT-xBa"/>
+                    <constraint firstItem="Gl9-Wt-iis" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="dyE-cc-btg"/>
+                    <constraint firstItem="L9n-e8-j3f" firstAttribute="leading" secondItem="iSj-jp-s59" secondAttribute="trailing" id="edv-6u-JUO"/>
+                    <constraint firstItem="zDH-Es-RVV" firstAttribute="width" secondItem="nmv-zB-jGz" secondAttribute="width" id="fF2-sV-9o0"/>
+                    <constraint firstItem="uYc-Vm-86u" firstAttribute="width" secondItem="nmv-zB-jGz" secondAttribute="width" id="gwW-lf-6po"/>
+                    <constraint firstAttribute="bottom" secondItem="Gl9-Wt-iis" secondAttribute="bottom" id="jLc-Tp-lO3"/>
+                    <constraint firstItem="iSj-jp-s59" firstAttribute="width" secondItem="zDH-Es-RVV" secondAttribute="width" id="k2t-cV-fvf"/>
+                    <constraint firstAttribute="bottom" secondItem="iSj-jp-s59" secondAttribute="bottom" id="u9Z-55-SMN"/>
+                    <constraint firstItem="iSj-jp-s59" firstAttribute="height" secondItem="L9n-e8-j3f" secondAttribute="height" id="uO5-mv-2T7"/>
+                    <constraint firstItem="nmv-zB-jGz" firstAttribute="centerX" secondItem="L9n-e8-j3f" secondAttribute="centerX" id="wfY-MZ-VvT"/>
+                    <constraint firstItem="iSj-jp-s59" firstAttribute="height" secondItem="Gl9-Wt-iis" secondAttribute="height" id="wyL-7s-jOn"/>
+                    <constraint firstItem="iSj-jp-s59" firstAttribute="width" secondItem="Gl9-Wt-iis" secondAttribute="width" id="z1J-yW-A4S"/>
+                </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outletCollection property="allBtns" destination="Gl9-Wt-iis" id="Bhb-GO-S0g"/>
+                <outletCollection property="allBtns" destination="iSj-jp-s59" id="gwu-g7-u3T"/>
+                <outletCollection property="allBtns" destination="L9n-e8-j3f" id="iZL-CQ-40g"/>
+                <outletCollection property="allImages" destination="uYc-Vm-86u" id="dWU-M5-YcU"/>
+                <outletCollection property="allImages" destination="zDH-Es-RVV" id="2Go-5W-lUq"/>
+                <outletCollection property="allImages" destination="nmv-zB-jGz" id="6r8-hw-Mao"/>
+            </connections>
             <point key="canvasLocation" x="305" y="250.5"/>
         </tableViewCell>
     </objects>

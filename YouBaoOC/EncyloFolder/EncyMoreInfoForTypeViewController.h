@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface EncyMoreInfoForTypeViewController : UIViewController
-
+- (id)initWithPetID:(NSString *)petID andURL:(NSString *)imgUrl;
 @end
