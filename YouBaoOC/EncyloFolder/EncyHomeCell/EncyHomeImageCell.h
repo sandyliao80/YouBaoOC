@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 @protocol EncyHomeImageCellDelegate<NSObject>
-- (void)selectADImageWithEncy_ID:(NSString *)ency_id;
+- (void)selectADImageWithEncy_ID:(NSString *)ency_id andTitle:(NSString *)title;
 @end
 
 @class ZXYScrollView;

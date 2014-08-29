@@ -105,9 +105,9 @@
 - (void)afterClickAtIndex:(NSInteger)index
 {
     NSDictionary *currentDic = [allDataForShow objectAtIndex:index];
-    if([self.delegate respondsToSelector:@selector(selectADImageWithEncy_ID:)])
+    if([self.delegate respondsToSelector:@selector(selectADImageWithEncy_ID:andTitle:)])
     {
-        [self.delegate selectADImageWithEncy_ID:[currentDic objectForKey:@"ency_id"]];
+        [self.delegate selectADImageWithEncy_ID:[currentDic objectForKey:@"ency_id"]andTitle:[currentDic objectForKey:@"title"]];
     }
 }
 @end

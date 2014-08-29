@@ -247,6 +247,7 @@
     NSMutableArray *arr = [dataDic objectForKey:keyNow];
     SubPetSyle *subPet = [arr objectAtIndex:indexPath.row];
     EncyDetailPetWeb *detailWeb = [[EncyDetailPetWeb alloc] initWithPetID:subPet.cat_id.intValue andType:YES];
+    detailWeb.title = subPet.name;
     [self.navigationController pushViewController:detailWeb animated:YES];
 }
 

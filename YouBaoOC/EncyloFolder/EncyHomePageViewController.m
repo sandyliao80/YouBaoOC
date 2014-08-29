@@ -82,6 +82,7 @@
     [super viewDidAppear:animated];
     if(!isFirstDown)
     {
+        [mbProgress show:YES];
         [allDataForShow removeAllObjects];
         [self refreshData];
         currentPage=1;
@@ -228,7 +229,10 @@
         jsonDic = allDic;
         if([allDic objectForKey:@"data"] == [NSNull null])
         {
-            [self performSelectorOnMainThread:@selector(isLastPage) withObject:nil waitUntilDone:YES];
+            if([allDic objectForKey:@"data"])
+            {
+                [self performSelectorOnMainThread:@selector(isLastPage) withObject:nil waitUntilDone:YES];
+            }
         }
         else
         {
@@ -479,9 +483,11 @@
     NSDictionary *dataDic = [allDataForShow objectAtIndex:indexPath.row];
     NSString *petID = [dataDic objectForKey:@"ency_id"];
     EncyDetailPetWeb *webView = [[EncyDetailPetWeb alloc] initWithPetID:petID.integerValue andType:NO];
+    
     if([ZXYNETHelper isNETConnect])
     {
         [self.navigationController pushViewController:webView animated:YES];
+        webView.title = [dataDic objectForKey:@"title"];
     }
     else
     {
@@ -513,11 +519,12 @@
     NSLog(@"hello");
 }
 
--(void)selectADImageWithEncy_ID:(NSString *)ency_id
+-(void)selectADImageWithEncy_ID:(NSString *)ency_id andTitle:(NSString *)title
 {
     EncyDetailPetWeb *webView = [[EncyDetailPetWeb alloc] initWithPetID:ency_id.integerValue andType:NO];
     if([ZXYNETHelper isNETConnect])
     {
+        webView.title = title;
         [self.navigationController pushViewController:webView animated:YES];
     }
     else
