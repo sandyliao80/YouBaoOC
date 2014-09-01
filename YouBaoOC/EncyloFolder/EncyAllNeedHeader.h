@@ -16,4 +16,6 @@
 #import "EN_PreDefine.h"
 #import "ZXYDataProvider/ZXYProvider.h"
 #import "ZXYDownLoadImage.h"
+#import "LCYGlobal.h"
+#import "LCYCommon.h"
 #endif

@@ -15,6 +15,8 @@
 #import "EncyHomePageTableViewCell.h"
 #import "EncyDetailPetWeb.h"
 #import "ZXYNETHelper.h"
+#import "LCYCommon.h"
+#import "LCYGlobal.h"
 @interface EncySearchVC ()<UISearchBarDelegate,UITableViewDelegate,UITableViewDataSource>
 {
     UIToolbar *topBar;
@@ -267,14 +269,43 @@
 {
     NSDictionary *dataDic = [allDataForShow objectAtIndex:indexPath.row];
     NSString *petID = [dataDic objectForKey:@"ency_id"];
-    EncyDetailPetWeb *webView = [[EncyDetailPetWeb alloc] initWithPetID:petID.integerValue andType:NO];
+    [progress show:YES];
+    
     if([ZXYNETHelper isNETConnect])
     {
-         UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:webView];
-        webView.title = [dataDic objectForKey:@"title"];
-        [self presentViewController:navi animated:YES completion:^{
+        if([[LCYCommon sharedInstance] isUserLogin])
+        {
+            AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+            manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+            NSString *urlString = [ZXY_HOSTURL stringByAppendingString:ZXY_ISCOLLECT];
+            NSString *phoneNum = [[LCYGlobal sharedInstance] currentUserID];
+            [manager POST:urlString parameters:[NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:phoneNum.intValue], @"user_name",[NSNumber numberWithInt:petID.intValue],@"ency_id",nil] success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                [progress hide:YES];
+                               NSLog(@"%@",[operation responseString]);
+                EncyDetailPetWeb *detailWeb = [[EncyDetailPetWeb alloc] initWithPetID:petID.integerValue andType:NO];
+                if([[operation responseString] isEqualToString:@"true"])
+                {
+                    [detailWeb setIsSelected:YES];
+                }
+                else
+                {
+                    [detailWeb setIsSelected:NO];
+                }
+                [progress hide:YES];
+                [self.navigationController pushViewController:detailWeb animated:YES];
+            } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                NSLog(@"%@",error);
+                [progress hide:YES];
+            }];
             
-        }];
+        }
+        else
+        {
+            [progress hide:YES];
+            EncyDetailPetWeb *detailWeb = [[EncyDetailPetWeb alloc] initWithPetID:petID.integerValue andType:NO];
+            [detailWeb setIsSelected:NO];
+            [self.navigationController pushViewController:detailWeb animated:YES];
+        }
     }
     else
     {
