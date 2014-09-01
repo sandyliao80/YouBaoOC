@@ -157,24 +157,36 @@
         parameters = @{@"pet_id"    : self.tpPetBase.petInfo.petId,
                        @"pet_name"  : self.nickNameTextField.text,
                        @"cat_id"    : self.category.catId,
-                       @"pet_sex"   : self.ageMap[self.ageLabel.text],
+                       @"age"   : self.ageMap[self.ageLabel.text],
+                       @"sex"   : self.tpPetBase.petInfo.petSex,
                        @"tip"       : self.signTextField.text,
                        @"f_hybridization"   : self.tpPetBase.petInfo.fHybridization,
                        @"f_adopt"   : self.tpPetBase.petInfo.fAdopt,
-                       @"is_entrust": self.tpPetBase.petInfo.isEntrust};
+                       @"is_entrust": self.tpPetBase.petInfo.isEntrust,
+                       @"pet_code"  : self.tpPetBase.petInfo.petCode};
     } else {
         parameters = @{@"pet_id"    : self.tpPetBase.petInfo.petId,
                        @"pet_name"  : self.nickNameTextField.text,
-                       @"pet_sex"   : self.ageMap[self.ageLabel.text],
+                       @"age"   : self.ageMap[self.ageLabel.text],
+                       @"sex"   : self.tpPetBase.petInfo.petSex,
                        @"tip"       : self.signTextField.text,
                        @"f_hybridization"   : self.tpPetBase.petInfo.fHybridization,
                        @"f_adopt"   : self.tpPetBase.petInfo.fAdopt,
-                       @"is_entrust": self.tpPetBase.petInfo.isEntrust};
+                       @"is_entrust": self.tpPetBase.petInfo.isEntrust,
+                       @"pet_code"  : self.tpPetBase.petInfo.petCode};
     }
     [[LCYNetworking sharedInstance] postRequestWithAPI:Pet_updatePetInfo parameters:parameters successBlock:^(NSDictionary *object) {
-        ;
+        if ([object[@"result"] boolValue]) {
+            NSNotificationCenter *defaultCenter = [NSNotificationCenter defaultCenter];
+            [defaultCenter postNotificationName:@"MoePetReload" object:nil];
+            [self.navigationController popToRootViewControllerAnimated:YES];
+        } else {
+            UIAlertView  *alert = [[UIAlertView alloc] initWithTitle:@"" message:object[@"message"] delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
+            [alert show];
+        }
     } failedBlock:^{
-        ;
+        UIAlertView  *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"修改失败，请检查您的网络状态" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
+        [alert show];
     }];
 }
 

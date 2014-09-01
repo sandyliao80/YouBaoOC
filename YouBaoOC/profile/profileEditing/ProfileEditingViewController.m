@@ -17,6 +17,7 @@
 #import "AppDelegate.h"
 #import "UIImage+LCYResize.h"
 #import "ModifyLocationViewController.h"
+#import "ModifyGenderViewController.h"
 
 
 @interface ProfileEditingViewController ()<UITableViewDelegate, UITableViewDataSource, ModifyTextDelegate, ProfileEditingSignCellDelegate, UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
@@ -63,11 +64,19 @@
     [doneButton addTarget:self action:@selector(doneButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.rightBarButtonItem = rightItem;
     
+    // 注册刷新信息机制
+    NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
+    [notificationCenter addObserver:self selector:@selector(reloadInitData) name:@"reloadProfile" object:nil];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)dealloc{
+    NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
+    [notificationCenter removeObserver:self name:@"reloadProfile" object:nil];
 }
 
 
@@ -87,6 +96,17 @@
 
 
 #pragma mark - Actions
+- (void)reloadInitData{
+    NSDictionary *parameters = @{@"user_name"   : [LCYGlobal sharedInstance].currentUserID};
+    [[LCYNetworking sharedInstance] postRequestWithAPI:User_getUserInfoByID parameters:parameters successBlock:^(NSDictionary *object) {
+        if ([object[@"result"] boolValue]) {
+            self.userInfoBase = [GetUserInfoBase modelObjectWithDictionary:object];
+            [self.icyTableView reloadData];
+        }
+    } failedBlock:^{
+        ;
+    }];
+}
 - (void)navigationBack:(id)sender{
     [self.navigationController popViewControllerAnimated:YES];
 }
@@ -118,6 +138,8 @@
         if ([object[@"result"] boolValue]) {
             // 上传成功
             [self.navigationController popViewControllerAnimated:YES];
+            NSNotificationCenter *defaultCenter = [NSNotificationCenter defaultCenter];
+            [defaultCenter postNotificationName:@"MoePetReload" object:nil];
         } else {
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"上传信息失败" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
             [alert show];
@@ -462,6 +484,9 @@
     if (indexPath.section == 1 &&
         indexPath.row == 1) {
         // 性别
+        UIStoryboard *genderSB = [UIStoryboard storyboardWithName:@"ModifyGender" bundle:nil];
+        ModifyGenderViewController *modifyGenderVC = [genderSB instantiateInitialViewController];
+        [self.navigationController pushViewController:modifyGenderVC animated:YES];
         return;
     }
 //    self.titleForPassing = [self getTitleAt:indexPath];

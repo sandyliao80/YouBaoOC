@@ -90,6 +90,8 @@
 		28D63214199B74710029A283 /* Introduction.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28D63213199B74710029A283 /* Introduction.storyboard */; };
 		28D63218199B76E30029A283 /* GuideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D63217199B76E30029A283 /* GuideViewController.m */; };
 		28D6E0371999FDE90080E5A5 /* RecommendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D6E0361999FDE90080E5A5 /* RecommendCell.m */; };
+		28DD9A2619B41FE800EC0C9E /* ModifyGender.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28DD9A2519B41FE800EC0C9E /* ModifyGender.storyboard */; };
+		28DD9A2919B4203F00EC0C9E /* ModifyGenderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28DD9A2819B4203F00EC0C9E /* ModifyGenderViewController.m */; };
 		28F7F4541994A3860069D797 /* LCYFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F7F4531994A3860069D797 /* LCYFileManager.m */; };
 		83A93C91E0F34B08851EE991 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEF990BC1DD24D8D89234D90 /* libPods.a */; };
 		8B129DAC19A591D100554F3C /* UIViewController+HideTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B129DAB19A591D100554F3C /* UIViewController+HideTabBar.m */; };
@@ -312,6 +314,9 @@
 		28D63217199B76E30029A283 /* GuideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GuideViewController.m; sourceTree = "<group>"; };
 		28D6E0351999FDE90080E5A5 /* RecommendCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecommendCell.h; sourceTree = "<group>"; };
 		28D6E0361999FDE90080E5A5 /* RecommendCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecommendCell.m; sourceTree = "<group>"; };
+		28DD9A2519B41FE800EC0C9E /* ModifyGender.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ModifyGender.storyboard; sourceTree = "<group>"; };
+		28DD9A2719B4203F00EC0C9E /* ModifyGenderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModifyGenderViewController.h; sourceTree = "<group>"; };
+		28DD9A2819B4203F00EC0C9E /* ModifyGenderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModifyGenderViewController.m; sourceTree = "<group>"; };
 		28F7F4521994A3860069D797 /* LCYFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCYFileManager.h; sourceTree = "<group>"; };
 		28F7F4531994A3860069D797 /* LCYFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCYFileManager.m; sourceTree = "<group>"; };
 		75673EC2383043228793768F /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
@@ -458,6 +463,7 @@
 				280FB6921980E34E00C434A8 /* RegisterAndLogin.storyboard */,
 				28D63213199B74710029A283 /* Introduction.storyboard */,
 				28A4FDC019A7438E00C3CD85 /* ModifyLocation.storyboard */,
+				28DD9A2519B41FE800EC0C9E /* ModifyGender.storyboard */,
 				281111991979183D000A72D7 /* Images.xcassets */,
 				281111901979183C000A72D7 /* YouBaoOC.xcdatamodeld */,
 				281111891979183C000A72D7 /* Supporting Files */,
@@ -640,6 +646,8 @@
 				2879CDD919A4A4FB006586DA /* ModifyTextCell.m */,
 				28A4FDBD19A7436D00C3CD85 /* ModifyLocationViewController.h */,
 				28A4FDBE19A7436D00C3CD85 /* ModifyLocationViewController.m */,
+				28DD9A2719B4203F00EC0C9E /* ModifyGenderViewController.h */,
+				28DD9A2819B4203F00EC0C9E /* ModifyGenderViewController.m */,
 			);
 			path = profileEditing;
 			sourceTree = "<group>";
@@ -950,6 +958,7 @@
 				281111981979183D000A72D7 /* Main.storyboard in Resources */,
 				8B2E91B119B0BE7F0086D8EB /* EncyMoreInfoForTypeViewController.xib in Resources */,
 				28A4FDC119A7438E00C3CD85 /* ModifyLocation.storyboard in Resources */,
+				28DD9A2619B41FE800EC0C9E /* ModifyGender.storyboard in Resources */,
 				8BAB3B0E1990ABEF00FD3BA0 /* Encyclope.storyboard in Resources */,
 				8B6AA10019933AF600BF017C /* EncyCategoryVC.xib in Resources */,
 				8BA39D2A19ADDEDF00C9FCDD /* EncyAllListFile.xib in Resources */,
@@ -1025,6 +1034,7 @@
 				28A4FDB919A71EBB00C3CD85 /* ThirdFilterViewController.m in Sources */,
 				28D6E0371999FDE90080E5A5 /* RecommendCell.m in Sources */,
 				28895086198B2D8C00696A95 /* SecondFilterTableViewCell.m in Sources */,
+				28DD9A2919B4203F00EC0C9E /* ModifyGenderViewController.m in Sources */,
 				28A54A1D19A447C400AFDDED /* ProfileEditingSignCell.m in Sources */,
 				8BA39D2919ADDEDF00C9FCDD /* EncyAllListFile.m in Sources */,
 				8BC24F0C19A1C76C003C959F /* ZXYDownImageOperation.m in Sources */,
@@ -1237,7 +1247,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "YouBaoOC/YouBaoOC-Prefix.pch";
 				INFOPLIST_FILE = YouBaoOC/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -1258,7 +1268,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "YouBaoOC/YouBaoOC-Prefix.pch";
 				INFOPLIST_FILE = YouBaoOC/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";

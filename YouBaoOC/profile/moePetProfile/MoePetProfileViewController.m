@@ -79,6 +79,8 @@
     [self.editingButton.layer setMasksToBounds:YES];
     [self.editingButton setBackgroundColor:THEME_LIGHT_COLOR];
     
+
+    
     if (!self.petInfo) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"宠物信息获取失败" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
         [alert show];
@@ -130,6 +132,8 @@
 }
 
 
+
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -148,6 +152,9 @@
 
 
 #pragma mark - Actions
+
+- (void)reloadInitData{
+}
 - (void)reloadPetData{
     NSDictionary *parameters = @{@"pet_id"  : self.petInfo.petId};
     [[LCYNetworking sharedInstance] postRequestWithAPI:Pet_GetPetDetailByID parameters:parameters successBlock:^(NSDictionary *object) {

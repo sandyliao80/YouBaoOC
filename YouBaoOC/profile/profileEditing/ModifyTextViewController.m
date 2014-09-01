@@ -14,6 +14,8 @@
 
 @property (weak, nonatomic) UITextField *icyTextField;
 
+@property (strong, nonatomic) NSDictionary *myMap;
+
 @end
 
 @implementation ModifyTextViewController
@@ -22,6 +24,14 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     NSAssert(self.modifyTitle, @"必须提供修改的字段名哦！");
+    
+    self.myMap = @{@"姓名"            : @"nick_name",
+                   @"签名"            : @"tip",
+                   @"QQ"            : @"qq",
+                   @"微信"    : @"wechat",
+                   @"新浪微博"  : @"weibo",
+                   @"固定电话"  : @"telephone",
+                   @"详细地址"  : @"address"};
     
     self.navigationItem.title = self.modifyTitle;
     
@@ -74,11 +84,32 @@
 }
 
 - (void)doneButtonPressed:(id)sender{
+//    [[LCYCommon sharedInstance] showTips:@"修改中" inView:self.view];
+    
+    NSDictionary *parameters = @{@"user_name":[LCYGlobal sharedInstance].currentUserID,
+                                 @"key":self.myMap[self.modifyTitle],
+                                 @"value":self.icyTextField.text};
     [[LCYCommon sharedInstance] showTips:@"修改中" inView:self.view];
-    if (self.delegate &&
-        [self.delegate respondsToSelector:@selector(didModifyText:textInfo:)]) {
-        [self.delegate didModifyText:self.modifyTitle textInfo:self.icyTextField.text];
-    }
+    [[LCYNetworking sharedInstance] postRequestWithAPI:User_modifySingleProperty parameters:parameters successBlock:^(NSDictionary *object) {
+        if ([object[@"result"] boolValue]) {
+            [self.navigationController popViewControllerAnimated:YES];
+            NSNotificationCenter *defaultCenter = [NSNotificationCenter defaultCenter];
+            [defaultCenter postNotificationName:@"reloadProfile" object:nil];
+        } else {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:object[@"msg"] delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+            [alert show];
+        }
+        [[LCYCommon sharedInstance] hideTipsInView:self.view];
+    } failedBlock:^{
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"修改失败" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+        [alert show];
+        [[LCYCommon sharedInstance] hideTipsInView:self.view];
+    }];
+    
+//    if (self.delegate &&
+//        [self.delegate respondsToSelector:@selector(didModifyText:textInfo:)]) {
+//        [self.delegate didModifyText:self.modifyTitle textInfo:self.icyTextField.text];
+//    }
     [self.navigationController popViewControllerAnimated:YES];
 }
 

@@ -34,6 +34,8 @@ NSString *const User_modifyInfo     = @"User/modifyInfo";
 NSString *const Pet_recommend       = @"Pet/recommend";
 NSString *const Pet_updatePetInfo   = @"Pet/updatePetInfo";
 NSString *const User_reset_password_authcode    = @"User/reset_password_authcode";
+NSString *const User_modifyLocation = @"User/modifyLocation";
+NSString *const User_modifySingleProperty       = @"User/modifySingleProperty";
 
 @implementation LCYNetworking
 

@@ -22,6 +22,7 @@
 #import "CellImageDownloadOperation.h"
 #import "moePetProfile/MoePetProfileViewController.h"
 #import "ProfileEditingViewController.h"
+#import "MJRefresh.h"
 
 @interface ProfileHomeViewController ()<UITableViewDelegate, UITableViewDataSource, AddPetDelegate, CellImageDownloadOperationDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *icyTableView;
@@ -70,24 +71,15 @@
     
     [self.icyTableView setBackgroundColor:[UIColor clearColor]];
     
+    NSNotificationCenter *defaultCenter = [NSNotificationCenter defaultCenter];
+    [defaultCenter addObserver:self selector:@selector(reloadInitData) name:@"MoePetReload" object:nil];
+    
+    // 添加下拉刷新
+    [self.icyTableView addHeaderWithTarget:self action:@selector(headerRereshing)];
+    
     // 加载用户所有信息
     [[LCYCommon sharedInstance] showTips:@"正在加载用户信息" inView:self.view];
-    NSDictionary *parameters = @{@"user_name"   : [LCYGlobal sharedInstance].currentUserID};
-    [[LCYNetworking sharedInstance] postRequestWithAPI:User_getUserInfoByID parameters:parameters successBlock:^(NSDictionary *object) {
-        self.baseInfo = [GetUserInfoBase modelObjectWithDictionary:object];
-        if (self.baseInfo.result) {
-            // 加载成功
-            self.navigationItem.title = self.baseInfo.userInfo.nickName;
-            [self.icyTableView reloadData];
-        } else {
-            // 加载失败
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"个人信息加载失败" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
-            [alert show];
-        }
-        [[LCYCommon sharedInstance] hideTipsInView:self.view];
-    } failedBlock:^{
-        [[LCYCommon sharedInstance] hideTipsInView:self.view];
-    }];
+    [self reloadInitData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -102,6 +94,10 @@
     }
 }
 
+- (void)dealloc{
+    NSNotificationCenter *defaultCenter = [NSNotificationCenter defaultCenter];
+    [defaultCenter removeObserver:self name:@"MoePetReload" object:nil];
+}
 
 #pragma mark - Navigation
 
@@ -138,6 +134,31 @@
     }
 }
 
+
+- (void)headerRereshing{
+    [self reloadInitData];
+}
+
+- (void)reloadInitData{
+    NSDictionary *parameters = @{@"user_name"   : [LCYGlobal sharedInstance].currentUserID};
+    [[LCYNetworking sharedInstance] postRequestWithAPI:User_getUserInfoByID parameters:parameters successBlock:^(NSDictionary *object) {
+        self.baseInfo = [GetUserInfoBase modelObjectWithDictionary:object];
+        if (self.baseInfo.result) {
+            // 加载成功
+            self.navigationItem.title = self.baseInfo.userInfo.nickName;
+            [self.icyTableView reloadData];
+        } else {
+            // 加载失败
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"个人信息加载失败" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+            [alert show];
+        }
+        [[LCYCommon sharedInstance] hideTipsInView:self.view];
+        [self.icyTableView headerEndRefreshing];
+    } failedBlock:^{
+        [[LCYCommon sharedInstance] hideTipsInView:self.view];
+        [self.icyTableView headerEndRefreshing];
+    }];
+}
 
 #pragma mark - UITableView
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
