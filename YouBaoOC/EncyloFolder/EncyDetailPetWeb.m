@@ -53,9 +53,16 @@
 
 - (void)leftItemAction
 {
-    [self dismissViewControllerAnimated:YES completion:^{
+    if(_isPet)
+    {
+        [self dismissViewControllerAnimated:YES completion:^{
         
-    }];
+        }];
+    }
+    else
+    {
+        [self.navigationController popViewControllerAnimated:YES];
+    }
 }
 
 /*

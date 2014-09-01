@@ -27,13 +27,14 @@
 
 - (void)awakeFromNib {
     // Initialization code
+    self.backgroundColor = [UIColor colorWithRed:0.3882 green:0.6235 blue:0.7569 alpha:1];
 }
 
 - (void)drawRect:(CGRect)rect
 {
     //[self drowArcBethWithHeight:5];
     [super drawRect:rect];
-    self.backgroundColor = [UIColor colorWithRed:65.0/255.0 green:134.0/255.0 blue:174.0/255.0 alpha:1];
+    
     
 }
 

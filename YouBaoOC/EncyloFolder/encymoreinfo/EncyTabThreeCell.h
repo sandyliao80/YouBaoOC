@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@protocol TabDelegate<NSObject>
+- (void)selectTabBtn:(NSInteger)currentTag;
+@end
 @interface EncyTabThreeCell : UITableViewCell
-
+@property (nonatomic,strong)id<TabDelegate>delegate;
 @end

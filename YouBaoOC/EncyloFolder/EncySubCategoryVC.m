@@ -16,6 +16,7 @@
 #import "UIViewController+HideTabBar.h"
 #import "EncyDetailPetWeb.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+#import "EncyMoreInfoForTypeViewController.h"
 @interface EncySubCategoryVC ()<UITableViewDelegate,UITableViewDataSource>
 {
     NSMutableArray *allDataForShow;
@@ -246,7 +247,7 @@
     NSString *keyNow = [allKeys objectAtIndex:indexPath.section];
     NSMutableArray *arr = [dataDic objectForKey:keyNow];
     SubPetSyle *subPet = [arr objectAtIndex:indexPath.row];
-    EncyDetailPetWeb *detailWeb = [[EncyDetailPetWeb alloc] initWithPetID:subPet.cat_id.intValue andType:YES];
+    EncyMoreInfoForTypeViewController *detailWeb = [[EncyMoreInfoForTypeViewController alloc] initWithPetID:subPet.cat_id andURL:subPet.head_img ];
     detailWeb.title = subPet.name;
     [self.navigationController pushViewController:detailWeb animated:YES];
 }

@@ -6,6 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EncyMoreInfoForTypeViewController">
             <connections>
+                <outlet property="currentTable" destination="lIB-Wb-Jln" id="csl-TE-peJ"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -14,7 +15,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="lIB-Wb-Jln">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="lIB-Wb-Jln">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>
@@ -24,6 +25,12 @@
                 </tableView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="lIB-Wb-Jln" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="1jI-Qt-QE3"/>
+                <constraint firstAttribute="bottom" secondItem="lIB-Wb-Jln" secondAttribute="bottom" id="Tkp-V6-aeq"/>
+                <constraint firstAttribute="trailing" secondItem="lIB-Wb-Jln" secondAttribute="trailing" id="btx-xE-aaE"/>
+                <constraint firstItem="lIB-Wb-Jln" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="umo-W2-TE7"/>
+            </constraints>
             <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4">
                 <size key="portraitSize" width="320" height="568"/>

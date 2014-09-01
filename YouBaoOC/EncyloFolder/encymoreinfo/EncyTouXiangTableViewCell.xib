@@ -6,36 +6,56 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ENCYTXI" rowHeight="80" id="KGk-i7-Jjw" customClass="EncyTouXiangTableViewCell">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="ENCYTXI" rowHeight="80" id="KGk-i7-Jjw" customClass="EncyTouXiangTableViewCell">
             <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EV2-ut-6z7">
-                        <rect key="frame" x="129" y="8" width="63" height="63"/>
-                        <color key="backgroundColor" red="0.48235294220000002" green="0.7254902124" blue="0.84705883260000003" alpha="1" colorSpace="calibratedRGB"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EV2-ut-6z7">
+                        <rect key="frame" x="131" y="10" width="59" height="59"/>
+                        <color key="backgroundColor" red="0.32941177490000001" green="0.62352943419999995" blue="0.76470595600000002" alpha="1" colorSpace="deviceRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="59" id="WqI-zV-jjm"/>
+                            <constraint firstAttribute="width" constant="59" id="d5m-PP-dyS"/>
+                        </constraints>
                     </imageView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="95O-wo-2k6">
-                        <rect key="frame" x="188" y="39" width="132" height="1"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="95O-wo-2k6">
                         <color key="backgroundColor" red="0.32941177490000001" green="0.62352943419999995" blue="0.76470595600000002" alpha="1" colorSpace="deviceRGB"/>
                     </imageView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Auu-Uc-gMm">
-                        <rect key="frame" x="133" y="12" width="55" height="55"/>
-                    </imageView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SdG-99-cDO">
-                        <rect key="frame" x="0.0" y="39" width="133" height="1"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SdG-99-cDO">
                         <color key="backgroundColor" red="0.27058823529999998" green="0.54901960780000003" blue="0.70196078429999997" alpha="1" colorSpace="calibratedRGB"/>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Auu-Uc-gMm">
+                        <rect key="frame" x="133" y="12" width="55" height="55"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="55" id="4t0-lm-d3Q"/>
+                            <constraint firstAttribute="width" constant="55" id="bux-nw-Hhn"/>
+                        </constraints>
                     </imageView>
                 </subviews>
                 <color key="backgroundColor" red="0.48235294220000002" green="0.7254902124" blue="0.84705883260000003" alpha="1" colorSpace="calibratedRGB"/>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="SdG-99-cDO" secondAttribute="trailing" constant="190" id="0CQ-Mp-dwv"/>
+                    <constraint firstItem="SdG-99-cDO" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="39" id="0ai-A9-14V"/>
+                    <constraint firstAttribute="bottom" secondItem="95O-wo-2k6" secondAttribute="bottom" constant="40" id="17n-ta-XsF"/>
+                    <constraint firstAttribute="bottom" secondItem="SdG-99-cDO" secondAttribute="bottom" constant="40" id="FlI-Cw-qGl"/>
+                    <constraint firstAttribute="trailing" secondItem="95O-wo-2k6" secondAttribute="trailing" constant="1" id="KMH-ON-Al9"/>
+                    <constraint firstItem="SdG-99-cDO" firstAttribute="height" secondItem="95O-wo-2k6" secondAttribute="height" id="MfX-rl-A9q"/>
+                    <constraint firstAttribute="centerX" secondItem="EV2-ut-6z7" secondAttribute="centerX" id="QlV-3f-hg2"/>
+                    <constraint firstItem="SdG-99-cDO" firstAttribute="width" secondItem="95O-wo-2k6" secondAttribute="width" id="gQf-UB-JPZ"/>
+                    <constraint firstAttribute="centerY" secondItem="Auu-Uc-gMm" secondAttribute="centerY" id="iwV-4M-9t4"/>
+                    <constraint firstItem="SdG-99-cDO" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="rLW-XS-vdr"/>
+                    <constraint firstItem="95O-wo-2k6" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="39" id="uJA-N0-U7m"/>
+                    <constraint firstAttribute="centerY" secondItem="EV2-ut-6z7" secondAttribute="centerY" id="wvj-xq-8Rv"/>
+                    <constraint firstAttribute="centerX" secondItem="Auu-Uc-gMm" secondAttribute="centerX" id="ywW-SZ-Sap"/>
+                </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="bigHeadImage" destination="EV2-ut-6z7" id="2Um-ni-Bea"/>
                 <outlet property="leftLine" destination="95O-wo-2k6" id="PvA-fS-8gP"/>
                 <outlet property="rightLine" destination="SdG-99-cDO" id="Jhh-MO-aYC"/>
-                <outlet property="smallHeadImage" destination="Auu-Uc-gMm" id="njq-50-gbS"/>
                 <outlet property="smallImage" destination="Auu-Uc-gMm" id="Wja-cM-4Ne"/>
             </connections>
             <point key="canvasLocation" x="140" y="163.5"/>

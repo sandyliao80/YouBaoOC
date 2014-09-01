@@ -21,7 +21,7 @@
     self.smallImage.layer.cornerRadius = self.smallImage.frame.size.width/2;
     self.bigHeadImage.layer.cornerRadius = self.bigHeadImage.frame.size.width/2;
     self.smallImage.layer.masksToBounds = YES;
-    self.bigHeadImage.layer.masksToBounds = NO;
+    self.bigHeadImage.layer.masksToBounds = YES;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
