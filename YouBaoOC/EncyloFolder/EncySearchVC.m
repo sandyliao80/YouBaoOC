@@ -58,7 +58,7 @@
     }
     allDataForShow = [[NSMutableArray alloc] init];
     self.searchBar.delegate = self;
-    [self.navigationController setNavigationBarHidden:YES animated:YES];
+    
         // Do any additional setup after loading the view from its nib.
 }
 
@@ -69,6 +69,10 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
+    if(![self.navigationController isNavigationBarHidden])
+    {
+        [self.navigationController setNavigationBarHidden:YES animated:YES];
+    }
     needFirst = YES;
     [super viewDidAppear:animated];
     if(!isFirstDown)
