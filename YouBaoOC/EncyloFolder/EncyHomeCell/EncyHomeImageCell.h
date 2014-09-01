@@ -15,4 +15,5 @@
 @interface EncyHomeImageCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet ZXYScrollView *zxyScroll;
 @property (nonatomic,strong)id<EncyHomeImageCellDelegate>delegate;
+- (void)reloadImageViews;
 @end

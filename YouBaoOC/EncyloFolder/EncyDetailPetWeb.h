@@ -10,5 +10,6 @@
 
 @interface EncyDetailPetWeb : UIViewController
 - (id)initWithPetID:(NSInteger )petID andType:(BOOL)isPet;
+- (void)isSearchListClick:(BOOL)isSearch;
 - (void)setIsSelected:(BOOL)isSelect;
 @end

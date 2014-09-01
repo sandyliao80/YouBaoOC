@@ -10,4 +10,5 @@
 
 @interface EncyAllListFile : UIViewController
 - (id)initPetID:(NSString *)petID andTypeID:(NSString *)typeID;
+- (void)isFavorite;
 @end

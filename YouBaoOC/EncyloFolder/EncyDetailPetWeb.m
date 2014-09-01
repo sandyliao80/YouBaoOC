@@ -14,12 +14,14 @@
 #import "LCYGlobal.h"
 #import "LCYCommon.h"
 #import <MBProgressHUD/MBProgressHUD.h>
+#import "RegisterAndLoginViewController.h"
 @interface EncyDetailPetWeb ()
 {
     NSInteger pet_id;
     BOOL _isCollect;
     BOOL _isPet;
     MBProgressHUD *progress;
+    BOOL _isSearch;
 }
 @property (weak, nonatomic) IBOutlet UIWebView *currentWeb;
 
@@ -33,6 +35,7 @@
         pet_id = petID;
         _isPet = isPet;
         _isCollect = NO;
+        _isSearch  = NO;
     }
     return self;
 }
@@ -65,8 +68,11 @@
     NSURL *url = [NSURL URLWithString:urlStrings];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     [self.currentWeb loadRequest:request];
-    
-
+    if(self.navigationController)
+    {
+        [self.navigationController setNavigationBarHidden:NO animated:YES];
+    }
+   
 }
 
 - (void)setNaviRightItem:(NSString *)imageName
@@ -123,6 +129,12 @@
             [progress hide:YES];
         }];
     }
+    else
+    {
+        UIStoryboard *login = [UIStoryboard storyboardWithName:@"RegisterAndLogin" bundle:nil];
+        RegisterAndLoginViewController *loginV = [login instantiateInitialViewController];
+        [self.navigationController pushViewController:loginV animated:YES];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -130,8 +142,19 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)isSearchListClick:(BOOL)isSearch
+{
+    _isSearch = isSearch;
+}
+
 - (void)leftItemAction
 {
+    if(_isSearch)
+    {
+        [self dismissViewControllerAnimated:YES completion:^{
+            
+        }];
+    }
     if(_isPet)
     {
         [self dismissViewControllerAnimated:YES completion:^{

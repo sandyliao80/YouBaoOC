@@ -395,10 +395,12 @@ typedef enum
     
     if([ZXYNETHelper isNETConnect])
     {
-        AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-        NSString *urlString = [ZXY_HOSTURL stringByAppendingString:ZXY_ISCOLLECT];
+        
         if([[LCYCommon sharedInstance] isUserLogin])
         {
+            AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+            NSString *urlString = [ZXY_HOSTURL stringByAppendingString:ZXY_ISCOLLECT];
+            [manager setResponseSerializer:[AFHTTPResponseSerializer serializer]];
             NSString *phoneNum = [[LCYGlobal sharedInstance] currentUserID];
             [manager POST:urlString parameters:[NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:phoneNum.intValue], @"user_name",[NSNumber numberWithInt:petID.intValue],@"ency_id",nil] success:^(AFHTTPRequestOperation *operation, id responseObject) {
                 [progress hide:YES];
@@ -413,7 +415,7 @@ typedef enum
                 }
                 [self.navigationController pushViewController:detailWeb animated:YES];
             } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                
+                [progress hide:YES];
             }];
             
         }

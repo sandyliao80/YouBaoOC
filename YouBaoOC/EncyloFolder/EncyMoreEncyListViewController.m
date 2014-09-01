@@ -177,6 +177,10 @@ typedef enum
         }
         else
         {
+            if(!isAdd)
+            {
+                [allDataForShow removeAllObjects];
+            }
             NSArray *allArr = [allDic objectForKey:@"data"];
             if(allArr)
             {
@@ -209,11 +213,19 @@ typedef enum
 
 - (void)reloadData
 {
+    if(isAdd)
+    {
+        isAdd = NO;
+    }
     [currentTable reloadData];
 }
 
 - (void)hideMB
 {
+    if(isAdd)
+    {
+        isAdd = NO;
+    }
     [progress hide:YES];
     [currentTable footerEndRefreshing];
     [currentTable headerEndRefreshing];
@@ -366,17 +378,20 @@ typedef enum
 {
     NSDictionary *dataDic = [allDataForShow objectAtIndex:indexPath.row];
     NSString *petID = [dataDic objectForKey:@"ency_id"];
-    [progress show:YES];
+    
     
     if([ZXYNETHelper isNETConnect])
     {
+        [progress show:YES];
         AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+        
         NSString *urlString = [ZXY_HOSTURL stringByAppendingString:ZXY_ISCOLLECT];
         if([[LCYCommon sharedInstance] isUserLogin])
         {
             NSString *phoneNum = [[LCYGlobal sharedInstance] currentUserID];
+            manager.responseSerializer = [AFHTTPResponseSerializer serializer];
             [manager POST:urlString parameters:[NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:phoneNum.intValue], @"user_name",[NSNumber numberWithInt:petID.intValue],@"ency_id",nil] success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                [progress hide:YES];
+                [self performSelectorOnMainThread:@selector(hideMB) withObject:nil waitUntilDone:YES];
                 EncyDetailPetWeb *detailWeb = [[EncyDetailPetWeb alloc] initWithPetID:petID.integerValue andType:NO];
                 if([[operation responseString] isEqualToString:@"true"])
                 {
@@ -388,7 +403,7 @@ typedef enum
                 }
                 [self.navigationController pushViewController:detailWeb animated:YES];
             } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                
+                [progress hide:YES];
             }];
             
         }

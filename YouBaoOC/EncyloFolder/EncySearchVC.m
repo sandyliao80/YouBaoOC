@@ -26,9 +26,10 @@
     MBProgressHUD *textHUD;
     __weak IBOutlet UITableView *currentTable;
     BOOL isFirstDown;
+    BOOL needFirst;
 }
 
-@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
+@property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
 - (IBAction)backView:(id)sender;
 @end
 
@@ -43,6 +44,7 @@
     topBar = [[UIToolbar alloc] init];
     currentPage = 1;
     topBar = [self forKeyBoardHide:@"取消"];
+    self.title = @"搜索";
     [self.searchBar setInputAccessoryView:topBar];
     UIView *views = [self.searchBar.subviews objectAtIndex:0];
     for(UIView *oneObject in views.subviews)
@@ -56,12 +58,18 @@
     }
     allDataForShow = [[NSMutableArray alloc] init];
     self.searchBar.delegate = self;
-   
-    // Do any additional setup after loading the view from its nib.
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
+        // Do any additional setup after loading the view from its nib.
+}
+
+- (void)viewDidLayoutSubviews
+{
+    [super viewDidLayoutSubviews];
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
+    needFirst = YES;
     [super viewDidAppear:animated];
     if(!isFirstDown)
     {
@@ -106,7 +114,7 @@
 {
     [textHUD setLabelText:@"已经是最后一页了"];
     [textHUD show:YES];
-    [self performSelector:@selector(hideTextHUD) withObject:nil afterDelay:2];
+    [self performSelector:@selector(hideTextHUD) withObject:nil afterDelay:1];
     [self hideMB];
 }
 
@@ -280,7 +288,10 @@
             NSString *urlString = [ZXY_HOSTURL stringByAppendingString:ZXY_ISCOLLECT];
             NSString *phoneNum = [[LCYGlobal sharedInstance] currentUserID];
             [manager POST:urlString parameters:[NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:phoneNum.intValue], @"user_name",[NSNumber numberWithInt:petID.intValue],@"ency_id",nil] success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                [progress hide:YES];
+                if(![progress isHidden])
+                {
+                    [progress hide:YES];
+                }
                                NSLog(@"%@",[operation responseString]);
                 EncyDetailPetWeb *detailWeb = [[EncyDetailPetWeb alloc] initWithPetID:petID.integerValue andType:NO];
                 if([[operation responseString] isEqualToString:@"true"])
@@ -315,8 +326,4 @@
 
 }
 
-- (BOOL)prefersStatusBarHidden
-{
-    return YES;
-}
 @end
