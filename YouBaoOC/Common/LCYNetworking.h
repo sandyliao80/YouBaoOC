@@ -106,7 +106,7 @@ FOUNDATION_EXPORT NSString *const Common_Upload_index;  /** 上传文件-宠物�
 
 - (void)postFileWithAPI:(NSString *)api
              parameters:(NSDictionary *)parameters
-               progress:(NSProgress *)progress
+               progress:(NSProgress * __autoreleasing *)progress
                 fileKey:(NSString *)key
                fileData:(NSData *)data
                fileName:(NSString *)fileName

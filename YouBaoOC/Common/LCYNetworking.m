@@ -230,10 +230,11 @@ static bool isFirstAccess = YES;
     }];
 }
 
-- (void)postFileWithAPI:(NSString *)api parameters:(NSDictionary *)parameters progress:(NSProgress *)progress fileKey:(NSString *)key fileData:(NSData *)data fileName:(NSString *)fileName mimeType:(NSString *)mimeType successBlock:(void (^)(NSDictionary *))success failedBlock:(void (^)(void))failed{
+- (void)postFileWithAPI:(NSString *)api parameters:(NSDictionary *)parameters progress:(NSProgress * __autoreleasing *)progress fileKey:(NSString *)key fileData:(NSData *)data fileName:(NSString *)fileName mimeType:(NSString *)mimeType successBlock:(void (^)(NSDictionary *))success failedBlock:(void (^)(void))failed{
     NSString *urlString = [hostURL stringByAppendingString:api];
     NSMutableURLRequest *request = [[AFHTTPRequestSerializer serializer] multipartFormRequestWithMethod:@"POST" URLString:urlString parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
-        [formData appendPartWithFormData:data name:key];
+//        [formData appendPartWithFormData:data name:key];
+        [formData appendPartWithFileData:data name:key fileName:fileName mimeType:mimeType];
     } error:nil];
     
     AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
@@ -241,14 +242,21 @@ static bool isFirstAccess = YES;
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html", @"text/plain", nil];
     
     
-    NSURLSessionUploadTask *uploadTask = [manager uploadTaskWithStreamedRequest:request progress:&progress completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
+    NSURLSessionUploadTask *uploadTask = [manager uploadTaskWithStreamedRequest:request progress:progress completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
         if (error) {
-            NSLog(@"Error: %@", error);
-            if ([(NSError *)(error) code] == NSURLErrorCannotDecodeContentData) {
-                NSLog(@"%@ %@",response, responseObject);
+            NSLog(@"Error in progress: %@", error);
+            if (failed) {
+                dispatch_async(dispatch_get_main_queue(), failed);
             }
         } else {
-            NSLog(@"%@ %@", response, responseObject);
+            NSDictionary *dic = responseObject;
+            NSLog(@"response object = %@", dic);
+            
+            if (success) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    success(dic);
+                });
+            }
         }
     }];
     

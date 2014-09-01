@@ -10,7 +10,7 @@
 #import "AppDelegate.h"
 #import "LCYCommon.h"
 
-@interface ProfileSettingViewController ()
+@interface ProfileSettingViewController ()<UITableViewDelegate, UITableViewDataSource>
 
 @end
 
@@ -44,6 +44,36 @@
     UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"RegisterAndLogin" bundle:nil];
     UINavigationController *navigationVC = storyBoard.instantiateInitialViewController;
     appDelegate.window.rootViewController = navigationVC;
+}
+
+#pragma mark - UITableView
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return 2;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    static NSString *identifier = @"identifier";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+    }
+    if (indexPath.row == 0) {
+        cell.textLabel.text = @"关于我们";
+    } else {
+        cell.textLabel.text = @"退出账号";
+    }
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.row == 1) {
+        [[LCYCommon sharedInstance] logout];
+        AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
+        UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"RegisterAndLogin" bundle:nil];
+        UINavigationController *navigationVC = storyBoard.instantiateInitialViewController;
+        appDelegate.window.rootViewController = navigationVC;
+    }
 }
 
 @end

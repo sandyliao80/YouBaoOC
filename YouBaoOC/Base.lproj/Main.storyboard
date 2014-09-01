@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6206.8" systemVersion="14A329f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="KKL-vN-PsA">
     <dependencies>
+        <deployment defaultVersion="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7026.1"/>
         <capability name="Constraints with attributes relative to the layout margin" minToolsVersion="6.0"/>
     </dependencies>
@@ -911,7 +912,7 @@
         <!--Profile Setting View Controller-->
         <scene sceneID="HQp-ZX-umJ">
             <objects>
-                <viewController id="E6T-uX-yYO" customClass="ProfileSettingViewController" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="E6T-uX-yYO" customClass="ProfileSettingViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="P5U-vL-sJq"/>
                         <viewControllerLayoutGuide type="bottom" id="p1b-38-f4X"/>
@@ -920,18 +921,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LUb-QA-HM9">
-                                <rect key="frame" x="137" y="100" width="46" height="30"/>
-                                <state key="normal" title="退出">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="z4a-9k-FtV">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
-                                    <action selector="exitButtonPressed:" destination="E6T-uX-yYO" eventType="touchUpInside" id="mQS-iJ-64G"/>
+                                    <outlet property="dataSource" destination="E6T-uX-yYO" id="r7i-td-Zdh"/>
+                                    <outlet property="delegate" destination="E6T-uX-yYO" id="7hw-sO-cFI"/>
                                 </connections>
-                            </button>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="z4a-9k-FtV" secondAttribute="bottom" id="3I3-19-pNZ"/>
+                            <constraint firstAttribute="trailing" secondItem="z4a-9k-FtV" secondAttribute="trailing" id="AcY-xf-jR0"/>
+                            <constraint firstItem="z4a-9k-FtV" firstAttribute="top" secondItem="MMC-qI-3ZA" secondAttribute="top" id="ZuG-kZ-AQY"/>
+                            <constraint firstItem="z4a-9k-FtV" firstAttribute="leading" secondItem="MMC-qI-3ZA" secondAttribute="leading" id="yF8-jA-BRX"/>
+                        </constraints>
                     </view>
+                    <nil key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H2D-hQ-ehO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

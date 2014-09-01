@@ -46,6 +46,8 @@ static void * kDGProgressChanged = &kDGProgressChanged;
 
 @property (weak, nonatomic) IBOutlet UIButton *editingButton;
 
+@property (strong, nonatomic) MBProgressHUD *myHUD;
+
 #pragma mark - Properties
 
 @property (strong, nonatomic) GetPetDetailBase *petDetailBase;
@@ -284,13 +286,22 @@ static void * kDGProgressChanged = &kDGProgressChanged;
     }
     UIImage *scaledImage = [originalImage imageByScalingAndCroppingForSize:newSize];
     
-    [[LCYCommon sharedInstance] showTips:@"正在上传图片" inView:self.view];
+//    [[LCYCommon sharedInstance] showTips:@"正在上传图片" inView:self.view];
+    self.myHUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    self.myHUD.mode = MBProgressHUDModeAnnularDeterminate;
+    self.myHUD.labelText = @"上传中";
     NSDictionary *parameters = @{@"pet_id"      : self.petInfo.petId};
     NSProgress *progress = nil;
-    [[LCYNetworking sharedInstance] postFileWithAPI:Pet_UploadPetImage parameters:parameters progress:progress fileKey:@"Filedata" fileData:UIImagePNGRepresentation(scaledImage) fileName:@"icylydiaPet.png" mimeType:@"image/png" successBlock:^(NSDictionary *object) {
-        ;
+    [[LCYNetworking sharedInstance] postFileWithAPI:Pet_UploadPetImage parameters:parameters progress:&progress fileKey:@"Filedata" fileData:UIImagePNGRepresentation(scaledImage) fileName:@"icylydiaPet.png" mimeType:@"image/png" successBlock:^(NSDictionary *object) {
+        
+        if ([object[@"result"] integerValue] == 1) {
+            // 上传成功
+            [[LCYCommon sharedInstance] hideTipsInView:self.view];
+            [self reloadPetData];
+        }
+        [progress removeObserver:self forKeyPath:@"fractionCompleted" context:kDGProgressChanged];
     } failedBlock:^{
-        ;
+        [progress removeObserver:self forKeyPath:@"fractionCompleted" context:kDGProgressChanged];
     }];
     [progress addObserver:self
                forKeyPath:@"fractionCompleted"
@@ -321,14 +332,14 @@ static void * kDGProgressChanged = &kDGProgressChanged;
 {
     if (kDGProgressChanged == context) {
         NSProgress *ps = object;
-        if (ps.fractionCompleted > 0.999) {
-            [ps removeObserver:self forKeyPath:@"fractionCompleted"];
-//            [MBProgressHUD hideHUDForView:self.view animated:YES];
-        }
+//        if (ps.fractionCompleted > 0.999) {
+//            [ps removeObserver:self forKeyPath:@"fractionCompleted"];
+////            [MBProgressHUD hideHUDForView:self.view animated:YES];
+//        }
         dispatch_async(dispatch_get_main_queue(), ^{
             NSLog(@"%@",ps);
              //self.progress.progress = ps.fractionCompleted;
-             //self.hud.progress = self.progress.progress;
+            self.myHUD.progress = ps.fractionCompleted;
         });
     }
 }
