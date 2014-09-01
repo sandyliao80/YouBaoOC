@@ -15,6 +15,8 @@
 #import "MJRefresh.h"
 #import "EncyDetailPetWeb.h"
 #import "ZXYNetHelper/ZXYNETHelper.h"
+#import "LCYCommon.h"
+#import "LCYGlobal.h"
 @interface EncyAllListFile ()<UITableViewDataSource,UITableViewDelegate>
 {
     NSMutableArray *allDataForShow;
@@ -25,7 +27,7 @@
     MBProgressHUD *textHUD;
       __weak IBOutlet UITableView *currentTable;
     BOOL isFirstDown;
-    
+    BOOL _isFavorite;
 }
 @end
 
@@ -37,8 +39,14 @@
         allDataForShow = [[NSMutableArray alloc] init];
         _petID = petID;
         _typeID = typeID;
+        _isFavorite = NO;
     }
     return self;
+}
+
+- (void)isFavorite
+{
+    _isFavorite = YES;
 }
 
 - (void)viewDidLoad {
@@ -50,6 +58,10 @@
     isFirstDown = YES;
     [self downLoadMoreData];
     currentTable.backgroundColor = BLUEINSI;
+    if(_isFavorite)
+    {
+        self.title = @"我的收藏";
+    }
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -179,35 +191,74 @@
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager setResponseSerializer:[AFHTTPResponseSerializer serializer]];
     NSString *urlString = [NSString stringWithFormat:@"%@%@",ZXY_HOSTURL,ZXY_GETMORE];
-    NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:_petID,@"cate_id",_typeID,@"type_id",[NSNumber numberWithInt:currentPage],@"p", nil];
-    [manager GET:urlString parameters:dic success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"operation is %@",[operation responseString]);
-        NSData *jsonData = [operation responseData];
-        NSDictionary *allDic = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:nil];
-        if([allDic objectForKey:@"data"] == [NSNull null])
-        {
-            [self performSelectorOnMainThread:@selector(isLastPage) withObject:nil waitUntilDone:YES];
-        }
-        else
-        {
-            NSArray *allArr = [allDic objectForKey:@"data"];
-            if(allArr)
+    NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:_petID,@"cate_id",_typeID,@"type_id",[NSNumber numberWithInteger:currentPage],@"p", nil];
+    if(_isFavorite)
+    {
+        urlString = [NSString stringWithFormat:@"%@%@?p=%ld",ZXY_HOSTURL,ZXY_Favo,(long)currentPage];
+        NSString *userNum = [[LCYGlobal sharedInstance] currentUserID];
+        dic = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:userNum.intValue],@"user_name", nil];
+        [manager setResponseSerializer:[AFHTTPResponseSerializer serializer]];
+        [manager POST:urlString parameters:dic success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            NSLog(@"operation is %@",[operation responseString]);
+            NSData *jsonData = [operation responseData];
+            NSDictionary *allDic = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:nil];
+            if([allDic objectForKey:@"data"] == [NSNull null])
             {
-                for(int i =0;i<allArr.count;i++)
+                [self performSelectorOnMainThread:@selector(isLastPage) withObject:nil waitUntilDone:YES];
+            }
+            else
+            {
+                NSArray *allArr = [allDic objectForKey:@"data"];
+                if(allArr)
                 {
-                    [allDataForShow addObject:allArr[i]];
+                    for(int i =0;i<allArr.count;i++)
+                    {
+                        [allDataForShow addObject:allArr[i]];
+                    }
                 }
+                
+                [self performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:YES];
+                [self performSelectorOnMainThread:@selector(hideMB) withObject:nil waitUntilDone:YES];
             }
             
-            [self performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:YES];
+            
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             [self performSelectorOnMainThread:@selector(hideMB) withObject:nil waitUntilDone:YES];
-        }
-        
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        [self performSelectorOnMainThread:@selector(hideMB) withObject:nil waitUntilDone:YES];
-        NSLog(@"operation is %@",error);
-    }];
+            NSLog(@"operation is %@",error);
+        }];
+
+    }
+    else
+    {
+        [manager GET:urlString parameters:dic success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            NSLog(@"operation is %@",[operation responseString]);
+            NSData *jsonData = [operation responseData];
+            NSDictionary *allDic = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:nil];
+            if([allDic objectForKey:@"data"] == [NSNull null])
+            {
+                [self performSelectorOnMainThread:@selector(isLastPage) withObject:nil waitUntilDone:YES];
+            }
+            else
+            {
+                NSArray *allArr = [allDic objectForKey:@"data"];
+                if(allArr)
+                {
+                    for(int i =0;i<allArr.count;i++)
+                    {
+                        [allDataForShow addObject:allArr[i]];
+                    }
+                }
+                
+                [self performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:YES];
+                [self performSelectorOnMainThread:@selector(hideMB) withObject:nil waitUntilDone:YES];
+            }
+            
+            
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            [self performSelectorOnMainThread:@selector(hideMB) withObject:nil waitUntilDone:YES];
+            NSLog(@"operation is %@",error);
+        }];
+    }
     
 }
 
@@ -215,10 +266,39 @@
 {
     NSDictionary *dataDic = [allDataForShow objectAtIndex:indexPath.row];
     NSString *petID = [dataDic objectForKey:@"ency_id"];
-    EncyDetailPetWeb *webView = [[EncyDetailPetWeb alloc] initWithPetID:petID.integerValue andType:NO];
-    if([ZXYNETHelper isNETConnect])
+   if([ZXYNETHelper isNETConnect])
     {
-        [self.navigationController pushViewController:webView animated:YES];
+        [progress show:YES];
+        AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+        [manager setResponseSerializer:[AFHTTPResponseSerializer serializer]];
+        NSString *urlString = [ZXY_HOSTURL stringByAppendingString:ZXY_ISCOLLECT];
+        if([[LCYCommon sharedInstance] isUserLogin])
+        {
+            NSString *phoneNum = [[LCYGlobal sharedInstance] currentUserID];
+            [manager POST:urlString parameters:[NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:phoneNum.intValue], @"user_name",[NSNumber numberWithInt:petID.intValue],@"ency_id",nil] success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                [progress hide:YES];
+                EncyDetailPetWeb *detailWeb = [[EncyDetailPetWeb alloc] initWithPetID:petID.integerValue andType:NO];
+                if([[operation responseString] isEqualToString:@"true"])
+                {
+                    [detailWeb setIsSelected:YES];
+                }
+                else
+                {
+                    [detailWeb setIsSelected:NO];
+                }
+                [self.navigationController pushViewController:detailWeb animated:YES];
+            } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                [progress hide:YES];
+            }];
+            
+        }
+        else
+        {
+            [progress hide:YES];
+            EncyDetailPetWeb *detailWeb = [[EncyDetailPetWeb alloc] initWithPetID:petID.integerValue andType:NO];
+            [detailWeb setIsSelected:NO];
+            [self.navigationController pushViewController:detailWeb animated:YES];
+        }
     }
     else
     {

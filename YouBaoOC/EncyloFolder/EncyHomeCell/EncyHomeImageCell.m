@@ -37,7 +37,12 @@
     {
         allDataForShow = [[NSMutableArray alloc] init];
     }
+    [self downLunBo];
     NSLog(@"%f,%f",self.zxyScroll.frame.size.width,self.zxyScroll.frame.size.height);
+}
+
+- (void)downLunBo
+{
     NSString *stringURL = [NSString stringWithFormat:@"%@%@",ZXY_HOSTURL,ZXY_ENCYLB];
     NSURL *url = [NSURL URLWithString:stringURL];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
@@ -62,6 +67,7 @@
         
     }];
     [operation start];
+
 }
 
 - (void)layoutSubviews
@@ -100,6 +106,12 @@
     NSURL *urlImage = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@",ENCY_HOSTURL,[currentDic objectForKey:@"image"]]];
     [currentImage sd_setImageWithURL:urlImage placeholderImage:[UIImage imageNamed:@"en_Home"]];
     return currentImage;
+}
+
+- (void)reloadImageViews
+{
+    [self downLunBo];
+   
 }
 
 - (void)afterClickAtIndex:(NSInteger)index

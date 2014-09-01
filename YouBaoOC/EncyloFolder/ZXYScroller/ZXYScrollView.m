@@ -48,7 +48,10 @@
         _pageV   = [[UIPageControl alloc] initWithFrame:CGRectMake(0, self.frame.size.height-20, self.frame.size.width, 30)];
         _viewS   = [[NSMutableArray alloc] init];
     }
-    
+    if(_viewS)
+    {
+        [_viewS removeAllObjects];
+    }
     [_scrollV setPagingEnabled:YES];
     [_scrollV setShowsHorizontalScrollIndicator:NO];
     [_scrollV setBounces:NO];

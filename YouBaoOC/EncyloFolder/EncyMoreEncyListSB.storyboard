@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6206.8" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="SSn-Iq-VeA">
     <dependencies>
+        <deployment defaultVersion="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7026.1"/>
     </dependencies>
     <scenes>
@@ -148,12 +149,33 @@
                         <outletCollection property="allImages" destination="4DY-QX-ieb" id="UEX-C7-GfX"/>
                         <outletCollection property="allImages" destination="F97-NC-OLA" id="Ull-AS-Mfy"/>
                         <outletCollection property="allImages" destination="WXJ-SQ-fd5" id="B9g-6J-0bS"/>
-                        <segue destination="DXW-bS-xSB" kind="presentation" identifier="EN_moreToSearch" modalTransitionStyle="crossDissolve" id="0of-zJ-ffX"/>
+                        <segue destination="hE3-az-Ln1" kind="presentation" identifier="EN_moreToSearch" modalTransitionStyle="crossDissolve" id="bar-dC-qHn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fny-dP-tr1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="655" y="-125"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="9g2-xb-HwB">
+            <objects>
+                <navigationController id="hE3-az-Ln1" sceneMemberID="viewController">
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4">
+                        <size key="portraitSize" width="320" height="568"/>
+                        <size key="landscapeSize" width="568" height="320"/>
+                    </simulatedScreenMetrics>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="NdL-KX-RFB">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="DXW-bS-xSB" kind="relationship" relationship="rootViewController" id="deB-fi-gB3"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BUv-h3-hG6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="250" y="-605"/>
         </scene>
         <!--Ency SearchVC-->
         <scene sceneID="ah6-uZ-lcH">
@@ -170,6 +192,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UHS-yX-glb">
                                 <rect key="frame" x="0.0" y="546" width="320" height="22"/>
                                 <color key="backgroundColor" red="0.85882352939999995" green="0.96078431369999995" blue="0.99607843139999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="22" id="2YP-W2-e9D"/>
+                                </constraints>
                                 <state key="normal" image="navigationBackD">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -177,15 +202,12 @@
                                     <action selector="backView:" destination="DXW-bS-xSB" eventType="touchUpInside" id="yGb-1j-YSl"/>
                                 </connections>
                             </button>
-                            <searchBar contentMode="redraw" searchBarStyle="prominent" text="" placeholder="请输入关键字搜索" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dtP-gc-YgF">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                                <color key="tintColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="barTintColor" red="0.63137257099999999" green="0.72156864399999998" blue="0.92549026010000002" alpha="1" colorSpace="deviceRGB"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="yXP-Dj-OkR">
-                                <rect key="frame" x="0.0" y="44" width="320" height="502"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="482"/>
                                 <color key="backgroundColor" red="0.85882352939999995" green="0.96078431369999995" blue="0.99607843139999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="482" id="fjM-Ib-g6m"/>
+                                </constraints>
                                 <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <color key="sectionIndexBackgroundColor" red="0.85882352939999995" green="0.96078431369999995" blue="0.99607843139999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
@@ -193,22 +215,38 @@
                                     <outlet property="delegate" destination="DXW-bS-xSB" id="QvA-Rg-5Xb"/>
                                 </connections>
                             </tableView>
+                            <searchBar contentMode="redraw" placeholder="请按关键字查找" translatesAutoresizingMaskIntoConstraints="NO" id="Phn-oT-nLY">
+                                <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                                <color key="backgroundColor" red="0.98143576160000001" green="1" blue="0.99538905960000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="7JF-AJ-IkR"/>
+                                </constraints>
+                                <color key="tintColor" red="0.98143576160000001" green="1" blue="0.99538905960000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="barTintColor" red="0.32941177490000001" green="0.62352943419999995" blue="0.76470595600000002" alpha="1" colorSpace="deviceRGB"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" red="0.85882352939999995" green="0.96078431369999995" blue="0.99607843139999996" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="yXP-Dj-OkR" firstAttribute="top" secondItem="dtP-gc-YgF" secondAttribute="bottom" id="2Dy-Qz-C9L"/>
-                            <constraint firstAttribute="trailing" secondItem="dtP-gc-YgF" secondAttribute="trailing" id="CCL-sK-g0J"/>
-                            <constraint firstItem="OOw-N2-ZzT" firstAttribute="top" secondItem="UHS-yX-glb" secondAttribute="bottom" id="SGj-29-eqB"/>
-                            <constraint firstItem="yXP-Dj-OkR" firstAttribute="top" secondItem="dtP-gc-YgF" secondAttribute="bottom" id="XgO-oV-J5r"/>
-                            <constraint firstItem="dtP-gc-YgF" firstAttribute="top" secondItem="toW-yc-1cu" secondAttribute="top" id="cA0-cR-Mqx"/>
-                            <constraint firstAttribute="trailing" secondItem="UHS-yX-glb" secondAttribute="trailing" id="ls2-kM-5uG"/>
-                            <constraint firstItem="UHS-yX-glb" firstAttribute="top" secondItem="yXP-Dj-OkR" secondAttribute="bottom" id="ney-0v-OW9"/>
-                            <constraint firstAttribute="trailing" secondItem="yXP-Dj-OkR" secondAttribute="trailing" id="pPi-JO-jhJ"/>
-                            <constraint firstItem="yXP-Dj-OkR" firstAttribute="leading" secondItem="toW-yc-1cu" secondAttribute="leading" id="sAa-Le-90z"/>
-                            <constraint firstItem="dtP-gc-YgF" firstAttribute="leading" secondItem="toW-yc-1cu" secondAttribute="leading" id="wTH-zS-ghf"/>
-                            <constraint firstItem="UHS-yX-glb" firstAttribute="leading" secondItem="toW-yc-1cu" secondAttribute="leading" id="ypl-Bm-spt"/>
+                            <constraint firstAttribute="centerX" secondItem="UHS-yX-glb" secondAttribute="centerX" id="5oW-kz-M1Q"/>
+                            <constraint firstItem="OOw-N2-ZzT" firstAttribute="top" secondItem="UHS-yX-glb" secondAttribute="bottom" id="98x-gp-AHK"/>
+                            <constraint firstItem="yXP-Dj-OkR" firstAttribute="top" secondItem="Phn-oT-nLY" secondAttribute="bottom" id="AwW-JH-dUb"/>
+                            <constraint firstItem="UHS-yX-glb" firstAttribute="leading" secondItem="toW-yc-1cu" secondAttribute="leading" id="EXc-fP-ZQs"/>
+                            <constraint firstAttribute="trailing" secondItem="yXP-Dj-OkR" secondAttribute="trailing" id="FNu-6Y-Esa"/>
+                            <constraint firstItem="yXP-Dj-OkR" firstAttribute="top" secondItem="Phn-oT-nLY" secondAttribute="bottom" id="I4t-xO-gNX"/>
+                            <constraint firstItem="Phn-oT-nLY" firstAttribute="top" secondItem="fbz-BK-keh" secondAttribute="bottom" id="Jrl-GF-aoC"/>
+                            <constraint firstAttribute="trailing" secondItem="Phn-oT-nLY" secondAttribute="trailing" id="NbC-WJ-dCD"/>
+                            <constraint firstAttribute="trailing" secondItem="UHS-yX-glb" secondAttribute="trailing" id="Oqh-fb-Pjf"/>
+                            <constraint firstItem="yXP-Dj-OkR" firstAttribute="leading" secondItem="toW-yc-1cu" secondAttribute="leading" id="Pxb-Oj-1Pu"/>
+                            <constraint firstAttribute="centerX" secondItem="yXP-Dj-OkR" secondAttribute="centerX" id="SE7-XM-zCU"/>
+                            <constraint firstAttribute="centerX" secondItem="Phn-oT-nLY" secondAttribute="centerX" id="WNy-bk-vJA"/>
+                            <constraint firstItem="Phn-oT-nLY" firstAttribute="leading" secondItem="toW-yc-1cu" secondAttribute="leading" id="dUH-Ay-6n4"/>
+                            <constraint firstItem="UHS-yX-glb" firstAttribute="top" secondItem="yXP-Dj-OkR" secondAttribute="bottom" id="npI-sV-3e7"/>
+                            <constraint firstItem="UHS-yX-glb" firstAttribute="top" secondItem="yXP-Dj-OkR" secondAttribute="bottom" id="thb-Hg-nbb"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="UGd-0z-MWh"/>
+                    <nil key="simulatedTopBarMetrics"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4">
                         <size key="portraitSize" width="320" height="568"/>
@@ -216,7 +254,7 @@
                     </simulatedScreenMetrics>
                     <connections>
                         <outlet property="currentTable" destination="yXP-Dj-OkR" id="dM3-zH-FFT"/>
-                        <outlet property="searchBar" destination="dtP-gc-YgF" id="xnc-JG-Jou"/>
+                        <outlet property="searchBar" destination="Phn-oT-nLY" id="32f-Oe-fnx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tBo-uE-eUY" userLabel="First Responder" sceneMemberID="firstResponder"/>
