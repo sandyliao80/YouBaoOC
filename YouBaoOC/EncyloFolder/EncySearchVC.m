@@ -15,6 +15,8 @@
 #import "EncyHomePageTableViewCell.h"
 #import "EncyDetailPetWeb.h"
 #import "ZXYNETHelper.h"
+#import "LCYCommon.h"
+#import "LCYGlobal.h"
 @interface EncySearchVC ()<UISearchBarDelegate,UITableViewDelegate,UITableViewDataSource>
 {
     UIToolbar *topBar;
@@ -24,9 +26,10 @@
     MBProgressHUD *textHUD;
     __weak IBOutlet UITableView *currentTable;
     BOOL isFirstDown;
+    BOOL needFirst;
 }
 
-@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
+@property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
 - (IBAction)backView:(id)sender;
 @end
 
@@ -41,6 +44,7 @@
     topBar = [[UIToolbar alloc] init];
     currentPage = 1;
     topBar = [self forKeyBoardHide:@"取消"];
+    self.title = @"搜索";
     [self.searchBar setInputAccessoryView:topBar];
     UIView *views = [self.searchBar.subviews objectAtIndex:0];
     for(UIView *oneObject in views.subviews)
@@ -54,12 +58,22 @@
     }
     allDataForShow = [[NSMutableArray alloc] init];
     self.searchBar.delegate = self;
-   
-    // Do any additional setup after loading the view from its nib.
+    
+        // Do any additional setup after loading the view from its nib.
+}
+
+- (void)viewDidLayoutSubviews
+{
+    [super viewDidLayoutSubviews];
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
+    if(![self.navigationController isNavigationBarHidden])
+    {
+        [self.navigationController setNavigationBarHidden:YES animated:YES];
+    }
+    needFirst = YES;
     [super viewDidAppear:animated];
     if(!isFirstDown)
     {
@@ -104,7 +118,7 @@
 {
     [textHUD setLabelText:@"已经是最后一页了"];
     [textHUD show:YES];
-    [self performSelector:@selector(hideTextHUD) withObject:nil afterDelay:2];
+    [self performSelector:@selector(hideTextHUD) withObject:nil afterDelay:1];
     [self hideMB];
 }
 
@@ -267,14 +281,46 @@
 {
     NSDictionary *dataDic = [allDataForShow objectAtIndex:indexPath.row];
     NSString *petID = [dataDic objectForKey:@"ency_id"];
-    EncyDetailPetWeb *webView = [[EncyDetailPetWeb alloc] initWithPetID:petID.integerValue andType:NO];
+    [progress show:YES];
+    
     if([ZXYNETHelper isNETConnect])
     {
-         UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:webView];
-        webView.title = [dataDic objectForKey:@"title"];
-        [self presentViewController:navi animated:YES completion:^{
+        if([[LCYCommon sharedInstance] isUserLogin])
+        {
+            AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+            manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+            NSString *urlString = [ZXY_HOSTURL stringByAppendingString:ZXY_ISCOLLECT];
+            NSString *phoneNum = [[LCYGlobal sharedInstance] currentUserID];
+            [manager POST:urlString parameters:[NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:phoneNum.intValue], @"user_name",[NSNumber numberWithInt:petID.intValue],@"ency_id",nil] success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                if(![progress isHidden])
+                {
+                    [progress hide:YES];
+                }
+                               NSLog(@"%@",[operation responseString]);
+                EncyDetailPetWeb *detailWeb = [[EncyDetailPetWeb alloc] initWithPetID:petID.integerValue andType:NO];
+                if([[operation responseString] isEqualToString:@"true"])
+                {
+                    [detailWeb setIsSelected:YES];
+                }
+                else
+                {
+                    [detailWeb setIsSelected:NO];
+                }
+                [progress hide:YES];
+                [self.navigationController pushViewController:detailWeb animated:YES];
+            } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                NSLog(@"%@",error);
+                [progress hide:YES];
+            }];
             
-        }];
+        }
+        else
+        {
+            [progress hide:YES];
+            EncyDetailPetWeb *detailWeb = [[EncyDetailPetWeb alloc] initWithPetID:petID.integerValue andType:NO];
+            [detailWeb setIsSelected:NO];
+            [self.navigationController pushViewController:detailWeb animated:YES];
+        }
     }
     else
     {
@@ -284,8 +330,4 @@
 
 }
 
-- (BOOL)prefersStatusBarHidden
-{
-    return YES;
-}
 @end

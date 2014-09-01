@@ -24,6 +24,9 @@
 #define ZXY_TYPEHTML    @"/Ency/category_article/cate_id/" /** <获取宠物种类html*/
 #define ZXY_ENCYHTML    @"/Ency/ency_article/ency_id/"  /** <获取百科的html */
 #define ZXY_ENCYLB      @"/Ency/getAd" /** <获取百科的LB */
+#define ZXY_ISCOLLECT   @"Ency/is_collect" /** <判断有没有收藏*/
+#define ZXY_Select      @"Ency/setCollect" /** <收藏*/
+#define ZXY_Favo        @"Ency/getCollectArticle" /** <获得收藏列表*/
 
 #define BLUEINSI  [UIColor colorWithRed:221.0/255.0 green:245.0/255.0 blue:254.0/255.0 alpha:1];
 #define ORIGINSI  [UIColor colorWithRed:231.0/255.0 green:231.0/255.0 blue:231.0/255.0 alpha:1];

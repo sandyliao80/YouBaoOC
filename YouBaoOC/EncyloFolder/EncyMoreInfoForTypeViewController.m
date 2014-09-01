@@ -17,6 +17,8 @@
 #import "ZXYNETHelper.h"
 #import "MJRefresh.h"
 #import "EncyDetailPetWeb.h"
+#import "LCYGlobal.h"
+#import "LCYCommon.h"
 #define TXCELLI @"ENCYTXI"
 #define ENCYTABT @"ENCYTABT"
 #define cellIdentifier @"cellIdentifier"
@@ -389,17 +391,46 @@ typedef enum
     }
     NSDictionary *dataDic = [allDataForShow objectAtIndex:indexPath.row];
     NSString *petID = [dataDic objectForKey:@"ency_id"];
-    EncyDetailPetWeb *webView = [[EncyDetailPetWeb alloc] initWithPetID:petID.integerValue andType:NO];
+    [progress show:YES];
+    
     if([ZXYNETHelper isNETConnect])
     {
-        webView.title = [dataDic objectForKey:@"title"];
-        [self.navigationController pushViewController:webView animated:YES];
+        
+        if([[LCYCommon sharedInstance] isUserLogin])
+        {
+            AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+            NSString *urlString = [ZXY_HOSTURL stringByAppendingString:ZXY_ISCOLLECT];
+            [manager setResponseSerializer:[AFHTTPResponseSerializer serializer]];
+            NSString *phoneNum = [[LCYGlobal sharedInstance] currentUserID];
+            [manager POST:urlString parameters:[NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:phoneNum.intValue], @"user_name",[NSNumber numberWithInt:petID.intValue],@"ency_id",nil] success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                [progress hide:YES];
+                EncyDetailPetWeb *detailWeb = [[EncyDetailPetWeb alloc] initWithPetID:petID.integerValue andType:NO];
+                if([[operation responseString] isEqualToString:@"true"])
+                {
+                    [detailWeb setIsSelected:YES];
+                }
+                else
+                {
+                    [detailWeb setIsSelected:NO];
+                }
+                [self.navigationController pushViewController:detailWeb animated:YES];
+            } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                [progress hide:YES];
+            }];
+            
+        }
+        else
+        {
+            [progress hide:YES];
+            EncyDetailPetWeb *detailWeb = [[EncyDetailPetWeb alloc] initWithPetID:petID.integerValue andType:NO];
+            [detailWeb setIsSelected:NO];
+            [self.navigationController pushViewController:detailWeb animated:YES];
+        }
     }
     else
     {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"没有连接网络" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
         [alert show];
-        
     }
 
 }

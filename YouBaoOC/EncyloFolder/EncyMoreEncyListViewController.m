@@ -18,6 +18,8 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "EncyDetailPetWeb.h"
 #import "EncyCategoryVC.h"
+#import "LCYCommon.h"
+#import "LCYGlobal.h"
 
 typedef enum
 {
@@ -155,7 +157,7 @@ typedef enum
     {
         _petID=0;
     }
-    NSString *urlString = [NSString stringWithFormat:@"%@%@?cate_id=%ld&type_id=%ld&p=%ld",ZXY_HOSTURL,ZXY_GETMORE,_petID,typeID,currentPage];
+    NSString *urlString = [NSString stringWithFormat:@"%@%@?cate_id=%ld&type_id=%ld&p=%ld",ZXY_HOSTURL,ZXY_GETMORE,_petID,typeID,(long)currentPage];
     [manager POST:urlString parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         //[allDataForShow removeAllObjects];
         NSLog(@"operation is %@",[operation responseString]);
@@ -175,6 +177,10 @@ typedef enum
         }
         else
         {
+            if(!isAdd)
+            {
+                [allDataForShow removeAllObjects];
+            }
             NSArray *allArr = [allDic objectForKey:@"data"];
             if(allArr)
             {
@@ -207,11 +213,19 @@ typedef enum
 
 - (void)reloadData
 {
+    if(isAdd)
+    {
+        isAdd = NO;
+    }
     [currentTable reloadData];
 }
 
 - (void)hideMB
 {
+    if(isAdd)
+    {
+        isAdd = NO;
+    }
     [progress hide:YES];
     [currentTable footerEndRefreshing];
     [currentTable headerEndRefreshing];
@@ -364,19 +378,48 @@ typedef enum
 {
     NSDictionary *dataDic = [allDataForShow objectAtIndex:indexPath.row];
     NSString *petID = [dataDic objectForKey:@"ency_id"];
-    EncyDetailPetWeb *webView = [[EncyDetailPetWeb alloc] initWithPetID:petID.integerValue andType:NO];
+    
+    
     if([ZXYNETHelper isNETConnect])
     {
-        webView.title = [dataDic objectForKey:@"title"];
-        [self.navigationController pushViewController:webView animated:YES];
+        [progress show:YES];
+        AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+        
+        NSString *urlString = [ZXY_HOSTURL stringByAppendingString:ZXY_ISCOLLECT];
+        if([[LCYCommon sharedInstance] isUserLogin])
+        {
+            NSString *phoneNum = [[LCYGlobal sharedInstance] currentUserID];
+            manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+            [manager POST:urlString parameters:[NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:phoneNum.intValue], @"user_name",[NSNumber numberWithInt:petID.intValue],@"ency_id",nil] success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                [self performSelectorOnMainThread:@selector(hideMB) withObject:nil waitUntilDone:YES];
+                EncyDetailPetWeb *detailWeb = [[EncyDetailPetWeb alloc] initWithPetID:petID.integerValue andType:NO];
+                if([[operation responseString] isEqualToString:@"true"])
+                {
+                    [detailWeb setIsSelected:YES];
+                }
+                else
+                {
+                    [detailWeb setIsSelected:NO];
+                }
+                [self.navigationController pushViewController:detailWeb animated:YES];
+            } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                [progress hide:YES];
+            }];
+            
+        }
+        else
+        {
+            [progress hide:YES];
+            EncyDetailPetWeb *detailWeb = [[EncyDetailPetWeb alloc] initWithPetID:petID.integerValue andType:NO];
+            [detailWeb setIsSelected:NO];
+            [self.navigationController pushViewController:detailWeb animated:YES];
+        }
     }
     else
     {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"没有连接网络" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
         [alert show];
-
-    }
-}
+    }}
 
 
 - (IBAction)selectOneBtn:(id)sender

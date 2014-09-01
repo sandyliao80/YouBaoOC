@@ -18,6 +18,9 @@
 #import "PeyStyleForEncy.h"
 #import "EncyDetailPetWeb.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+#import "LCYCommon.h"
+#import "LCYGlobal.h"
+#import "EncyAllListFile.h"
 @interface EncyHomePageViewController ()<UITableViewDelegate,UITableViewDataSource,EncyHomeTitleDelegate,EncyDogCatClassDelegate,EncyHomeImageCellDelegate>
 {
     NSMutableArray *allDataForShow;
@@ -28,7 +31,8 @@
     MBProgressHUD *textHUD;
     NSString *currentTitle;
     NSInteger currentPage;
-    
+    BOOL isAdd;
+    BOOL isFresh;
     NSNotificationCenter *datatnc;
     ZXYProvider *dataProvider;
     NSMutableDictionary *lunboDic;
@@ -45,6 +49,8 @@
     [super viewDidLoad];
     // !!!:为view注册通知
     isFirstDown = YES;
+    isAdd = NO;
+    isFresh = NO;
     dataProvider = [ZXYProvider sharedInstance];
     datatnc = [NSNotificationCenter defaultCenter];
     [datatnc addObserver:self selector:@selector(reloadDataMethod) name:@"ency_image" object:nil];
@@ -174,14 +180,20 @@
 
 - (void)addLoadData:(NSString *)param
 {
+    isAdd = YES;
     currentPage += 1;
     [self downLoadData:nil];
 }
 
 - (void)refreshData
 {
+    if(isAdd)
+    {
+        isAdd = NO;
+    }
+    
+    isFresh = YES;
     currentPage = 1;
-    [allDataForShow removeAllObjects];
     [self downLoadData:nil];
 }
 
@@ -192,6 +204,7 @@
     NSURL *url = [NSURL URLWithString:urlString];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     AFHTTPRequestOperation *manager = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
     [manager setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"%@",[operation responseString]);
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:[operation responseData] options:0 error:nil];
@@ -222,7 +235,7 @@
     [manager setResponseSerializer:[AFHTTPResponseSerializer serializer]];
     NSString *urlString = [NSString stringWithFormat:@"%@%@?p=%ld",ZXY_HOSTURL,ZXY_GETTODYPUSH,(long)currentPage];
     [manager POST:urlString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        //[allDataForShow removeAllObjects];
+        
         NSLog(@"operation is %@",[operation responseString]);
         NSData *jsonData = [operation responseData];
         NSDictionary *allDic = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:nil];
@@ -236,6 +249,10 @@
         }
         else
         {
+            if(!isAdd)
+            {
+                [allDataForShow removeAllObjects];
+            }
             NSArray *allArr = [allDic objectForKey:@"data"];
             if(allArr)
             {
@@ -259,11 +276,14 @@
 
 - (void)isLastPage
 {
-    
+    if(isAdd)
+    {
+        isAdd = NO;
+    }
     currentPage -=1;
     [mbProgress hide:YES];
     [textHUD show:YES];
-    [self performSelector:@selector(hideMB) withObject:nil afterDelay:3];
+    [self performSelector:@selector(hideMB) withObject:nil afterDelay:1];
     [self.currentTable footerEndRefreshing];
 }
 
@@ -336,6 +356,10 @@
 
 - (void)hideMB
 {
+    if(isAdd)
+    {
+        isAdd = NO;
+    }
     [mbProgress hide:YES];
     [textHUD hide:YES];
     [self.currentTable headerEndRefreshing];
@@ -355,7 +379,9 @@
 
 - (void)leftItemAction
 {
-    
+    EncyAllListFile *listFile = [[EncyAllListFile alloc] initWithNibName:@"EncyAllListFile" bundle:nil];
+    [listFile isFavorite];
+    [self.navigationController pushViewController:listFile animated:YES];
 }
 
 
@@ -400,10 +426,16 @@
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
     if(indexPath.section==0)
     {
         EncyHomeImageCell *cell = [tableView dequeueReusableCellWithIdentifier:EN_HOMEIMAGECELLIDENTIFIER];
         cell.delegate= self;
+        if(isFresh)
+        {
+            [cell reloadImageViews];
+            isFresh = NO;
+        }
         return cell;
     }
     else if(indexPath.section == 2)
@@ -480,19 +512,56 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSDictionary *dataDic = [allDataForShow objectAtIndex:indexPath.row];
-    NSString *petID = [dataDic objectForKey:@"ency_id"];
-    EncyDetailPetWeb *webView = [[EncyDetailPetWeb alloc] initWithPetID:petID.integerValue andType:NO];
-    
-    if([ZXYNETHelper isNETConnect])
+    if(indexPath.section == 3)
     {
-        [self.navigationController pushViewController:webView animated:YES];
-        webView.title = [dataDic objectForKey:@"title"];
-    }
-    else
-    {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"没有连接网络" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-        [alert show];
+        NSDictionary *dataDic = [allDataForShow objectAtIndex:indexPath.row];
+        NSString *petID = [dataDic objectForKey:@"ency_id"];
+        [mbProgress show:YES];
+        
+        if([ZXYNETHelper isNETConnect])
+        {
+            if([[LCYCommon sharedInstance] isUserLogin])
+            {
+                AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+                manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+                NSString *urlString = [ZXY_HOSTURL stringByAppendingString:ZXY_ISCOLLECT];
+                NSString *phoneNum = [[LCYGlobal sharedInstance] currentUserID];
+                [manager POST:urlString parameters:[NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:phoneNum.intValue], @"user_name",[NSNumber numberWithInt:petID.intValue],@"ency_id",nil] success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                    if(![mbProgress isHidden])
+                    {
+                        [mbProgress hide:YES];
+                    }
+                    NSLog(@"%@",[operation responseString]);
+                    EncyDetailPetWeb *detailWeb = [[EncyDetailPetWeb alloc] initWithPetID:petID.integerValue andType:NO];
+                    if([[operation responseString] isEqualToString:@"true"])
+                    {
+                        [detailWeb setIsSelected:YES];
+                    }
+                    else
+                    {
+                        [detailWeb setIsSelected:NO];
+                    }
+                    [mbProgress hide:YES];
+                    [self.navigationController pushViewController:detailWeb animated:YES];
+                } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                    NSLog(@"%@",error);
+                    [mbProgress hide:YES];
+                }];
+                
+            }
+            else
+            {
+                [mbProgress hide:YES];
+                EncyDetailPetWeb *detailWeb = [[EncyDetailPetWeb alloc] initWithPetID:petID.integerValue andType:NO];
+                [detailWeb setIsSelected:NO];
+                [self.navigationController pushViewController:detailWeb animated:YES];
+            }
+        }
+        else
+        {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"没有连接网络" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+            [alert show];
+        }
     }
 }
 
