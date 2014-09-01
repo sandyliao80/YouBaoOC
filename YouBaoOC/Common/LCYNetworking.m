@@ -16,7 +16,6 @@ NSString *const hostImageURL    = @"http://115.29.46.22/pet/";
 #else
 NSString *const hostURL         = @"http://192.168.1.106/pet/index.php/Api/";
 NSString *const hostImageURL    = @"http://192.168.1.106/pet/";
-NSString *const Common_Upload_index = @"Common/Upload/index";
 #endif //CHENGYUDEBUF
 
 NSString *const User_authcode       = @"User/register_authcode";
@@ -36,6 +35,7 @@ NSString *const Pet_updatePetInfo   = @"Pet/updatePetInfo";
 NSString *const User_reset_password_authcode    = @"User/reset_password_authcode";
 NSString *const User_modifyLocation = @"User/modifyLocation";
 NSString *const User_modifySingleProperty       = @"User/modifySingleProperty";
+NSString *const Common_Upload_index = @"Common/Upload/ios";
 
 @implementation LCYNetworking
 
@@ -199,5 +199,60 @@ static bool isFirstAccess = YES;
     [uploadTask resume];
 }
 
+- (void)postCommonFileWithKey:(NSString *)key fileData:(NSData *)data fileName:(NSString *)fileName mimeType:(NSString *)mimeType successBlock:(void (^)(NSDictionary *))success failedBlock:(void (^)(void))failed{
+    NSString *URLString = @"http://115.29.46.22/pet/index.php/Common/Upload/ios";
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html", @"text/plain", nil];
+    [manager POST:URLString parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        [formData appendPartWithFileData:data name:key fileName:fileName mimeType:mimeType];
+    } success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSDictionary *dic = responseObject;
+        NSLog(@"common response object = %@", dic);
+        
+        NSArray *imageArray = dic[@"images"];
+        NSDictionary *firstImage = [imageArray firstObject];
+        NSString *saveName = firstImage[@"savename"];
+        
+        NSDictionary *result = @{@"result":dic[@"result"],
+                                 @"savename":saveName};
+        
+        if (success) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                success(result);
+            });
+        }
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        NSLog(@"Error in common: %@", error);
+        if (failed) {
+            dispatch_async(dispatch_get_main_queue(), failed);
+        }
+    }];
+}
+
+- (void)postFileWithAPI:(NSString *)api parameters:(NSDictionary *)parameters progress:(NSProgress *)progress fileKey:(NSString *)key fileData:(NSData *)data fileName:(NSString *)fileName mimeType:(NSString *)mimeType successBlock:(void (^)(NSDictionary *))success failedBlock:(void (^)(void))failed{
+    NSString *urlString = [hostURL stringByAppendingString:api];
+    NSMutableURLRequest *request = [[AFHTTPRequestSerializer serializer] multipartFormRequestWithMethod:@"POST" URLString:urlString parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        [formData appendPartWithFormData:data name:key];
+    } error:nil];
+    
+    AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+    manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html", @"text/plain", nil];
+    
+    
+    NSURLSessionUploadTask *uploadTask = [manager uploadTaskWithStreamedRequest:request progress:&progress completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
+        if (error) {
+            NSLog(@"Error: %@", error);
+            if ([(NSError *)(error) code] == NSURLErrorCannotDecodeContentData) {
+                NSLog(@"%@ %@",response, responseObject);
+            }
+        } else {
+            NSLog(@"%@ %@", response, responseObject);
+        }
+    }];
+    
+    [uploadTask resume];
+}
 
 @end

@@ -1,17 +1,22 @@
 //
 //  GetPetDetailPetImages.m
 //
-//  Created by 超逸 李 on 14/8/26
+//  Created by 超逸 李 on 14/9/1
 //  Copyright (c) 2014 __MyCompanyName__. All rights reserved.
 //
 
 #import "GetPetDetailPetImages.h"
 
 
-NSString *const kGetPetDetailPetImagesImageId = @"image_id";
-NSString *const kGetPetDetailPetImagesImageWidth = @"image_width";
-NSString *const kGetPetDetailPetImagesImagePath = @"image_path";
-NSString *const kGetPetDetailPetImagesImageHeight = @"image_height";
+NSString *const kGetPetDetailPetImagesPetId = @"pet_id";
+NSString *const kGetPetDetailPetImagesCutHeight = @"cut_height";
+NSString *const kGetPetDetailPetImagesPetImg = @"pet_img";
+NSString *const kGetPetDetailPetImagesId = @"id";
+NSString *const kGetPetDetailPetImagesCutImg = @"cut_img";
+NSString *const kGetPetDetailPetImagesImgWidth = @"img_width";
+NSString *const kGetPetDetailPetImagesImgHeight = @"img_height";
+NSString *const kGetPetDetailPetImagesCutWidth = @"cut_width";
+NSString *const kGetPetDetailPetImagesAddTime = @"add_time";
 
 
 @interface GetPetDetailPetImages ()
@@ -22,10 +27,15 @@ NSString *const kGetPetDetailPetImagesImageHeight = @"image_height";
 
 @implementation GetPetDetailPetImages
 
-@synthesize imageId = _imageId;
-@synthesize imageWidth = _imageWidth;
-@synthesize imagePath = _imagePath;
-@synthesize imageHeight = _imageHeight;
+@synthesize petId = _petId;
+@synthesize cutHeight = _cutHeight;
+@synthesize petImg = _petImg;
+@synthesize petImagesIdentifier = _petImagesIdentifier;
+@synthesize cutImg = _cutImg;
+@synthesize imgWidth = _imgWidth;
+@synthesize imgHeight = _imgHeight;
+@synthesize cutWidth = _cutWidth;
+@synthesize addTime = _addTime;
 
 
 + (instancetype)modelObjectWithDictionary:(NSDictionary *)dict
@@ -40,10 +50,15 @@ NSString *const kGetPetDetailPetImagesImageHeight = @"image_height";
     // This check serves to make sure that a non-NSDictionary object
     // passed into the model class doesn't break the parsing.
     if(self && [dict isKindOfClass:[NSDictionary class]]) {
-            self.imageId = [self objectOrNilForKey:kGetPetDetailPetImagesImageId fromDictionary:dict];
-            self.imageWidth = [self objectOrNilForKey:kGetPetDetailPetImagesImageWidth fromDictionary:dict];
-            self.imagePath = [self objectOrNilForKey:kGetPetDetailPetImagesImagePath fromDictionary:dict];
-            self.imageHeight = [self objectOrNilForKey:kGetPetDetailPetImagesImageHeight fromDictionary:dict];
+            self.petId = [self objectOrNilForKey:kGetPetDetailPetImagesPetId fromDictionary:dict];
+            self.cutHeight = [self objectOrNilForKey:kGetPetDetailPetImagesCutHeight fromDictionary:dict];
+            self.petImg = [self objectOrNilForKey:kGetPetDetailPetImagesPetImg fromDictionary:dict];
+            self.petImagesIdentifier = [self objectOrNilForKey:kGetPetDetailPetImagesId fromDictionary:dict];
+            self.cutImg = [self objectOrNilForKey:kGetPetDetailPetImagesCutImg fromDictionary:dict];
+            self.imgWidth = [self objectOrNilForKey:kGetPetDetailPetImagesImgWidth fromDictionary:dict];
+            self.imgHeight = [self objectOrNilForKey:kGetPetDetailPetImagesImgHeight fromDictionary:dict];
+            self.cutWidth = [self objectOrNilForKey:kGetPetDetailPetImagesCutWidth fromDictionary:dict];
+            self.addTime = [self objectOrNilForKey:kGetPetDetailPetImagesAddTime fromDictionary:dict];
 
     }
     
@@ -54,10 +69,15 @@ NSString *const kGetPetDetailPetImagesImageHeight = @"image_height";
 - (NSDictionary *)dictionaryRepresentation
 {
     NSMutableDictionary *mutableDict = [NSMutableDictionary dictionary];
-    [mutableDict setValue:self.imageId forKey:kGetPetDetailPetImagesImageId];
-    [mutableDict setValue:self.imageWidth forKey:kGetPetDetailPetImagesImageWidth];
-    [mutableDict setValue:self.imagePath forKey:kGetPetDetailPetImagesImagePath];
-    [mutableDict setValue:self.imageHeight forKey:kGetPetDetailPetImagesImageHeight];
+    [mutableDict setValue:self.petId forKey:kGetPetDetailPetImagesPetId];
+    [mutableDict setValue:self.cutHeight forKey:kGetPetDetailPetImagesCutHeight];
+    [mutableDict setValue:self.petImg forKey:kGetPetDetailPetImagesPetImg];
+    [mutableDict setValue:self.petImagesIdentifier forKey:kGetPetDetailPetImagesId];
+    [mutableDict setValue:self.cutImg forKey:kGetPetDetailPetImagesCutImg];
+    [mutableDict setValue:self.imgWidth forKey:kGetPetDetailPetImagesImgWidth];
+    [mutableDict setValue:self.imgHeight forKey:kGetPetDetailPetImagesImgHeight];
+    [mutableDict setValue:self.cutWidth forKey:kGetPetDetailPetImagesCutWidth];
+    [mutableDict setValue:self.addTime forKey:kGetPetDetailPetImagesAddTime];
 
     return [NSDictionary dictionaryWithDictionary:mutableDict];
 }
@@ -81,20 +101,30 @@ NSString *const kGetPetDetailPetImagesImageHeight = @"image_height";
 {
     self = [super init];
 
-    self.imageId = [aDecoder decodeObjectForKey:kGetPetDetailPetImagesImageId];
-    self.imageWidth = [aDecoder decodeObjectForKey:kGetPetDetailPetImagesImageWidth];
-    self.imagePath = [aDecoder decodeObjectForKey:kGetPetDetailPetImagesImagePath];
-    self.imageHeight = [aDecoder decodeObjectForKey:kGetPetDetailPetImagesImageHeight];
+    self.petId = [aDecoder decodeObjectForKey:kGetPetDetailPetImagesPetId];
+    self.cutHeight = [aDecoder decodeObjectForKey:kGetPetDetailPetImagesCutHeight];
+    self.petImg = [aDecoder decodeObjectForKey:kGetPetDetailPetImagesPetImg];
+    self.petImagesIdentifier = [aDecoder decodeObjectForKey:kGetPetDetailPetImagesId];
+    self.cutImg = [aDecoder decodeObjectForKey:kGetPetDetailPetImagesCutImg];
+    self.imgWidth = [aDecoder decodeObjectForKey:kGetPetDetailPetImagesImgWidth];
+    self.imgHeight = [aDecoder decodeObjectForKey:kGetPetDetailPetImagesImgHeight];
+    self.cutWidth = [aDecoder decodeObjectForKey:kGetPetDetailPetImagesCutWidth];
+    self.addTime = [aDecoder decodeObjectForKey:kGetPetDetailPetImagesAddTime];
     return self;
 }
 
 - (void)encodeWithCoder:(NSCoder *)aCoder
 {
 
-    [aCoder encodeObject:_imageId forKey:kGetPetDetailPetImagesImageId];
-    [aCoder encodeObject:_imageWidth forKey:kGetPetDetailPetImagesImageWidth];
-    [aCoder encodeObject:_imagePath forKey:kGetPetDetailPetImagesImagePath];
-    [aCoder encodeObject:_imageHeight forKey:kGetPetDetailPetImagesImageHeight];
+    [aCoder encodeObject:_petId forKey:kGetPetDetailPetImagesPetId];
+    [aCoder encodeObject:_cutHeight forKey:kGetPetDetailPetImagesCutHeight];
+    [aCoder encodeObject:_petImg forKey:kGetPetDetailPetImagesPetImg];
+    [aCoder encodeObject:_petImagesIdentifier forKey:kGetPetDetailPetImagesId];
+    [aCoder encodeObject:_cutImg forKey:kGetPetDetailPetImagesCutImg];
+    [aCoder encodeObject:_imgWidth forKey:kGetPetDetailPetImagesImgWidth];
+    [aCoder encodeObject:_imgHeight forKey:kGetPetDetailPetImagesImgHeight];
+    [aCoder encodeObject:_cutWidth forKey:kGetPetDetailPetImagesCutWidth];
+    [aCoder encodeObject:_addTime forKey:kGetPetDetailPetImagesAddTime];
 }
 
 - (id)copyWithZone:(NSZone *)zone
@@ -103,10 +133,15 @@ NSString *const kGetPetDetailPetImagesImageHeight = @"image_height";
     
     if (copy) {
 
-        copy.imageId = [self.imageId copyWithZone:zone];
-        copy.imageWidth = [self.imageWidth copyWithZone:zone];
-        copy.imagePath = [self.imagePath copyWithZone:zone];
-        copy.imageHeight = [self.imageHeight copyWithZone:zone];
+        copy.petId = [self.petId copyWithZone:zone];
+        copy.cutHeight = [self.cutHeight copyWithZone:zone];
+        copy.petImg = [self.petImg copyWithZone:zone];
+        copy.petImagesIdentifier = [self.petImagesIdentifier copyWithZone:zone];
+        copy.cutImg = [self.cutImg copyWithZone:zone];
+        copy.imgWidth = [self.imgWidth copyWithZone:zone];
+        copy.imgHeight = [self.imgHeight copyWithZone:zone];
+        copy.cutWidth = [self.cutWidth copyWithZone:zone];
+        copy.addTime = [self.addTime copyWithZone:zone];
     }
     
     return copy;

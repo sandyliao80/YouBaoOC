@@ -15,6 +15,9 @@
 #import "UIImage+LCYResize.h"
 #import "modifyMoePet/ModifyMoePetViewController.h"
 #import <IDMPhotoBrowser/IDMPhotoBrowser.h>
+#import <MBProgressHUD/MBProgressHUD.h>
+
+static void * kDGProgressChanged = &kDGProgressChanged;
 
 @interface MoePetProfileViewController ()<UICollectionViewDelegate, UICollectionViewDataSource, UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
@@ -221,7 +224,7 @@
         NSInteger petIndex= indexPath.row - 1;
         MoePictureCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:MoePictureCellIdentifier forIndexPath:indexPath];
         GetPetDetailPetImages *petDetailPetImage = self.petDetailBase.petImages[petIndex];
-        NSString *urlString = [hostImageURL stringByAppendingString:petDetailPetImage.imagePath];
+        NSString *urlString = [hostImageURL stringByAppendingString:petDetailPetImage.cutImg];
         [cell.icyImageView sd_setImageWithURL:[NSURL URLWithString:urlString] placeholderImage:[UIImage imageNamed:@"profilePetPlaceHolder"]];
         return cell;
     }
@@ -234,7 +237,7 @@
     } else {
         NSInteger petIndex= indexPath.row - 1;
         GetPetDetailPetImages *petDetailPetImage = self.petDetailBase.petImages[petIndex];
-        NSString *urlString = [hostImageURL stringByAppendingString:petDetailPetImage.imagePath];
+        NSString *urlString = [hostImageURL stringByAppendingString:petDetailPetImage.petImg];
         NSArray *photosURL = @[[NSURL URLWithString:urlString]];
         
         NSArray *photos = [IDMPhoto photosWithURLs:photosURL];
@@ -272,26 +275,63 @@
     [picker dismissViewControllerAnimated:YES completion:nil];
     UIImage *originalImage = info[UIImagePickerControllerEditedImage];
     
-//    CGSize originalSize = originalImage.size;
+    CGSize originalSize = originalImage.size;
+    CGSize newSize  = originalSize;
+    if (originalSize.width > 320.0f) {
+        CGFloat myScale = 320.0f / originalSize.width;
+        CGFloat height = originalSize.height *myScale;
+        newSize = CGSizeMake(320.0f, height);
+    }
+    UIImage *scaledImage = [originalImage imageByScalingAndCroppingForSize:newSize];
     
     [[LCYCommon sharedInstance] showTips:@"正在上传图片" inView:self.view];
     NSDictionary *parameters = @{@"pet_id"      : self.petInfo.petId};
-    [[LCYNetworking sharedInstance] postFileWithAPI:Pet_UploadPetImage parameters:parameters fileKey:@"Filedata" fileData:UIImagePNGRepresentation(originalImage) fileName:@"icylydiaPet.png" mimeType:@"image/png" successBlock:^(NSDictionary *object) {
-        [[LCYCommon sharedInstance] hideTipsInView:self.view];
-        if ([[object objectForKey:@"result"] boolValue]) {
-            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"" message:@"上传成功" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
-            [alertView show];
-            [self reloadPetData];
-        } else {
-            NSString *message = object[@"msg"];
-            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"" message:message delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
-            [alertView show];
-        }
+    NSProgress *progress = nil;
+    [[LCYNetworking sharedInstance] postFileWithAPI:Pet_UploadPetImage parameters:parameters progress:progress fileKey:@"Filedata" fileData:UIImagePNGRepresentation(scaledImage) fileName:@"icylydiaPet.png" mimeType:@"image/png" successBlock:^(NSDictionary *object) {
+        ;
     } failedBlock:^{
-        [[LCYCommon sharedInstance] hideTipsInView:self.view];
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"" message:@"上传失败，请检查网络状态" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
-        [alertView show];
+        ;
     }];
+    [progress addObserver:self
+               forKeyPath:@"fractionCompleted"
+                  options:NSKeyValueObservingOptionNew
+                  context:kDGProgressChanged];
+//    [[LCYNetworking sharedInstance] postFileWithAPI:Pet_UploadPetImage parameters:parameters fileKey:@"Filedata" fileData:UIImagePNGRepresentation(scaledImage) fileName:@"icylydiaPet.png" mimeType:@"image/png" successBlock:^(NSDictionary *object) {
+//        [[LCYCommon sharedInstance] hideTipsInView:self.view];
+//        if ([[object objectForKey:@"result"] boolValue]) {
+//            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"" message:@"上传成功" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+//            [alertView show];
+//            [self reloadPetData];
+//        } else {
+//            NSString *message = object[@"msg"];
+//            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"" message:message delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+//            [alertView show];
+//        }
+//    } failedBlock:^{
+//        [[LCYCommon sharedInstance] hideTipsInView:self.view];
+//        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"" message:@"上传失败，请检查网络状态" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+//        [alertView show];
+//    }];
 }
+
+- (void)observeValueForKeyPath:(NSString *)keyPath
+                      ofObject:(id)object
+                        change:(__unused NSDictionary *)change
+                       context:(void *)context
+{
+    if (kDGProgressChanged == context) {
+        NSProgress *ps = object;
+        if (ps.fractionCompleted > 0.999) {
+            [ps removeObserver:self forKeyPath:@"fractionCompleted"];
+//            [MBProgressHUD hideHUDForView:self.view animated:YES];
+        }
+        dispatch_async(dispatch_get_main_queue(), ^{
+            NSLog(@"%@",ps);
+             //self.progress.progress = ps.fractionCompleted;
+             //self.hud.progress = self.progress.progress;
+        });
+    }
+}
+
 
 @end

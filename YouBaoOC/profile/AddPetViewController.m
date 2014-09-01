@@ -56,6 +56,9 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *QRButton;
 
+@property (nonatomic) BOOL isAvatarOk;
+@property (strong, nonatomic) NSString *savename;
+
 @end
 
 @implementation AddPetViewController
@@ -63,6 +66,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    self.isAvatarOk = NO;
     
     self.currentSex = PetSexMale;
     self.currentPetMisc = 0;
@@ -169,9 +174,12 @@
     } else if ([self.catagoryLabel.text isEqualToString:@""]) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"请您选择宠物种类" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
         [alert show];
+    } else if (!self.isAvatarOk) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"请等待头像上传成功" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+        [alert show];
     } else {
         // 开始上传
-        NSData *avatarData = UIImagePNGRepresentation(self.icyImageView.image);
+//        NSData *avatarData = UIImagePNGRepresentation(self.icyImageView.image);
         NSString *petName = self.nicknameLabel.text;
         NSNumber *petSex = (self.currentSex==PetSexMale) ? @0 : @1;
         NSString *petCategory = self.category.catId;
@@ -191,9 +199,10 @@
                                      @"f_hybridization" : breeding,
                                      @"f_adopt"     : adopt,
                                      @"is_entrust"  : foster,
-                                     @"pet_code"    : QRCode};
+                                     @"pet_code"    : QRCode,
+                                     @"image"       : self.savename};
         [[LCYCommon sharedInstance] showTips:@"正在上传" inView:self.view];
-        [[LCYNetworking sharedInstance] postFileWithAPI:Pet_petAdd parameters:parameters fileKey:@"Filedata" fileData:avatarData fileName:@"avatar.png" mimeType:@"image/png" successBlock:^(NSDictionary *object) {
+        [[LCYNetworking sharedInstance] postRequestWithAPI:Pet_petAdd parameters:parameters successBlock:^(NSDictionary *object) {
             [[LCYCommon sharedInstance] hideTipsInView:self.view];
             if (self.delegate &&
                 [self.delegate respondsToSelector:@selector(AddPetDidFinished:)]) {
@@ -205,6 +214,18 @@
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"上传失败" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
             [alert show];
         }];
+//        [[LCYNetworking sharedInstance] postFileWithAPI:Pet_petAdd parameters:parameters fileKey:@"Filedata" fileData:avatarData fileName:@"avatar.png" mimeType:@"image/png" successBlock:^(NSDictionary *object) {
+//            [[LCYCommon sharedInstance] hideTipsInView:self.view];
+//            if (self.delegate &&
+//                [self.delegate respondsToSelector:@selector(AddPetDidFinished:)]) {
+//                [self.delegate AddPetDidFinished:self];
+//            }
+//            [self.navigationController popViewControllerAnimated:YES];
+//        } failedBlock:^{
+//            [[LCYCommon sharedInstance] hideTipsInView:self.view];
+//            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"上传失败" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+//            [alert show];
+//        }];
     }
 }
 
@@ -355,6 +376,18 @@
     UIImage *scaledImage = [originalImage imageByScalingAndCroppingForSize:CGSizeMake(200, 200)];
     
     self.icyImageView.image = scaledImage;
+    
+    self.isAvatarOk = NO;
+    
+    [[LCYNetworking sharedInstance] postCommonFileWithKey:@"Filedata" fileData:UIImagePNGRepresentation(scaledImage) fileName:@"abc.png" mimeType:@"image/png" successBlock:^(NSDictionary *object) {
+        NSLog(@"response = %@",object);
+        if ([object[@"result"] integerValue] == 1) {
+            self.isAvatarOk = YES;
+            self.savename = object[@"savename"];
+        }
+    } failedBlock:^{
+        ;
+    }];
 }
 
 #pragma mark - QRScanDelegate

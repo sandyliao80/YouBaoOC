@@ -7,7 +7,7 @@
 //
 
 #ifdef CHENGYUDEBUG
-FOUNDATION_EXPORT NSString *const Common_Upload_index;  /** 测试上传文件 */
+
 #endif
 
 FOUNDATION_EXPORT NSString *const hostURL;
@@ -30,6 +30,7 @@ FOUNDATION_EXPORT NSString *const Pet_updatePetInfo;    /**< 更新宠物信息 
 FOUNDATION_EXPORT NSString *const User_reset_password_authcode; /**< 重置密码时的验证码 */
 FOUNDATION_EXPORT NSString *const User_modifyLocation;  /**< 修改个人城市 */
 FOUNDATION_EXPORT NSString *const User_modifySingleProperty;    /**< 修改某项个人信息 */
+FOUNDATION_EXPORT NSString *const Common_Upload_index;  /** 上传文件-宠物头像 */
 
 @interface LCYNetworking : NSObject
 
@@ -75,6 +76,14 @@ FOUNDATION_EXPORT NSString *const User_modifySingleProperty;    /**< 修改某�
            successBlock:(void(^)(NSDictionary *object))success
             failedBlock:(void (^)(void))failed;
 
+
+- (void)postCommonFileWithKey:(NSString *)key
+                     fileData:(NSData *)data
+                     fileName:(NSString *)fileName
+                     mimeType:(NSString *)mimeType
+                 successBlock:(void(^)(NSDictionary *object))success
+                  failedBlock:(void (^)(void))failed;
+
 - (void)testFileWithAPI:(NSString *)api
              parameters:(NSDictionary *)parameters
                 fileKey:(NSString *)key
@@ -93,4 +102,16 @@ FOUNDATION_EXPORT NSString *const User_modifySingleProperty;    /**< 修改某�
                mimeType:(NSString *)mimeType
            successBlock:(void (^)(NSDictionary *))success
             failedBlock:(void (^)(void))failed;
+
+
+- (void)postFileWithAPI:(NSString *)api
+             parameters:(NSDictionary *)parameters
+               progress:(NSProgress *)progress
+                fileKey:(NSString *)key
+               fileData:(NSData *)data
+               fileName:(NSString *)fileName
+               mimeType:(NSString *)mimeType
+           successBlock:(void(^)(NSDictionary *object))success
+            failedBlock:(void (^)(void))failed;
+
 @end
