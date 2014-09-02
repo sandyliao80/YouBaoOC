@@ -27,6 +27,7 @@
     __weak IBOutlet UITableView *currentTable;
     BOOL isFirstDown;
     BOOL needFirst;
+    BOOL isAdd;
 }
 
 @property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
@@ -37,6 +38,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    isAdd = NO;
     isFirstDown = YES;
     [self initScrollHeader];
     [self initMBHUD];
@@ -110,14 +112,19 @@
 
 - (void)addLoadData:(NSString *)param
 {
+    isAdd = YES;
     currentPage += 1;
     [self downLoadMoreData:self.searchBar.text];
 }
 
 - (void)isLastPage
 {
-    [textHUD setLabelText:@"已经是最后一页了"];
-    [textHUD show:YES];
+    if(isAdd)
+    {
+        [textHUD setLabelText:@"已经是最后一页了"];
+        [textHUD show:YES];
+        isAdd = NO;
+    }
     [self performSelector:@selector(hideTextHUD) withObject:nil afterDelay:1];
     [self hideMB];
 }
