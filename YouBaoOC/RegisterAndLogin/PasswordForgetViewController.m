@@ -9,7 +9,7 @@
 #import "PasswordForgetViewController.h"
 #import "LCYCommon.h"
 
-@interface PasswordForgetViewController ()
+@interface PasswordForgetViewController ()<UIAlertViewDelegate>
 
 #pragma mark - IBOutlets
 
@@ -185,7 +185,7 @@
             [[LCYCommon sharedInstance] hideTipsInView:self.view];
             [sender setEnabled:YES];
             if ([[object objectForKey:@"result"] boolValue]) {
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"修改成功" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"修改成功" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil];
                 [alert show];
             } else {
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"修改失败" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
@@ -201,5 +201,9 @@
     }
 }
 
+#pragma mark - UIAlertView
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    [self.navigationController popViewControllerAnimated:YES];
+}
 
 @end

@@ -64,6 +64,7 @@
 		287AFD56199863560035FF05 /* CellImageDownloadOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 287AFD55199863560035FF05 /* CellImageDownloadOperation.m */; };
 		287DD73319A20E840080C268 /* MoeCameraCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 287DD73219A20E840080C268 /* MoeCameraCell.m */; };
 		287DD73619A20E9B0080C268 /* MoePictureCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 287DD73519A20E9B0080C268 /* MoePictureCell.m */; };
+		2886641719B5638A00AC2F13 /* SettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2886641619B5638A00AC2F13 /* SettingCell.m */; };
 		28895083198B269D00696A95 /* SecondFilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28895082198B269D00696A95 /* SecondFilterViewController.m */; };
 		28895086198B2D8C00696A95 /* SecondFilterTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 28895085198B2D8C00696A95 /* SecondFilterTableViewCell.m */; };
 		2889508C198B315500696A95 /* SearchDetailByIDChildStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 28895088198B315500696A95 /* SearchDetailByIDChildStyle.m */; };
@@ -261,6 +262,8 @@
 		287DD73219A20E840080C268 /* MoeCameraCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoeCameraCell.m; sourceTree = "<group>"; };
 		287DD73419A20E9B0080C268 /* MoePictureCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoePictureCell.h; sourceTree = "<group>"; };
 		287DD73519A20E9B0080C268 /* MoePictureCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoePictureCell.m; sourceTree = "<group>"; };
+		2886641519B5638A00AC2F13 /* SettingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingCell.h; sourceTree = "<group>"; };
+		2886641619B5638A00AC2F13 /* SettingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingCell.m; sourceTree = "<group>"; };
 		28895081198B269D00696A95 /* SecondFilterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondFilterViewController.h; sourceTree = "<group>"; };
 		28895082198B269D00696A95 /* SecondFilterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondFilterViewController.m; sourceTree = "<group>"; };
 		28895084198B2D8C00696A95 /* SecondFilterTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondFilterTableViewCell.h; sourceTree = "<group>"; };
@@ -604,6 +607,8 @@
 				28B69B8C1990CDCA0039B146 /* QRScanViewController.m */,
 				280E7441199332A60036DD0B /* ProfileSettingViewController.h */,
 				280E7442199332A60036DD0B /* ProfileSettingViewController.m */,
+				2886641519B5638A00AC2F13 /* SettingCell.h */,
+				2886641619B5638A00AC2F13 /* SettingCell.m */,
 			);
 			path = profile;
 			sourceTree = "<group>";
@@ -1101,6 +1106,7 @@
 				280E7466199335320036DD0B /* EncyHomePageTableViewCell.m in Sources */,
 				8B6AA106199351A300BF017C /* PetStyle.m in Sources */,
 				8BC24F0F19A1C7C0003C959F /* ZXYDownImageHelper.m in Sources */,
+				2886641719B5638A00AC2F13 /* SettingCell.m in Sources */,
 				8B94A67C19A6CE9F0027A2B8 /* EncyCategorySecondStyle.m in Sources */,
 				2827C79D1998D13D00C25F83 /* MJRefreshFooterView.m in Sources */,
 				280FB68F1980D66C00C434A8 /* LCYCommon.m in Sources */,
