@@ -16,4 +16,6 @@
 
 @property (strong, nonatomic) NSString *currentUserID;
 
+@property (strong, nonatomic) NSString *registerUserPhone;
+
 @end

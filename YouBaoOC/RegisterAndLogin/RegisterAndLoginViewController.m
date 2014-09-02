@@ -220,7 +220,9 @@ typedef NS_ENUM(NSUInteger, RegisterAndLoginStatus) {
                 // 正确输入
                 NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
                 [userDefaults setObject:self.phoneTextField.text forKey:UserDefaultUserName];
-                [LCYGlobal sharedInstance].currentUserID = self.phoneTextField.text;
+//                [LCYGlobal sharedInstance].currentUserID = self.phoneTextField.text;
+                [LCYGlobal sharedInstance].registerUserPhone = self.phoneTextField.text;
+                
                 [[LCYCommon sharedInstance] savePassword:self.passwordTextField.text];
                 
                 [self performSegueWithIdentifier:@"ShowDetail" sender:nil];
@@ -260,7 +262,9 @@ typedef NS_ENUM(NSUInteger, RegisterAndLoginStatus) {
                 // 验证是否登录成功
                 if ([object[@"result"] boolValue]) {
                     // 登录成功，写入持久化数据
-                    [[LCYCommon sharedInstance] login:parameters[@"user_name"]];
+                    NSString *userName = object[@"user_name"];
+//                    [[LCYCommon sharedInstance] login:parameters[@"user_name"]];
+                    [[LCYCommon sharedInstance] login:userName];
                     // 登录成功，跳转到主页
                     UIStoryboard *mainBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
                     MainViewController *tabbarVC = mainBoard.instantiateInitialViewController;

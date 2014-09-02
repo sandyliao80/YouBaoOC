@@ -402,7 +402,7 @@ typedef NS_ENUM(NSUInteger, RegisterDetailGender) {
         [avatarAlert show];
     } else {
         // 可以上传所有信息
-        NSDictionary *parameters = @{@"user_name"       : [LCYGlobal sharedInstance].currentUserID,
+        NSDictionary *parameters = @{@"user_name"       : [LCYGlobal sharedInstance].registerUserPhone,
                                      @"password"        : [[LCYCommon sharedInstance] takePassword],
                                      @"nick_name"       : self.nameTextField.text,
                                      @"town"            : [NSNumber numberWithInteger:self.regionTown],
@@ -419,6 +419,9 @@ typedef NS_ENUM(NSUInteger, RegisterDetailGender) {
                 [object[@"msg"] isEqualToString:@"注册成功"]) {
                 // 注册成功
                 // 提交登录信息，跳转到主题页面
+                NSString *userID = object[@"user_name"];
+                [LCYGlobal sharedInstance].currentUserID = userID;
+                
                 [[LCYCommon sharedInstance] login:[LCYGlobal sharedInstance].currentUserID];
                 AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
                 UIStoryboard *mainBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
