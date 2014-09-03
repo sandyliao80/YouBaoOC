@@ -6,9 +6,9 @@
 //  Copyright (c) 2014年 Duostec. All rights reserved.
 //
 
-#ifdef CHENGYUDEBUG
-
-#endif
+//#ifdef CHENGYUDEBUG
+//
+//#endif
 
 FOUNDATION_EXPORT NSString *const hostURL;
 FOUNDATION_EXPORT NSString *const hostImageURL;

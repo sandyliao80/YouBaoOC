@@ -592,10 +592,12 @@
     UIImage *scaledImage = [originalImage imageByScalingAndCroppingForSize:CGSizeMake(200, 200)];
     
     [[LCYCommon sharedInstance] showTips:@"正在上传头像" inView:self.view];
-    NSDictionary *parameters = @{@"user_name"   : self.userInfoBase.userInfo.userName};
+//    NSDictionary *parameters = @{@"user_name"   : self.userInfoBase.userInfo.userName};
+    NSDictionary *parameters = @{@"user_name"   : [LCYGlobal sharedInstance].currentUserID};
     [[LCYNetworking sharedInstance] postFileWithAPI:User_modifyImage parameters:parameters fileKey:@"filedata" fileData:UIImagePNGRepresentation(scaledImage) fileName:@"icylydia.png" mimeType:@"image/png" successBlock:^(NSDictionary *object) {
         if ([object[@"result"] boolValue]) {
             self.userInfoBase.userInfo.headImage = object[@"head_image"];
+            
             NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
             [self.icyTableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
         } else {
