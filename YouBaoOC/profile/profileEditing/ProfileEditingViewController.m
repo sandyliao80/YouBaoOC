@@ -113,7 +113,7 @@
 
 - (void)doneButtonPressed:(id)sender{
     [[LCYCommon sharedInstance] showTips:@"正在上传信息" inView:self.view];
-    NSDictionary *parameters = @{@"user_name"       : self.userInfoBase.userInfo.userName!=nil?self.userInfoBase.userInfo.userName:@"",
+    NSDictionary *parameters = @{@"user_name"       : [LCYGlobal sharedInstance].currentUserID,//self.userInfoBase.userInfo.userName!=nil?self.userInfoBase.userInfo.userName:@"",
                                  @"nick_name"       : self.userInfoBase.userInfo.nickName!=nil?self.userInfoBase.userInfo.nickName:@"",
                                  @"sex"             : self.userInfoBase.userInfo.sex!=nil?self.userInfoBase.userInfo.sex:@"",
                                  @"town"            : self.userInfoBase.userInfo.town!=nil?self.userInfoBase.userInfo.town:@"",
