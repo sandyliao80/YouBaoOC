@@ -131,6 +131,7 @@
     }
     else
     {
+        [progress show:NO];
         UIStoryboard *login = [UIStoryboard storyboardWithName:@"RegisterAndLogin" bundle:nil];
         RegisterAndLoginViewController *loginV = [login instantiateInitialViewController];
         [self.navigationController pushViewController:loginV animated:YES];
