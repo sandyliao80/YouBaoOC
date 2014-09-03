@@ -246,6 +246,9 @@ static void * kDGProgressChanged = &kDGProgressChanged;
         
         IDMPhotoBrowser *browser = [[IDMPhotoBrowser alloc] initWithPhotos:photos];
         
+        browser.useWhiteBackgroundColor = YES;
+        browser.doneButtonImage = [UIImage imageNamed:@"idmDoneButton"];
+        
         [self presentViewController:browser animated:YES completion:nil];
     }
 }
