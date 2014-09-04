@@ -76,6 +76,7 @@
     
     // 添加下拉刷新
     [self.icyTableView addHeaderWithTarget:self action:@selector(headerRereshing)];
+    self.icyTableView.baseTextColor = [UIColor whiteColor];
     
     // 加载用户所有信息
     [[LCYCommon sharedInstance] showTips:@"正在加载用户信息" inView:self.view];

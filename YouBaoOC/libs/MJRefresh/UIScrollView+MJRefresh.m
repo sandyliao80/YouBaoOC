@@ -263,4 +263,9 @@ static char MJRefreshFooterViewKey;
 {
     return self.header.refreshingText;
 }
+// icylydia
+- (void)setBaseTextColor:(UIColor *)baseTextColor{
+    self.header.baseTextColor = baseTextColor;
+    self.footer.baseTextColor = baseTextColor;
+}
 @end

@@ -36,6 +36,9 @@ typedef enum {
 @property (nonatomic, weak, readonly) UIImageView *arrowImage;
 @property (nonatomic, weak, readonly) UIActivityIndicatorView *activityView;
 
+// icylydia: 文字颜色
+@property (strong, nonatomic) UIColor *baseTextColor;
+// end icylydia
 #pragma mark - 回调
 /**
  *  开始进入刷新状态的监听器

@@ -152,6 +152,12 @@
 }
 
 #pragma mark - 设置状态
+//icylydia
+- (void)setBaseTextColor:(UIColor *)baseTextColor{
+    _baseTextColor = baseTextColor;
+    [_statusLabel setTextColor:baseTextColor];
+}
+//end icylydia
 - (void)setPullToRefreshText:(NSString *)pullToRefreshText
 {
     _pullToRefreshText = [pullToRefreshText copy];

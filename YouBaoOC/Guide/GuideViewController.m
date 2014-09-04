@@ -43,7 +43,8 @@
     [doneButton setTitle:@"注册/登录嗨宠社区" forState:UIControlStateNormal];
     [doneButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [doneButton addTarget:self action:@selector(startButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-    [doneButton setBackgroundColor:[UIColor blackColor]];
+//    [doneButton setBackgroundColor:[UIColor blackColor]];
+    [doneButton setBackgroundColor:[UIColor colorWithWhite:0.0f alpha:0.5f]];
     [doneButton.layer setCornerRadius:3.0f];
     [contentView addSubview:doneButton];
 }

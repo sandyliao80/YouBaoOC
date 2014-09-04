@@ -94,4 +94,8 @@
 @property (copy, nonatomic) NSString *headerPullToRefreshText; // 默认:@"下拉可以刷新"
 @property (copy, nonatomic) NSString *headerReleaseToRefreshText; // 默认:@"松开立即刷新"
 @property (copy, nonatomic) NSString *headerRefreshingText; // 默认:@"MJ哥正在帮你刷新..."
+
+// icylydia 文字颜色
+@property (strong, nonatomic) UIColor *baseTextColor;
+// end icylydia
 @end
