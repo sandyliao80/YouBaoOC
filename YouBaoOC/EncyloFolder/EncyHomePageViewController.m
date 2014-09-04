@@ -151,7 +151,7 @@
 
 - (void)initColorOFTitle
 {
-    self.title = @"宠物百科";
+    self.title = @"百科";
     self.navigationController.navigationBar.titleTextAttributes = [NSDictionary dictionaryWithObjectsAndKeys:[UIColor colorWithRed:0.3882 green:0.6235 blue:0.7569 alpha:1],NSForegroundColorAttributeName, nil];
     self.everyDayPush.textColor = [UIColor colorWithRed:0.3882 green:0.6235 blue:0.7569 alpha:1];
     [self.moreInfo setTitleColor:[UIColor colorWithRed:0.3882 green:0.6235 blue:0.7569 alpha:1] forState:UIControlStateNormal];
@@ -574,7 +574,7 @@
 {
     UIStoryboard *story = [UIStoryboard storyboardWithName:@"EncyMoreEncyListSB" bundle:nil];
     EncyMoreEncyListViewController *more = [story instantiateInitialViewController];
-    [more setTitles:@"宠物百科"];
+    [more setTitles:@"百科"];
     [self.navigationController pushViewController:more animated:YES];
 }
 

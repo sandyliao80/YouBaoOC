@@ -364,7 +364,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.row <= 3) {
+    if (indexPath.row <= 4) {
         return;
     }
     if (([self.baseInfo.petInfo count]) != 0 &&
