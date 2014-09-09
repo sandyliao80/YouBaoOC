@@ -458,6 +458,7 @@
         cell.readNum.text = [dataDic objectForKey:@"ency_read"];
         cell.titleLbl.text = [dataDic objectForKey:@"title"];
         cell.collectNum.text = [dataDic objectForKey:@"ency_collect"];
+        cell.firstKey.text = [dataDic objectForKey:@"keyword"];
         NSString *imageUrl = [dataDic objectForKey:@"head_img"];
         if(indexPath.row%2 == 0)
         {
