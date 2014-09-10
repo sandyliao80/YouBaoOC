@@ -87,7 +87,7 @@ typedef enum
     }
     else
     {
-        UIButton *rightBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 50, 24)];
+        UIButton *rightBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 40, 24)];
         rightBtn.layer.cornerRadius=4;
         rightBtn.layer.masksToBounds = YES;
         [rightBtn setTitle:@"分类" forState:UIControlStateNormal];
@@ -131,7 +131,7 @@ typedef enum
 
 - (void)refreshData:(NSString *)param
 {
-    [allDataForShow removeAllObjects];
+    //[allDataForShow removeAllObjects];
     currentPage = 1;
     [self downLoadMoreData:[NSNumber numberWithInt:chooseType]];
 }
