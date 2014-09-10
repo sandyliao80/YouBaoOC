@@ -77,7 +77,7 @@
 
 - (void)setNaviRightItem:(NSString *)imageName
 {
-    UIButton *leftBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
+    UIButton *leftBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 40, 24)];
     [leftBtn setTitle:imageName forState:UIControlStateNormal];
     [leftBtn setTitleColor:[UIColor grayColor]  forState:UIControlStateHighlighted];
     [leftBtn setTitleColor:[UIColor colorWithRed:0.3882 green:0.6235 blue:0.7569 alpha:1] forState:UIControlStateNormal];

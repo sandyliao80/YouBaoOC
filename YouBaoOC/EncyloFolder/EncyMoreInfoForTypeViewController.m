@@ -83,7 +83,7 @@ typedef enum
 
 - (void)initNavi
 {
-    UIButton *rightBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 50, 24)];
+    UIButton *rightBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 40, 24)];
     rightBtn.layer.cornerRadius=4;
     rightBtn.layer.masksToBounds = YES;
     [rightBtn setTitle:@"详细" forState:UIControlStateNormal];

@@ -37,9 +37,11 @@
 
 - (void)setNaviLeftItem
 {
-    UIButton *leftBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 45, 45)];
+    UIButton *leftBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 22, 32)];
     [leftBtn setImage:[UIImage imageNamed:@"navigationBack"] forState:UIControlStateNormal];
     [leftBtn setImage:[UIImage imageNamed:@"navigationBack"] forState:UIControlStateHighlighted];
+    [leftBtn setTitle:@"    " forState:UIControlStateNormal];
+    [leftBtn setTitle:@"    " forState:UIControlStateHighlighted];
     [leftBtn addTarget:self action:@selector(leftItemAction) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *leftBtnItem = [[UIBarButtonItem alloc] initWithCustomView:leftBtn];
     [self.navigationItem setLeftBarButtonItem:leftBtnItem];
@@ -51,9 +53,10 @@
 
 - (void)setNaviRightItem:(NSString *)imageName
 {
-    UIButton *leftBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
+    UIButton *leftBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 40, 24)];
     [leftBtn setImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
     [leftBtn setImage:[UIImage imageNamed:imageName] forState:UIControlStateHighlighted];
+    
     [leftBtn addTarget:self action:@selector(setRightItemAction) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *leftBtnItem = [[UIBarButtonItem alloc] initWithCustomView:leftBtn];
     [self.navigationItem setRightBarButtonItem:leftBtnItem];
