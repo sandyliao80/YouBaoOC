@@ -27,7 +27,7 @@
                         <action selector="backView:" destination="-1" eventType="touchUpInside" id="NKf-gZ-Wtj"/>
                     </connections>
                 </button>
-                <searchBar contentMode="redraw" searchBarStyle="prominent" text="" placeholder="请输入关键字搜索" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jZ5-aC-7l6">
+                <searchBar contentMode="redraw" searchBarStyle="prominent" text="" placeholder="请输入标题内容" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jZ5-aC-7l6">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                     <color key="tintColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                     <color key="barTintColor" red="0.63137257099999999" green="0.72156864399999998" blue="0.92549026010000002" alpha="1" colorSpace="deviceRGB"/>

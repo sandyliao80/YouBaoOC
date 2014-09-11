@@ -28,6 +28,7 @@
     BOOL isFirstDown;
     BOOL needFirst;
     BOOL isAdd;
+    NSString *isTrueContent;
 }
 
 @property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
@@ -81,7 +82,7 @@
     {
         [progress show:YES];
         [allDataForShow removeAllObjects];
-        [self performSelectorInBackground: @selector(downLoadMoreData:) withObject:self.searchBar.text];
+        [self performSelectorInBackground: @selector(downLoadMoreData:) withObject:isTrueContent];
         currentPage=1;
         
     }
@@ -155,7 +156,7 @@
 
 - (void)downLoadMoreData:(NSString *)searchContent
 {
-   
+    
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager setResponseSerializer:[AFHTTPResponseSerializer serializer]];
     NSString *urlString = [NSString stringWithFormat:@"%@%@",ZXY_HOSTURL,ZXY_GETMORE];
@@ -167,7 +168,6 @@
         NSDictionary *allDic = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:nil];
         if([allDic objectForKey:@"data"] == [NSNull null])
         {
-            
             [self performSelectorOnMainThread:@selector(isLastPage) withObject:nil waitUntilDone:YES];
         }
         else
@@ -175,10 +175,18 @@
             NSArray *allArr = [allDic objectForKey:@"data"];
             if(allArr)
             {
-                for(int i =0;i<allArr.count;i++)
+                if(isAdd)
                 {
-                    [allDataForShow addObject:allArr[i]];
+                    for(int i =0;i<allArr.count;i++)
+                    {
+                        [allDataForShow addObject:allArr[i]];
+                    }
                 }
+                else
+                {
+                    allDataForShow = [NSMutableArray arrayWithArray:allArr];
+                }
+                isTrueContent = searchContent;
             }
             
             [self performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:YES];
@@ -217,7 +225,9 @@
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
+    [progress show:YES];
     [allDataForShow removeAllObjects];
+    [self reloadData];
     currentPage = 1;
     [self downLoadMoreData:self.searchBar.text];
     [searchBar resignFirstResponder];
