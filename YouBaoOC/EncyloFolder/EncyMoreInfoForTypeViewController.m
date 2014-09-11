@@ -275,7 +275,7 @@ typedef enum
     }
     else
     {
-        return 96;
+        return 64;
     }
 }
 
