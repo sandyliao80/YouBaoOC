@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6205" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="SSn-Iq-VeA">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6206.9" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="SSn-Iq-VeA">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6198"/>
+        <deployment defaultVersion="1792" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7026.1"/>
     </dependencies>
     <scenes>
         <!--Ency More Ency List View Controller-->
@@ -115,7 +116,7 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Rlb-ty-kQe">
-                                <rect key="frame" x="0.0" y="108" width="320" height="460"/>
+                                <rect key="frame" x="0.0" y="108" width="320" height="411"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="SSn-Iq-VeA" id="ZOC-ZI-1a9"/>
@@ -125,16 +126,18 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Qkf-hO-Ly9" firstAttribute="top" secondItem="Rlb-ty-kQe" secondAttribute="bottom" id="2MZ-fZ-e0u"/>
                             <constraint firstItem="zDC-Dr-GOl" firstAttribute="leading" secondItem="o8U-Fl-pAa" secondAttribute="leading" id="38m-Q3-znm"/>
-                            <constraint firstAttribute="bottom" secondItem="Rlb-ty-kQe" secondAttribute="bottom" id="Afo-0Z-IwV"/>
-                            <constraint firstItem="Rlb-ty-kQe" firstAttribute="leading" secondItem="o8U-Fl-pAa" secondAttribute="leading" id="Cax-k3-Gx8"/>
-                            <constraint firstAttribute="trailing" secondItem="Rlb-ty-kQe" secondAttribute="trailing" id="FWt-Fb-yFu"/>
-                            <constraint firstItem="Rlb-ty-kQe" firstAttribute="top" secondItem="zDC-Dr-GOl" secondAttribute="bottom" id="RE0-sD-1hP"/>
+                            <constraint firstAttribute="centerX" secondItem="Rlb-ty-kQe" secondAttribute="centerX" id="9uJ-n5-MJv"/>
+                            <constraint firstItem="Rlb-ty-kQe" firstAttribute="top" secondItem="zDC-Dr-GOl" secondAttribute="bottom" id="G9C-7U-1gP"/>
                             <constraint firstItem="zDC-Dr-GOl" firstAttribute="top" secondItem="xEm-rs-obZ" secondAttribute="bottom" id="Rib-DB-SVx"/>
+                            <constraint firstAttribute="trailing" secondItem="Rlb-ty-kQe" secondAttribute="trailing" id="Wnd-cr-hmF"/>
                             <constraint firstAttribute="trailing" secondItem="zDC-Dr-GOl" secondAttribute="trailing" id="X6j-Rp-fxN"/>
+                            <constraint firstItem="Rlb-ty-kQe" firstAttribute="leading" secondItem="o8U-Fl-pAa" secondAttribute="leading" id="elo-3E-Ibj"/>
                         </constraints>
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4">
                         <size key="portraitSize" width="320" height="568"/>
