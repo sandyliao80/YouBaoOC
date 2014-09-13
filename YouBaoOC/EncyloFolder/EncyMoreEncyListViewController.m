@@ -20,6 +20,7 @@
 #import "EncyCategoryVC.h"
 #import "LCYCommon.h"
 #import "LCYGlobal.h"
+#import "UIViewController+HideTabBar.h"
 
 typedef enum
 {
@@ -75,6 +76,7 @@ typedef enum
 //    [self hideTabBar];
     [self initScrollHeader];
     [self initMBHUD];
+    
     currentTable.backgroundColor = BLUEINSI;
     if(currentTitle)
     {
@@ -93,6 +95,7 @@ typedef enum
         [rightBtn setTitle:@"分类" forState:UIControlStateNormal];
         [rightBtn setTitle:@"分类" forState:UIControlStateHighlighted];
         [rightBtn addTarget:self action:@selector(rightItemAction) forControlEvents:UIControlEventTouchUpInside];
+        [rightBtn.titleLabel setFont:[UIFont systemFontOfSize:15.0f]];
         [rightBtn setBackgroundColor:[UIColor colorWithRed:0.3882 green:0.6235 blue:0.7569 alpha:1]];
         UIBarButtonItem *rightBtnItem = [[UIBarButtonItem alloc] initWithCustomView:rightBtn];
         [self.navigationItem setRightBarButtonItem:rightBtnItem];
@@ -181,13 +184,22 @@ typedef enum
             {
                 [allDataForShow removeAllObjects];
             }
-            NSArray *allArr = [allDic objectForKey:@"data"];
-            if(allArr)
-            {
-                for(int i =0;i<allArr.count;i++)
+            @try {
+                NSArray *allArr = [allDic objectForKey:@"data"];
+                if(allArr)
                 {
-                    [allDataForShow addObject:allArr[i]];
+                    for(int i =0;i<allArr.count;i++)
+                    {
+                        [allDataForShow addObject:allArr[i]];
+                    }
                 }
+
+            }
+            @catch (NSException *exception) {
+                
+            }
+            @finally {
+                
             }
             
             [self performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:YES];
@@ -393,6 +405,7 @@ typedef enum
             [manager POST:urlString parameters:[NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:phoneNum.intValue], @"user_name",[NSNumber numberWithInt:petID.intValue],@"ency_id",nil] success:^(AFHTTPRequestOperation *operation, id responseObject) {
                 [self performSelectorOnMainThread:@selector(hideMB) withObject:nil waitUntilDone:YES];
                 EncyDetailPetWeb *detailWeb = [[EncyDetailPetWeb alloc] initWithPetID:petID.integerValue andType:NO];
+                detailWeb.title = [dataDic objectForKey:@"cate_name"];
                 if([[operation responseString] isEqualToString:@"true"])
                 {
                     [detailWeb setIsSelected:YES];

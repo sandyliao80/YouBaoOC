@@ -208,14 +208,23 @@
             }
             else
             {
-                NSArray *allArr = [allDic objectForKey:@"data"];
-                if(allArr)
-                {
-                    for(int i =0;i<allArr.count;i++)
+                @try {
+                    NSArray *allArr = [allDic objectForKey:@"data"];
+                    if(allArr)
                     {
-                        [allDataForShow addObject:allArr[i]];
+                        for(int i =0;i<allArr.count;i++)
+                        {
+                            [allDataForShow addObject:allArr[i]];
+                        }
                     }
                 }
+                @catch (NSException *exception) {
+                    
+                }
+                @finally {
+                    
+                }
+                
                 
                 [self performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:YES];
                 [self performSelectorOnMainThread:@selector(hideMB) withObject:nil waitUntilDone:YES];
@@ -278,6 +287,7 @@
             [manager POST:urlString parameters:[NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:phoneNum.intValue], @"user_name",[NSNumber numberWithInt:petID.intValue],@"ency_id",nil] success:^(AFHTTPRequestOperation *operation, id responseObject) {
                 [progress hide:YES];
                 EncyDetailPetWeb *detailWeb = [[EncyDetailPetWeb alloc] initWithPetID:petID.integerValue andType:NO];
+                detailWeb.title = [dataDic objectForKey:@"cate_name"];
                 if([[operation responseString] isEqualToString:@"true"])
                 {
                     [detailWeb setIsSelected:YES];

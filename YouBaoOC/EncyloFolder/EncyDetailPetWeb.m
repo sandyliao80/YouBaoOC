@@ -65,6 +65,10 @@
 
         [self setNaviLeftItem];
     }
+    else
+    {
+        [self setNaviLeftItem];
+    }
     NSURL *url = [NSURL URLWithString:urlStrings];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     [self.currentWeb loadRequest:request];
@@ -79,9 +83,13 @@
 {
     UIButton *leftBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 40, 24)];
     [leftBtn setTitle:imageName forState:UIControlStateNormal];
-    [leftBtn setTitleColor:[UIColor grayColor]  forState:UIControlStateHighlighted];
-    [leftBtn setTitleColor:[UIColor colorWithRed:0.3882 green:0.6235 blue:0.7569 alpha:1] forState:UIControlStateNormal];
+//    [leftBtn setTitleColor:[UIColor grayColor]  forState:UIControlStateHighlighted];
+//    [leftBtn setTitleColor:[UIColor colorWithRed:0.3882 green:0.6235 blue:0.7569 alpha:1] forState:UIControlStateNormal];
+    leftBtn.layer.cornerRadius=4;
+    leftBtn.layer.masksToBounds = YES;
+    [leftBtn.titleLabel setFont:[UIFont systemFontOfSize:15.0f]];
     [leftBtn addTarget:self action:@selector(setRightItemAction) forControlEvents:UIControlEventTouchUpInside];
+    [leftBtn setBackgroundColor:[UIColor colorWithRed:0.3882 green:0.6235 blue:0.7569 alpha:1]];
     UIBarButtonItem *leftBtnItem = [[UIBarButtonItem alloc] initWithCustomView:leftBtn];
     [self.navigationItem setRightBarButtonItem:leftBtnItem];
 }
@@ -158,9 +166,16 @@
     }
     if(_isPet)
     {
-        [self dismissViewControllerAnimated:YES completion:^{
-        
-        }];
+        if(self.navigationController)
+        {
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+        else
+        {
+            [self dismissViewControllerAnimated:YES completion:^{
+            
+            }];
+        }
     }
     else
     {
