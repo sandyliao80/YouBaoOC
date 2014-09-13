@@ -22,6 +22,7 @@
 #define TXCELLI @"ENCYTXI"
 #define ENCYTABT @"ENCYTABT"
 #define cellIdentifier @"cellIdentifier"
+#import "UIViewController+HideTabBar.h"
 typedef enum
 {
     Ency_JianKang = 1,
@@ -83,12 +84,14 @@ typedef enum
 
 - (void)initNavi
 {
+    [self setNaviLeftItem];
     UIButton *rightBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 40, 24)];
     rightBtn.layer.cornerRadius=4;
     rightBtn.layer.masksToBounds = YES;
     [rightBtn setTitle:@"详细" forState:UIControlStateNormal];
     [rightBtn setTitle:@"详细" forState:UIControlStateHighlighted];
     [rightBtn addTarget:self action:@selector(rightItemAction) forControlEvents:UIControlEventTouchUpInside];
+    [rightBtn.titleLabel setFont:[UIFont systemFontOfSize:15.0f]];
     [rightBtn setBackgroundColor:[UIColor colorWithRed:0.3882 green:0.6235 blue:0.7569 alpha:1]];
     UIBarButtonItem *rightBtnItem = [[UIBarButtonItem alloc] initWithCustomView:rightBtn];
     [self.navigationItem setRightBarButtonItem:rightBtnItem];
@@ -125,7 +128,7 @@ typedef enum
     {
         _petID=0;
     }
-    NSString *urlString = [NSString stringWithFormat:@"%@%@?cate_id=%ld&type_id=%ld&p=%ld",ZXY_HOSTURL,ZXY_GETMORE,_petID.integerValue,typeID,currentPage];
+    NSString *urlString = [NSString stringWithFormat:@"%@%@?cate_id=%ld&type_id=%ld&p=%ld",ZXY_HOSTURL,ZXY_GETMORE,(long)_petID.integerValue,(long)typeID,(long)currentPage];
     [manager POST:urlString parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         //[allDataForShow removeAllObjects];
         NSLog(@"operation is %@",[operation responseString]);
@@ -145,14 +148,23 @@ typedef enum
         }
         else
         {
-            NSArray *allArr = [allDic objectForKey:@"data"];
-            if(allArr)
-            {
-                for(int i =0;i<allArr.count;i++)
+            @try {
+                NSArray *allArr = [allDic objectForKey:@"data"];
+                if(allArr)
                 {
-                    [allDataForShow addObject:allArr[i]];
+                    for(int i =0;i<allArr.count;i++)
+                    {
+                        [allDataForShow addObject:allArr[i]];
+                    }
                 }
             }
+            @catch (NSException *exception) {
+                
+            }
+            @finally {
+                
+            }
+            
             
             [self performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:YES];
             [self performSelectorOnMainThread:@selector(hideMB) withObject:nil waitUntilDone:YES];
@@ -405,6 +417,7 @@ typedef enum
             [manager POST:urlString parameters:[NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:phoneNum.intValue], @"user_name",[NSNumber numberWithInt:petID.intValue],@"ency_id",nil] success:^(AFHTTPRequestOperation *operation, id responseObject) {
                 [progress hide:YES];
                 EncyDetailPetWeb *detailWeb = [[EncyDetailPetWeb alloc] initWithPetID:petID.integerValue andType:NO];
+                detailWeb.title = [dataDic objectForKey:@"cate_name"];
                 if([[operation responseString] isEqualToString:@"true"])
                 {
                     [detailWeb setIsSelected:YES];

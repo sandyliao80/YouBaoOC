@@ -143,6 +143,7 @@
     rightBtn.layer.masksToBounds = YES;
     [rightBtn setTitle:@"分类" forState:UIControlStateNormal];
     [rightBtn setTitle:@"分类" forState:UIControlStateHighlighted];
+    [rightBtn.titleLabel setFont:[UIFont systemFontOfSize:15.0f]];
     [rightBtn addTarget:self action:@selector(rightItemAction) forControlEvents:UIControlEventTouchUpInside];
     [rightBtn setBackgroundColor:[UIColor colorWithRed:0.3882 green:0.6235 blue:0.7569 alpha:1]];
     UIBarButtonItem *rightBtnItem = [[UIBarButtonItem alloc] initWithCustomView:rightBtn];
@@ -253,14 +254,23 @@
             {
                 [allDataForShow removeAllObjects];
             }
-            NSArray *allArr = [allDic objectForKey:@"data"];
-            if(allArr)
-            {
-                for(int i =0;i<allArr.count;i++)
+            @try {
+                NSArray *allArr = [allDic objectForKey:@"data"];
+                if(allArr)
                 {
-                    [allDataForShow addObject:allArr[i]];
+                    for(int i =0;i<allArr.count;i++)
+                    {
+                        [allDataForShow addObject:allArr[i]];
+                    }
                 }
             }
+            @catch (NSException *exception) {
+                
+            }
+            @finally {
+                
+            }
+            
             
             [self performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:YES];
             [self performSelectorOnMainThread:@selector(hideMB) withObject:nil waitUntilDone:YES];
@@ -534,6 +544,7 @@
                     }
                     NSLog(@"%@",[operation responseString]);
                     EncyDetailPetWeb *detailWeb = [[EncyDetailPetWeb alloc] initWithPetID:petID.integerValue andType:NO];
+                    detailWeb.title = [dataDic objectForKey:@"cate_name"];
                     if([[operation responseString] isEqualToString:@"true"])
                     {
                         [detailWeb setIsSelected:YES];

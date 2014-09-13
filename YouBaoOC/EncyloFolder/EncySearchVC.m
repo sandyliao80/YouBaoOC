@@ -172,21 +172,30 @@
         }
         else
         {
-            NSArray *allArr = [allDic objectForKey:@"data"];
-            if(allArr)
-            {
-                if(isAdd)
+            @try {
+                NSArray *allArr = [allDic objectForKey:@"data"];
+                if(allArr)
                 {
-                    for(int i =0;i<allArr.count;i++)
+                    if(isAdd)
                     {
-                        [allDataForShow addObject:allArr[i]];
+                        for(int i =0;i<allArr.count;i++)
+                        {
+                            [allDataForShow addObject:allArr[i]];
+                        }
                     }
+                    else
+                    {
+                        allDataForShow = [NSMutableArray arrayWithArray:allArr];
+                    }
+                    isTrueContent = searchContent;
                 }
-                else
-                {
-                    allDataForShow = [NSMutableArray arrayWithArray:allArr];
-                }
-                isTrueContent = searchContent;
+
+            }
+            @catch (NSException *exception) {
+                
+            }
+            @finally {
+                
             }
             
             [self performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:YES];
@@ -315,6 +324,7 @@
                 }
                                NSLog(@"%@",[operation responseString]);
                 EncyDetailPetWeb *detailWeb = [[EncyDetailPetWeb alloc] initWithPetID:petID.integerValue andType:NO];
+                detailWeb.title = [dataDic objectForKey:@"cate_name"];
                 if([[operation responseString] isEqualToString:@"true"])
                 {
                     [detailWeb setIsSelected:YES];
