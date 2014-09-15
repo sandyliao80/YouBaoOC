@@ -308,10 +308,13 @@
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
     if (textField == self.catagoryLabel) {
         if ([self.nicknameLabel isFirstResponder]) {
+            [self.nicknameLabel resignFirstResponder];
             return NO;
         } else if ([self.signLabel isFirstResponder]) {
+            [self.signLabel resignFirstResponder];
             return NO;
         } else if ([self.zombieTextField isFirstResponder]) {
+            [self.zombieTextField resignFirstResponder];
             return NO;
         }
         return YES;

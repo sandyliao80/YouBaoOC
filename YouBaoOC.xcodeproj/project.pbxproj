@@ -1270,14 +1270,14 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Baoyu Liu (9G45KM8T54)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "YouBaoOC/YouBaoOC-Prefix.pch";
 				INFOPLIST_FILE = YouBaoOC/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "797ee597-b6f3-4a78-8e8c-516e127cdf5c";
 				SWIFT_OBJC_BRIDGING_HEADER = "YouBaoOC/YouBaoOC-Bridging-Header.h";
 			};
 			name = Release;

@@ -120,10 +120,15 @@
                 _isCollect = !_isCollect;
                 if(_isCollect)
                 {
+                    UIAlertView *confirmCollection = [[UIAlertView alloc] initWithTitle:@"" message:@"成功收藏百科文章" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+                    [confirmCollection show];
                     [self setNaviRightItem:@"取消"];
                 }
                 else
                 {
+                    UIAlertView *confirmCollection = [[UIAlertView alloc] initWithTitle:@"" message:@"成功取消收藏" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+                    [confirmCollection show];
+
                     [self setNaviRightItem:@"收藏"];
                 }
             }

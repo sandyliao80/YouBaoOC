@@ -71,6 +71,19 @@ static void * kDGProgressChanged = &kDGProgressChanged;
     UIBarButtonItem *leftBackItem = [[UIBarButtonItem alloc] initWithCustomView:backBtn];
     self.navigationItem.leftBarButtonItem = leftBackItem;
     
+    // 编辑按钮
+    UIButton *editButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [editButton setFrame:CGRectMake(0, 0, 40, 24)];
+    [editButton setTitle:@" 编辑 " forState:UIControlStateNormal];
+    [editButton.titleLabel setFont:[UIFont systemFontOfSize:15.0f]];
+    editButton.layer.cornerRadius = 4.0f;
+    editButton.layer.masksToBounds = YES;
+    [editButton setBackgroundColor:THEME_DARK_BLUE];
+    [editButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:editButton];
+    [editButton addTarget:self action:@selector(editButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    self.navigationItem.rightBarButtonItem = rightItem;
+    
     CGFloat avatarBGRadius = MIN(self.avatarLightBG.bounds.size.height, self.avatarLightBG.bounds.size.width) / 2.0f;
     [self.avatarLightBG.layer setCornerRadius:avatarBGRadius];
     [self.avatarLightBG.layer setMasksToBounds:YES];
@@ -157,6 +170,10 @@ static void * kDGProgressChanged = &kDGProgressChanged;
 
 
 #pragma mark - Actions
+
+- (void)editButtonPressed:(id)sender{
+    [self performSegueWithIdentifier:@"showEditing" sender:nil];
+}
 
 - (void)reloadInitData{
 }
