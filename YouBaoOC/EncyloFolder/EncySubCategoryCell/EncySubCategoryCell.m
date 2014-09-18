@@ -12,7 +12,9 @@
 
 - (void)awakeFromNib {
     // Initialization code
-    
+    CGFloat radius = MIN(self.head_image.bounds.size.height, self.head_image.bounds.size.width) / 2.0f;
+    [self.head_image.layer setCornerRadius:radius];
+    [self.head_image.layer setMasksToBounds:YES];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
