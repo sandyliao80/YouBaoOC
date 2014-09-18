@@ -110,7 +110,7 @@
     
     NSString *imageRelativePath = child.headImg;
     NSString *imagePath = [hostImageURL stringByAppendingString:imageRelativePath];
-    [cell.icyImageView sd_setImageWithURL:[NSURL URLWithString:imagePath]];
+    [cell.icyImageView sd_setImageWithURL:[NSURL URLWithString:imagePath] placeholderImage:[UIImage imageNamed:@"profilePetPlaceHolder"]];
     
     return cell;
 }

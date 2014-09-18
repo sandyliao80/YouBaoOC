@@ -52,12 +52,13 @@
     [self.navigationItem setLeftBarButtonItems:@[fixedSpace, buttonItem]];
     
     // 初始化信息
-    [self loadInitData];
+//    [self loadInitData];
     
     __weak HomePageViewController *weakSelf = self;
 //    [self.icyCollectionView addHeaderWithCallback:^{
 //        [self loadInitData];
 //    }];
+    [self.icyCollectionView setContentInset:UIEdgeInsetsMake(64.0f, 0, 0, 0)];
     NSArray *image1 = @[[UIImage imageNamed:@"Red1"],[UIImage imageNamed:@"Red2"]];
     NSArray *image2 = @[[UIImage imageNamed:@"Red1"]];
     [self.icyCollectionView addPullToRefreshActionHandler:^{

@@ -75,9 +75,14 @@
     NSNotificationCenter *defaultCenter = [NSNotificationCenter defaultCenter];
     [defaultCenter addObserver:self selector:@selector(reloadInitData) name:@"MoePetReload" object:nil];
     
+// 加载用户所有信息
+//    [[LCYCommon sharedInstance] showTips:@"正在加载用户信息" inView:self.view];
+//    [self reloadInitData];
+    
     // 添加下拉刷新
 //    [self.icyTableView addHeaderWithTarget:self action:@selector(headerRereshing)];
 //    self.icyTableView.baseTextColor = [UIColor whiteColor];
+    [self.icyTableView setContentInset:UIEdgeInsetsMake(64.0f, 0, 0, 0)];
     __weak ProfileHomeViewController *weakSelf = self;
     NSArray *image1 = @[[UIImage imageNamed:@"Red1"],[UIImage imageNamed:@"Red2"]];
     NSArray *image2 = @[[UIImage imageNamed:@"Red1"]];
@@ -89,9 +94,7 @@
                                   ProgressScrollThreshold:0
                                    LoadingImagesFrameRate:9];
     
-    // 加载用户所有信息
-    [[LCYCommon sharedInstance] showTips:@"正在加载用户信息" inView:self.view];
-    [self reloadInitData];
+
 }
 
 - (void)didReceiveMemoryWarning {

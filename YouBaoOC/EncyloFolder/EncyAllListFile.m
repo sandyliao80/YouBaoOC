@@ -17,6 +17,7 @@
 #import "ZXYNetHelper/ZXYNETHelper.h"
 #import "LCYCommon.h"
 #import "LCYGlobal.h"
+#import "UIScrollView+LCYRefresh.h"
 @interface EncyAllListFile ()<UITableViewDataSource,UITableViewDelegate>
 {
     NSMutableArray *allDataForShow;
@@ -75,6 +76,16 @@
         [currentTable setFooterReleaseToRefreshText:@"加载数据"];
         [blockSelf performSelector:@selector(addLoadData:) withObject:nil ];
     }];
+//    [currentTable setContentInset:UIEdgeInsetsMake(64.0f, 0, 0, 0)];
+//    NSArray *image1 = @[[UIImage imageNamed:@"Red1"],[UIImage imageNamed:@"Red2"]];
+//    NSArray *image2 = @[[UIImage imageNamed:@"Red1"]];
+//    [currentTable addPullToRefreshActionHandler:^{
+//         [blockSelf performSelector:@selector(addLoadData:) withObject:nil];
+//    }
+//                                      ProgressImages:image2
+//                                       LoadingImages:image1
+//                             ProgressScrollThreshold:0
+//                              LoadingImagesFrameRate:9];
 }
 
 - (void)addLoadData:(NSString *)param
@@ -176,6 +187,7 @@
     [progress hide:YES];
     [currentTable footerEndRefreshing];
     [currentTable headerEndRefreshing];
+//    [currentTable stopRefreshAnimation];
 }
 
 
