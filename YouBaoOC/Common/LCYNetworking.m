@@ -11,8 +11,12 @@
 #import <AFNetworking/AFNetworking.h>
 
 //#ifndef CHENGYUDEBUG
-NSString *const hostURL         = @"http://115.29.46.22/pet/index.php/Api/";
-NSString *const hostImageURL    = @"http://115.29.46.22/pet/";
+
+//http://123.57.7.88/
+//http://115.29.46.22/
+NSString *const hostURL         = @"http://123.57.7.88/index.php/Api/";
+NSString *const hostImageURL    = @"http://123.57.7.88/";
+NSString *const commonURL       = @"http://123.57.7.88/index.php/Common/Upload/ios";
 //#else
 //NSString *const hostURL         = @"http://192.168.1.106/pet/index.php/Api/";
 //NSString *const hostImageURL    = @"http://192.168.1.106/pet/";
@@ -200,7 +204,8 @@ static bool isFirstAccess = YES;
 }
 
 - (void)postCommonFileWithKey:(NSString *)key fileData:(NSData *)data fileName:(NSString *)fileName mimeType:(NSString *)mimeType successBlock:(void (^)(NSDictionary *))success failedBlock:(void (^)(void))failed{
-    NSString *URLString = @"http://115.29.46.22/pet/index.php/Common/Upload/ios";
+//    NSString *URLString = @"http://115.29.46.22/pet/index.php/Common/Upload/ios";
+    NSString *URLString = commonURL;
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html", @"text/plain", nil];
