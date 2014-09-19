@@ -14,9 +14,9 @@
 
 //http://123.57.7.88/
 //http://115.29.46.22/
-NSString *const hostURL         = @"http://123.57.7.88/index.php/Api/";
-NSString *const hostImageURL    = @"http://123.57.7.88/";
-NSString *const commonURL       = @"http://123.57.7.88/index.php/Common/Upload/ios";
+NSString *const hostURL         = @"http://123.57.7.88/admin/index.php/Api/";
+NSString *const hostImageURL    = @"http://123.57.7.88/admin/";
+NSString *const commonURL       = @"http://123.57.7.88/admin/index.php/Common/Upload/ios";
 //#else
 //NSString *const hostURL         = @"http://192.168.1.106/pet/index.php/Api/";
 //NSString *const hostImageURL    = @"http://192.168.1.106/pet/";

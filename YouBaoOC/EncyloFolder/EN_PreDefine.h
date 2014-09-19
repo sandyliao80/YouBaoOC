@@ -16,8 +16,8 @@
 
 //#define ENCY_HOSTURL @"http://115.29.46.22/pet/"   /** <获取图片的地址 */
 //#define ZXY_HOSTURL  @"http://115.29.46.22/pet/index.php/Api/"/** <获取数据 */
-#define ENCY_HOSTURL @"http://123.57.7.88/"
-#define ZXY_HOSTURL  @"http://123.57.7.88/index.php/Api/"
+#define ENCY_HOSTURL @"http://123.57.7.88/admin/"
+#define ZXY_HOSTURL  @"http://123.57.7.88/admin/index.php/Api/"
 #define ZXY_PETSTYLE @"/PetStyle/searchAllTypePets"             /** <宠物类型 */
 #define ZXY_SUBPETSTYLE @"/PetStyle/searchDetailByID"
 #define ZXY_GETTODYPUSH @"/Ency/getTodayEncy" /** <每日推送 */
