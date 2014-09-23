@@ -29,10 +29,20 @@
     UIView *contentView = [[UIView alloc] initWithFrame:frame];
     [self.icyScrollView addSubview:contentView];
     
+    BOOL isIPhone5OrLater = NO;
+    
+    CGFloat height = [UIScreen mainScreen].bounds.size.height;
+    CGFloat width = [UIScreen mainScreen].bounds.size.width;
+    CGFloat r = height / width;
+    if (r > (1000.0f / 640.0f)) {
+        isIPhone5OrLater = YES;
+    }
+    
     for (int i = 1; i <= 4; i++) {
         CGRect imageFrame = CGRectMake(self.view.frame.size.width * (i - 1), 0, self.view.frame.size.width, self.view.frame.size.height);
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:imageFrame];
-        [imageView setImage:[UIImage imageNamed:[NSString stringWithFormat:@"Guide%d",i]]];
+        NSString *imageName = isIPhone5OrLater?[NSString stringWithFormat:@"Guide-568-%d",i]:[NSString stringWithFormat:@"Guide%d",i];
+        [imageView setImage:[UIImage imageNamed:imageName]];
         [contentView addSubview:imageView];
     }
     self.icyScrollView.contentSize = contentView.frame.size;

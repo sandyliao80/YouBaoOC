@@ -137,7 +137,13 @@
     [leftBtn setImage:[UIImage imageNamed:@"en_leftNavi"] forState:UIControlStateNormal];
     [leftBtn setImage:[UIImage imageNamed:@"en_leftNavi"] forState:UIControlStateHighlighted];
     UIBarButtonItem *leftBtnItem = [[UIBarButtonItem alloc] initWithCustomView:leftBtn];
-    [self.navigationItem setLeftBarButtonItem:leftBtnItem];
+    UILabel *leftLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 36, 24)];
+    leftLabel.text = @"收藏";
+    [leftLabel setFont:[UIFont systemFontOfSize:15.0f]];
+    leftLabel.textColor = THEME_COLOR;
+    UIBarButtonItem *leftLabelItem = [[UIBarButtonItem alloc] initWithCustomView:leftLabel];
+//    [self.navigationItem setLeftBarButtonItem:leftBtnItem];
+    self.navigationItem.leftBarButtonItems = @[leftBtnItem, leftLabelItem];
     
     UIButton *rightBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 40, 24)];
     rightBtn.layer.cornerRadius=4;

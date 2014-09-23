@@ -94,6 +94,8 @@
 		28DD9A3119B4541600EC0C9E /* GetPetDetailPetInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 28DD9A2A19B4541600EC0C9E /* GetPetDetailPetInfo.m */; };
 		28DD9A3219B4541600EC0C9E /* GetPetDetailBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 28DD9A2C19B4541600EC0C9E /* GetPetDetailBase.m */; };
 		28DD9A3319B4541600EC0C9E /* GetPetDetailPetImages.m in Sources */ = {isa = PBXBuildFile; fileRef = 28DD9A2E19B4541600EC0C9E /* GetPetDetailPetImages.m */; };
+		28F4F52519D1326700953028 /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28F4F52419D1326700953028 /* Launch.storyboard */; };
+		28F4F52819D132D400953028 /* LaunchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F4F52719D132D400953028 /* LaunchViewController.m */; };
 		28F7F4541994A3860069D797 /* LCYFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F7F4531994A3860069D797 /* LCYFileManager.m */; };
 		83A93C91E0F34B08851EE991 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEF990BC1DD24D8D89234D90 /* libPods.a */; };
 		8B129DAC19A591D100554F3C /* UIViewController+HideTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B129DAB19A591D100554F3C /* UIViewController+HideTabBar.m */; };
@@ -323,6 +325,9 @@
 		28DD9A2E19B4541600EC0C9E /* GetPetDetailPetImages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetPetDetailPetImages.m; sourceTree = "<group>"; };
 		28DD9A2F19B4541600EC0C9E /* GetPetDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetPetDetail.h; sourceTree = "<group>"; };
 		28DD9A3019B4541600EC0C9E /* GetPetDetailPetInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetPetDetailPetInfo.h; sourceTree = "<group>"; };
+		28F4F52419D1326700953028 /* Launch.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Launch.storyboard; sourceTree = "<group>"; };
+		28F4F52619D132D400953028 /* LaunchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LaunchViewController.h; sourceTree = "<group>"; };
+		28F4F52719D132D400953028 /* LaunchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LaunchViewController.m; sourceTree = "<group>"; };
 		28F7F4521994A3860069D797 /* LCYFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCYFileManager.h; sourceTree = "<group>"; };
 		28F7F4531994A3860069D797 /* LCYFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCYFileManager.m; sourceTree = "<group>"; };
 		75673EC2383043228793768F /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
@@ -471,6 +476,7 @@
 				28D63213199B74710029A283 /* Introduction.storyboard */,
 				28A4FDC019A7438E00C3CD85 /* ModifyLocation.storyboard */,
 				28DD9A2519B41FE800EC0C9E /* ModifyGender.storyboard */,
+				28F4F52419D1326700953028 /* Launch.storyboard */,
 				281111991979183D000A72D7 /* Images.xcassets */,
 				281111901979183C000A72D7 /* YouBaoOC.xcdatamodeld */,
 				281111891979183C000A72D7 /* Supporting Files */,
@@ -696,6 +702,8 @@
 			children = (
 				28D63216199B76E30029A283 /* GuideViewController.h */,
 				28D63217199B76E30029A283 /* GuideViewController.m */,
+				28F4F52619D132D400953028 /* LaunchViewController.h */,
+				28F4F52719D132D400953028 /* LaunchViewController.m */,
 			);
 			path = Guide;
 			sourceTree = "<group>";
@@ -941,7 +949,7 @@
 				TargetAttributes = {
 					281111851979183C000A72D7 = {
 						CreatedOnToolsVersion = 6.0;
-						DevelopmentTeam = ER62D3UHDE;
+						DevelopmentTeam = 9G45KM8T54;
 					};
 					2811119E1979183D000A72D7 = {
 						CreatedOnToolsVersion = 6.0;
@@ -994,6 +1002,7 @@
 				2827C79A1998D13D00C25F83 /* MJRefresh.bundle in Resources */,
 				8BA39D2519ADD61500C9FCDD /* EncyDetailPetWeb.xib in Resources */,
 				8B6AA10219933C1400BF017C /* EncyCategoryCell.xib in Resources */,
+				28F4F52519D1326700953028 /* Launch.storyboard in Resources */,
 				8B2E91BC19B0BF5E0086D8EB /* EncyTabThreeCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1128,6 +1137,7 @@
 				280E7467199335320036DD0B /* EncyHomePageViewController.m in Sources */,
 				2827C7A11998D13D00C25F83 /* UIView+Extension.m in Sources */,
 				286099A41987762800CB86D6 /* Region.m in Sources */,
+				28F4F52819D132D400953028 /* LaunchViewController.m in Sources */,
 				287DD73319A20E840080C268 /* MoeCameraCell.m in Sources */,
 				2832DC631980EFCE004BBAB5 /* RegisterAndLoginViewController.m in Sources */,
 				280E7452199335100036DD0B /* ZXYEncyPicDown.m in Sources */,
@@ -1284,14 +1294,14 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Baoyu Liu (9G45KM8T54)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "YouBaoOC/YouBaoOC-Prefix.pch";
 				INFOPLIST_FILE = YouBaoOC/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "797ee597-b6f3-4a78-8e8c-516e127cdf5c";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "YouBaoOC/YouBaoOC-Bridging-Header.h";
 			};
 			name = Release;
