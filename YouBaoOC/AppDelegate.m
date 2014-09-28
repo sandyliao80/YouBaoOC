@@ -37,6 +37,7 @@
     [[UINavigationBar appearance] setTintColor:THEME_COLOR];
     
     
+    
     return YES;
 }
 
