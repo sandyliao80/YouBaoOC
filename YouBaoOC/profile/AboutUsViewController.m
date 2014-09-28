@@ -18,10 +18,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    NSString *versionString = [[NSBundle mainBundle] infoDictionary][@"CFBundleShortVersionString"];
-    
-    self.versionLabel.text = [NSString stringWithFormat:@"版本号:%@",versionString];
-    [self.versionLabel sizeToFit];
+//    NSString *versionString = [[NSBundle mainBundle] infoDictionary][@"CFBundleShortVersionString"];
+//    
+//    self.versionLabel.text = [NSString stringWithFormat:@"版本号:%@",versionString];
+//    [self.versionLabel sizeToFit];
 }
 
 - (void)didReceiveMemoryWarning {
