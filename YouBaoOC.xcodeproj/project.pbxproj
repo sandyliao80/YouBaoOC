@@ -97,6 +97,10 @@
 		28E6CA6A19D7A48A008142B1 /* AboutUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E6CA6919D7A48A008142B1 /* AboutUsViewController.m */; };
 		28E6CA6D19D7ABBF008142B1 /* FeedBackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E6CA6C19D7ABBF008142B1 /* FeedBackViewController.m */; };
 		28E6CA6E19D7AE81008142B1 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28E6CA7019D7AE81008142B1 /* Settings.storyboard */; };
+		28E6CA7319D7D5FD008142B1 /* Find.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28E6CA7219D7D5FD008142B1 /* Find.storyboard */; };
+		28E6CA7719D7D95D008142B1 /* FindViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E6CA7619D7D95D008142B1 /* FindViewController.m */; };
+		28E6CA7919D7DDE9008142B1 /* Square.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28E6CA7819D7DDE9008142B1 /* Square.storyboard */; };
+		28E6CA7B19D7DE06008142B1 /* Selling.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28E6CA7A19D7DE06008142B1 /* Selling.storyboard */; };
 		28F4F52519D1326700953028 /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28F4F52419D1326700953028 /* Launch.storyboard */; };
 		28F4F52819D132D400953028 /* LaunchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F4F52719D132D400953028 /* LaunchViewController.m */; };
 		28F7F4541994A3860069D797 /* LCYFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F7F4531994A3860069D797 /* LCYFileManager.m */; };
@@ -334,6 +338,11 @@
 		28E6CA6C19D7ABBF008142B1 /* FeedBackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedBackViewController.m; sourceTree = "<group>"; };
 		28E6CA6F19D7AE81008142B1 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = "zh-Hans"; path = "zh-Hans.lproj/Settings.storyboard"; sourceTree = "<group>"; };
 		28E6CA7119D7AE91008142B1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Settings.storyboard; sourceTree = "<group>"; };
+		28E6CA7219D7D5FD008142B1 /* Find.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Find.storyboard; sourceTree = "<group>"; };
+		28E6CA7519D7D95D008142B1 /* FindViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindViewController.h; sourceTree = "<group>"; };
+		28E6CA7619D7D95D008142B1 /* FindViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FindViewController.m; sourceTree = "<group>"; };
+		28E6CA7819D7DDE9008142B1 /* Square.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Square.storyboard; sourceTree = "<group>"; };
+		28E6CA7A19D7DE06008142B1 /* Selling.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Selling.storyboard; sourceTree = "<group>"; };
 		28F4F52419D1326700953028 /* Launch.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Launch.storyboard; sourceTree = "<group>"; };
 		28F4F52619D132D400953028 /* LaunchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LaunchViewController.h; sourceTree = "<group>"; };
 		28F4F52719D132D400953028 /* LaunchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LaunchViewController.m; sourceTree = "<group>"; };
@@ -470,6 +479,7 @@
 		281111881979183C000A72D7 /* YouBaoOC */ = {
 			isa = PBXGroup;
 			children = (
+				28E6CA7419D7D946008142B1 /* Find */,
 				28D63215199B76D50029A283 /* Guide */,
 				280BB2741998BAFD007A0042 /* libs */,
 				8B1570281991D4DD00326AFC /* EncyloFolder */,
@@ -487,6 +497,9 @@
 				28DD9A2519B41FE800EC0C9E /* ModifyGender.storyboard */,
 				28F4F52419D1326700953028 /* Launch.storyboard */,
 				28E6CA7019D7AE81008142B1 /* Settings.storyboard */,
+				28E6CA7219D7D5FD008142B1 /* Find.storyboard */,
+				28E6CA7819D7DDE9008142B1 /* Square.storyboard */,
+				28E6CA7A19D7DE06008142B1 /* Selling.storyboard */,
 				281111991979183D000A72D7 /* Images.xcassets */,
 				281111901979183C000A72D7 /* YouBaoOC.xcdatamodeld */,
 				281111891979183C000A72D7 /* Supporting Files */,
@@ -720,6 +733,15 @@
 				28F4F52719D132D400953028 /* LaunchViewController.m */,
 			);
 			path = Guide;
+			sourceTree = "<group>";
+		};
+		28E6CA7419D7D946008142B1 /* Find */ = {
+			isa = PBXGroup;
+			children = (
+				28E6CA7519D7D95D008142B1 /* FindViewController.h */,
+				28E6CA7619D7D95D008142B1 /* FindViewController.m */,
+			);
+			path = Find;
 			sourceTree = "<group>";
 		};
 		28F7F43A1994788A0069D797 /* Model */ = {
@@ -1009,10 +1031,13 @@
 				282A441D19AF06AF0047A224 /* PetCoreDataPreloader.sqlite in Resources */,
 				8BD661DB19AF3CBD00C85428 /* EncySearchVC.xib in Resources */,
 				8B2E91B719B0BF1F0086D8EB /* EncyTouXiangTableViewCell.xib in Resources */,
+				28E6CA7B19D7DE06008142B1 /* Selling.storyboard in Resources */,
 				8B73491319AC134200D6E31F /* EncyHomePageTableViewCell.xib in Resources */,
 				2811119A1979183D000A72D7 /* Images.xcassets in Resources */,
+				28E6CA7319D7D5FD008142B1 /* Find.storyboard in Resources */,
 				8B6AA11819936AD700BF017C /* EncySubCategoryVC.xib in Resources */,
 				8B94A67D19A6CE9F0027A2B8 /* EncyCategorySecondStyle.xib in Resources */,
+				28E6CA7919D7DDE9008142B1 /* Square.storyboard in Resources */,
 				28D63214199B74710029A283 /* Introduction.storyboard in Resources */,
 				2827C79A1998D13D00C25F83 /* MJRefresh.bundle in Resources */,
 				8BA39D2519ADD61500C9FCDD /* EncyDetailPetWeb.xib in Resources */,
@@ -1148,6 +1173,7 @@
 				8BC24F0F19A1C7C0003C959F /* ZXYDownImageHelper.m in Sources */,
 				2886641719B5638A00AC2F13 /* SettingCell.m in Sources */,
 				8B94A67C19A6CE9F0027A2B8 /* EncyCategorySecondStyle.m in Sources */,
+				28E6CA7719D7D95D008142B1 /* FindViewController.m in Sources */,
 				2827C79D1998D13D00C25F83 /* MJRefreshFooterView.m in Sources */,
 				280FB68F1980D66C00C434A8 /* LCYCommon.m in Sources */,
 				288A92DE19AB2A0400DB3187 /* PetRecommendListInfo.m in Sources */,

@@ -7,6 +7,15 @@
 //
 
 #import "MainViewController.h"
+
+typedef NS_ENUM(NSUInteger, TabBarIndex) {
+    TabBarIndexWo = 0,
+    TabBarIndexBaike = 1,
+    TabBarIndexFaxian = 2,
+    TabBarIndexGuangchang = 3,
+    TabBarIndexTemai = 4,
+};
+
 @interface MainViewController ()
 
 @end
@@ -18,7 +27,26 @@
     // Do any additional setup after loading the view.
     [self.tabBar setTintColor:THEME_COLOR];
     
-    [self setSelectedIndex:1];
+    // 发现
+    UINavigationController *findVC = [[UIStoryboard storyboardWithName:@"Find" bundle:nil] instantiateInitialViewController];
+    findVC.tabBarItem.image = [UIImage imageNamed:@"tabbarFaxian"];
+    [self addChildViewController:findVC];
+    
+    // 广场
+    UINavigationController *SquareVC = [[UIStoryboard storyboardWithName:@"Square" bundle:nil] instantiateInitialViewController];
+    SquareVC.tabBarItem.image = [UIImage imageNamed:@"tabbarGuangchang"];
+    [self addChildViewController:SquareVC];
+    
+    // 特卖
+    UINavigationController *SellingVC = [[UIStoryboard storyboardWithName:@"Selling" bundle:nil] instantiateInitialViewController];
+    SellingVC.tabBarItem.image = [UIImage imageNamed:@"tabbarTemai"];
+    [self addChildViewController:SellingVC];
+    
+    NSArray *orderArray = @[self.viewControllers[TabBarIndexFaxian], self.viewControllers[TabBarIndexGuangchang], self.viewControllers[TabBarIndexBaike], self.viewControllers[TabBarIndexTemai], self.viewControllers[TabBarIndexWo]];
+    
+    self.viewControllers = orderArray;
+    
+    [self setSelectedIndex:0];
 }
 
 - (void)didReceiveMemoryWarning {
