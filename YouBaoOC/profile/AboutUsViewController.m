@@ -1,0 +1,42 @@
+//
+//  AboutUsViewController.m
+//  YouBaoOC
+//
+//  Created by eagle on 14/9/28.
+//  Copyright (c) 2014年 Duostec. All rights reserved.
+//
+
+#import "AboutUsViewController.h"
+
+@interface AboutUsViewController ()
+
+@property (weak, nonatomic) IBOutlet UILabel *versionLabel;
+@end
+
+@implementation AboutUsViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view.
+    NSString *versionString = [[NSBundle mainBundle] infoDictionary][@"CFBundleShortVersionString"];
+    
+    self.versionLabel.text = [NSString stringWithFormat:@"版本号:%@",versionString];
+    [self.versionLabel sizeToFit];
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
+
+@end

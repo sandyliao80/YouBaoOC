@@ -94,6 +94,9 @@
 		28DD9A3119B4541600EC0C9E /* GetPetDetailPetInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 28DD9A2A19B4541600EC0C9E /* GetPetDetailPetInfo.m */; };
 		28DD9A3219B4541600EC0C9E /* GetPetDetailBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 28DD9A2C19B4541600EC0C9E /* GetPetDetailBase.m */; };
 		28DD9A3319B4541600EC0C9E /* GetPetDetailPetImages.m in Sources */ = {isa = PBXBuildFile; fileRef = 28DD9A2E19B4541600EC0C9E /* GetPetDetailPetImages.m */; };
+		28E6CA6A19D7A48A008142B1 /* AboutUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E6CA6919D7A48A008142B1 /* AboutUsViewController.m */; };
+		28E6CA6D19D7ABBF008142B1 /* FeedBackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E6CA6C19D7ABBF008142B1 /* FeedBackViewController.m */; };
+		28E6CA6E19D7AE81008142B1 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28E6CA7019D7AE81008142B1 /* Settings.storyboard */; };
 		28F4F52519D1326700953028 /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28F4F52419D1326700953028 /* Launch.storyboard */; };
 		28F4F52819D132D400953028 /* LaunchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F4F52719D132D400953028 /* LaunchViewController.m */; };
 		28F7F4541994A3860069D797 /* LCYFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F7F4531994A3860069D797 /* LCYFileManager.m */; };
@@ -325,6 +328,12 @@
 		28DD9A2E19B4541600EC0C9E /* GetPetDetailPetImages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetPetDetailPetImages.m; sourceTree = "<group>"; };
 		28DD9A2F19B4541600EC0C9E /* GetPetDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetPetDetail.h; sourceTree = "<group>"; };
 		28DD9A3019B4541600EC0C9E /* GetPetDetailPetInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetPetDetailPetInfo.h; sourceTree = "<group>"; };
+		28E6CA6819D7A48A008142B1 /* AboutUsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutUsViewController.h; sourceTree = "<group>"; };
+		28E6CA6919D7A48A008142B1 /* AboutUsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutUsViewController.m; sourceTree = "<group>"; };
+		28E6CA6B19D7ABBF008142B1 /* FeedBackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedBackViewController.h; sourceTree = "<group>"; };
+		28E6CA6C19D7ABBF008142B1 /* FeedBackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedBackViewController.m; sourceTree = "<group>"; };
+		28E6CA6F19D7AE81008142B1 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = "zh-Hans"; path = "zh-Hans.lproj/Settings.storyboard"; sourceTree = "<group>"; };
+		28E6CA7119D7AE91008142B1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Settings.storyboard; sourceTree = "<group>"; };
 		28F4F52419D1326700953028 /* Launch.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Launch.storyboard; sourceTree = "<group>"; };
 		28F4F52619D132D400953028 /* LaunchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LaunchViewController.h; sourceTree = "<group>"; };
 		28F4F52719D132D400953028 /* LaunchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LaunchViewController.m; sourceTree = "<group>"; };
@@ -477,6 +486,7 @@
 				28A4FDC019A7438E00C3CD85 /* ModifyLocation.storyboard */,
 				28DD9A2519B41FE800EC0C9E /* ModifyGender.storyboard */,
 				28F4F52419D1326700953028 /* Launch.storyboard */,
+				28E6CA7019D7AE81008142B1 /* Settings.storyboard */,
 				281111991979183D000A72D7 /* Images.xcassets */,
 				281111901979183C000A72D7 /* YouBaoOC.xcdatamodeld */,
 				281111891979183C000A72D7 /* Supporting Files */,
@@ -619,6 +629,10 @@
 				280E7442199332A60036DD0B /* ProfileSettingViewController.m */,
 				2886641519B5638A00AC2F13 /* SettingCell.h */,
 				2886641619B5638A00AC2F13 /* SettingCell.m */,
+				28E6CA6819D7A48A008142B1 /* AboutUsViewController.h */,
+				28E6CA6919D7A48A008142B1 /* AboutUsViewController.m */,
+				28E6CA6B19D7ABBF008142B1 /* FeedBackViewController.h */,
+				28E6CA6C19D7ABBF008142B1 /* FeedBackViewController.m */,
 			);
 			path = profile;
 			sourceTree = "<group>";
@@ -984,6 +998,7 @@
 				281111981979183D000A72D7 /* Main.storyboard in Resources */,
 				8B2E91B119B0BE7F0086D8EB /* EncyMoreInfoForTypeViewController.xib in Resources */,
 				28A4FDC119A7438E00C3CD85 /* ModifyLocation.storyboard in Resources */,
+				28E6CA6E19D7AE81008142B1 /* Settings.storyboard in Resources */,
 				28DD9A2619B41FE800EC0C9E /* ModifyGender.storyboard in Resources */,
 				8BAB3B0E1990ABEF00FD3BA0 /* Encyclope.storyboard in Resources */,
 				8B6AA10019933AF600BF017C /* EncyCategoryVC.xib in Resources */,
@@ -1054,6 +1069,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28E6CA6D19D7ABBF008142B1 /* FeedBackViewController.m in Sources */,
 				2869796A1986558D0098F6A3 /* MainViewController.m in Sources */,
 				28DD9A3119B4541600EC0C9E /* GetPetDetailPetInfo.m in Sources */,
 				8B6AA11019935F4200BF017C /* ZXYDownLoadImage.m in Sources */,
@@ -1092,6 +1108,7 @@
 				2879CDDA19A4A4FB006586DA /* ModifyTextCell.m in Sources */,
 				8B129DAC19A591D100554F3C /* UIViewController+HideTabBar.m in Sources */,
 				287DD73619A20E9B0080C268 /* MoePictureCell.m in Sources */,
+				28E6CA6A19D7A48A008142B1 /* AboutUsViewController.m in Sources */,
 				285D89B7198A2B3D005DFBEB /* FilterViewController.m in Sources */,
 				8B2E91BB19B0BF5E0086D8EB /* EncyTabThreeCell.m in Sources */,
 				280E7446199334D80036DD0B /* ZXYProvider.m in Sources */,
@@ -1184,6 +1201,15 @@
 				2879C58D199E12E4001FBAAB /* zh-Hans */,
 			);
 			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		28E6CA7019D7AE81008142B1 /* Settings.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				28E6CA6F19D7AE81008142B1 /* zh-Hans */,
+				28E6CA7119D7AE91008142B1 /* Base */,
+			);
+			name = Settings.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

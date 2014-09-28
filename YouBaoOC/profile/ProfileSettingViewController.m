@@ -11,6 +11,8 @@
 #import "LCYCommon.h"
 #import "SettingCell.h"
 #import "PasswordForgetViewController.h"
+#import "AboutUsViewController.h"
+#import "FeedBackViewController.h"
 
 NSInteger const ExitTag = 12;
 
@@ -116,8 +118,14 @@ NSInteger const ExitTag = 12;
     } else if (indexPath.section == 1) {
         if (indexPath.row == 0) {
             // 意见反馈
+            UIStoryboard *aboutUsSB = [UIStoryboard storyboardWithName:@"Settings" bundle:nil];
+            FeedBackViewController *feedBackVC = [aboutUsSB instantiateViewControllerWithIdentifier:FeedBackViewControllerIdentifier];
+            [self.navigationController pushViewController:feedBackVC animated:YES];
         } else if (indexPath.row == 1) {
             // 关于我们
+            UIStoryboard *aboutUsSB = [UIStoryboard storyboardWithName:@"Settings" bundle:nil];
+            AboutUsViewController *aboutVC = [aboutUsSB instantiateInitialViewController];
+            [self.navigationController pushViewController:aboutVC animated:YES];
         }
     }
 }
