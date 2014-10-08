@@ -103,6 +103,7 @@
 		28E6CA7719D7D95D008142B1 /* FindViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E6CA7619D7D95D008142B1 /* FindViewController.m */; };
 		28E6CA7919D7DDE9008142B1 /* Square.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28E6CA7819D7DDE9008142B1 /* Square.storyboard */; };
 		28E6CA7B19D7DE06008142B1 /* Selling.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28E6CA7A19D7DE06008142B1 /* Selling.storyboard */; };
+		28EFFEE219E50484006E6E55 /* SquareHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28EFFEE119E50484006E6E55 /* SquareHomeViewController.m */; };
 		28F4F52519D1326700953028 /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28F4F52419D1326700953028 /* Launch.storyboard */; };
 		28F4F52819D132D400953028 /* LaunchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F4F52719D132D400953028 /* LaunchViewController.m */; };
 		28F7F4541994A3860069D797 /* LCYFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F7F4531994A3860069D797 /* LCYFileManager.m */; };
@@ -348,6 +349,8 @@
 		28E6CA7619D7D95D008142B1 /* FindViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FindViewController.m; sourceTree = "<group>"; };
 		28E6CA7819D7DDE9008142B1 /* Square.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Square.storyboard; sourceTree = "<group>"; };
 		28E6CA7A19D7DE06008142B1 /* Selling.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Selling.storyboard; sourceTree = "<group>"; };
+		28EFFEE019E50484006E6E55 /* SquareHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SquareHomeViewController.h; sourceTree = "<group>"; };
+		28EFFEE119E50484006E6E55 /* SquareHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SquareHomeViewController.m; sourceTree = "<group>"; };
 		28F4F52419D1326700953028 /* Launch.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Launch.storyboard; sourceTree = "<group>"; };
 		28F4F52619D132D400953028 /* LaunchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LaunchViewController.h; sourceTree = "<group>"; };
 		28F4F52719D132D400953028 /* LaunchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LaunchViewController.m; sourceTree = "<group>"; };
@@ -484,6 +487,7 @@
 		281111881979183C000A72D7 /* YouBaoOC */ = {
 			isa = PBXGroup;
 			children = (
+				28EFFEDF19E50467006E6E55 /* Square */,
 				28E6CA7419D7D946008142B1 /* Find */,
 				28D63215199B76D50029A283 /* Guide */,
 				280BB2741998BAFD007A0042 /* libs */,
@@ -750,6 +754,15 @@
 				2882DB8019DAA51800BCAA85 /* TwitterHomeViewController.m */,
 			);
 			path = Find;
+			sourceTree = "<group>";
+		};
+		28EFFEDF19E50467006E6E55 /* Square */ = {
+			isa = PBXGroup;
+			children = (
+				28EFFEE019E50484006E6E55 /* SquareHomeViewController.h */,
+				28EFFEE119E50484006E6E55 /* SquareHomeViewController.m */,
+			);
+			path = Square;
 			sourceTree = "<group>";
 		};
 		28F7F43A1994788A0069D797 /* Model */ = {
@@ -1111,6 +1124,7 @@
 				2827C79F1998D13D00C25F83 /* UIScrollView+Extension.m in Sources */,
 				28A4FDB919A71EBB00C3CD85 /* ThirdFilterViewController.m in Sources */,
 				28D6E0371999FDE90080E5A5 /* RecommendCell.m in Sources */,
+				28EFFEE219E50484006E6E55 /* SquareHomeViewController.m in Sources */,
 				28895086198B2D8C00696A95 /* SecondFilterTableViewCell.m in Sources */,
 				28DD9A2919B4203F00EC0C9E /* ModifyGenderViewController.m in Sources */,
 				28A54A1D19A447C400AFDDED /* ProfileEditingSignCell.m in Sources */,

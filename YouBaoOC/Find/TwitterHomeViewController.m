@@ -18,13 +18,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    // 确定按钮
     UIButton *doneButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [doneButton setFrame:CGRectMake(0, 0, 40, 24)];
-    [doneButton setTitle:@"发送" forState:UIControlStateNormal];
-    doneButton.titleEdgeInsets = UIEdgeInsetsMake(0, 12, 0, 12);
+    [doneButton setTitle:@" 发送 " forState:UIControlStateNormal];
     [doneButton.titleLabel setFont:[UIFont systemFontOfSize:15.0f]];
-    [doneButton sizeToFit];
     doneButton.layer.cornerRadius = 4.0f;
     doneButton.layer.masksToBounds = YES;
     [doneButton setBackgroundColor:THEME_DARK_BLUE];
