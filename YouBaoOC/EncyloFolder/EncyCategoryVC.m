@@ -139,7 +139,7 @@
     PetStyle *currentPet = [allDataForShow objectAtIndex:indexPath.row];
     NSIndexPath *indexP = [NSIndexPath indexPathForRow:indexPath.row inSection:indexPath.
                                 section];
-    NSLog(@"index is %d",indexP.row);
+    NSLog(@"index is %ld",(long)indexP.row);
 
     if(cell == nil)
     {
