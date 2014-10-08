@@ -12,7 +12,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="A6u-vz-O0o">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" red="0.48235294220000002" green="0.7254902124" blue="0.84705883260000003" alpha="1" colorSpace="calibratedRGB"/>
                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cell" id="eg3-1x-9vc">
@@ -29,10 +29,52 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="发现" id="cDQ-3d-g2Y"/>
+                    <connections>
+                        <segue destination="U52-g9-nVu" kind="show" identifier="showTwitterHome" id="bL8-ZH-gDr"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dQ2-L4-IPV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-335" y="706"/>
+        </scene>
+        <!--宠物圈-->
+        <scene sceneID="z5g-ND-keu">
+            <objects>
+                <viewController title="宠物圈" hidesBottomBarWhenPushed="YES" id="U52-g9-nVu" customClass="TwitterHomeViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gkz-B0-rtB"/>
+                        <viewControllerLayoutGuide type="bottom" id="s7K-2I-cjp"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="gPg-QD-Vxs">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="gbg-rk-4hq">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TwitterHeaderCellIdentifier" rowHeight="210" id="Wa2-hN-BZw">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Wa2-hN-BZw" id="Avp-pn-q2N">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="s7K-2I-cjp" firstAttribute="top" secondItem="gbg-rk-4hq" secondAttribute="bottom" id="CTB-eT-r5N"/>
+                            <constraint firstItem="gbg-rk-4hq" firstAttribute="leading" secondItem="gPg-QD-Vxs" secondAttribute="leading" id="Ffk-Id-1MD"/>
+                            <constraint firstAttribute="trailing" secondItem="gbg-rk-4hq" secondAttribute="trailing" id="mgG-3c-UtE"/>
+                            <constraint firstItem="gbg-rk-4hq" firstAttribute="top" secondItem="gPg-QD-Vxs" secondAttribute="top" id="uw7-SX-yle"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XUU-BU-n2S" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="171" y="481"/>
         </scene>
         <!--发现-->
         <scene sceneID="g1n-iK-pMJ">

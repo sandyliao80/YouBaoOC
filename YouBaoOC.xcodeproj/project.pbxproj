@@ -65,6 +65,8 @@
 		287CD6C519CAB99700AE9AE5 /* UIScrollView+LCYRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 287CD6C419CAB99700AE9AE5 /* UIScrollView+LCYRefresh.m */; };
 		287DD73319A20E840080C268 /* MoeCameraCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 287DD73219A20E840080C268 /* MoeCameraCell.m */; };
 		287DD73619A20E9B0080C268 /* MoePictureCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 287DD73519A20E9B0080C268 /* MoePictureCell.m */; };
+		2882DB8119DAA51800BCAA85 /* TwitterHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2882DB8019DAA51800BCAA85 /* TwitterHomeViewController.m */; };
+		2882DB8319DAA75700BCAA85 /* Find.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2882DB8219DAA75700BCAA85 /* Find.xcassets */; };
 		2886641719B5638A00AC2F13 /* SettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2886641619B5638A00AC2F13 /* SettingCell.m */; };
 		28895083198B269D00696A95 /* SecondFilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28895082198B269D00696A95 /* SecondFilterViewController.m */; };
 		28895086198B2D8C00696A95 /* SecondFilterTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 28895085198B2D8C00696A95 /* SecondFilterTableViewCell.m */; };
@@ -274,6 +276,9 @@
 		287DD73219A20E840080C268 /* MoeCameraCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoeCameraCell.m; sourceTree = "<group>"; };
 		287DD73419A20E9B0080C268 /* MoePictureCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoePictureCell.h; sourceTree = "<group>"; };
 		287DD73519A20E9B0080C268 /* MoePictureCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoePictureCell.m; sourceTree = "<group>"; };
+		2882DB7F19DAA51800BCAA85 /* TwitterHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwitterHomeViewController.h; sourceTree = "<group>"; };
+		2882DB8019DAA51800BCAA85 /* TwitterHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitterHomeViewController.m; sourceTree = "<group>"; };
+		2882DB8219DAA75700BCAA85 /* Find.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Find.xcassets; sourceTree = "<group>"; };
 		2886641519B5638A00AC2F13 /* SettingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingCell.h; sourceTree = "<group>"; };
 		2886641619B5638A00AC2F13 /* SettingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingCell.m; sourceTree = "<group>"; };
 		28895081198B269D00696A95 /* SecondFilterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondFilterViewController.h; sourceTree = "<group>"; };
@@ -501,6 +506,7 @@
 				28E6CA7819D7DDE9008142B1 /* Square.storyboard */,
 				28E6CA7A19D7DE06008142B1 /* Selling.storyboard */,
 				281111991979183D000A72D7 /* Images.xcassets */,
+				2882DB8219DAA75700BCAA85 /* Find.xcassets */,
 				281111901979183C000A72D7 /* YouBaoOC.xcdatamodeld */,
 				281111891979183C000A72D7 /* Supporting Files */,
 				8B6AA103199351A300BF017C /* YouBaoOC-Bridging-Header.h */,
@@ -740,6 +746,8 @@
 			children = (
 				28E6CA7519D7D95D008142B1 /* FindViewController.h */,
 				28E6CA7619D7D95D008142B1 /* FindViewController.m */,
+				2882DB7F19DAA51800BCAA85 /* TwitterHomeViewController.h */,
+				2882DB8019DAA51800BCAA85 /* TwitterHomeViewController.m */,
 			);
 			path = Find;
 			sourceTree = "<group>";
@@ -1019,6 +1027,7 @@
 			files = (
 				281111981979183D000A72D7 /* Main.storyboard in Resources */,
 				8B2E91B119B0BE7F0086D8EB /* EncyMoreInfoForTypeViewController.xib in Resources */,
+				2882DB8319DAA75700BCAA85 /* Find.xcassets in Resources */,
 				28A4FDC119A7438E00C3CD85 /* ModifyLocation.storyboard in Resources */,
 				28E6CA6E19D7AE81008142B1 /* Settings.storyboard in Resources */,
 				28DD9A2619B41FE800EC0C9E /* ModifyGender.storyboard in Resources */,
@@ -1161,6 +1170,7 @@
 				285D89C1198A374A005DFBEB /* FilterTableViewCell.m in Sources */,
 				8B6AA11D19936C2100BF017C /* EncySubCategoryCell.m in Sources */,
 				287A63B419A32AC000CB6526 /* ModifyMoePetViewController.m in Sources */,
+				2882DB8119DAA51800BCAA85 /* TwitterHomeViewController.m in Sources */,
 				28763D1F19A4797C002A05D5 /* GetUserInfoPetInfo.m in Sources */,
 				2869796F1986571B0098F6A3 /* ProfileHomeViewController.m in Sources */,
 				2811118C1979183C000A72D7 /* main.m in Sources */,

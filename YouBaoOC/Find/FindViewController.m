@@ -55,22 +55,22 @@
         switch (indexPath.row) {
             case 0:
                 // 宠物圈
-                cell.imageView.image = [UIImage imageNamed:@"profileSign"];
+                cell.imageView.image = [UIImage imageNamed:@"find_twitter"];
                 cell.textLabel.text = @"宠物圈";
                 break;
             case 1:
                 // 附近
-                cell.imageView.image = [UIImage imageNamed:@"profileSign"];
+                cell.imageView.image = [UIImage imageNamed:@"find_nearby"];
                 cell.textLabel.text = @"附近";
                 break;
             case 2:
                 // 宠友
-                cell.imageView.image = [UIImage imageNamed:@"profileSign"];
+                cell.imageView.image = [UIImage imageNamed:@"find_friend"];
                 cell.textLabel.text = @"宠友";
                 break;
             case 3:
                 // 搜索
-                cell.imageView.image = [UIImage imageNamed:@"profileSign"];
+                cell.imageView.image = [UIImage imageNamed:@"find_search"];
                 cell.textLabel.text = @"搜索";
                 break;
                 
@@ -80,7 +80,7 @@
     } else if (indexPath.section == 1) {
         if (indexPath.row == 0) {
             // 宠友录
-            cell.imageView.image = [UIImage imageNamed:@"profileSign"];
+            cell.imageView.image = [UIImage imageNamed:@"find_catalog"];
             cell.textLabel.text = @"宠友录";
         }
     } else {
@@ -90,40 +90,35 @@
     return cell;
 }
 
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.section == 0) {
+        switch (indexPath.row) {
+            case 0:
+                // 宠物圈
+                [self performSegueWithIdentifier:@"showTwitterHome" sender:nil];
+                break;
+            case 1:
+                // 附近
+                break;
+            case 2:
+                // 宠友
+                break;
+            case 3:
+                // 搜索
+                break;
+                
+            default:
+                break;
+        }
+    } else if (indexPath.section == 1) {
+        if (indexPath.row == 0) {
+            // 宠友录
+        }
+    } else {
+        
+    }
 }
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
 /*
 #pragma mark - Navigation
