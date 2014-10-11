@@ -36,6 +36,8 @@
 		2827C7A01998D13D00C25F83 /* UIScrollView+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 2827C7971998D13D00C25F83 /* UIScrollView+MJRefresh.m */; };
 		2827C7A11998D13D00C25F83 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 2827C7991998D13D00C25F83 /* UIView+Extension.m */; };
 		282A441D19AF06AF0047A224 /* PetCoreDataPreloader.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 282A441C19AF06AF0047A224 /* PetCoreDataPreloader.sqlite */; };
+		283117F419E91D7C00F1E294 /* LCYGetSquareCategoryListInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 283117EF19E91D7C00F1E294 /* LCYGetSquareCategoryListInfo.m */; };
+		283117F519E91D7C00F1E294 /* LCYGetSquareCategoryBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 283117F019E91D7C00F1E294 /* LCYGetSquareCategoryBase.m */; };
 		2832DC631980EFCE004BBAB5 /* RegisterAndLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2832DC621980EFCE004BBAB5 /* RegisterAndLoginViewController.m */; };
 		2832DC661980F00C004BBAB5 /* WelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2832DC651980F00C004BBAB5 /* WelcomeViewController.m */; };
 		2832DC6C19812D87004BBAB5 /* LCYNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 2832DC6B198124F2004BBAB5 /* LCYNetworking.m */; };
@@ -58,6 +60,10 @@
 		28763D1F19A4797C002A05D5 /* GetUserInfoPetInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 28763D1819A4797C002A05D5 /* GetUserInfoPetInfo.m */; };
 		28763D2019A4797C002A05D5 /* GetUserInfoBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 28763D1919A4797C002A05D5 /* GetUserInfoBase.m */; };
 		28763D2119A4797C002A05D5 /* GetUserInfoUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 28763D1E19A4797C002A05D5 /* GetUserInfoUserInfo.m */; };
+		2876DB9019E923C9002A191A /* SquareHomeAdCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2876DB8F19E923C9002A191A /* SquareHomeAdCell.m */; };
+		2876DB9319E923DD002A191A /* SquareHomeStaticCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2876DB9219E923DD002A191A /* SquareHomeStaticCell.m */; };
+		2876DB9619E923EE002A191A /* SquareHomeDynamicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2876DB9519E923EE002A191A /* SquareHomeDynamicCell.m */; };
+		2876DB9819E92EA0002A191A /* Square.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2876DB9719E92EA0002A191A /* Square.xcassets */; };
 		2879CDD719A487D1006586DA /* ModifyTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2879CDD619A487D1006586DA /* ModifyTextViewController.m */; };
 		2879CDDA19A4A4FB006586DA /* ModifyTextCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2879CDD919A4A4FB006586DA /* ModifyTextCell.m */; };
 		287A63B419A32AC000CB6526 /* ModifyMoePetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 287A63B319A32AC000CB6526 /* ModifyMoePetViewController.m */; };
@@ -216,6 +222,11 @@
 		2827C7981998D13D00C25F83 /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
 		2827C7991998D13D00C25F83 /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
 		282A441C19AF06AF0047A224 /* PetCoreDataPreloader.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = PetCoreDataPreloader.sqlite; sourceTree = "<group>"; };
+		283117EF19E91D7C00F1E294 /* LCYGetSquareCategoryListInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCYGetSquareCategoryListInfo.m; sourceTree = "<group>"; };
+		283117F019E91D7C00F1E294 /* LCYGetSquareCategoryBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCYGetSquareCategoryBase.m; sourceTree = "<group>"; };
+		283117F119E91D7C00F1E294 /* LCYGetSquareCategoryListInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCYGetSquareCategoryListInfo.h; sourceTree = "<group>"; };
+		283117F219E91D7C00F1E294 /* LCYGetSquareCategoryBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCYGetSquareCategoryBase.h; sourceTree = "<group>"; };
+		283117F319E91D7C00F1E294 /* LCYGetSquareCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCYGetSquareCategory.h; sourceTree = "<group>"; };
 		2832DC611980EFCE004BBAB5 /* RegisterAndLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterAndLoginViewController.h; sourceTree = "<group>"; };
 		2832DC621980EFCE004BBAB5 /* RegisterAndLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterAndLoginViewController.m; sourceTree = "<group>"; };
 		2832DC641980F00C004BBAB5 /* WelcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelcomeViewController.h; sourceTree = "<group>"; };
@@ -262,6 +273,13 @@
 		28763D1C19A4797C002A05D5 /* GetUserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetUserInfo.h; sourceTree = "<group>"; };
 		28763D1D19A4797C002A05D5 /* GetUserInfoUserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetUserInfoUserInfo.h; sourceTree = "<group>"; };
 		28763D1E19A4797C002A05D5 /* GetUserInfoUserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetUserInfoUserInfo.m; sourceTree = "<group>"; };
+		2876DB8E19E923C9002A191A /* SquareHomeAdCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SquareHomeAdCell.h; sourceTree = "<group>"; };
+		2876DB8F19E923C9002A191A /* SquareHomeAdCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SquareHomeAdCell.m; sourceTree = "<group>"; };
+		2876DB9119E923DD002A191A /* SquareHomeStaticCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SquareHomeStaticCell.h; sourceTree = "<group>"; };
+		2876DB9219E923DD002A191A /* SquareHomeStaticCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SquareHomeStaticCell.m; sourceTree = "<group>"; };
+		2876DB9419E923EE002A191A /* SquareHomeDynamicCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SquareHomeDynamicCell.h; sourceTree = "<group>"; };
+		2876DB9519E923EE002A191A /* SquareHomeDynamicCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SquareHomeDynamicCell.m; sourceTree = "<group>"; };
+		2876DB9719E92EA0002A191A /* Square.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Square.xcassets; sourceTree = "<group>"; };
 		2879C58D199E12E4001FBAAB /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		2879CDD519A487D1006586DA /* ModifyTextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModifyTextViewController.h; sourceTree = "<group>"; };
 		2879CDD619A487D1006586DA /* ModifyTextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModifyTextViewController.m; sourceTree = "<group>"; };
@@ -511,6 +529,7 @@
 				28E6CA7A19D7DE06008142B1 /* Selling.storyboard */,
 				281111991979183D000A72D7 /* Images.xcassets */,
 				2882DB8219DAA75700BCAA85 /* Find.xcassets */,
+				2876DB9719E92EA0002A191A /* Square.xcassets */,
 				281111901979183C000A72D7 /* YouBaoOC.xcdatamodeld */,
 				281111891979183C000A72D7 /* Supporting Files */,
 				8B6AA103199351A300BF017C /* YouBaoOC-Bridging-Header.h */,
@@ -761,6 +780,17 @@
 			children = (
 				28EFFEE019E50484006E6E55 /* SquareHomeViewController.h */,
 				28EFFEE119E50484006E6E55 /* SquareHomeViewController.m */,
+				283117F319E91D7C00F1E294 /* LCYGetSquareCategory.h */,
+				283117F119E91D7C00F1E294 /* LCYGetSquareCategoryListInfo.h */,
+				283117EF19E91D7C00F1E294 /* LCYGetSquareCategoryListInfo.m */,
+				283117F219E91D7C00F1E294 /* LCYGetSquareCategoryBase.h */,
+				283117F019E91D7C00F1E294 /* LCYGetSquareCategoryBase.m */,
+				2876DB8E19E923C9002A191A /* SquareHomeAdCell.h */,
+				2876DB8F19E923C9002A191A /* SquareHomeAdCell.m */,
+				2876DB9119E923DD002A191A /* SquareHomeStaticCell.h */,
+				2876DB9219E923DD002A191A /* SquareHomeStaticCell.m */,
+				2876DB9419E923EE002A191A /* SquareHomeDynamicCell.h */,
+				2876DB9519E923EE002A191A /* SquareHomeDynamicCell.m */,
 			);
 			path = Square;
 			sourceTree = "<group>";
@@ -1052,6 +1082,7 @@
 				8B78476D19AC26A500592C7C /* EncyMoreEncyListSB.storyboard in Resources */,
 				282A441D19AF06AF0047A224 /* PetCoreDataPreloader.sqlite in Resources */,
 				8BD661DB19AF3CBD00C85428 /* EncySearchVC.xib in Resources */,
+				2876DB9819E92EA0002A191A /* Square.xcassets in Resources */,
 				8B2E91B719B0BF1F0086D8EB /* EncyTouXiangTableViewCell.xib in Resources */,
 				28E6CA7B19D7DE06008142B1 /* Selling.storyboard in Resources */,
 				8B73491319AC134200D6E31F /* EncyHomePageTableViewCell.xib in Resources */,
@@ -1144,6 +1175,7 @@
 				285D89B4198A295A005DFBEB /* HomePageViewController.m in Sources */,
 				28922343198249400073BADB /* UIImage+LCYResize.m in Sources */,
 				285D89BE198A2D31005DFBEB /* searchAllTypePetsBase.m in Sources */,
+				283117F419E91D7C00F1E294 /* LCYGetSquareCategoryListInfo.m in Sources */,
 				2832DC6C19812D87004BBAB5 /* LCYNetworking.m in Sources */,
 				280E7451199335100036DD0B /* ZXYDownCIDOperation.m in Sources */,
 				8B2E91B619B0BF1F0086D8EB /* EncyTouXiangTableViewCell.m in Sources */,
@@ -1151,8 +1183,10 @@
 				281111921979183C000A72D7 /* YouBaoOC.xcdatamodeld in Sources */,
 				287AFD56199863560035FF05 /* CellImageDownloadOperation.m in Sources */,
 				285D89BD198A2D31005DFBEB /* searchAllTypePetsFatherStyle.m in Sources */,
+				2876DB9019E923C9002A191A /* SquareHomeAdCell.m in Sources */,
 				2827C79E1998D13D00C25F83 /* MJRefreshHeaderView.m in Sources */,
 				28A54A1A19A447B300AFDDED /* ProfileEditingNameCell.m in Sources */,
+				2876DB9319E923DD002A191A /* SquareHomeStaticCell.m in Sources */,
 				2879CDDA19A4A4FB006586DA /* ModifyTextCell.m in Sources */,
 				8B129DAC19A591D100554F3C /* UIViewController+HideTabBar.m in Sources */,
 				287DD73619A20E9B0080C268 /* MoePictureCell.m in Sources */,
@@ -1216,8 +1250,10 @@
 				8B2E91B019B0BE7F0086D8EB /* EncyMoreInfoForTypeViewController.m in Sources */,
 				2868EC9F198F99F500D8726E /* AddPetViewController.m in Sources */,
 				8BA39D2019ADBCC300C9FCDD /* PeyStyleForEncy.m in Sources */,
+				2876DB9619E923EE002A191A /* SquareHomeDynamicCell.m in Sources */,
 				2889508D198B315500696A95 /* SearchDetailByIDBase.m in Sources */,
 				2868EC96198F79D300D8726E /* ProfileHomeContentCell.m in Sources */,
+				283117F519E91D7C00F1E294 /* LCYGetSquareCategoryBase.m in Sources */,
 				2832DC661980F00C004BBAB5 /* WelcomeViewController.m in Sources */,
 				2879CDD719A487D1006586DA /* ModifyTextViewController.m in Sources */,
 				8B6AA11719936AD700BF017C /* EncySubCategoryVC.m in Sources */,

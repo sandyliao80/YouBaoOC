@@ -30,7 +30,9 @@ FOUNDATION_EXPORT NSString *const Pet_updatePetInfo;    /**< 更新宠物信息 
 FOUNDATION_EXPORT NSString *const User_reset_password_authcode; /**< 重置密码时的验证码 */
 FOUNDATION_EXPORT NSString *const User_modifyLocation;  /**< 修改个人城市 */
 FOUNDATION_EXPORT NSString *const User_modifySingleProperty;    /**< 修改某项个人信息 */
-FOUNDATION_EXPORT NSString *const Common_Upload_index;  /** 上传文件-宠物头像 */
+FOUNDATION_EXPORT NSString *const Common_Upload_index;  /**< 上传文件-宠物头像 */
+
+FOUNDATION_EXPORT NSString *const Square_getSquareCategory;     /**< 广场-获得分类信息 */
 
 @interface LCYNetworking : NSObject
 
