@@ -8,7 +8,7 @@
 
 #import "SquareHomeViewController.h"
 
-@interface SquareHomeViewController ()
+@interface SquareHomeViewController ()<UITableViewDelegate, UITableViewDataSource>
 
 @end
 
@@ -33,5 +33,7 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+
 
 @end
