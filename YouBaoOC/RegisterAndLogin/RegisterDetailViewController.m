@@ -265,7 +265,7 @@ typedef NS_ENUM(NSUInteger, RegisterDetailGender) {
             NSEntityDescription *entity = [NSEntityDescription entityForName:@"Region" inManagedObjectContext:self.context];
             [fetchRequest setEntity:entity];
             // Specify criteria for filtering which objects to fetch
-            NSPredicate *predicate = [NSPredicate predicateWithFormat:@"parent_id = %@", @"500"];
+            NSPredicate *predicate = [NSPredicate predicateWithFormat:@"parent_id = %@", @"52"];
             [fetchRequest setPredicate:predicate];
             // Specify how the fetched objects should be sorted
             NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"region_id"

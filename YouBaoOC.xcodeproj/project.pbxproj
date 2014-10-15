@@ -35,12 +35,12 @@
 		2827C79F1998D13D00C25F83 /* UIScrollView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 2827C7951998D13D00C25F83 /* UIScrollView+Extension.m */; };
 		2827C7A01998D13D00C25F83 /* UIScrollView+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 2827C7971998D13D00C25F83 /* UIScrollView+MJRefresh.m */; };
 		2827C7A11998D13D00C25F83 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 2827C7991998D13D00C25F83 /* UIView+Extension.m */; };
-		282A441D19AF06AF0047A224 /* PetCoreDataPreloader.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 282A441C19AF06AF0047A224 /* PetCoreDataPreloader.sqlite */; };
 		283117F419E91D7C00F1E294 /* LCYGetSquareCategoryListInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 283117EF19E91D7C00F1E294 /* LCYGetSquareCategoryListInfo.m */; };
 		283117F519E91D7C00F1E294 /* LCYGetSquareCategoryBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 283117F019E91D7C00F1E294 /* LCYGetSquareCategoryBase.m */; };
 		2832DC631980EFCE004BBAB5 /* RegisterAndLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2832DC621980EFCE004BBAB5 /* RegisterAndLoginViewController.m */; };
 		2832DC661980F00C004BBAB5 /* WelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2832DC651980F00C004BBAB5 /* WelcomeViewController.m */; };
 		2832DC6C19812D87004BBAB5 /* LCYNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 2832DC6B198124F2004BBAB5 /* LCYNetworking.m */; };
+		284779AD19EE3FEF00E10792 /* PetCoreDataPreloader.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 284779AC19EE3FEF00E10792 /* PetCoreDataPreloader.sqlite */; };
 		285D89B11989E1BB005DFBEB /* LCYGlobal.m in Sources */ = {isa = PBXBuildFile; fileRef = 285D89B01989E1BB005DFBEB /* LCYGlobal.m */; };
 		285D89B4198A295A005DFBEB /* HomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 285D89B3198A295A005DFBEB /* HomePageViewController.m */; };
 		285D89B7198A2B3D005DFBEB /* FilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 285D89B6198A2B3D005DFBEB /* FilterViewController.m */; };
@@ -221,7 +221,6 @@
 		2827C7971998D13D00C25F83 /* UIScrollView+MJRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+MJRefresh.m"; sourceTree = "<group>"; };
 		2827C7981998D13D00C25F83 /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
 		2827C7991998D13D00C25F83 /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
-		282A441C19AF06AF0047A224 /* PetCoreDataPreloader.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = PetCoreDataPreloader.sqlite; sourceTree = "<group>"; };
 		283117EF19E91D7C00F1E294 /* LCYGetSquareCategoryListInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCYGetSquareCategoryListInfo.m; sourceTree = "<group>"; };
 		283117F019E91D7C00F1E294 /* LCYGetSquareCategoryBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCYGetSquareCategoryBase.m; sourceTree = "<group>"; };
 		283117F119E91D7C00F1E294 /* LCYGetSquareCategoryListInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCYGetSquareCategoryListInfo.h; sourceTree = "<group>"; };
@@ -233,6 +232,7 @@
 		2832DC651980F00C004BBAB5 /* WelcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelcomeViewController.m; sourceTree = "<group>"; };
 		2832DC6A198124F2004BBAB5 /* LCYNetworking.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCYNetworking.h; sourceTree = "<group>"; };
 		2832DC6B198124F2004BBAB5 /* LCYNetworking.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCYNetworking.m; sourceTree = "<group>"; };
+		284779AC19EE3FEF00E10792 /* PetCoreDataPreloader.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = PetCoreDataPreloader.sqlite; sourceTree = "<group>"; };
 		285D89AF1989E1BB005DFBEB /* LCYGlobal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCYGlobal.h; sourceTree = "<group>"; };
 		285D89B01989E1BB005DFBEB /* LCYGlobal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCYGlobal.m; sourceTree = "<group>"; };
 		285D89B2198A2959005DFBEB /* HomePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomePageViewController.h; sourceTree = "<group>"; };
@@ -540,8 +540,8 @@
 		281111891979183C000A72D7 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				284779AC19EE3FEF00E10792 /* PetCoreDataPreloader.sqlite */,
 				2811118A1979183C000A72D7 /* Info.plist */,
-				282A441C19AF06AF0047A224 /* PetCoreDataPreloader.sqlite */,
 				2811118B1979183C000A72D7 /* main.m */,
 				280FB6911980DA7400C434A8 /* YouBaoOC-Prefix.pch */,
 			);
@@ -1080,7 +1080,6 @@
 				280FB6931980E34E00C434A8 /* RegisterAndLogin.storyboard in Resources */,
 				8B6AA11E19936C2100BF017C /* EncySubCategoryCell.xib in Resources */,
 				8B78476D19AC26A500592C7C /* EncyMoreEncyListSB.storyboard in Resources */,
-				282A441D19AF06AF0047A224 /* PetCoreDataPreloader.sqlite in Resources */,
 				8BD661DB19AF3CBD00C85428 /* EncySearchVC.xib in Resources */,
 				2876DB9819E92EA0002A191A /* Square.xcassets in Resources */,
 				8B2E91B719B0BF1F0086D8EB /* EncyTouXiangTableViewCell.xib in Resources */,
@@ -1097,6 +1096,7 @@
 				8B6AA10219933C1400BF017C /* EncyCategoryCell.xib in Resources */,
 				28F4F52519D1326700953028 /* Launch.storyboard in Resources */,
 				8B2E91BC19B0BF5E0086D8EB /* EncyTabThreeCell.xib in Resources */,
+				284779AD19EE3FEF00E10792 /* PetCoreDataPreloader.sqlite in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
