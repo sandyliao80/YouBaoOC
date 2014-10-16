@@ -13,6 +13,7 @@
 #import "SquareHomeAdCell.h"
 #import "SquareHomeStaticCell.h"
 #import "SquareHomeDynamicCell.h"
+#import "SquareListViewController.h"
 
 @interface SquareHomeViewController ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -50,16 +51,9 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
+#pragma mark - TableView
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     switch (indexPath.section) {
         case 0:
@@ -150,6 +144,26 @@
         return 30.f;
     } else {
         return 0;
+    }
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.section == 2) {
+        NSNumber *row = [NSNumber numberWithInteger:indexPath.row];
+        [self performSegueWithIdentifier:@"showSquareList" sender:row];
+    }
+}
+
+#pragma mark - Navigation
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+    if ([segue.identifier isEqualToString:@"showSquareList"]) {
+        SquareListViewController *squareListVC = [segue destinationViewController];
+        LCYGetSquareCategoryListInfo *info = self.dynamicCategory[[sender integerValue]];
+        squareListVC.categoryID = info.cateId;
+        squareListVC.categoryName = info.cateName;
     }
 }
 

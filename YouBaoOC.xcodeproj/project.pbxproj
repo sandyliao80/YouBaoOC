@@ -27,6 +27,10 @@
 		281111981979183D000A72D7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 281111961979183D000A72D7 /* Main.storyboard */; };
 		2811119A1979183D000A72D7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 281111991979183D000A72D7 /* Images.xcassets */; };
 		281111A61979183D000A72D7 /* YouBaoOCTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 281111A51979183D000A72D7 /* YouBaoOCTests.m */; };
+		281134DB19EF94B3005F2A60 /* SquareListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 281134DA19EF94B3005F2A60 /* SquareListViewController.m */; };
+		281134DE19EFA7EB005F2A60 /* SquareListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 281134DD19EFA7EB005F2A60 /* SquareListCell.m */; };
+		281134E419EFAA80005F2A60 /* LCYGetSquareListMsg.m in Sources */ = {isa = PBXBuildFile; fileRef = 281134E119EFAA80005F2A60 /* LCYGetSquareListMsg.m */; };
+		281134E519EFAA80005F2A60 /* LCYGetSquareListBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 281134E219EFAA80005F2A60 /* LCYGetSquareListBase.m */; };
 		2827C79A1998D13D00C25F83 /* MJRefresh.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2827C78A1998D13D00C25F83 /* MJRefresh.bundle */; };
 		2827C79B1998D13D00C25F83 /* MJRefreshBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2827C78D1998D13D00C25F83 /* MJRefreshBaseView.m */; };
 		2827C79C1998D13D00C25F83 /* MJRefreshConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 2827C78F1998D13D00C25F83 /* MJRefreshConst.m */; };
@@ -205,6 +209,15 @@
 		2811119F1979183D000A72D7 /* YouBaoOCTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YouBaoOCTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		281111A41979183D000A72D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		281111A51979183D000A72D7 /* YouBaoOCTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YouBaoOCTests.m; sourceTree = "<group>"; };
+		281134D919EF94B3005F2A60 /* SquareListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SquareListViewController.h; sourceTree = "<group>"; };
+		281134DA19EF94B3005F2A60 /* SquareListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SquareListViewController.m; sourceTree = "<group>"; };
+		281134DC19EFA7EB005F2A60 /* SquareListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SquareListCell.h; sourceTree = "<group>"; };
+		281134DD19EFA7EB005F2A60 /* SquareListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SquareListCell.m; sourceTree = "<group>"; };
+		281134DF19EFAA80005F2A60 /* LCYGetSquareListMsg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCYGetSquareListMsg.h; sourceTree = "<group>"; };
+		281134E019EFAA80005F2A60 /* GetSquareList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetSquareList.h; sourceTree = "<group>"; };
+		281134E119EFAA80005F2A60 /* LCYGetSquareListMsg.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCYGetSquareListMsg.m; sourceTree = "<group>"; };
+		281134E219EFAA80005F2A60 /* LCYGetSquareListBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCYGetSquareListBase.m; sourceTree = "<group>"; };
+		281134E319EFAA80005F2A60 /* LCYGetSquareListBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCYGetSquareListBase.h; sourceTree = "<group>"; };
 		2827C78A1998D13D00C25F83 /* MJRefresh.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MJRefresh.bundle; sourceTree = "<group>"; };
 		2827C78B1998D13D00C25F83 /* MJRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefresh.h; sourceTree = "<group>"; };
 		2827C78C1998D13D00C25F83 /* MJRefreshBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshBaseView.h; sourceTree = "<group>"; };
@@ -565,6 +578,22 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		281134D819EF949C005F2A60 /* SquareList */ = {
+			isa = PBXGroup;
+			children = (
+				281134D919EF94B3005F2A60 /* SquareListViewController.h */,
+				281134DA19EF94B3005F2A60 /* SquareListViewController.m */,
+				281134DC19EFA7EB005F2A60 /* SquareListCell.h */,
+				281134DD19EFA7EB005F2A60 /* SquareListCell.m */,
+				281134E019EFAA80005F2A60 /* GetSquareList.h */,
+				281134DF19EFAA80005F2A60 /* LCYGetSquareListMsg.h */,
+				281134E119EFAA80005F2A60 /* LCYGetSquareListMsg.m */,
+				281134E319EFAA80005F2A60 /* LCYGetSquareListBase.h */,
+				281134E219EFAA80005F2A60 /* LCYGetSquareListBase.m */,
+			);
+			path = SquareList;
+			sourceTree = "<group>";
+		};
 		2827C7891998D13D00C25F83 /* MJRefresh */ = {
 			isa = PBXGroup;
 			children = (
@@ -778,6 +807,7 @@
 		28EFFEDF19E50467006E6E55 /* Square */ = {
 			isa = PBXGroup;
 			children = (
+				281134D819EF949C005F2A60 /* SquareList */,
 				28EFFEE019E50484006E6E55 /* SquareHomeViewController.h */,
 				28EFFEE119E50484006E6E55 /* SquareHomeViewController.m */,
 				283117F319E91D7C00F1E294 /* LCYGetSquareCategory.h */,
@@ -1148,6 +1178,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				28E6CA6D19D7ABBF008142B1 /* FeedBackViewController.m in Sources */,
+				281134DB19EF94B3005F2A60 /* SquareListViewController.m in Sources */,
 				2869796A1986558D0098F6A3 /* MainViewController.m in Sources */,
 				28DD9A3119B4541600EC0C9E /* GetPetDetailPetInfo.m in Sources */,
 				8B6AA11019935F4200BF017C /* ZXYDownLoadImage.m in Sources */,
@@ -1204,6 +1235,7 @@
 				28763D2019A4797C002A05D5 /* GetUserInfoBase.m in Sources */,
 				286979661985F5AA0098F6A3 /* WelcomeCell.m in Sources */,
 				2811118F1979183C000A72D7 /* AppDelegate.m in Sources */,
+				281134E419EFAA80005F2A60 /* LCYGetSquareListMsg.m in Sources */,
 				28763D2119A4797C002A05D5 /* GetUserInfoUserInfo.m in Sources */,
 				2889508C198B315500696A95 /* SearchDetailByIDChildStyle.m in Sources */,
 				2827C7A01998D13D00C25F83 /* UIScrollView+MJRefresh.m in Sources */,
@@ -1228,6 +1260,7 @@
 				2827C79C1998D13D00C25F83 /* MJRefreshConst.m in Sources */,
 				280E7466199335320036DD0B /* EncyHomePageTableViewCell.m in Sources */,
 				8B6AA106199351A300BF017C /* PetStyle.m in Sources */,
+				281134E519EFAA80005F2A60 /* LCYGetSquareListBase.m in Sources */,
 				8BC24F0F19A1C7C0003C959F /* ZXYDownImageHelper.m in Sources */,
 				2886641719B5638A00AC2F13 /* SettingCell.m in Sources */,
 				8B94A67C19A6CE9F0027A2B8 /* EncyCategorySecondStyle.m in Sources */,
@@ -1244,6 +1277,7 @@
 				280E7452199335100036DD0B /* ZXYEncyPicDown.m in Sources */,
 				280E745A1993351C0036DD0B /* EncyHomeTitleCell.m in Sources */,
 				28A54A1719A4477500AFDDED /* ProfileEditingHeadCell.m in Sources */,
+				281134DE19EFA7EB005F2A60 /* SquareListCell.m in Sources */,
 				28C721E6199CA919007DBB3A /* PasswordForgetViewController.m in Sources */,
 				280E7453199335100036DD0B /* ZXYNETHelper.m in Sources */,
 				28A54A1419A4472F00AFDDED /* ProfileEditingViewController.m in Sources */,

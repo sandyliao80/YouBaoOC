@@ -33,6 +33,7 @@ FOUNDATION_EXPORT NSString *const User_modifySingleProperty;    /**< 修改某�
 FOUNDATION_EXPORT NSString *const Common_Upload_index;  /**< 上传文件-宠物头像 */
 
 FOUNDATION_EXPORT NSString *const Square_getSquareCategory;     /**< 广场-获得分类信息 */
+FOUNDATION_EXPORT NSString *const Square_getSquareList;         /**< 广场-获得商家列表,根据距离或者评分 */
 
 @interface LCYNetworking : NSObject
 
