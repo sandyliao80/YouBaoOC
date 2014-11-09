@@ -69,14 +69,14 @@ static NSOperationQueue *queue;
 // !!!:isNETConnect
 +(BOOL)isNETConnect
 {
-    Reachability *r = [Reachability reachabilityWithHostname:@"http://115.29.46.22/pet/index.php/Api/"];
+    Reachability *r = [Reachability reachabilityWithHostname:@"http://www.baidu.com"];
     BOOL flag;
     switch ([r currentReachabilityStatus])
     {
         case NotReachable:
         {
             // 没有网络连接
-            flag = NO;
+            flag = YES;
             break;
         }
         default:
