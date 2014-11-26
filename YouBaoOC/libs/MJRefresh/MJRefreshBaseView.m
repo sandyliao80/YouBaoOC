@@ -16,7 +16,7 @@
 {
     __weak UILabel *_statusLabel;
     __weak UIImageView *_arrowImage;
-    __weak UIActivityIndicatorView *_activityView;
+    __weak UIImageView *_activityView;
 }
 @end
 
@@ -45,7 +45,8 @@
 - (UIImageView *)arrowImage
 {
     if (!_arrowImage) {
-        UIImageView *arrowImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:MJRefreshSrcName(@"arrow.png")]];
+//        UIImageView *arrowImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:MJRefreshSrcName(@"arrow.png")]];
+        UIImageView *arrowImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Red1"]];
         arrowImage.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
         [self addSubview:_arrowImage = arrowImage];
     }
@@ -55,13 +56,22 @@
 /**
  *  状态标签
  */
-- (UIActivityIndicatorView *)activityView
+- (UIImageView *)activityView
 {
     if (!_activityView) {
-        UIActivityIndicatorView *activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-        activityView.bounds = self.arrowImage.bounds;
-        activityView.autoresizingMask = self.arrowImage.autoresizingMask;
-        [self addSubview:_activityView = activityView];
+//        UIActivityIndicatorView *activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+//        activityView.bounds = self.arrowImage.bounds;
+//        activityView.autoresizingMask = self.arrowImage.autoresizingMask;
+//        [self addSubview:_activityView = activityView];
+        UIImageView *activityView = [[UIImageView alloc] initWithFrame:CGRectZero];
+        UIImage *red1 = [UIImage imageNamed:@"Red1"];
+        UIImage *red2 = [UIImage imageNamed:@"Red2"];
+        activityView.animationImages = @[red1, red2];
+        [activityView sizeToFit];
+        activityView.animationDuration = 0.35;
+        [activityView startAnimating];
+        _activityView = activityView;
+        [self addSubview:_activityView];
     }
     return _activityView;
 }

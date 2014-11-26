@@ -135,14 +135,14 @@
         {
             // 刷新完毕
             if (MJRefreshStateRefreshing == oldState) {
-                self.arrowImage.transform = CGAffineTransformMakeRotation(M_PI);
+//                self.arrowImage.transform = CGAffineTransformMakeRotation(M_PI);
                 [UIView animateWithDuration:MJRefreshSlowAnimationDuration animations:^{
                     self.scrollView.contentInsetBottom = self.scrollViewOriginalInset.bottom;
                 }];
             } else {
                 // 执行动画
                 [UIView animateWithDuration:MJRefreshFastAnimationDuration animations:^{
-                    self.arrowImage.transform = CGAffineTransformMakeRotation(M_PI);
+//                    self.arrowImage.transform = CGAffineTransformMakeRotation(M_PI);
                 }];
             }
             

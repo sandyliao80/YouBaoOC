@@ -23,7 +23,7 @@
 #define ENCYTABT @"ENCYTABT"
 #define cellIdentifier @"cellIdentifier"
 #import "UIViewController+HideTabBar.h"
-#import "UIScrollView+LCYRefresh.h"
+//#import "UIScrollView+LCYRefresh.h"
 typedef enum
 {
     Ency_JianKang = 1,
@@ -191,25 +191,28 @@ typedef enum
 - (void)initScrollHeader
 {
     
-    __block EncyMoreInfoForTypeViewController *blockSelf = self;
-//    [currentTable addHeaderWithCallback:^{
-//        [currentTable setHeaderPullToRefreshText:@"刷新信息"];
-//        [currentTable setHeaderRefreshingText:@"正在刷新"];
-//        [currentTable setHeaderReleaseToRefreshText:@"刷新完成"];
-//        [blockSelf performSelector:@selector(refreshData:) withObject:nil];
-//    }];
-    [currentTable setContentInset:UIEdgeInsetsMake(64.0, 0, 0, 0)];
-    NSArray *image1 = @[[UIImage imageNamed:@"Red1"],[UIImage imageNamed:@"Red2"]];
-    NSArray *image2 = @[[UIImage imageNamed:@"Red1"]];
-    [currentTable addPullToRefreshActionHandler:^{
+//    __block EncyMoreInfoForTypeViewController *blockSelf = self;
+    __weak __typeof(self) weakSelf = self;
+    [currentTable addHeaderWithCallback:^{
+        __strong __typeof(weakSelf) blockSelf = weakSelf;
+        [currentTable setHeaderPullToRefreshText:@"刷新信息"];
+        [currentTable setHeaderRefreshingText:@"正在刷新"];
+        [currentTable setHeaderReleaseToRefreshText:@"刷新完成"];
         [blockSelf performSelector:@selector(refreshData:) withObject:nil];
-    }
-                                      ProgressImages:image2
-                                       LoadingImages:image1
-                             ProgressScrollThreshold:0
-                              LoadingImagesFrameRate:9];
+    }];
+//    [currentTable setContentInset:UIEdgeInsetsMake(64.0, 0, 0, 0)];
+//    NSArray *image1 = @[[UIImage imageNamed:@"Red1"],[UIImage imageNamed:@"Red2"]];
+//    NSArray *image2 = @[[UIImage imageNamed:@"Red1"]];
+//    [currentTable addPullToRefreshActionHandler:^{
+//        [blockSelf performSelector:@selector(refreshData:) withObject:nil];
+//    }
+//                                      ProgressImages:image2
+//                                       LoadingImages:image1
+//                             ProgressScrollThreshold:0
+//                              LoadingImagesFrameRate:9];
     
     [currentTable addFooterWithCallback:^{
+        __strong __typeof(weakSelf) blockSelf = weakSelf;
         [currentTable setFooterPullToRefreshText:@"加载数据"];
         [currentTable setFooterRefreshingText:@"正在加载数据"];
         [currentTable setFooterReleaseToRefreshText:@"加载数据"];
@@ -257,7 +260,7 @@ typedef enum
     [progress hide:YES];
     [currentTable footerEndRefreshing];
     [currentTable headerEndRefreshing];
-    [currentTable stopRefreshAnimation];
+//    [currentTable stopRefreshAnimation];
 }
 
 

@@ -15,7 +15,7 @@
 #import "PetRecommend.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import <IDMPhotoBrowser/IDMPhotoBrowser.h>
-#import "UIScrollView+LCYRefresh.h"
+//#import "UIScrollView+LCYRefresh.h"
 
 #define HOME_NUMBER_PER_PAGE @15
 
@@ -55,19 +55,20 @@
 //    [self loadInitData];
     
     __weak HomePageViewController *weakSelf = self;
-//    [self.icyCollectionView addHeaderWithCallback:^{
-//        [self loadInitData];
-//    }];
-    [self.icyCollectionView setContentInset:UIEdgeInsetsMake(64.0f, 0, 0, 0)];
-    NSArray *image1 = @[[UIImage imageNamed:@"Red1"],[UIImage imageNamed:@"Red2"]];
-    NSArray *image2 = @[[UIImage imageNamed:@"Red1"]];
-    [self.icyCollectionView addPullToRefreshActionHandler:^{
-        [weakSelf loadInitData];
-    }
-                                   ProgressImages:image2
-                                    LoadingImages:image1
-                          ProgressScrollThreshold:0
-                           LoadingImagesFrameRate:9];
+    [self.icyCollectionView addHeaderWithCallback:^{
+        __strong __typeof(weakSelf) strongSelf = weakSelf;
+        [strongSelf loadInitData];
+    }];
+//    [self.icyCollectionView setContentInset:UIEdgeInsetsMake(64.0f, 0, 0, 0)];
+//    NSArray *image1 = @[[UIImage imageNamed:@"Red1"],[UIImage imageNamed:@"Red2"]];
+//    NSArray *image2 = @[[UIImage imageNamed:@"Red1"]];
+//    [self.icyCollectionView addPullToRefreshActionHandler:^{
+//        [weakSelf loadInitData];
+//    }
+//                                   ProgressImages:image2
+//                                    LoadingImages:image1
+//                          ProgressScrollThreshold:0
+//                           LoadingImagesFrameRate:9];
     
     [self.icyCollectionView addFooterWithCallback:^{
         [weakSelf loadMoreData];
@@ -114,17 +115,17 @@
             self.baseArray = [NSMutableArray array];
             [self.baseArray addObjectsFromArray:self.recommendBase.listInfo];
             [self.icyCollectionView reloadData];
-//            [self.icyCollectionView headerEndRefreshing];
-            [self.icyCollectionView stopRefreshAnimation];
+            [self.icyCollectionView headerEndRefreshing];
+//            [self.icyCollectionView stopRefreshAnimation];
         } else {
             // 加载失败
-//            [self.icyCollectionView headerEndRefreshing];
-            [self.icyCollectionView stopRefreshAnimation];
+            [self.icyCollectionView headerEndRefreshing];
+//            [self.icyCollectionView stopRefreshAnimation];
         }
     } failedBlock:^{
         // 网络问题
-//        [self.icyCollectionView headerEndRefreshing];
-            [self.icyCollectionView stopRefreshAnimation];
+        [self.icyCollectionView headerEndRefreshing];
+//            [self.icyCollectionView stopRefreshAnimation];
     }];
 }
 

@@ -21,7 +21,7 @@
 #import "LCYCommon.h"
 #import "LCYGlobal.h"
 #import "UIViewController+HideTabBar.h"
-#import "UIScrollView+LCYRefresh.h"
+//#import "UIScrollView+LCYRefresh.h"
 
 typedef enum
 {
@@ -242,7 +242,7 @@ typedef enum
     [progress hide:YES];
     [currentTable footerEndRefreshing];
     [currentTable headerEndRefreshing];
-    [currentTable stopRefreshAnimation];
+//    [currentTable stopRefreshAnimation];
 }
 
 - (void)setTitles:(NSString *)title
@@ -274,21 +274,21 @@ typedef enum
 {
     
     __block EncyMoreEncyListViewController *blockSelf = self;
-//    [currentTable addHeaderWithCallback:^{
-//        [currentTable setHeaderPullToRefreshText:@"刷新信息"];
-//        [currentTable setHeaderRefreshingText:@"正在刷新"];
-//        [currentTable setHeaderReleaseToRefreshText:@"刷新完成"];
-//        [blockSelf performSelector:@selector(refreshData:) withObject:nil];
-//    }];
-    NSArray *image1 = @[[UIImage imageNamed:@"Red1"],[UIImage imageNamed:@"Red2"]];
-    NSArray *image2 = @[[UIImage imageNamed:@"Red1"]];
-    [currentTable addPullToRefreshActionHandler:^{
+    [currentTable addHeaderWithCallback:^{
+        [currentTable setHeaderPullToRefreshText:@"刷新信息"];
+        [currentTable setHeaderRefreshingText:@"正在刷新"];
+        [currentTable setHeaderReleaseToRefreshText:@"刷新完成"];
         [blockSelf performSelector:@selector(refreshData:) withObject:nil];
-    }
-                                      ProgressImages:image2
-                                       LoadingImages:image1
-                             ProgressScrollThreshold:0
-                              LoadingImagesFrameRate:9];
+    }];
+//    NSArray *image1 = @[[UIImage imageNamed:@"Red1"],[UIImage imageNamed:@"Red2"]];
+//    NSArray *image2 = @[[UIImage imageNamed:@"Red1"]];
+//    [currentTable addPullToRefreshActionHandler:^{
+//        [blockSelf performSelector:@selector(refreshData:) withObject:nil];
+//    }
+//                                      ProgressImages:image2
+//                                       LoadingImages:image1
+//                             ProgressScrollThreshold:0
+//                              LoadingImagesFrameRate:9];
     [currentTable addFooterWithCallback:^{
         [currentTable setFooterPullToRefreshText:@"加载数据"];
         [currentTable setFooterRefreshingText:@"正在加载数据"];

@@ -72,7 +72,6 @@
 		2879CDDA19A4A4FB006586DA /* ModifyTextCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2879CDD919A4A4FB006586DA /* ModifyTextCell.m */; };
 		287A63B419A32AC000CB6526 /* ModifyMoePetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 287A63B319A32AC000CB6526 /* ModifyMoePetViewController.m */; };
 		287AFD56199863560035FF05 /* CellImageDownloadOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 287AFD55199863560035FF05 /* CellImageDownloadOperation.m */; };
-		287CD6C519CAB99700AE9AE5 /* UIScrollView+LCYRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 287CD6C419CAB99700AE9AE5 /* UIScrollView+LCYRefresh.m */; };
 		287DD73319A20E840080C268 /* MoeCameraCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 287DD73219A20E840080C268 /* MoeCameraCell.m */; };
 		287DD73619A20E9B0080C268 /* MoePictureCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 287DD73519A20E9B0080C268 /* MoePictureCell.m */; };
 		2882DB8119DAA51800BCAA85 /* TwitterHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2882DB8019DAA51800BCAA85 /* TwitterHomeViewController.m */; };
@@ -302,8 +301,6 @@
 		287A63B319A32AC000CB6526 /* ModifyMoePetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModifyMoePetViewController.m; sourceTree = "<group>"; };
 		287AFD54199863560035FF05 /* CellImageDownloadOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellImageDownloadOperation.h; sourceTree = "<group>"; };
 		287AFD55199863560035FF05 /* CellImageDownloadOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CellImageDownloadOperation.m; sourceTree = "<group>"; };
-		287CD6C319CAB99700AE9AE5 /* UIScrollView+LCYRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+LCYRefresh.h"; sourceTree = "<group>"; };
-		287CD6C419CAB99700AE9AE5 /* UIScrollView+LCYRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+LCYRefresh.m"; sourceTree = "<group>"; };
 		287DD73119A20E840080C268 /* MoeCameraCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoeCameraCell.h; sourceTree = "<group>"; };
 		287DD73219A20E840080C268 /* MoeCameraCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoeCameraCell.m; sourceTree = "<group>"; };
 		287DD73419A20E9B0080C268 /* MoePictureCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoePictureCell.h; sourceTree = "<group>"; };
@@ -470,7 +467,6 @@
 		280BB2741998BAFD007A0042 /* libs */ = {
 			isa = PBXGroup;
 			children = (
-				287CD6C219CAB99700AE9AE5 /* LCYRefresh */,
 				2827C7891998D13D00C25F83 /* MJRefresh */,
 			);
 			path = libs;
@@ -715,15 +711,6 @@
 				287A63B319A32AC000CB6526 /* ModifyMoePetViewController.m */,
 			);
 			path = modifyMoePet;
-			sourceTree = "<group>";
-		};
-		287CD6C219CAB99700AE9AE5 /* LCYRefresh */ = {
-			isa = PBXGroup;
-			children = (
-				287CD6C319CAB99700AE9AE5 /* UIScrollView+LCYRefresh.h */,
-				287CD6C419CAB99700AE9AE5 /* UIScrollView+LCYRefresh.m */,
-			);
-			path = LCYRefresh;
 			sourceTree = "<group>";
 		};
 		288A92D719AB29F700DB3187 /* PetRecommendModels */ = {
@@ -1202,7 +1189,6 @@
 				28DD9A3319B4541600EC0C9E /* GetPetDetailPetImages.m in Sources */,
 				288A92DD19AB2A0400DB3187 /* PetRecommendBase.m in Sources */,
 				2827C79B1998D13D00C25F83 /* MJRefreshBaseView.m in Sources */,
-				287CD6C519CAB99700AE9AE5 /* UIScrollView+LCYRefresh.m in Sources */,
 				285D89B4198A295A005DFBEB /* HomePageViewController.m in Sources */,
 				28922343198249400073BADB /* UIImage+LCYResize.m in Sources */,
 				285D89BE198A2D31005DFBEB /* searchAllTypePetsBase.m in Sources */,

@@ -21,7 +21,7 @@
 #import "LCYCommon.h"
 #import "LCYGlobal.h"
 #import "EncyAllListFile.h"
-#import "UIScrollView+LCYRefresh.h"
+//#import "UIScrollView+LCYRefresh.h"
 @interface EncyHomePageViewController ()<UITableViewDelegate,UITableViewDataSource,EncyHomeTitleDelegate,EncyDogCatClassDelegate,EncyHomeImageCellDelegate>
 {
     NSMutableArray *allDataForShow;
@@ -170,24 +170,27 @@
 - (void)initScrollHeader
 {
    
-    __block EncyHomePageViewController *blockSelf = self;
-//    [self.currentTable addHeaderWithCallback:^{
-//        [blockSelf.currentTable setHeaderPullToRefreshText:@"刷新信息"];
-//        [blockSelf.currentTable setHeaderRefreshingText:@"正在刷新"];
-//        [blockSelf.currentTable setHeaderReleaseToRefreshText:@"刷新完成"];
-//        [blockSelf performSelector:@selector(refreshData) withObject:nil];
-//    }];
-    [self.currentTable setContentInset:UIEdgeInsetsMake(64.0f, 0, 0, 0)];
-    NSArray *image1 = @[[UIImage imageNamed:@"Red1"],[UIImage imageNamed:@"Red2"]];
-    NSArray *image2 = @[[UIImage imageNamed:@"Red1"]];
-    [self.currentTable addPullToRefreshActionHandler:^{
-         [blockSelf performSelector:@selector(refreshData) withObject:nil];
-    }
-                                      ProgressImages:image2
-                                       LoadingImages:image1
-                             ProgressScrollThreshold:0
-                              LoadingImagesFrameRate:9];
+//    __block EncyHomePageViewController *blockSelf = self;
+    __weak __typeof(self) weakSelf = self;
+    [self.currentTable addHeaderWithCallback:^{
+        __strong __typeof(weakSelf) blockSelf = weakSelf;
+        [blockSelf.currentTable setHeaderPullToRefreshText:@"刷新信息"];
+        [blockSelf.currentTable setHeaderRefreshingText:@"正在刷新"];
+        [blockSelf.currentTable setHeaderReleaseToRefreshText:@"刷新完成"];
+        [blockSelf performSelector:@selector(refreshData) withObject:nil];
+    }];
+//    [self.currentTable setContentInset:UIEdgeInsetsMake(64.0f, 0, 0, 0)];
+//    NSArray *image1 = @[[UIImage imageNamed:@"Red1"],[UIImage imageNamed:@"Red2"]];
+//    NSArray *image2 = @[[UIImage imageNamed:@"Red1"]];
+//    [self.currentTable addPullToRefreshActionHandler:^{
+//         [blockSelf performSelector:@selector(refreshData) withObject:nil];
+//    }
+//                                      ProgressImages:image2
+//                                       LoadingImages:image1
+//                             ProgressScrollThreshold:0
+//                              LoadingImagesFrameRate:9];
     [self.currentTable addFooterWithCallback:^{
+        __strong __typeof(weakSelf) blockSelf = weakSelf;
         [blockSelf.currentTable setFooterPullToRefreshText:@"加载数据"];
         [blockSelf.currentTable setFooterRefreshingText:@"正在加载数据"];
         [blockSelf.currentTable setFooterReleaseToRefreshText:@"加载数据"];
@@ -391,7 +394,7 @@
     [textHUD hide:YES];
     [self.currentTable headerEndRefreshing];
     [self.currentTable footerEndRefreshing];
-    [self.currentTable stopRefreshAnimation];
+//    [self.currentTable stopRefreshAnimation];
 }
 
 - (void)reloadData

@@ -17,7 +17,7 @@
 #import "ZXYNetHelper/ZXYNETHelper.h"
 #import "LCYCommon.h"
 #import "LCYGlobal.h"
-#import "UIScrollView+LCYRefresh.h"
+//#import "UIScrollView+LCYRefresh.h"
 @interface EncyAllListFile ()<UITableViewDataSource,UITableViewDelegate>
 {
     NSMutableArray *allDataForShow;
