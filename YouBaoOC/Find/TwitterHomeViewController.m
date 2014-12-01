@@ -7,8 +7,10 @@
 //
 
 #import "TwitterHomeViewController.h"
+#import "TwitterHeaderCell.h"
+#import "TwitterContentCell.h"
 
-@interface TwitterHomeViewController ()
+@interface TwitterHomeViewController ()<UITableViewDataSource>
 
 @end
 
@@ -19,13 +21,8 @@
     // Do any additional setup after loading the view.
     
     UIButton *doneButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [doneButton setFrame:CGRectMake(0, 0, 40, 24)];
-    [doneButton setTitle:@" 发送 " forState:UIControlStateNormal];
-    [doneButton.titleLabel setFont:[UIFont systemFontOfSize:15.0f]];
-    doneButton.layer.cornerRadius = 4.0f;
-    doneButton.layer.masksToBounds = YES;
-    [doneButton setBackgroundColor:THEME_DARK_BLUE];
-    [doneButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [doneButton setImage:[UIImage imageNamed:@"wikiDot"] forState:UIControlStateNormal];
+    [doneButton sizeToFit];
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:doneButton];
     [doneButton addTarget:self action:@selector(makeTwitterButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.rightBarButtonItem = rightItem;
@@ -38,7 +35,6 @@
 
 #pragma mark - Actions
 - (void)makeTwitterButtonPressed:(id)sender{
-    
 }
 
 /*
@@ -50,5 +46,19 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return 12;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.row == 0) {
+        TwitterHeaderCell *cell = [tableView dequeueReusableCellWithIdentifier:TwitterHeaderCellIdentifier];
+        return cell;
+    } else {
+        TwitterContentCell *cell = [tableView dequeueReusableCellWithIdentifier:TwitterContentCellIdentifier];
+        return cell;
+    }
+}
 
 @end

@@ -93,6 +93,8 @@
 		28A54A1719A4477500AFDDED /* ProfileEditingHeadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 28A54A1619A4477500AFDDED /* ProfileEditingHeadCell.m */; };
 		28A54A1A19A447B300AFDDED /* ProfileEditingNameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 28A54A1919A447B300AFDDED /* ProfileEditingNameCell.m */; };
 		28A54A1D19A447C400AFDDED /* ProfileEditingSignCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 28A54A1C19A447C400AFDDED /* ProfileEditingSignCell.m */; };
+		28B0DCC91A25C38D00AA2393 /* TwitterHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B0DCC81A25C38D00AA2393 /* TwitterHeaderCell.m */; };
+		28B0DCCC1A25C7D700AA2393 /* TwitterContentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B0DCCB1A25C7D700AA2393 /* TwitterContentCell.m */; };
 		28B69B8D1990CDCA0039B146 /* QRScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B69B8C1990CDCA0039B146 /* QRScanViewController.m */; };
 		28C721E6199CA919007DBB3A /* PasswordForgetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C721E5199CA919007DBB3A /* PasswordForgetViewController.m */; };
 		28CF40191994E17E0081D39A /* ProfileHomeHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 28CF40181994E17E0081D39A /* ProfileHomeHeaderCell.m */; };
@@ -343,6 +345,10 @@
 		28A54A1919A447B300AFDDED /* ProfileEditingNameCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileEditingNameCell.m; sourceTree = "<group>"; };
 		28A54A1B19A447C400AFDDED /* ProfileEditingSignCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileEditingSignCell.h; sourceTree = "<group>"; };
 		28A54A1C19A447C400AFDDED /* ProfileEditingSignCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileEditingSignCell.m; sourceTree = "<group>"; };
+		28B0DCC71A25C38D00AA2393 /* TwitterHeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwitterHeaderCell.h; sourceTree = "<group>"; };
+		28B0DCC81A25C38D00AA2393 /* TwitterHeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitterHeaderCell.m; sourceTree = "<group>"; };
+		28B0DCCA1A25C7D700AA2393 /* TwitterContentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwitterContentCell.h; sourceTree = "<group>"; };
+		28B0DCCB1A25C7D700AA2393 /* TwitterContentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitterContentCell.m; sourceTree = "<group>"; };
 		28B69B8B1990CDCA0039B146 /* QRScanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRScanViewController.h; sourceTree = "<group>"; };
 		28B69B8C1990CDCA0039B146 /* QRScanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRScanViewController.m; sourceTree = "<group>"; };
 		28C721E4199CA919007DBB3A /* PasswordForgetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PasswordForgetViewController.h; sourceTree = "<group>"; };
@@ -787,6 +793,10 @@
 				28E6CA7619D7D95D008142B1 /* FindViewController.m */,
 				2882DB7F19DAA51800BCAA85 /* TwitterHomeViewController.h */,
 				2882DB8019DAA51800BCAA85 /* TwitterHomeViewController.m */,
+				28B0DCC71A25C38D00AA2393 /* TwitterHeaderCell.h */,
+				28B0DCC81A25C38D00AA2393 /* TwitterHeaderCell.m */,
+				28B0DCCA1A25C7D700AA2393 /* TwitterContentCell.h */,
+				28B0DCCB1A25C7D700AA2393 /* TwitterContentCell.m */,
 			);
 			path = Find;
 			sourceTree = "<group>";
@@ -1169,6 +1179,7 @@
 				2869796A1986558D0098F6A3 /* MainViewController.m in Sources */,
 				28DD9A3119B4541600EC0C9E /* GetPetDetailPetInfo.m in Sources */,
 				8B6AA11019935F4200BF017C /* ZXYDownLoadImage.m in Sources */,
+				28B0DCCC1A25C7D700AA2393 /* TwitterContentCell.m in Sources */,
 				8B6AA10D19935BC200BF017C /* ZXYPetStylePicDown.m in Sources */,
 				2827C79F1998D13D00C25F83 /* UIScrollView+Extension.m in Sources */,
 				28A4FDB919A71EBB00C3CD85 /* ThirdFilterViewController.m in Sources */,
@@ -1255,6 +1266,7 @@
 				280FB68F1980D66C00C434A8 /* LCYCommon.m in Sources */,
 				288A92DE19AB2A0400DB3187 /* PetRecommendListInfo.m in Sources */,
 				280E7467199335320036DD0B /* EncyHomePageViewController.m in Sources */,
+				28B0DCC91A25C38D00AA2393 /* TwitterHeaderCell.m in Sources */,
 				2827C7A11998D13D00C25F83 /* UIView+Extension.m in Sources */,
 				286099A41987762800CB86D6 /* Region.m in Sources */,
 				28F4F52819D132D400953028 /* LaunchViewController.m in Sources */,
