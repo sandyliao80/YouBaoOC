@@ -31,6 +31,7 @@ FOUNDATION_EXPORT NSString *const User_reset_password_authcode; /**< 重置密�
 FOUNDATION_EXPORT NSString *const User_modifyLocation;  /**< 修改个人城市 */
 FOUNDATION_EXPORT NSString *const User_modifySingleProperty;    /**< 修改某项个人信息 */
 FOUNDATION_EXPORT NSString *const Common_Upload_index;  /** 上传文件-宠物头像 */
+FOUNDATION_EXPORT NSString *const Pet_Update_Avatar;    /** 修改宠物头像 */
 
 @interface LCYNetworking : NSObject
 

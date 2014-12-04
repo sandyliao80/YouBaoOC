@@ -40,6 +40,7 @@ NSString *const User_reset_password_authcode    = @"User/reset_password_authcode
 NSString *const User_modifyLocation = @"User/modifyLocation";
 NSString *const User_modifySingleProperty       = @"User/modifySingleProperty";
 NSString *const Common_Upload_index = @"Common/Upload/ios";
+NSString *const Pet_Update_Avatar   = @"Pet/updateAvatar";
 
 @implementation LCYNetworking
 

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="14A361c" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="KKL-vN-PsA">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C68m" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="KKL-vN-PsA">
     <dependencies>
-        <deployment defaultVersion="1792" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -1670,9 +1670,24 @@
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <gestureRecognizers/>
                                                     </imageView>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9db-Vz-LVo">
+                                                        <rect key="frame" x="20" y="20" width="60" height="60"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="60" id="rlj-VK-Cpo"/>
+                                                            <constraint firstAttribute="width" constant="60" id="xIJ-q0-ClO"/>
+                                                        </constraints>
+                                                        <inset key="contentEdgeInsets" minX="40" minY="40" maxX="0.0" maxY="0.0"/>
+                                                        <state key="normal" image="addPetCamera">
+                                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="updateAvatar:" destination="pg0-Cm-4Ku" eventType="touchUpInside" id="irC-vj-Y4X"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="9db-Vz-LVo" secondAttribute="trailing" constant="8" id="8HI-vN-3Bt"/>
                                                     <constraint firstAttribute="height" constant="88" id="AgP-lE-tci"/>
                                                     <constraint firstItem="h84-71-PVx" firstAttribute="leading" secondItem="QCf-eQ-AvB" secondAttribute="leading" id="T2o-t0-O1d"/>
                                                     <constraint firstAttribute="centerY" secondItem="YnY-uA-x4T" secondAttribute="centerY" id="TjD-Eg-Bce"/>
@@ -1681,6 +1696,7 @@
                                                     <constraint firstAttribute="trailing" secondItem="h84-71-PVx" secondAttribute="trailing" id="nnY-s4-mjI"/>
                                                     <constraint firstAttribute="centerX" secondItem="YnY-uA-x4T" secondAttribute="centerX" id="oi6-9J-rpK"/>
                                                     <constraint firstAttribute="bottom" secondItem="h84-71-PVx" secondAttribute="bottom" id="qSV-j0-B7v"/>
+                                                    <constraint firstAttribute="bottom" secondItem="9db-Vz-LVo" secondAttribute="bottom" constant="8" id="qhb-pp-hQG"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hej-Hz-fsy">

@@ -11,8 +11,9 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "FilterViewController.h"
 #import "QRScanViewController.h"
+#import "UIImage+LCYResize.h"
 
-@interface ModifyMoePetViewController ()<UITextFieldDelegate, UIScrollViewDelegate, SecondFilterDelegate, QRScanDelegate, UIPickerViewDataSource, UIPickerViewDelegate>
+@interface ModifyMoePetViewController ()<UITextFieldDelegate, UIScrollViewDelegate, SecondFilterDelegate, QRScanDelegate, UIPickerViewDataSource, UIPickerViewDelegate, UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @property (strong, nonatomic) IBOutletCollection(UIView) NSArray *corneredBGView;
 
@@ -53,6 +54,8 @@
 
 @property (strong, nonatomic) NSArray *ageKeys;
 @property (strong, nonatomic) NSDictionary *ageMap;
+
+@property (strong, nonatomic) UIImagePickerController *imagePicker;
 
 
 #pragma mark - 纪录存储信息
@@ -153,6 +156,7 @@
 - (void)doneButtonPressed:(id)sender{
     // 确定，上传宠物信息
     NSDictionary *parameters;
+    NSString *petCode = self.QRSwitch.isOn?self.tpPetBase.petInfo.petCode:@"";
     if (self.category) {
         parameters = @{@"pet_id"    : self.tpPetBase.petInfo.petId,
                        @"pet_name"  : self.nickNameTextField.text,
@@ -163,7 +167,7 @@
                        @"f_hybridization"   : self.tpPetBase.petInfo.fHybridization,
                        @"f_adopt"   : self.tpPetBase.petInfo.fAdopt,
                        @"is_entrust": self.tpPetBase.petInfo.isEntrust,
-                       @"pet_code"  : self.tpPetBase.petInfo.petCode};
+                       @"pet_code"  : petCode};
     } else {
         parameters = @{@"pet_id"    : self.tpPetBase.petInfo.petId,
                        @"pet_name"  : self.nickNameTextField.text,
@@ -173,7 +177,7 @@
                        @"f_hybridization"   : self.tpPetBase.petInfo.fHybridization,
                        @"f_adopt"   : self.tpPetBase.petInfo.fAdopt,
                        @"is_entrust": self.tpPetBase.petInfo.isEntrust,
-                       @"pet_code"  : self.tpPetBase.petInfo.petCode};
+                       @"pet_code"  : petCode};
     }
     [[LCYNetworking sharedInstance] postRequestWithAPI:Pet_updatePetInfo parameters:parameters successBlock:^(NSDictionary *object) {
         if ([object[@"result"] boolValue]) {
@@ -251,6 +255,54 @@
         [self.QRSwitch setOn:YES];
     }
     
+}
+- (IBAction)updateAvatar:(id)sender {
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"从照片库中选择",@"用手机拍照", nil];
+    [actionSheet showInView:self.view];
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (!self.imagePicker) {
+        self.imagePicker = [[UIImagePickerController alloc] init];
+        self.imagePicker.delegate = self;
+    }
+    if (buttonIndex == 0) {
+        [self.imagePicker setSourceType:UIImagePickerControllerSourceTypeSavedPhotosAlbum];
+        [self.imagePicker setAllowsEditing:YES];
+    } else if (buttonIndex == 1){
+        [self.imagePicker setSourceType:UIImagePickerControllerSourceTypeCamera];
+    } else {
+        return;
+    }
+    [self presentViewController:self.imagePicker animated:YES completion:nil];
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
+    [picker dismissViewControllerAnimated:YES completion:nil];
+    UIImage *resizedImage = [(UIImage *)info[UIImagePickerControllerOriginalImage] imageByScalingAndCroppingForSize:CGSizeMake(300, 300)];
+    NSData *data = UIImagePNGRepresentation(resizedImage);
+    
+    
+    __weak __typeof(self) weakSelf = self;
+    [[LCYCommon sharedInstance] showTips:@"上传中" inView:self.view];
+    [[LCYNetworking sharedInstance] postFileWithAPI:Pet_Update_Avatar parameters:@{@"pet_id":self.tpPetBase.petInfo.petId} fileKey:@"Filedata" fileData:data fileName:@"noname.png" mimeType:@"image/png" successBlock:^(NSDictionary *object) {
+        __strong __typeof(weakSelf) strongSelf = weakSelf;
+        [[LCYCommon sharedInstance] hideTipsInView:strongSelf.view];
+        if ([object[@"result"] boolValue]) {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"上传成功" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+            [alert show];
+            [strongSelf.avatarImageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",hostImageURL,object[@"msg"][@"cut_img"]]]];
+        } else {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"上传失败" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+            [alert show];
+        }
+        
+    } failedBlock:^{
+        __strong __typeof(weakSelf) strongSelf = weakSelf;
+        [[LCYCommon sharedInstance] hideTipsInView:strongSelf.view];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"上传失败" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+        [alert show];
+    }];
 }
 
 - (IBAction)sexButtonPressed:(id)sender {
