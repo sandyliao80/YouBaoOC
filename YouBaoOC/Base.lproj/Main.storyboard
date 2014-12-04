@@ -2162,16 +2162,21 @@
                                                         <outletCollection property="gestureRecognizers" destination="Uc9-uw-avF" appends="YES" id="En6-kr-RTh"/>
                                                     </connections>
                                                 </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="addPetCamera" translatesAutoresizingMaskIntoConstraints="NO" id="lxV-aa-fm7">
+                                                    <rect key="frame" x="167" y="52" width="19" height="14"/>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="hgP-3J-OFh" secondAttribute="trailing" id="2kw-hP-9hL"/>
                                                 <constraint firstAttribute="centerX" secondItem="Dgr-Lu-ogU" secondAttribute="centerX" id="FCQ-qQ-DYs"/>
+                                                <constraint firstItem="CRa-FX-fNZ" firstAttribute="bottom" secondItem="lxV-aa-fm7" secondAttribute="bottom" id="HQU-CL-ExR"/>
                                                 <constraint firstItem="Dgr-Lu-ogU" firstAttribute="leading" secondItem="Qku-qd-LGm" secondAttribute="trailing" id="JW3-eq-YFz"/>
                                                 <constraint firstAttribute="centerY" secondItem="hgP-3J-OFh" secondAttribute="centerY" id="O2Q-Zh-d75"/>
                                                 <constraint firstItem="hgP-3J-OFh" firstAttribute="leading" secondItem="Dgr-Lu-ogU" secondAttribute="trailing" id="RIL-X4-bc5"/>
                                                 <constraint firstItem="Qku-qd-LGm" firstAttribute="leading" secondItem="guy-sy-M5K" secondAttribute="leading" id="SOJ-XH-BC3"/>
                                                 <constraint firstAttribute="centerY" secondItem="Dgr-Lu-ogU" secondAttribute="centerY" id="en5-8U-COF"/>
                                                 <constraint firstAttribute="centerY" secondItem="Qku-qd-LGm" secondAttribute="centerY" id="nds-Ma-Z09"/>
+                                                <constraint firstItem="CRa-FX-fNZ" firstAttribute="trailing" secondItem="lxV-aa-fm7" secondAttribute="trailing" id="oqK-8W-14O"/>
                                                 <constraint firstItem="CRa-FX-fNZ" firstAttribute="centerX" secondItem="Dgr-Lu-ogU" secondAttribute="centerX" id="s5E-aR-god"/>
                                                 <constraint firstItem="CRa-FX-fNZ" firstAttribute="centerY" secondItem="Dgr-Lu-ogU" secondAttribute="centerY" id="zPB-s7-kYJ"/>
                                             </constraints>

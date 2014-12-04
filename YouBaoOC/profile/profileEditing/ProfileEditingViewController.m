@@ -471,6 +471,8 @@
     if (indexPath.section == 1 &&
         indexPath.row == 2) {
         // 手机号
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"目前还无法修改手机号哦" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+        [alert show];
         return;
     }
     if (indexPath.section == 1 &&
