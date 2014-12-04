@@ -42,6 +42,7 @@
 @property(nonatomic,strong)IBOutlet UITableView *currentTable;
 @property(nonatomic,strong)IBOutlet UILabel *everyDayPush;
 @property(nonatomic,strong)IBOutlet UIButton *moreInfo;
+@property (weak, nonatomic) IBOutlet UIButton *searchgg;
 @end
 
 @implementation EncyHomePageViewController
@@ -164,6 +165,7 @@
     self.everyDayPush.textColor = [UIColor colorWithRed:0.3882 green:0.6235 blue:0.7569 alpha:1];
     [self.moreInfo setTitleColor:[UIColor colorWithRed:0.3882 green:0.6235 blue:0.7569 alpha:1] forState:UIControlStateNormal];
     [self.moreInfo setTitleColor:[UIColor colorWithRed:0.3882 green:0.6235 blue:0.7569 alpha:1] forState:UIControlStateHighlighted];
+    [self.searchgg setTitleColor:[UIColor colorWithRed:0.3882 green:0.6235 blue:0.7569 alpha:1] forState:UIControlStateNormal];
     self.currentTable.backgroundColor = BLUEINSI;
 }
 
@@ -633,4 +635,10 @@
     }
 
 }
+- (IBAction)searchButtonPressed:(id)sender {
+    UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"WikiSearch" bundle:nil];
+    [self.navigationController pushViewController:storyBoard.instantiateInitialViewController animated:YES];
+}
+
+
 @end

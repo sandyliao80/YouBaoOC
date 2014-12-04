@@ -268,4 +268,8 @@ static char MJRefreshFooterViewKey;
     self.header.baseTextColor = baseTextColor;
     self.footer.baseTextColor = baseTextColor;
 }
+
+- (UIColor *)baseTextColor{
+    return self.header.baseTextColor;
+}
 @end

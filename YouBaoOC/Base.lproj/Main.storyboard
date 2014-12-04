@@ -1266,12 +1266,28 @@
                                                         <action selector="moreInfoBtnAction:" destination="6Gd-1y-prA" eventType="touchUpInside" id="Rrg-Rx-NXb"/>
                                                     </connections>
                                                 </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oAR-Mi-VSp">
+                                                    <rect key="frame" x="190" y="4" width="46" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="46" id="51v-Il-W5o"/>
+                                                        <constraint firstAttribute="height" constant="30" id="t0S-pp-FyE"/>
+                                                    </constraints>
+                                                    <state key="normal" title="搜索">
+                                                        <color key="titleColor" red="0.48235294222831726" green="0.72549021244049072" blue="0.84705883264541626" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="searchButtonPressed:" destination="KPC-3l-eWK" eventType="touchUpInside" id="7K0-lz-LpI"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="kTB-9e-dGn" firstAttribute="leading" secondItem="r7f-vP-mc6" secondAttribute="leading" constant="20" id="A98-km-oQ5"/>
                                                 <constraint firstAttribute="trailing" secondItem="1Bz-ie-Set" secondAttribute="trailing" constant="20" id="GZT-kG-GwG"/>
+                                                <constraint firstAttribute="centerY" secondItem="oAR-Mi-VSp" secondAttribute="centerY" id="WwP-SB-2qD"/>
                                                 <constraint firstAttribute="bottom" secondItem="1Bz-ie-Set" secondAttribute="bottom" constant="2" id="dVx-G3-NMR"/>
                                                 <constraint firstAttribute="bottom" secondItem="kTB-9e-dGn" secondAttribute="bottom" constant="8" id="j6I-zZ-yIN"/>
+                                                <constraint firstItem="1Bz-ie-Set" firstAttribute="leading" secondItem="oAR-Mi-VSp" secondAttribute="trailing" constant="18" id="lSb-aq-gnf"/>
                                                 <constraint firstItem="1Bz-ie-Set" firstAttribute="top" secondItem="r7f-vP-mc6" secondAttribute="top" constant="5" id="wNN-PO-UvJ"/>
                                                 <constraint firstItem="1Bz-ie-Set" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="kTB-9e-dGn" secondAttribute="trailing" constant="162" id="ye5-CR-Qht"/>
                                             </constraints>
@@ -1279,6 +1295,7 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <outlet property="moreInfoBtn" destination="1Bz-ie-Set" id="Wts-Wp-qsD"/>
+                                            <outlet property="searchButton" destination="oAR-Mi-VSp" id="xUE-xc-sbe"/>
                                             <outlet property="todayInfoLabel" destination="kTB-9e-dGn" id="3Oh-Nt-R27"/>
                                         </connections>
                                     </tableViewCell>

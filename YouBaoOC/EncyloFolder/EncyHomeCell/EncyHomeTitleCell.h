@@ -15,4 +15,5 @@
 @property(nonatomic,strong)IBOutlet UIButton *moreInfoBtn;
 @property(nonatomic,strong)id<EncyHomeTitleDelegate>delegate;
 - (IBAction)moreInfoBtnAction:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *searchButton;
 @end

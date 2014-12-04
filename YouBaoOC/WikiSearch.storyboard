@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C68m" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="MIf-hf-wGb">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="W8b-OR-d3q">
+            <objects>
+                <navigationController id="QYb-wU-8vV" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="bgm-Xy-5kd">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="MIf-hf-wGb" kind="relationship" relationship="rootViewController" id="6nZ-BK-GHj"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NLk-xX-K4d" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-679" y="330"/>
+        </scene>
+        <!--Wiki Search Controller-->
+        <scene sceneID="RK4-01-JG5">
+            <objects>
+                <viewController id="MIf-hf-wGb" customClass="WikiSearchController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="uVH-lT-OGN"/>
+                        <viewControllerLayoutGuide type="bottom" id="DZ8-s9-hCc"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="40i-30-apw">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="7Ww-qs-ySP">
+                                <rect key="frame" x="0.0" y="64" width="600" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="MIf-hf-wGb" id="gNr-jU-KE2"/>
+                                </connections>
+                            </searchBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="7Ww-qs-ySP" firstAttribute="top" secondItem="uVH-lT-OGN" secondAttribute="bottom" id="9Ss-Ed-Bbn"/>
+                            <constraint firstAttribute="trailing" secondItem="7Ww-qs-ySP" secondAttribute="trailing" id="PCY-SD-jUY"/>
+                            <constraint firstItem="7Ww-qs-ySP" firstAttribute="leading" secondItem="40i-30-apw" secondAttribute="leading" id="uS6-yV-adq"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="wIx-kN-vMg"/>
+                    <connections>
+                        <outlet property="searchDisplayController" destination="Qkt-Cp-op1" id="Jjm-aQ-cCc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="icc-bl-jOZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="Qkt-Cp-op1">
+                    <connections>
+                        <outlet property="delegate" destination="MIf-hf-wGb" id="AQY-mE-myl"/>
+                        <outlet property="searchBar" destination="7Ww-qs-ySP" id="BlD-6J-faf"/>
+                        <outlet property="searchContentsController" destination="MIf-hf-wGb" id="OrL-o2-xlP"/>
+                        <outlet property="searchResultsDataSource" destination="MIf-hf-wGb" id="lyv-UQ-iec"/>
+                        <outlet property="searchResultsDelegate" destination="MIf-hf-wGb" id="L99-fJ-rmf"/>
+                    </connections>
+                </searchDisplayController>
+            </objects>
+            <point key="canvasLocation" x="56" y="316"/>
+        </scene>
+    </scenes>
+</document>

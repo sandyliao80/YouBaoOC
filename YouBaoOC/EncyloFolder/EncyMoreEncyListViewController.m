@@ -116,7 +116,11 @@ typedef enum
 
 - (void)setRightItemAction
 {
-    [self performSegueWithIdentifier:@"EN_moreToSearch" sender:self];
+//    [self performSegueWithIdentifier:@"EN_moreToSearch" sender:self];
+    // 开始搜索
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"WikiSearch" bundle:nil];
+    UIViewController *searchVC = storyboard.instantiateInitialViewController;
+    [self.navigationController pushViewController:searchVC animated:YES];
 }
 
 - (void)viewDidAppear:(BOOL)animated
