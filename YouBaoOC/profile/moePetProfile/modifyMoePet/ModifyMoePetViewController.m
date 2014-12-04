@@ -265,6 +265,7 @@
     if (!self.imagePicker) {
         self.imagePicker = [[UIImagePickerController alloc] init];
         self.imagePicker.delegate = self;
+        self.imagePicker.modalPresentationStyle = UIModalPresentationCurrentContext;
     }
     if (buttonIndex == 0) {
         [self.imagePicker setSourceType:UIImagePickerControllerSourceTypeSavedPhotosAlbum];
